@@ -2,9 +2,9 @@
 
 set -e
 
-npm run docs:build
+yarn run build
 
-cd docs/.vitepress/dist
+cd dist
 
 git init 
 

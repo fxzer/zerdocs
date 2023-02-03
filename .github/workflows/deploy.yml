@@ -28,6 +28,6 @@ jobs:
       - name: Deploy 🚀 #把打包后的dist文件部署到master分支
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
-          token: ${{ secrets.ZERDOCS_DEPLOY_TOKEN }} #在本项目-->设置-->secrets添加 ZERDOCS_DEPLOY_TOKEN 变量 值为生成的秘钥
+          token: ${{ secrets.DEPLOY_TOKEN }} #在本项目-->设置-->secrets添加 ZERDOCS_DEPLOY_TOKEN 变量 值为生成的秘钥
           branch: gh-pages
-          folder: docs/.vitepress/dist
+          folder: dist
