@@ -5,12 +5,12 @@ hero:
   text: Front-End learning document collection
   # tagline: "座右铭: "
   image:
-    src: ./public/img/cover_1.png
+    src: /img/cover_1.png 
     alt: ZerDocs
   actions:
     - theme: brand
       text: 开始阅读
-      link: /guide
+      link: /febasis/git/Terminal终端美化.html
     - theme: alt
       text: 关于我
       link: https://github.com/fxzer

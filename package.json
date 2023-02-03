@@ -9,5 +9,7 @@
     "vitepress": "^1.0.0-alpha.45",
     "vue": "^3.2.47"
   },
-  "dependencies": {}
+  "dependencies": {
+    "sitemap-ts": "^1.2.2"
+  }
 }

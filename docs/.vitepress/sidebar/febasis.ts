@@ -48,11 +48,20 @@ export default {
       ],
     },
     {
+      text: '常用脚本',
+      collapsible: true,
+      collapsed: false,
+      items: [
+        {  text: '自动部署脚本', link: '/febasis/shell/自动部署脚本' },
+      ],
+    },
+    {
       text: '其他',
       collapsible: true,
       collapsed: false,
       items: [
         {  text: 'Docker学习笔记', link: '/febasis/other/Docker学习笔记' },
+        {  text: 'Webpack4笔记', link: '/febasis/other/Webpack4笔记' },
         {  text: 'Nginx学习笔记', link: '/febasis/other/Nginx学习笔记' },
       ],
     },
