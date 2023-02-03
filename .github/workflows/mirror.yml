@@ -24,7 +24,8 @@ jobs:
           gitee-username: fxzer
           # 注意在 Settings->Secrets 配置 GITEE_PASSWORD
           gitee-password: ${{ secrets.GITEE_PASSWORD }}
-          # 注意替换为你的 Gitee 仓库
-          gitee-repo: zerdocs
+          # 注意替换为你的 Gitee 仓库 
+          # 坑点:https://gitee.com/fxzer/zerdocs -->则填:fxzer/zerdocs,注意仓库名和路径名不一致问题
+          gitee-repo: fxzer/zerdocs 
           # 要部署的分支
           branch: gh-pages

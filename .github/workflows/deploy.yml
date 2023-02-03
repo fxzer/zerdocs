@@ -1,26 +1,33 @@
-name: Deploy
+name: Deploy GitHub Pages
 
+# 触发条件：在 push 到 master 分支后
 on:
   push:
     branches:
       - master
 
+# 任务
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+  build-and-deploy:
+    runs-on: ubuntu-latest #部署运行环境搭建
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
+      - name: Checkout 🛎️
+        uses: actions/checkout@main
         with:
-          node-version: 16
-          cache: yarn
-      - run: yarn install --frozen-lockfile
-
-      - name: Build
-        run: yarn docs:build
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+          persist-credentials: false
+          fetch-depth: 0 #github代码拉取深度
+      - name: Setup Node  🎬
+        uses: actions/setup-node@main
         with:
-          github_token: ${{ secrets.ZERDOCS_DEPLOY_TOKEN }}
-          publish_dir: docs/.vitepress/dist
+          node-version: "lts/*"
+      - name: Build 🔧 
+        run: |
+          npm install
+          npm run build
+          ls -lrth
+      - name: Deploy 🚀 #把打包后的dist文件部署到master分支
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          token: ${{ secrets.ZERDOCS_DEPLOY_TOKEN }} #在本项目-->设置-->secrets添加 ZERDOCS_DEPLOY_TOKEN 变量 值为生成的秘钥
+          branch: gh-pages
+          folder: dist

@@ -22,7 +22,7 @@ export default  {
     outline: 'deep',
     logo:'/img/logo.svg',
     footer: {
-      message: 'Released under the <a href="https://github.com/fxzer/zerdocs/blob/main/LICENSE">MIT License</a>.',
+      message: 'Released under the <a href="https://github.com/fxzer/zerdocs/blob/master/LICENSE">MIT License</a>.',
       copyright: 'Copyright © 2023-present <a href="https://github.com/fxzer">fxzer</a>.',
     },
     docFooter: {
@@ -31,7 +31,7 @@ export default  {
     },
     nav: getNavs(),
     editLink: {
-      pattern: "https://github.com/fxzer/zerdocs/edit/main/docs/:path",
+      pattern: "https://github.com/fxzer/zerdocs/edit/master/docs/:path",
     },
     algolia,
     socialLinks: [
