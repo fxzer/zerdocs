@@ -1,6 +1,6 @@
 export default {
-  appId: 'JB9HBWNEJI',
-  apiKey: '6969bba9ef94e810f8098479f3ea399c',
+  appId: 'S7SDIIY0H3',
+  apiKey: '324404c1bb6eefdfc9ff7f208eab385a',
   indexName: 'zerdocs',
   placeholder: '请输入关键词',
   buttonText: '搜索',
