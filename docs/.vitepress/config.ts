@@ -8,14 +8,14 @@ export default  {
   lastUpdated: true,
   base:'/zerdocs/',//配置打包获取静态资源路径
   outDir: '../dist',
-  // cleanUrls: true, //去掉路径中的index.html
+  cleanUrls: true,  //去掉url中的.html后缀
   // srcDir:'./src', //相对于docs
   title: "ZerDocs",//网站标题
   description: "Front-end learning document collection.",
-  ignoreDeadLinks: true,
+  ignoreDeadLinks: true,//忽略无效链接
   markdown: {
     // theme: "material-theme-darker",//代码块主题
-    lineNumbers: true,
+    // lineNumbers: true,
   },
   themeConfig: {
     outline: 'deep',//侧边栏深度:数字或者deep

@@ -177,5 +177,4 @@ let reg = /(?<!\d+)[a-z]+/i
 ### 替换练习
 ## ![image.png](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032155279.png)
 ### 给原子组起别名
-## ![image.png](./img/image5.png)
 ## ![image.png](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032155280.png)

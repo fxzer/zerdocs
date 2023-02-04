@@ -24,7 +24,6 @@ export default {
       collapsible: true,
       collapsed: false,
       items:[
-        { text:'自动化部署脚本',link:'/problem/自动化部署脚本'},
         { text:'VurPress踩坑记录',link:'/problem/VurPress踩坑记录'},
       ]
      },
