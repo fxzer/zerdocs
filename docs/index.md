@@ -5,7 +5,7 @@ hero:
   text: VitePress Front-End Learning Collection
   # tagline: "座右铭: "
   image:
-    # src: https://zerdocs.oss-cn-shanghai.aliyuncs.com/202302041807975.svg
+    src: https://zerdocs.oss-cn-shanghai.aliyuncs.com/202302041807975.svg
     alt: ZerDocs
   actions:
     - theme: brand

@@ -29,7 +29,7 @@ export default {
         {  text: 'JS排序算法', link: '/febasis/js/JS排序算法' },
         {  text:  'async与await', link: '/febasis/js/async与await' },
         {  text:  '手写Promise', link: '/febasis/js/手写Promise' },
-        // {  text:  'JS正则表达式', link: '/febasis/js/JS正则表达式' },
+        {  text:  'JS正则表达式', link: '/febasis/js/JS正则表达式' },
       ],
     },
     {
@@ -47,7 +47,7 @@ export default {
       collapsed: false,
       items: [
         {  text: 'TS学习笔记', link: '/febasis/ts/TS学习笔记' },
-        // {  text: 'TS配置文件详解', link: '/febasis/ts/TS配置文件详解' },
+        {  text: 'TS配置文件详解', link: '/febasis/ts/TS配置文件详解' },
       ],
     },
     {
