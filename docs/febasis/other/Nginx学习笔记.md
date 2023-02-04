@@ -5,7 +5,7 @@
 | CentOS(Red Hat系列) | yum install nginx |
 
 ### 2.Linux目录结构
-  ![linux_directorys.png](./img/linux_directorys.png)
+![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032207741.png)
 ### 3.基础命令
 | nginx -v/nginx -V | 查看nginx版本等信息 |
 | --- | --- |

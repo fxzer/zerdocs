@@ -19,8 +19,8 @@
 2. 容器：镜像创建出来的虚拟化运行环境容器实例（简易的Linux环境）。
 3. 仓库：集中存放镜像的场所，分为公开库和私有库。
 ## 四、工作原理
-![image.png](./img/image.png)
-![image.png](./img/image1.png)
+![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032203456.png)
+![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032204209.png)
 ## 五、CentOS安装Docker
 ```bash
 sudo yum install -y yum-utils
@@ -67,7 +67,7 @@ docker tag [ImageId] registry.cn-hangzhou.aliyuncs.com/fanxj/mubt:[镜像版本�
 docker push registry.cn-hangzhou.aliyuncs.com/fanxj/mubt:[镜像版本号]
 docker run -it registry.cn-hangzhou.aliyuncs.com/fanxj/mubt:1.1  /bin/bash #记得带版本
 ```
- ![image.png](./img/image3.png)
+![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032206243.png)
 ### 3. 容器
 ```bash
 docker ps #列出正在运行容器 -a -s
@@ -207,5 +207,5 @@ docker run -d -p 8082:8080 --network my_network --name tomcat82 tomcat
 curl -SL https://github.com/docker/compose/releases/download/v2.14.2/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
 ```
 #### 2. [常用命令](https://cloud.tencent.com/developer/article/1499032)
- ![image.png](./img/image2.png)
+![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032205681.png)
 #### 3. [安装 Portainer](https://cloud.tencent.com/developer/article/2047779)

@@ -5,22 +5,25 @@ import getNavs from "./configs/nav"
 export default  {
   //根据环境变量决定打包路径
   // base: process.env.NODE_ENV === 'production' ? '/zerdocs/' : '/',
-
+  lastUpdated: true,
   base:'/zerdocs/',//配置打包获取静态资源路径
   outDir: '../dist',
   // cleanUrls: true, //去掉路径中的index.html
   // srcDir:'./src', //相对于docs
   title: "ZerDocs",//网站标题
   description: "Front-end learning document collection.",
-  lastUpdated: true,
   ignoreDeadLinks: true,
   markdown: {
     // theme: "material-theme-darker",//代码块主题
     lineNumbers: true,
   },
   themeConfig: {
-    outline: 'deep',
-    logo:'/img/logo.svg',
+    outline: 'deep',//侧边栏深度:数字或者deep
+    outlineTitle: '文章目录',
+    //TODO
+    // outlineBadges: false,  //侧边栏是否显示标签
+    logo:'/logo.svg',
+    lastUpdatedText: '上次更新',
     footer: {
       message: 'Released under the <a href="https://github.com/fxzer/zerdocs/blob/master/LICENSE">MIT License</a>.',
       copyright: 'Copyright © 2023-present <a href="https://github.com/fxzer">fxzer</a>.',

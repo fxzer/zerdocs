@@ -1,8 +1,6 @@
 # 妙妙怪的《CSS 揭秘》读书摘要
 
-发表于 2021-09-15|更新于 2021-09-30|[CSS](https://fxzer.github.io/categories/CSS/)
 
-| 字数总计:1.2k|阅读时长:5 分钟 | 阅读量:1
 
 > 看这本书前：看书，现在短视频时代，正经人谁看书啊，要看也是看视频教程和大佬博客啊！
 >
@@ -20,13 +18,15 @@
 
 ### 多重边框
 
-```
+```css
 box-shadow: 0 0 0 10px #655, 0 0 0 15px deeppink, 0 2px 5px 15px #ccc;
 ```
 
+![image-20230204162420066](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302041624153.png)
+
 ###  灵活的背景定位
 
-```
+```css
 background-position:right 20px bottom 10px;//离右侧20px、下边10px
 background-position:calc(100%-20px) calc(100%-10px);
 background-origin:content-box;//以内容盒为准
@@ -34,7 +34,7 @@ background-origin:content-box;//以内容盒为准
 
 ### 边框内圆角
 
-```
+```css
 background: tan;
 border-radius: .8em;
 padding: 1em;
@@ -44,7 +44,7 @@ outline: .4em solid #655;
 
 ### 条纹背景
 
-```
+```css
 //横向
 background: linear-gradient(#fb3 33.3%, #58a 0, #58a 66.6%, #ccc 0);
 background-size: 100% 20px;
@@ -58,25 +58,25 @@ background-size: 100%;
  background: repeating-linear-gradient( 60deg, #fb3, #fb3 15px, #58a 0, #58a 30px);
 ```
 
-
+![image-20230204162605711](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302041626739.png)
 
 
 ##  形状
 
 ###  圆角
 
-```
+```css
 border-radius:水平半径/垂直半径 
 border-radius: 50% / 100% 0;//树叶形状   
 border-radius: 100% 0 0 100%/50%; //半椭圆
 border-radius: 100% 0 0 0;//四分之一椭圆
 ```
 
-
+![image-20230204162727674](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302041627705.png)
 
 ###  平行四边形
 
-```
+```css
 /*按钮内容不行变解决方案*/
 button {
         position: relative;
@@ -95,7 +95,7 @@ button {
         left: 0;
         bottom: 0;
         right: 0;
-        width: 80px;
+        width: 90px;
         height: 35px;
         display: block;
         background: #5C7AEA;
@@ -104,9 +104,11 @@ button {
     }
 ```
 
+![image-20230204162908289](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302041629321.png)
+
 ###  梯形
 
-```
+```css
 .box {
     width: 100px;
     height: 100px;
@@ -143,7 +145,7 @@ button {
 }
 ```
 
-
+![image-20230204163212947](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302041632982.png)
 
 ##   视觉效果
 
@@ -156,18 +158,21 @@ button {
 
 ###   双侧投影
 
+```css
+box-shadow: 5px 0 5px -5px #000,-5px 0 5px -5px red
 ```
-box-shadow: 5px 0 5px -5px #000,-5px 0 5px -5px #000
-```
+
+![image-20230204163300223](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302041633244.png)
 
 ###   染色效果
 
-```
+```css
 img {
-    transition: .5s filter;
     filter: sepia(1) saturate( 4) hue-rotate( 295deg);
 }
 ```
+
+![image-20230204163621777](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302041636799.png)
 
 ### 毛玻璃
 
@@ -180,15 +185,15 @@ img {
 
 ###   折角效果
 
-```
-.box {
+```css
+box {
             width: 200px;
             height: 100px;
             margin: 100px;
             padding: 20px;
             position: relative;
-       		border-radius: .5em;
-            background: linear-gradient(210deg, transparent 1.5em, rgb(83, 190, 173) 0);
+       		  border-radius: .5em;
+            background: linear-gradient(210deg, transparent 1.5em, #edb21d);
         }
         
         .box::before {
@@ -198,26 +203,27 @@ img {
             right: 0;
             width: 1.73em;
             height: 3em;
-            background: linear-gradient(240deg, transparent 50%, rgb(94, 92, 92) 0);
+            background: linear-gradient(240deg, transparent 50%, #ccc);
             transform: translateY(-1.3em) rotate(-30deg);
             transform-origin: bottom right;
             border-bottom-left-radius: inherit;
-            box-shadow: -0.2em 0.2em 0.3em -0.1em rgb(71, 71, 71);
+            box-shadow: -0.3em 0.2em 0.3em -0.1em #bbb;
         }
 ```
+
+![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302041641904.png)
 
 
 
 **折角效果 mixin 预处理器**
 
-```
+```css
 @mixin folded-corner($background,$size,$angle:30deg){
     position:relative;
     background:$background;
     background:linear-gradient($angle - 180deg,
         transparent $size,$background 0);
     border-radius: .5em;
- 
     $x:$size / sin($angle);
     $y:$size / cos($angle);
  
@@ -246,7 +252,7 @@ img {
 
 ###   插入换行
 
-```
+```css
 hyphens：manual; / *手工设定。默认值，只有单词中有建议换行符才会换行，即手工在单词中插入 &shy; * /
 hyphens：none; / *无。即使单词中有换行符，也不会换行，只会在空白处换行* /
 hyphens：auto; / *自动。浏览器在适当的位置自动插入连字符换行* /
@@ -254,7 +260,7 @@ hyphens：auto; / *自动。浏览器在适当的位置自动插入连字符换�
 
 > 可以结合选择器 `+ / ~ / not(:first-child)` 实现在元素后面添加 `，/ 换行符`
 
-```
+```css
 dd+dt::before{
 	content:'\A';
     /*content:',';*/
@@ -265,23 +271,23 @@ dd+dt::before{
 
 ###  文本行斑马线
 
-```
+```css
 .box{
      padding: 0 .5em;
     line-height: 1.2;
     background: hsl(184, 61%, 76%);
     background-image: linear-gradient( rgb(230, 230, 230) 50%, transparent 0);
-    background-size: auto 2.4em;
+    background-size: auto 50%;
     background-origin: content-box;
     font-family: Consolas, Monaco, monospace;
 }
 ```
 
-
+![image-20230204164506163](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302041645200.png)
 
 ###  自定义下划线
 
-```
+```css
 .box{
     background: linear-gradient(gray, gray) no-repeat;
     background-size: 100% 1px;
@@ -290,16 +296,20 @@ dd+dt::before{
 }
 ```
 
+ ![image-20230204164714672](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302041647704.png)
+
 ###  凹凸印刷文字效果
 
-```
+```css
 text-shadow: 1px 1px 1px #000, -1px -1px 1px #fff;//凸
 text-shadow: -1px -1px 1px #000, 1px 1px 1px #fff;//凹
 ```
 
+![image-20230204165035803](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302041650836.png)
+
 ###  满幅背景、定宽内容（页脚）
 
-```
+```css
 footer{
     max-width:1000px;
     paddint:1em calc(50%-500px)
@@ -308,7 +318,7 @@ footer{
 
 ###  紧贴底部的页脚
 
-```
+```css
 body{
     display:flex;
     flex-direction:column;
@@ -321,8 +331,20 @@ main{
 
 ### 闪烁效果
 
-```
- animation: twinkle 0.5s infinite steps(1) alternate;/*普通闪烁*/
- animation: twinkle 0.5s infinite   alternate; /*真实闪烁*/
+```css
+.box{
+  background-color:  pink;
+  animation: twinkle 0.5s infinite steps(2) alternate;/*普通闪烁*/
+  animation: twinkle 0.5s infinite   alternate;  /*真实闪烁*/
+}
+@keyframes twinkle {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 ```
 
+![2023-02-04 16.57.27](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302041657747.gif)

@@ -1,0 +1,28 @@
+.container .title {
+  color: transparent;
+  background: var(--vp-home-hero-name-background);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: var(--vp-home-hero-name-color);
+}
+.container .outline-marker {
+  width: 2px;
+}
+.has-outline .outline-title {
+  font-size: 14px;
+}
+.has-outline .outline-link.active {
+  color: var(--vp-c-green);
+}
+.VPNavBar.has-sidebar .curtain[data-v-cf6e7c5e]::before {
+  background: linear-gradient(var(--vp-c-bg), transparent 30%);
+}
+.link .box .icon {
+  transition: transform 0.3s ease-in-out;
+}
+.link:hover .box .icon {
+  transform: scale(1.1);
+  background-color:  #7de4c34b;
+  /* 背景色透明度 */
+
+}

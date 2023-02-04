@@ -2,10 +2,10 @@
 layout: home
 hero:
   name: ZerDocs
-  text: Front-End learning document collection
+  text: VitePress Front-End Learning Collection
   # tagline: "座右铭: "
   image:
-    src: /img/cover_1.png 
+    src: https://zerdocs.oss-cn-shanghai.aliyuncs.com/202302041807975.svg
     alt: ZerDocs
   actions:
     - theme: brand

@@ -31,7 +31,7 @@ let tel = "020-999999998"
 console.log(/^(010|020)\-\d{8}$/.test(tel));//false 以8位数结尾
 ```
 ## 4. 元字符
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/23029928/1672303056678-3ccde792-a1b0-4192-8ac3-568c6fc346c2.png#averageHue=%23f6f7f6&clientId=udec4c696-4afa-4&from=paste&height=259&id=u219f7021&name=image.png&originHeight=517&originWidth=478&originalType=binary&ratio=1&rotation=0&showTitle=false&size=113583&status=done&style=none&taskId=ucf8e5216-865d-49be-99d6-a670cd532da&title=&width=239)
+![image.png](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032157146.png)
 ## 5. 匹配所有字符
 ```javascript
 /[\s\S]/  
@@ -143,7 +143,7 @@ for(it of hstr.matchAll(breg)){
 ]
 ```
 
-## ![image.png](./img/image.png)
+## ![image.png](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032155273.png)
 ## 10. 断言匹配``
 ```javascript
 let reg = /百度(?=地图)/g
@@ -167,15 +167,15 @@ let reg = /(?<!\d+)[a-z]+/i
 'baidu88baidu'.match(reg) //baidu
 ```
 ### 将链接替换为想要的网址
-## ![image.png](./img/image1.png)
+## ![image.png](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032155274.png)
 ### 将不含oss的替换
-## ![image.png](./img/image2.png)
+## ![image.png](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032155275.png)
 ### 模糊电话后四位
-## ![image.png](./img/image3.png)
+## ![image.png](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032155277.png)
 
 ## 案例练习
 ### 替换练习
-## ![image.png](./img/image4.png)
+## ![image.png](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032155279.png)
 ### 给原子组起别名
 ## ![image.png](./img/image5.png)
-## ![image.png](./img/image6.png)
+## ![image.png](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032155280.png)

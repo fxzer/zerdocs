@@ -13,7 +13,9 @@ export default {
       text: 'CSS',
       collapsible: true,
       collapsed: false,
-      items: [ ],
+      items: [
+        {  text: 'CSS揭秘读书摘要', link: '/febasis/css/CSS揭秘读书摘要' },
+       ],
     },
     {
       text: 'JavaScript',
@@ -45,6 +47,7 @@ export default {
       collapsed: false,
       items: [
         {  text: 'TS学习笔记', link: '/febasis/ts/TS学习笔记' },
+        {  text: 'TS配置文件详解', link: '/febasis/ts/TS配置文件详解' },
       ],
     },
     {
