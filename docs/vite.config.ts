@@ -2,7 +2,6 @@
 import { SearchPlugin } from "vitepress-plugin-search";
 import { defineConfig } from "vite";
 import flexSearchIndexOptions   from "flexsearch";
-console.log('[ flexSearchIndexOptions ]-5', flexSearchIndexOptions)
 //default options
 var options = {
   ...flexSearchIndexOptions,

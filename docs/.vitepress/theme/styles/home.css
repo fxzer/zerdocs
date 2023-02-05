@@ -14,8 +14,8 @@
 .has-outline .outline-link.active {
   color: var(--vp-c-green);
 }
-.VPNavBar.has-sidebar .curtain[data-v-cf6e7c5e]::before {
-  background: linear-gradient(var(--vp-c-bg), transparent 30%);
+.has-sidebar .curtain[data-v-cf6e7c5e]::before {
+  background: linear-gradient(var(--vp-c-bg), transparent 30%) !important;
 }
 .link .box .icon {
   transition: transform 0.3s ease-in-out;
@@ -48,5 +48,5 @@
   }
 }
 .DocSearch-Button:hover{
-  background-color:  #abe3d14b;
+  background-color:  #F5F5F6;
 }
