@@ -8,7 +8,11 @@ let sidebarObj = {}
 
 //生成一级分组 
 let topDirArr = fs.readdirSync(path.resolve(__dirname, '../docs')).filter((item) => isArticleDir(item))
-topDirArr.forEach((item) => sidebarObj[`/${item}/`] = [])
+topDirArr.forEach((item) => {
+  if (!sidebarObj[`/${item}/`]) {
+    sidebarObj[`/${item}/`] = []
+  }
+})
 
 const sidebars = deepGetFile(path.resolve(__dirname, '../docs')) // 读取 docs 目录下的所有文件夹
 const sidebarlist = deepGenerateSidebar(sidebars)
@@ -18,29 +22,38 @@ const sidebarlist = deepGenerateSidebar(sidebars)
 //把数组里面的每个对象合并到一个对象里面
 let sidebar = sidebarlist.reduce((pre, cur) => Object.assign(pre, cur), {})
 Object.entries(sidebar).forEach(([key, items]) => {
-  let keyArr = splitPath(key) 
+  let keyArr = splitPath(key)
   let text = keyArr[keyArr.length - 1]
-  sidebarObj[`/${keyArr[0]}/`].push({
-    text,
-    collapsible: true,
-    collapsed: false,
-    items,
-  })
+  if(sidebarObj[`/${keyArr[0]}/`]){
+    sidebarObj[`/${keyArr[0]}/`].push({
+      text,
+      collapsible: true,
+      collapsed: false,
+      items,
+    })
+  }else{
+    sidebarObj[`/${keyArr[0]}/`] = [{
+      text,
+      collapsible: true,
+      collapsed: false,
+      items,
+    }]
+  }
 })
 const sidebarStr = JSON.stringify(sidebarObj, null, 2)
 //把sidebarStr写入到docs/.vitepress/sidebar/index.ts
-const sidebarPath = path.resolve(__dirname, '../docs/.vitepress/sidebar/index.ts')
+const sidebarPath = path.resolve(__dirname, '../docs/.vitepress/autoSidebar/index.ts')
 
 //没有则创建
 if (!fs.existsSync(sidebarPath)) {
-  fs.mkdirSync(path.resolve(__dirname, '../docs/.vitepress/sidebar'))
+  fs.mkdirSync(path.resolve(__dirname, '../docs/.vitepress/autoSidebar'))
 }
 
 fs.writeFileSync(sidebarPath, `export default ${sidebarStr}`)
 
 //判断是否是文件夹
 function isArticleDir(dir) {
-  let exclude = ['public', 'index.md']  //排除的文件夹
+  let exclude = ['public', 'index.md','vite.config.ts']  //排除的文件夹
   return !exclude.includes(dir) && !dir.startsWith('.')
 }
 
@@ -69,7 +82,7 @@ function deepGenerateSidebar(arr) {
   //递归按照最后一级目录生成侧边栏
   const sidebar = {}
   sidebars.forEach((item) => {
-    const [dir, ...rest] = splitPath(item) 
+    const [dir, ...rest] = splitPath(item)
     if (!sidebar[dir]) {
       sidebar[dir] = []
     }
@@ -78,13 +91,13 @@ function deepGenerateSidebar(arr) {
   let sidebarList = []
   //按最后一级目录分组
   for (let key in sidebar) {
-    let pathPice = sidebar[key].map((item) => splitPath(item) )
+    let pathPice = sidebar[key].map((item) => splitPath(item))
     //如果pathPice[pathPice.length-1]相同,则合并
     pathPice = pathPice.reduce((pre, cur) => {
       let dirStr = cur.slice(0, -1).join('/') // /problem/vueproject/
       let text = cur[cur.length - 1].replace(/\.md$/, '')
       let link = cur.join('/').replace(/\.md$/, '')
-      pre[dirStr] = pre[dirStr] ? [...pre[dirStr],{ text, link }] : [{ text, link }] 
+      pre[dirStr] = pre[dirStr] ? [...pre[dirStr], { text, link }] : [{ text, link }]
       return pre
     }, {})
     sidebarList.push(pathPice)

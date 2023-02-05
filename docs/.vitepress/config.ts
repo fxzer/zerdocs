@@ -1,8 +1,8 @@
 import { generateSitemap as sitemap } from 'sitemap-ts'//站点地图
-import sidebar from "./sidebar/index";
-console.log('[ sidebar ]-3', sidebar)
 import algolia from "./configs/algolia";
 import getNavs from "./configs/nav"
+import sidebar from "./autoSidebar/index";
+// import  sidebar from "./sidebar/index";
 
 export default  {
   //根据环境变量决定打包路径
@@ -26,6 +26,9 @@ export default  {
     // outlineBadges: false,  //侧边栏是否显示标签
     logo:'/logo.svg',
     lastUpdatedText: '上次更新',
+    returnToTopLabel: '返回顶部',
+    sidebarMenuLabel: '目录',
+    darkModeSwitchLabel: '主题切换',
     footer: {
       message: 'Released under the <a href="https://github.com/fxzer/zerdocs/blob/master/LICENSE">MIT License</a>.',
       copyright: 'Copyright © 2023-present <a href="https://github.com/fxzer">fxzer</a>.',
@@ -58,7 +61,7 @@ export default  {
         link: "https://space.bilibili.com/228134791",
       },
     ],
-    sidebar ,
+    sidebar,
     async buildEnd() {
       await sitemap({ hostname: 'https://fxzer.github.io/zerdocs' });
     }
