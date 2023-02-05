@@ -183,9 +183,13 @@ npm i vitepress-plugin-search markdown-it flexsearch -D
 
 3.引入后发现之前搜索框样式没了，需要在`.vitepress/theme/styles/index.css`下重新覆盖样式
 
+:::
+
+
+
 ![image-20230205233032922](https://zerdocs.oss-cn-shanghai.aliyuncs.com/202302052330956.png)
 
-:::
+
 
 ```typescript
 
