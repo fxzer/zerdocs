@@ -1,8 +1,9 @@
 import { generateSitemap as sitemap } from 'sitemap-ts'//站点地图
-import getSidebar from "./sidebar";
+import sidebar from "./sidebar/index";
+console.log('[ sidebar ]-3', sidebar)
 import algolia from "./configs/algolia";
-console.log('[ algolia ]-4', algolia)
 import getNavs from "./configs/nav"
+
 export default  {
   //根据环境变量决定打包路径
   // base: process.env.NODE_ENV === 'production' ? '/zerdocs/' : '/',
@@ -57,8 +58,7 @@ export default  {
         link: "https://space.bilibili.com/228134791",
       },
     ],
-    sidebar:getSidebar(),
-    
+    sidebar ,
     async buildEnd() {
       await sitemap({ hostname: 'https://fxzer.github.io/zerdocs' });
     }

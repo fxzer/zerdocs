@@ -2,7 +2,8 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "preview": "vitepress preview docs"
+    "preview": "vitepress preview docs",
+    "update:sidebar": "node scripts/getSidebar.ts"
   },
   "devDependencies": {
     "flexsearch": "^0.7.31",

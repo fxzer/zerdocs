@@ -4,11 +4,11 @@
     "target": "esnext",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "strict": true,
+    "strict": false,
     "skipLibCheck": true,
     "noUnusedLocals": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "preserveValueImports": true,
     "importsNotUsedAsValues": "error",
     "jsx": "preserve",
@@ -19,6 +19,7 @@
     "docs",
     "docs/.vitepress/components/*.vue",
     "docs/.vitepress/*.ts",
+    "scripts",
   ],
   "exclude": ["**/node_modules/**", "**/dist/**"]
 }
