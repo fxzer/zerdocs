@@ -4,6 +4,7 @@
 import DefaultTheme from 'vitepress/theme'
 import MyGlobalComponent from './components/MyGlobalComponent.vue'
 import './styles/index.css' 
+
 export default {
   ...DefaultTheme,
   enhanceApp(ctx) {

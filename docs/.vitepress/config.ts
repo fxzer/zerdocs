@@ -1,6 +1,7 @@
 import { generateSitemap as sitemap } from 'sitemap-ts'//站点地图
 import getSidebar from "./sidebar";
 import algolia from "./configs/algolia";
+console.log('[ algolia ]-4', algolia)
 import getNavs from "./configs/nav"
 export default  {
   //根据环境变量决定打包路径
