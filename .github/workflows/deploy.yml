@@ -1,11 +1,10 @@
-name: Deploy GitHub Pages
+name: Deploy GitHub Pages And Sync to Gitee
 
 # 触发条件：在 push 到 master 分支后
 on:
   push:
     branches:
       - master
-
 # 任务
 jobs:
   build-and-deploy:
@@ -25,9 +24,24 @@ jobs:
           yarn
           yarn run build
           ls -lrth
-      - name: Deploy 🚀 #把打包后的dist文件部署到master分支
-        uses: JamesIves/github-pages-deploy-action@4.1.5
+      - name: 🔁 Sync to Gitee #同步到Gitee
+        uses: wearerequired/git-mirror-action@master
+        env:
+          # 注意在此项目的 Settings->Actions-> Secrets 配置 GITEE_RSA_PRIVATE_KEY
+          SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
         with:
-          token: ${{ secrets.DEPLOY_TOKEN }} #在本项目-->设置-->secrets添加 ZERDOCS_DEPLOY_TOKEN 变量 值为生成的秘钥
-          branch: gh-pages
-          folder: dist
+          # 注意替换为你的 GitHub 源仓库地址
+          source-repo: 'git@github.com:fxzer/zerdocs.git'
+          # 注意替换为你的 Gitee 目标仓库地址
+          destination-repo: 'git@gitee.com:fxzer/zerdocs.git'
+      - name: 📲 Push To GitHub Pages
+        uses: ftnext/action-push-ghpages@v1.0.0
+        with:
+          build_dir: dist
+          github_token: ${{ secrets.DEPLOY_TOKEN }}
+      # - name: Deploy 🚀 #把打包后的dist文件部署到master分支
+      #   uses: JamesIves/github-pages-deploy-action@4.1.5
+      #   with:
+      #     token: ${{ secrets.DEPLOY_TOKEN }} #在本项目-->设置-->secrets添加 ZERDOCS_DEPLOY_TOKEN 变量 值为生成的秘钥
+      #     branch: gh-pages
+      #     folder: dist
