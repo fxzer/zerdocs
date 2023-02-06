@@ -248,9 +248,6 @@ export default defineConfig({
     border-radius: 4px;
   }
 }
-.DocSearch-Button:hover {
-  background-color: #f5f5f6;
-}
 
 ```
 
