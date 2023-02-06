@@ -39,7 +39,7 @@ jobs:
           source-repo: 'git@github.com:fxzer/zerdocs.git'
           # 注意替换为你的 Gitee 目标仓库地址
           destination-repo: 'git@gitee.com:fxzer/zerdocs.git'
-      - name: ✅ Build Gitee Pages
+      - name: ✅ Build Gitee Pages #触发Gitee自动部署
         uses: yanglbme/gitee-pages-action@master
         with:
           # 注意替换为你的 Gitee 用户名
