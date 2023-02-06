@@ -130,6 +130,7 @@ export default {
       ]
     }
   ],
+  "/实用工具/": [],
   "/框架学习/": [
     {
       "text": "Angular",
@@ -173,7 +174,6 @@ export default {
       ]
     }
   ],
-  "/编程工具/": [],
   "/踩坑积累/": [
     {
       "text": "VitePress",
@@ -185,8 +185,8 @@ export default {
           "link": "踩坑积累/VitePress/VitePress踩坑记录"
         },
         {
-          "text": "VurPress踩坑记录",
-          "link": "踩坑积累/VitePress/VurPress踩坑记录"
+          "text": "VuePress踩坑记录",
+          "link": "踩坑积累/VitePress/VuePress踩坑记录"
         }
       ]
     },

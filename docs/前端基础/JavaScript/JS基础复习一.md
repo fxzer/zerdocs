@@ -9,7 +9,7 @@
 a = 10 - '5' //5
 a = 10 - true // 9
 a = 10 - false //10
-a = 10 - undefine // NaN
+a = 10 - undefined // NaN
 a = 10 - null // 10
 ```
 
