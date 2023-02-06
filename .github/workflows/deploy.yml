@@ -39,6 +39,18 @@ jobs:
           source-repo: 'git@github.com:fxzer/zerdocs.git'
           # 注意替换为你的 Gitee 目标仓库地址
           destination-repo: 'git@gitee.com:fxzer/zerdocs.git'
+      - name: ✅ Build Gitee Pages
+        uses: yanglbme/gitee-pages-action@master
+        with:
+          # 注意替换为你的 Gitee 用户名
+          gitee-username: fxzer
+          # 注意在 Settings->Secrets 配置 GITEE_PASSWORD
+          gitee-password: ${{ secrets.GITEE_PASSWORD }}
+          # 注意替换为你的 Gitee 仓库 
+          # 坑点:https://gitee.com/fxzer/zerdocs -->则填:fxzer/zerdocs,注意仓库名和路径名不一致问题
+          gitee-repo: fxzer/zerdocs 
+          # 要部署的分支
+          branch: gh-pages
           
       # - name: Deploy 🚀 #把打包后的dist文件部署到master分支
       #   uses: JamesIves/github-pages-deploy-action@4.1.5
