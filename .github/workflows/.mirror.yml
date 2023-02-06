@@ -3,7 +3,7 @@ name: 🤖 Sync to Gitee Mirror
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
