@@ -222,11 +222,12 @@ export default defineConfig({
   margin: 0;
   padding: 0;
   width: 32px;
-  height: 55px;
+  height: 32px;
+  border-radius: 4px;
   background: transparent;
-  transition: border-color .25s;
+  transition: border-color 0.25s;
 }
-@media (min-width: 768px){
+@media (min-width: 768px) {
   .DocSearch-Button {
     justify-content: flex-start;
     border: 1px solid transparent;
@@ -237,8 +238,19 @@ export default defineConfig({
     background-color: var(--vp-c-bg-alt);
   }
 }
-.DocSearch-Button:hover{
-  background-color:  #F5F5F6;
+@media (max-width: 768px) {
+  .DocSearch-Button-Keys {
+    display: none;
+  }
+  .VPNavBarHamburger{
+    height: 32px !important;
+    width: 32px !important;
+    border-radius: 4px;
+  }
 }
+.DocSearch-Button:hover {
+  background-color: #f5f5f6;
+}
+
 ```
 
