@@ -25,6 +25,7 @@ export default {
         {  text: 'JS基础复习一', link: '/前端基础/JavaScript/JS基础复习一' },
         {  text: 'JS基础复习二', link: '/前端基础/JavaScript/JS基础复习二' },
         {  text: 'JS高阶函数', link: '/前端基础/JavaScript/JS高阶函数' },
+        {  text: 'JS图片懒加载', link: '/前端基础/JavaScript/JS图片懒加载' },
         {  text: '数组求集合方法', link: '/前端基础/JavaScript/数组求集合方法' },
         {  text: 'JS排序算法', link: '/前端基础/JavaScript/JS排序算法' },
         {  text:  'async与await', link: '/前端基础/JavaScript/async与await' },

@@ -40,6 +40,8 @@ Object.entries(sidebar).forEach(([key, items]) => {
     }]
   }
 })
+console.log('[ sidebar ]-25', sidebar)
+
 const sidebarStr = JSON.stringify(sidebarObj, null, 2)
 //把sidebarStr写入到docs/.vitepress/sidebar/index.ts
 const sidebarPath = path.resolve(__dirname, '../docs/.vitepress/autoSidebar/index.ts')
