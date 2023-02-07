@@ -77,7 +77,7 @@ Object.entries(sidebar).forEach(([key, items]) => {
   let keyArr = splitPath(key)
   let text = keyArr[keyArr.length - 1]
   if(sidebarObj[`/${keyArr[0]}/`]){
-    sidebarObj[`/${keyArr[0]}/`].push({
+    sidebarObj[`/${keyArr[0]}/`].unshift({
       text,
       collapsible: true,
       collapsed: false,
@@ -92,13 +92,14 @@ Object.entries(sidebar).forEach(([key, items]) => {
     }]
   }
 })
+
 const sidebarStr = JSON.stringify(sidebarObj, null, 2)
 //把sidebarStr写入到docs/.vitepress/sidebar/index.ts
-const sidebarPath = path.resolve(__dirname, '../docs/.vitepress/autoSidebar/index.ts')
+const sidebarPath = path.resolve(__dirname, '../docs/.vitepress/sidebar/index.ts')
 
 //没有则创建
 if (!fs.existsSync(sidebarPath)) {
-  fs.mkdirSync(path.resolve(__dirname, '../docs/.vitepress/autoSidebar'))
+  fs.mkdirSync(path.resolve(__dirname, '../docs/.vitepress/sidebar'))
 }
 
 fs.writeFileSync(sidebarPath, `export default ${sidebarStr}`)
@@ -148,7 +149,7 @@ function deepGenerateSidebar(arr) {
     pathPice = pathPice.reduce((pre, cur) => {
       let dirStr = cur.slice(0, -1).join('/') // /problem/vueproject/
       let text = cur[cur.length - 1].replace(/\.md$/, '')
-      let link = cur.join('/').replace(/\.md$/, '')
+      let link = '/' + cur.join('/').replace(/\.md$/, '')
       pre[dirStr] = pre[dirStr] ? [...pre[dirStr], { text, link }] : [{ text, link }]
       return pre
     }, {})
@@ -156,6 +157,7 @@ function deepGenerateSidebar(arr) {
   }
   return sidebarList
 }
+
 ```
 
 

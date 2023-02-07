@@ -1,9 +1,7 @@
 import { generateSitemap as sitemap } from 'sitemap-ts'//站点地图
 import algolia from "./configs/algolia";
 import getNavs from "./configs/nav"
-import sidebar from "./autoSidebar/index";
-// import  sidebar from "./sidebar/index";
-
+import sidebar from './sidebar/index'
 export default  {
   //根据环境变量决定打包路径
   // base: process.env.NODE_ENV === 'production' ? '/zerdocs/' : '/',

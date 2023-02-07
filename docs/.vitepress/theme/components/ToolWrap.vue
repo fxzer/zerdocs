@@ -67,7 +67,7 @@ const toolGroup: ToolGroup = {
     },
     {
       name: 'Vant',
-      icon:'https://c.staticblitz.com/assets/favicon-editor-675989317f34707a17fe9d649da3609d70f6f8abc9546445389238ddd570a1d4.png',
+      icon:'https://fastly.jsdelivr.net/npm/@vant/assets/logo.png',
       url: 'https://vant-contrib.gitee.io/vant/#/zh-CN'
     },
     {
