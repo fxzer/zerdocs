@@ -130,7 +130,9 @@ export default {
       ],
     },
   ],
-  "/实用工具/": [],
+  "/实用工具/": [
+    { text: "Angular", collapsible: true, collapsed: false, items: [] },
+  ],
   "/框架学习/": [
     {
       text: "Angular",
