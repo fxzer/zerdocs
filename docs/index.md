@@ -25,7 +25,7 @@ features:
     link: /Framework/Vue/列表最后一条数据删除处理
   - icon: 📝
     title: Problem
-    details: 积累编程中遇到的BUG。
+    details: 积累编程中遇到的坑。
     link: /Problem/
   - icon: 🧑‍💻
     title: Interview

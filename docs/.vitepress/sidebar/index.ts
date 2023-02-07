@@ -1,28 +1,6 @@
 export default {
   "/Framework/": [
     {
-      "text": "Vue",
-      "collapsible": true,
-      "collapsed": false,
-      "items": [
-        {
-          "text": "列表最后一条数据删除处理",
-          "link": "/Framework/Vue/列表最后一条数据删除处理"
-        }
-      ]
-    },
-    {
-      "text": "React",
-      "collapsible": true,
-      "collapsed": false,
-      "items": [
-        {
-          "text": "React基础总结一",
-          "link": "/Framework/React/React基础总结一"
-        }
-      ]
-    },
-    {
       "text": "Angular",
       "collapsible": true,
       "collapsed": false,
@@ -40,66 +18,54 @@ export default {
           "link": "/Framework/Angular/Angular基础总结二"
         }
       ]
+    },
+    {
+      "text": "React",
+      "collapsible": true,
+      "collapsed": false,
+      "items": [
+        {
+          "text": "React基础总结一",
+          "link": "/Framework/React/React基础总结一"
+        }
+      ]
+    },
+    {
+      "text": "Vue",
+      "collapsible": true,
+      "collapsed": false,
+      "items": [
+        {
+          "text": "列表最后一条数据删除处理",
+          "link": "/Framework/Vue/列表最后一条数据删除处理"
+        }
+      ]
     }
   ],
   "/FrontEnd/": [
     {
-      "text": "TypeScript",
+      "text": "CSS",
       "collapsible": true,
       "collapsed": false,
       "items": [
         {
-          "text": "TS学习笔记",
-          "link": "/FrontEnd/TypeScript/TS学习笔记"
-        },
-        {
-          "text": "TS配置文件详解",
-          "link": "/FrontEnd/TypeScript/TS配置文件详解"
+          "text": "CSS揭秘读书摘要",
+          "link": "/FrontEnd/CSS/CSS揭秘读书摘要"
         }
       ]
     },
     {
-      "text": "Shell",
+      "text": "Git",
       "collapsible": true,
       "collapsed": false,
       "items": [
         {
-          "text": "自动部署脚本",
-          "link": "/FrontEnd/Shell/自动部署脚本"
-        }
-      ]
-    },
-    {
-      "text": "Other",
-      "collapsible": true,
-      "collapsed": false,
-      "items": [
-        {
-          "text": "Docker学习笔记",
-          "link": "/FrontEnd/Other/Docker学习笔记"
+          "text": "Terminal终端美化",
+          "link": "/FrontEnd/Git/Terminal终端美化"
         },
         {
-          "text": "Nginx学习笔记",
-          "link": "/FrontEnd/Other/Nginx学习笔记"
-        },
-        {
-          "text": "Webpack4笔记",
-          "link": "/FrontEnd/Other/Webpack4笔记"
-        }
-      ]
-    },
-    {
-      "text": "NodeJS",
-      "collapsible": true,
-      "collapsed": false,
-      "items": [
-        {
-          "text": "MongoDB笔记",
-          "link": "/FrontEnd/NodeJS/MongoDB笔记"
-        },
-        {
-          "text": "Node学习笔记",
-          "link": "/FrontEnd/NodeJS/Node学习笔记"
+          "text": "配置多个平台SSH",
+          "link": "/FrontEnd/Git/配置多个平台SSH"
         }
       ]
     },
@@ -147,28 +113,62 @@ export default {
       ]
     },
     {
-      "text": "Git",
+      "text": "NodeJS",
       "collapsible": true,
       "collapsed": false,
       "items": [
         {
-          "text": "Terminal终端美化",
-          "link": "/FrontEnd/Git/Terminal终端美化"
+          "text": "MongoDB笔记",
+          "link": "/FrontEnd/NodeJS/MongoDB笔记"
         },
         {
-          "text": "配置多个平台SSH",
-          "link": "/FrontEnd/Git/配置多个平台SSH"
+          "text": "Node学习笔记",
+          "link": "/FrontEnd/NodeJS/Node学习笔记"
         }
       ]
     },
     {
-      "text": "CSS",
+      "text": "Other",
       "collapsible": true,
       "collapsed": false,
       "items": [
         {
-          "text": "CSS揭秘读书摘要",
-          "link": "/FrontEnd/CSS/CSS揭秘读书摘要"
+          "text": "Docker学习笔记",
+          "link": "/FrontEnd/Other/Docker学习笔记"
+        },
+        {
+          "text": "Nginx学习笔记",
+          "link": "/FrontEnd/Other/Nginx学习笔记"
+        },
+        {
+          "text": "Webpack4笔记",
+          "link": "/FrontEnd/Other/Webpack4笔记"
+        }
+      ]
+    },
+    {
+      "text": "Shell",
+      "collapsible": true,
+      "collapsed": false,
+      "items": [
+        {
+          "text": "自动部署脚本",
+          "link": "/FrontEnd/Shell/自动部署脚本"
+        }
+      ]
+    },
+    {
+      "text": "TypeScript",
+      "collapsible": true,
+      "collapsed": false,
+      "items": [
+        {
+          "text": "TS学习笔记",
+          "link": "/FrontEnd/TypeScript/TS学习笔记"
+        },
+        {
+          "text": "TS配置文件详解",
+          "link": "/FrontEnd/TypeScript/TS配置文件详解"
         }
       ]
     }
@@ -189,13 +189,21 @@ export default {
   ],
   "/Problem/": [
     {
-      "text": "VueProject",
+      "text": "Graphical",
       "collapsible": true,
       "collapsed": false,
       "items": [
         {
-          "text": "Vue项目踩坑一",
-          "link": "/Problem/VueProject/Vue项目踩坑一"
+          "text": "Antv代码片段集锦",
+          "link": "/Problem/Graphical/Antv代码片段集锦"
+        },
+        {
+          "text": "Antv使用总结",
+          "link": "/Problem/Graphical/Antv使用总结"
+        },
+        {
+          "text": "Echarts问题总结",
+          "link": "/Problem/Graphical/Echarts问题总结"
         }
       ]
     },
@@ -215,21 +223,13 @@ export default {
       ]
     },
     {
-      "text": "Graphical",
+      "text": "VueProject",
       "collapsible": true,
       "collapsed": false,
       "items": [
         {
-          "text": "Antv代码片段集锦",
-          "link": "/Problem/Graphical/Antv代码片段集锦"
-        },
-        {
-          "text": "Antv使用总结",
-          "link": "/Problem/Graphical/Antv使用总结"
-        },
-        {
-          "text": "Echarts问题总结",
-          "link": "/Problem/Graphical/Echarts问题总结"
+          "text": "Vue项目踩坑一",
+          "link": "/Problem/VueProject/Vue项目踩坑一"
         }
       ]
     }

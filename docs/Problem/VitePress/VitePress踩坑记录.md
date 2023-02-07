@@ -77,7 +77,7 @@ Object.entries(sidebar).forEach(([key, items]) => {
   let keyArr = splitPath(key)
   let text = keyArr[keyArr.length - 1]
   if(sidebarObj[`/${keyArr[0]}/`]){
-    sidebarObj[`/${keyArr[0]}/`].unshift({
+    sidebarObj[`/${keyArr[0]}/`].push({
       text,
       collapsible: true,
       collapsed: false,

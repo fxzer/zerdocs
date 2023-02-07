@@ -17,7 +17,6 @@
 
 :::
 
-<img src ="https://gitee.com/GiteeFXJ/picstore/raw/master/pics/20211009224243.png"/>
 
 
 
@@ -35,7 +34,6 @@
 
 ## 坑点二、引用的Gitee图床图片没显示
 
-<img src="https://gitee.com/GiteeFXJ/picstore/raw/master/pics/20211009224808.png"/>
 
 > 有人说是图床的问题、防盗链的问题，最后才发现自己把图床项目设为私有的项目了，重新设为开源成功解决
 
