@@ -10,6 +10,7 @@
   </div>
 </template>
 <script setup lang='ts'>
+import ToolItem from './ToolItem.vue'
 interface ToolGroup {
   [key: string]: Array<Tool>;
 }
