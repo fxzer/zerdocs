@@ -58,3 +58,11 @@
     border-radius: 4px;
   }
 }
+.content img{
+  box-shadow: 0 0 3px 0 rgba(0,0,0,.2);
+  transition: all .3s;
+}
+.content img:hover{
+  box-shadow: 0 0 6px 0 rgba(0,0,0,.2);
+  transform: translate(0, -2px);
+}

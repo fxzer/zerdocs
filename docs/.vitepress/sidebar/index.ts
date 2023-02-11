@@ -91,6 +91,10 @@ export default {
           "link": "/FrontEnd/JavaScript/JS排序算法"
         },
         {
+          "text": "JS文件系统",
+          "link": "/FrontEnd/JavaScript/JS文件系统"
+        },
+        {
           "text": "JS正则表达式",
           "link": "/FrontEnd/JavaScript/JS正则表达式"
         },

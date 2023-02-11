@@ -9,7 +9,6 @@
 </template>
 <script setup lang='ts'>
 import Loading from './Loading.vue'
-import { ref ,computed} from 'vue'
 const { tool } = defineProps({
   tool: {
     type: Object,

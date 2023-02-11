@@ -52,10 +52,10 @@ if (!fs.existsSync(sidebarPath)) {
 
 fs.writeFileSync(sidebarPath, `export default ${sidebarStr}`)
 
-//判断是否是文件夹
+//判断是否是文章文件
 function isArticleDir(dir) {
-  let exclude = ['public', 'index.md','vite.config.ts']  //排除的文件夹
-  return !exclude.includes(dir) && !dir.startsWith('.')
+  let isExclude = /^(public|index.md|.*\.ts|demo.*|\..*)$/.test(dir)
+  return !isExclude
 }
 
 function splitPath(path) {

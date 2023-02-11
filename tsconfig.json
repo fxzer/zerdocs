@@ -16,10 +16,9 @@
   },
    /* 指定编译文件或排除指定编译文件 */
   "include": [  
-    "docs",
-    "docs/.vitepress/components/*.vue",
-    "docs/.vitepress/*.ts",
-    "scripts",
+    "./auto-imports.d.ts",
+    ".vitepress/**/*.ts",
+    ".vitepress/components/*.vue",
   ],
   "exclude": ["**/node_modules/**", "**/dist/**"]
 }
