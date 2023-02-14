@@ -18,6 +18,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 const urlType = ref<'BLOB' | 'DATA'>('BLOB')
 type TYPE = 'text' | 'image' | ''
 const fileType = ref<TYPE>('')

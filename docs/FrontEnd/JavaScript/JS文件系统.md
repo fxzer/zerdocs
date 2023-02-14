@@ -19,10 +19,6 @@ const fileArrayBuffer = await file.arrayBuffer()
 console.log('[ blobArrayBuffer ]-6', blobArrayBuffer)
 console.log('[ fileArrayBuffer ]-8', fileArrayBuffer)
 ```
-![2023-02-11-18-13-58](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/2023-02-11-18-13-58.png)
-
-
-
 
 
 <DemoWrap pkg="FrontEnd/JavaScript/demo"   path='demo1.vue' >

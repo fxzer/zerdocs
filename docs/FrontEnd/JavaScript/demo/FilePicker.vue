@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 const openFilePicker = async (e: any) => {
   const option = {
     title: 'Open File',
@@ -46,7 +47,7 @@ const openShow = async () => {
 //保存文件
 const openSave = async () => {
   if(fh.value){
-    const fileSteam = await fh.value.createWritable()
+    const fileSteam = await (fh.value as any).createWritable()  
     await fileSteam.write(textarea.value)
     await fileSteam.close()
   }

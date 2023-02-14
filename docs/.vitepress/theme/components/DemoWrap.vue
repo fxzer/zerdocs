@@ -1,9 +1,9 @@
 <script setup lang="ts">
-
+import { computed, ref, onErrorCaptured } from 'vue';
 const props = defineProps<{ pkg: string; path: string }>()
 
 const demoPath = computed(() => (props.pkg && props.path) ? `/${props.pkg}/${props.path}` : '')
-const error = ref<Error|null>(null)
+const error = ref<Error | null>(null)
 
 onErrorCaptured((err) => {
   error.value = err
@@ -33,19 +33,20 @@ const URL = `${GITHUB_BLOB_URL}${demoPath.value}`
 </template>
 <style scoped lang="scss">
 .demo {
-    font-size: 14px;
-    background: rgba(125, 125, 125, .04);
-    padding: 1em;
-    position: relative;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    position: relative;
-    .demo-source-link{
-        position: absolute;
-        top: 3px;
-        right: 6px;
-        font-size: 12px !important;
-        margin: 0;
-    }
+  font-size: 14px;
+  background: rgba(125, 125, 125, .04);
+  padding: 1em;
+  position: relative;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  position: relative;
+
+  .demo-source-link {
+    position: absolute;
+    top: 3px;
+    right: 6px;
+    font-size: 12px !important;
+    margin: 0;
+  }
 }
 </style>
