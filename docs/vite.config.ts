@@ -5,7 +5,7 @@ import flexSearchIndexOptions   from "flexsearch";
 import { SearchPlugin } from "vitepress-plugin-search";//搜索插件
 import AutoImport from "unplugin-auto-import/vite"; //作用:自动帮我们引入声明的 函数, 并自动生成 ts 类型声明文件。
 import IconsResolver from 'unplugin-icons/resolver'//作用:将图标转换为组件
-import Components from 'unplugin-vue-components/vite'//作用:自动帮我们引入全局组件，不用手动引入。并生成 ts 类型声明文件
+// import Components from 'unplugin-vue-components/vite'//作用:自动帮我们引入全局组件，不用手动引入。并生成 ts 类型声明文件
 //default options
 var options = {
   ...flexSearchIndexOptions,
@@ -17,17 +17,17 @@ var options = {
 export default defineConfig({
   plugins: [ 
     SearchPlugin(options),
-    Components({
-      dirs: resolve(__dirname, '.vitepress/theme/components'),
-      include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
-      resolvers: [
-        IconsResolver({
-          componentPrefix: '',
-        }),
-      ],
-      dts: './.vitepress/components.d.ts',
-      transformer: 'vue3',
-    }),
+    // Components({
+    //   dirs: resolve(__dirname, '.vitepress/theme/components'),
+    //   include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+    //   resolvers: [
+    //     IconsResolver({
+    //       componentPrefix: '',
+    //     }),
+    //   ],
+    //   dts: './.vitepress/components.d.ts',
+    //   transformer: 'vue3',
+    // }),
     AutoImport({
       include: [
         //导入目标文件类型

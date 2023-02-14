@@ -1,4 +1,44 @@
 export default {
+  "/BackEnd/": [
+    {
+      "text": "NodeJS",
+      "collapsible": true,
+      "collapsed": false,
+      "items": [
+        {
+          "text": "MongoDB笔记",
+          "link": "/BackEnd/NodeJS/MongoDB笔记"
+        },
+        {
+          "text": "Node大文件上传",
+          "link": "/BackEnd/NodeJS/Node大文件上传"
+        },
+        {
+          "text": "Node学习笔记",
+          "link": "/BackEnd/NodeJS/Node学习笔记"
+        },
+        {
+          "text": "Node简单上传文件",
+          "link": "/BackEnd/NodeJS/Node简单上传文件"
+        }
+      ]
+    },
+    {
+      "text": "Server",
+      "collapsible": true,
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Docker学习笔记",
+          "link": "/BackEnd/Server/Docker学习笔记"
+        },
+        {
+          "text": "Nginx学习笔记",
+          "link": "/BackEnd/Server/Nginx学习笔记"
+        }
+      ]
+    }
+  ],
   "/Framework/": [
     {
       "text": "Angular",
@@ -117,33 +157,10 @@ export default {
       ]
     },
     {
-      "text": "NodeJS",
-      "collapsible": true,
-      "collapsed": false,
-      "items": [
-        {
-          "text": "MongoDB笔记",
-          "link": "/FrontEnd/NodeJS/MongoDB笔记"
-        },
-        {
-          "text": "Node学习笔记",
-          "link": "/FrontEnd/NodeJS/Node学习笔记"
-        }
-      ]
-    },
-    {
       "text": "Other",
       "collapsible": true,
       "collapsed": false,
       "items": [
-        {
-          "text": "Docker学习笔记",
-          "link": "/FrontEnd/Other/Docker学习笔记"
-        },
-        {
-          "text": "Nginx学习笔记",
-          "link": "/FrontEnd/Other/Nginx学习笔记"
-        },
         {
           "text": "Webpack4笔记",
           "link": "/FrontEnd/Other/Webpack4笔记"
