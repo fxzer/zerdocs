@@ -76,6 +76,10 @@ export default {
       "collapsed": false,
       "items": [
         {
+          "text": "分页与搜索条件记录并回显优化",
+          "link": "/Framework/Vue/分页与搜索条件记录并回显优化"
+        },
+        {
           "text": "列表最后一条数据删除处理",
           "link": "/Framework/Vue/列表最后一条数据删除处理"
         }
