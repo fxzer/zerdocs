@@ -95,6 +95,10 @@ export default {
         {
           "text": "CSS揭秘读书摘要",
           "link": "/FrontEnd/CSS/CSS揭秘读书摘要"
+        },
+        {
+          "text": "Grid布局学习笔记",
+          "link": "/FrontEnd/CSS/Grid布局学习笔记"
         }
       ]
     },
