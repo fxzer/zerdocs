@@ -76,6 +76,10 @@ export default {
       "collapsed": false,
       "items": [
         {
+          "text": "Vue3补漏笔记",
+          "link": "/Framework/Vue/Vue3补漏笔记"
+        },
+        {
           "text": "分页与搜索条件记录并回显优化",
           "link": "/Framework/Vue/分页与搜索条件记录并回显优化"
         },
@@ -92,6 +96,10 @@ export default {
       "collapsible": true,
       "collapsed": false,
       "items": [
+        {
+          "text": "CSS常用代码段",
+          "link": "/FrontEnd/CSS/CSS常用代码段"
+        },
         {
           "text": "CSS揭秘读书摘要",
           "link": "/FrontEnd/CSS/CSS揭秘读书摘要"

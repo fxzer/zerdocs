@@ -27,3 +27,150 @@
 </el-dialog>
 ```
 
+## 三、'确定'按钮点击失效问题
+
+![image-20230219214203987](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302192142529.png)
+
+```vue
+<template>
+	<div class="text-update-wrap">
+		<p class="text-show" v-if="!isEditing">
+			<span
+				class="single-overflow text-val"
+				:style="{ 'max-width': maxWidth }"
+        :title="text"
+				>{{ text }}</span
+			>
+			<span class="el-icon-edit" @click="switchToEdit"></span>
+		</p>
+		<p class="text-edit" v-else>
+			<el-input
+				v-model="inputVal"
+				ref="inputRef"
+				:placeholder="'请输入' + name"
+				size="mini"
+				clearable
+			></el-input>
+       <!-- @blur='cancelUpdate' 事件比confirmUpdate先执行，导致确定按钮事件没触发-->
+			<span
+				title="确定"
+				:class="loading ? 'el-icon-loading' : 'el-icon-circle-check'"
+				@click="confirmUpdate"
+			></span>
+			<span
+				title="取消"
+				class="el-icon-circle-close"
+				@click="cancelEdit"
+				v-if="!loading"
+			></span>
+		</p>
+	</div>
+</template>
+
+<script>
+export default {
+	name: "UpdateText",
+	props: {
+		textVal: {
+			type: String,
+			default: "",
+		},
+		name: {
+			type: String,
+			default: "名称",
+		},
+		maxWidth: {
+			type: String,
+			default: "200px",
+		},
+    id: {
+      type: String,
+      default: "",
+    },
+	},
+	data() {
+		return {
+			loading: false,
+			isEditing: false,
+			inputVal: "",
+			text: this.textVal,
+		}
+	},
+	computed: {},
+	watch: {},
+	components: {},
+	methods: {
+		//切换到输入框模式
+		switchToEdit() {
+			this.inputVal = this.textVal
+			this.isEditing = true
+			this.$nextTick(() => {
+				this.$refs.inputRef.focus()
+			})
+		},
+    cancelEdit(){
+				this.isEditing = false	
+    },
+		//确定更新
+	   confirmUpdate() {
+			let { inputVal, name ,id} = this
+      let value = inputVal.trim()
+			if (value === "") {
+				this.$message.error(`${name}不能为空`)
+				return
+			}else if(value === this.textVal){
+				this.isEditing = false
+				return
+			}
+			this.loading = true
+      if(id){
+        this.$emit("confirm", value, id)
+      }else{
+        this.$emit("confirm", value)
+      }
+		},
+		successUpdate() {
+      let { inputVal, name } = this
+			this.loading = false
+			this.text = inputVal
+			this.isEditing = false
+			this.$notify.success(`${name}修改成功`)
+		},
+    //失败
+    failUpdate() {
+      this.loading = false
+      this.$notify.error(`${this.name}修改失败`)
+    },
+	},
+	created() {},
+	mounted() {
+		//解决方案：不使用@blur, 监听焦点不在此组件时，才取消编辑
+		document.addEventListener("click", (e) => {
+			if (!this.$el.contains(e.target)) {
+				this.cancelEdit()
+			}
+		})
+	},
+}
+</script>
+```
+
+## 文本溢出隐藏处理后对不齐问题
+
+
+
+![image-20230219214258711](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302192142738.png)
+
+```css
+.el-checkbox {
+  width: 200px;
+  ::v-deep .el-checkbox__label {
+    width: 186px;
+    vertical-align: middle; //需要重新设置对齐线
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+```
+
