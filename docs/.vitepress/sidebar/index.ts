@@ -213,13 +213,24 @@ export default {
   "/GoodTool/": [],
   "/Interview/": [
     {
-      "text": "Interview",
+      "text": "Brower",
       "collapsible": true,
       "collapsed": false,
       "items": [
         {
           "text": "浏览器网页请求过程",
-          "link": "/Interview/浏览器网页请求过程"
+          "link": "/Interview/Brower/浏览器网页请求过程"
+        }
+      ]
+    },
+    {
+      "text": "CSS",
+      "collapsible": true,
+      "collapsed": false,
+      "items": [
+        {
+          "text": "positionsticky",
+          "link": "/Interview/CSS/positionsticky"
         }
       ]
     }
