@@ -15,6 +15,7 @@ var options = {
   placeholder: "情输入关键词",
 };
 
+
 export default defineConfig({
   plugins: [ 
     SearchPlugin(options),
