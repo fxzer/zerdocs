@@ -169,6 +169,10 @@ export default {
         {
           "text": "数组求集合方法",
           "link": "/FrontEnd/JavaScript/数组求集合方法"
+        },
+        {
+          "text": "获取目录结构",
+          "link": "/FrontEnd/JavaScript/获取目录结构"
         }
       ]
     },
@@ -220,6 +224,10 @@ export default {
         {
           "text": "浏览器网页请求过程",
           "link": "/Interview/Brower/浏览器网页请求过程"
+        },
+        {
+          "text": "进程与线程",
+          "link": "/Interview/Brower/进程与线程"
         }
       ]
     },
@@ -231,6 +239,32 @@ export default {
         {
           "text": "positionsticky",
           "link": "/Interview/CSS/positionsticky"
+        }
+      ]
+    },
+    {
+      "text": "JavaScript",
+      "collapsible": true,
+      "collapsed": false,
+      "items": [
+        {
+          "text": "字符串常用方法",
+          "link": "/Interview/JavaScript/字符串常用方法"
+        },
+        {
+          "text": "常见面试题 1",
+          "link": "/Interview/JavaScript/常见面试题 1"
+        }
+      ]
+    },
+    {
+      "text": "Vue",
+      "collapsible": true,
+      "collapsed": false,
+      "items": [
+        {
+          "text": "npm run xxx执行过程",
+          "link": "/Interview/Vue/npm run xxx执行过程"
         }
       ]
     }

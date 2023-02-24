@@ -50,7 +50,10 @@ if (!fs.existsSync(sidebarPath)) {
   fs.mkdirSync(path.resolve(__dirname, '../docs/.vitepress/sidebar'))
 }
 
-fs.writeFileSync(sidebarPath, `export default ${sidebarStr}`)
+const res = fs.writeFile(sidebarPath, `export default ${sidebarStr}`, (err) => {
+  if (err) console.log(err)
+  console.log('===>  侧边栏生成成功!  <===')
+})
 
 //判断是否是文章文件
 function isArticleDir(dir) {
