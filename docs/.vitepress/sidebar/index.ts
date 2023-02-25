@@ -252,8 +252,16 @@ export default {
           "link": "/Interview/JavaScript/字符串常用方法"
         },
         {
-          "text": "常见面试题 1",
-          "link": "/Interview/JavaScript/常见面试题 1"
+          "text": "常见基础面试题",
+          "link": "/Interview/JavaScript/常见基础面试题"
+        },
+        {
+          "text": "常见进阶面试题 ",
+          "link": "/Interview/JavaScript/常见进阶面试题 "
+        },
+        {
+          "text": "常见高级面试题",
+          "link": "/Interview/JavaScript/常见高级面试题"
         }
       ]
     },

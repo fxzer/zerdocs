@@ -52,7 +52,7 @@ if (!fs.existsSync(sidebarPath)) {
 
 const res = fs.writeFile(sidebarPath, `export default ${sidebarStr}`, (err) => {
   if (err) console.log(err)
-  console.log('===>  侧边栏生成成功!  <===')
+  console.log('===>  侧边栏生成成功!  <===\n')
 })
 
 //判断是否是文章文件
