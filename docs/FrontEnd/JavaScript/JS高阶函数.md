@@ -39,21 +39,21 @@ console.log(newNums)//[20,30,60,50]
 
 ```js
 var arr=[1,2,3,4,5,6];
-        console.log(arr.filter(function(x){
-             return x%2!==0;
-        }))//[1,3,5]
+let res = arr.filter(function(x){
+    return x%2!==0;
+})
+console.log(res)//[1,3,5]
 ```
 
 ##### 数组去重
 
 ```js
 var  arr= ['apple', 'strawberry', 'banana', 'pear', 'apple', 'orange', 'orange', 'strawberry'];
- var filterArr = arr.filter(function(value,index,arr){
-            return arr.indexOf(value)===index;
+
 //去除重复元素依靠的是indexOf总是返回第一个元素的位置，
 //后续的重复元素位置与indexOf返回的位置相等,表示是同一个元素
 //后续的重复元素位置与indexOf返回的位置不相等，表示元素重复并且过滤。
-        })
+var filterArr = arr.filter((value,index,arr) => arr.indexOf(value)===index;)
 console.log(filterArr);//["apple", "strawberry", "banana", "pear", "orange"]
 
 ```

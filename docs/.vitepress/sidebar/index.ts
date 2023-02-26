@@ -131,6 +131,10 @@ export default {
       "collapsed": false,
       "items": [
         {
+          "text": "JS代码分支优化",
+          "link": "/FrontEnd/JavaScript/JS代码分支优化"
+        },
+        {
           "text": "JS图片懒加载",
           "link": "/FrontEnd/JavaScript/JS图片懒加载"
         },
@@ -256,8 +260,8 @@ export default {
           "link": "/Interview/JavaScript/常见基础面试题"
         },
         {
-          "text": "常见进阶面试题 ",
-          "link": "/Interview/JavaScript/常见进阶面试题 "
+          "text": "常见进阶面试题",
+          "link": "/Interview/JavaScript/常见进阶面试题"
         },
         {
           "text": "常见高级面试题",
