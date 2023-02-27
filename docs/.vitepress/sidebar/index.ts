@@ -264,6 +264,10 @@ export default {
       "collapsed": false,
       "items": [
         {
+          "text": "test.js",
+          "link": "/Interview/JavaScript/test.js"
+        },
+        {
           "text": "字符串常用方法",
           "link": "/Interview/JavaScript/字符串常用方法"
         },

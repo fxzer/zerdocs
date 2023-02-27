@@ -46,8 +46,7 @@ git stash pop				#从stash中取出暂存的代码修改
 #### 方法一
 
 ```zsh
-#切换到正确的分支并使用 git cherry-pick --continue 命令将更改应用到正确的分支上
-git cherry-pick [commit] 	#将指定的提交复制到当前分支，并将其添加到暂存区
+git cherry-pick [commit] 	#切换到正确的分支并使用, 将指定的提交复制到当前分支，并将其添加到暂存区
 ```
 #### 方法二
 
@@ -57,5 +56,4 @@ git cherry-pick [commit] 	#将指定的提交复制到当前分支，并将其�
 2. 将错误分支上的提交移动到正确分支上：`git rebase [correct-branch]`
 3. 解决冲突（如果有）
 4. 将更改提交到正确的分支上：`git checkout [correct-branch]`，然后 `git merge [error-branch]`
-
-### 
+5. 在错误分支`git push -f`更新远程代码
