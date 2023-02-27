@@ -15,7 +15,7 @@ export default  {
   description: "Front-end learning document collection.",
   ignoreDeadLinks: true,//忽略无效链接
   markdown: {
-    // theme: "material-theme-darker",//代码块主题
+    // theme: "github-light",//代码块主题
     // lineNumbers: true,
   },
   themeConfig: {

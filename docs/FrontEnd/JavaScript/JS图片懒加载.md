@@ -9,7 +9,7 @@
 监听图片顶部到达视口底部，把自定义属性 data-src赋值给src
 :::
 
-```
+```js
 const images = document.querySelectorAll('img')
 window.addEventListener('scroll', (e) => {
     images.forEach(
@@ -26,7 +26,7 @@ window.addEventListener('scroll', (e) => {
 
 ## 方案二：观察者 
 
-```
+```js
 const images = document.querySelectorAll('img')
 const callback = enteries => {
     enteries.forEach(entry => {

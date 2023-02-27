@@ -134,6 +134,7 @@ The term 'oh-my-posh' is not recognized as a name of a cmdlet, function, script 
     "source": "Windows.Terminal.PowershellCore",
     "commandline": "C:\\Program Files\\WindowsApps\\Microsoft.PowerShell_7.2.2.0_x64__8wekyb3d8bbwe\\pwsh.exe -NoLogo",
     "startingDirectory": null
+}
 ```
 
 
