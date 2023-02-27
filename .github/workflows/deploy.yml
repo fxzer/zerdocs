@@ -6,7 +6,6 @@ on:
     branches:
       - master
     paths-ignore: # 下列文件的变更不触发部署
-      - README.md
       - LICENSE
 # 任务
 jobs:
