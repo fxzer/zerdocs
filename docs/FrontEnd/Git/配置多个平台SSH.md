@@ -1,5 +1,6 @@
 
-### 1.生成公钥和私钥
+
+## 1.生成公钥和私钥
 
 ```bash
 ssh-keygen -t rsa -C '8888888@qq.com'  #换成自己邮箱,可以随便填,相当于一个标识
@@ -16,14 +17,16 @@ ssh-keygen -t rsa -C '8888888@qq.com'  #换成自己邮箱,可以随便填,相�
 
 
 
-### 2.在github/gitee/gitlab设置添加公钥
+## 2.在代码托管平台设置添加公钥
 
 + **查看生成的公钥`.pub`文件  例如: `cat  id_rsa_github_gmail.pub`**
-+ **复制公钥所有内容 ，在github添加**
++ **复制公钥所有内容 ，在github/gitee/gitlab添加**
 
 ![image-20220416212417100](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220416212417100.png)
 
-### 3.添加私钥到ssh-agent中 ，出现`Identity added`表示成功
+## 3.添加私钥到ssh-agent中
+
+**添加私钥到ssh-agent中 ，出现`Identity added`表示成功**
 
 ```bash
 ssh-add ~/.ssh/id_rsa_github_qq
@@ -33,22 +36,18 @@ ssh-add ~/.ssh/id_rsa_github_qq
 
 ​	先执行`ssh-agent bash` 再执行上面代码
 
-
-
 2. 报错: `Error connecting to agent: No such file or directory`
 
-​	解决方法：【**以管理员身份运行**】在 `PowerShell` 执行
+​	解决方法：检查文件是否存在，并【**以管理员身份运行**】在 `PowerShell` 执行
 
 ```bash
 Set-Service ssh-agent -StartupType Manual
 Start-Service ssh-agent
 ```
 
-​	
-
 3. 报错 `unable to start ssh-agent service, error :1058`
 
-​	以**管理员身份**打开终端，执行`Set-Service -Name ssh-agent -StartupType automatic`
+​	以【**管理员身份**】打开终端，执行`Set-Service -Name ssh-agent -StartupType automatic`
 
 
 
@@ -69,7 +68,7 @@ and the repository exists.
                                                                                              
 ```
 
-### 4.创建`config`件，打开编辑 
+## 4.创建`config`件，打开编辑 
 
 > 注意：文件名就是`config`，没有文件后缀，编辑完保存前记得去掉注释
 
@@ -100,5 +99,7 @@ IdentityFile ~/.ssh/id_rsa_gitlab	#私钥地址
   
   
   
-  
-   
+
+## SSH公钥私钥加密解密原理
+
+ 

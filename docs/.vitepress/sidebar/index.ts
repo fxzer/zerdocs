@@ -116,6 +116,10 @@ export default {
       "collapsed": false,
       "items": [
         {
+          "text": "Git常用操作",
+          "link": "/FrontEnd/Git/Git常用操作"
+        },
+        {
           "text": "Terminal终端美化",
           "link": "/FrontEnd/Git/Terminal终端美化"
         },
@@ -241,8 +245,16 @@ export default {
       "collapsed": false,
       "items": [
         {
-          "text": "positionsticky",
-          "link": "/Interview/CSS/positionsticky"
+          "text": "CSS基础面试题",
+          "link": "/Interview/CSS/CSS基础面试题"
+        },
+        {
+          "text": "CSS进阶面试题",
+          "link": "/Interview/CSS/CSS进阶面试题"
+        },
+        {
+          "text": "CSS高级面试题",
+          "link": "/Interview/CSS/CSS高级面试题"
         }
       ]
     },

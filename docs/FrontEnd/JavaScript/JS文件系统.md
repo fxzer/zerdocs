@@ -3,8 +3,6 @@
 const blob = new Blob(['1,2,3'])
 const file = new File(['1,2,3'], 'test.txt', { type: 'text/plain' })
 ```
-![2023-02-11-18-26-59](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/2023-02-11-18-26-59.png)
-
 ## ArrayBuffer
 ```js
 

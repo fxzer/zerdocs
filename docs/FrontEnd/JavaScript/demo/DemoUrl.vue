@@ -10,7 +10,7 @@
     </div>
     <textarea v-model="url"></textarea>
     <div class="show-wrap" v-if="url">
-      <a :href="url" target="_blank"> 链接 </a><font  color="urlType=='DATA' ? 'red' :'green'">DATA URL{{  urlType=='DATA' ? '不':'' }} 可直接点击链接打开,可复制链接打开</font>
+      <a :href="url" target="_blank"> 链接 </a><font  color="urlType=='DATA' ? 'red' :'green'">DATA URL{{  urlType=='DATA' ? '不':'' }}可直接点击链接打开, 可复制链接打开</font>
       <img :src="url" alt="图片" v-if="fileType == 'image'" />
       <iframe :src="url"></iframe>
     </div>

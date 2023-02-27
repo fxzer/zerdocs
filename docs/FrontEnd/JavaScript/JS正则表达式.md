@@ -1,5 +1,15 @@
 ## 资料参考：[LearnRegex](https://github.com/ziishaned/learn-regex/blob/master/translations/README-cn.md)
-## 可视化工具：[Regulex](https://jex.im/regulex/#!flags=&re=)、[Regexper](https://regexper.com/)
+
+## 应用场景
+
+1. 表单校验
+2. 字符串匹配和替换、解析(vue模板解析)
+
+## 可视化工具：
+
+1. [Regulex](https://jex.im/regulex/#!flags=&re=)
+2. [Regexper](https://regexper.com/)
+
 ## 1. 或者 `|`
 ```javascript
 let tel = "020-99999999"
