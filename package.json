@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "vitepress dev docs",
+    "dev": "npm run update:sidebar  && vitepress dev docs",
     "build": "vitepress build docs",
     "preview": "vitepress preview docs",
     "update:sidebar": "node scripts/getSidebar.js"

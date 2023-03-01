@@ -264,12 +264,20 @@ export default {
       "collapsed": false,
       "items": [
         {
-          "text": "test.js",
-          "link": "/Interview/JavaScript/test.js"
+          "text": "Promise相关",
+          "link": "/Interview/JavaScript/Promise相关"
+        },
+        {
+          "text": "原型与原型链",
+          "link": "/Interview/JavaScript/原型与原型链"
         },
         {
           "text": "字符串常用方法",
           "link": "/Interview/JavaScript/字符串常用方法"
+        },
+        {
+          "text": "常见基础应用题",
+          "link": "/Interview/JavaScript/常见基础应用题"
         },
         {
           "text": "常见基础面试题",
@@ -293,6 +301,10 @@ export default {
         {
           "text": "npm run xxx执行过程",
           "link": "/Interview/Vue/npm run xxx执行过程"
+        },
+        {
+          "text": "前端项目优化",
+          "link": "/Interview/Vue/前端项目优化"
         }
       ]
     }
