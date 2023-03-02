@@ -225,6 +225,17 @@ export default {
   "/GoodTool/": [],
   "/Interview/": [
     {
+      "text": "Algorithm",
+      "collapsible": true,
+      "collapsed": false,
+      "items": [
+        {
+          "text": "基础应用题",
+          "link": "/Interview/Algorithm/基础应用题"
+        }
+      ]
+    },
+    {
       "text": "Brower",
       "collapsible": true,
       "collapsed": false,
@@ -232,6 +243,10 @@ export default {
         {
           "text": "浏览器网页请求过程",
           "link": "/Interview/Brower/浏览器网页请求过程"
+        },
+        {
+          "text": "计算机网络",
+          "link": "/Interview/Brower/计算机网络"
         },
         {
           "text": "进程与线程",
@@ -272,24 +287,20 @@ export default {
           "link": "/Interview/JavaScript/原型与原型链"
         },
         {
+          "text": "基础面试题",
+          "link": "/Interview/JavaScript/基础面试题"
+        },
+        {
           "text": "字符串常用方法",
           "link": "/Interview/JavaScript/字符串常用方法"
         },
         {
-          "text": "常见基础应用题",
-          "link": "/Interview/JavaScript/常见基础应用题"
+          "text": "进阶面试题",
+          "link": "/Interview/JavaScript/进阶面试题"
         },
         {
-          "text": "常见基础面试题",
-          "link": "/Interview/JavaScript/常见基础面试题"
-        },
-        {
-          "text": "常见进阶面试题",
-          "link": "/Interview/JavaScript/常见进阶面试题"
-        },
-        {
-          "text": "常见高级面试题",
-          "link": "/Interview/JavaScript/常见高级面试题"
+          "text": "高级面试题",
+          "link": "/Interview/JavaScript/高级面试题"
         }
       ]
     },
