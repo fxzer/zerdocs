@@ -77,24 +77,27 @@
 }
 ```
 
+## 盒模型
 
+网页中的元素可以看做一个盒子，盒模型由content(内容) + padding(填充) + border(边框) + margin(边距) 组成，可以通过`box-sizing`改变盒模型计算方式
+
+`box-sizing:border-box`: height = content + padding + border
+
+`box-sizing:content-box`: height = content
 
 ##  *[BFC](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flow_Layout/Intro_to_formatting_contexts)* 及其应用
 
-所谓 *BFC*，指的是一个独立的布局环境，*BFC* 内部的元素布局与外部互不影响。
+所谓 *BFC*（**块格式化上下文**），指的是一个独立的布局环境，*BFC* 内部的元素布局与外部互不影响。
 
-- 使用[`float`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/float) 使其浮动的元素
-- 绝对定位的元素 (包含 [`position: fixed`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position#fixed) 或[`position: sticky`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position#sticky)
-- 使用以下属性的元素 [`display: inline-block`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/display#inline-block)
-- 表格单元格或使用 `display: table-cell`, 包括使用 `display: table-*` 属性的所有表格单元格
-- 表格标题或使用 `display: table-caption` 的元素
-- 块级元素的 overflow 属性不为 `visible`
-- 元素属性为 `display: flow-root` 或 `display: flow-root list-item`
-- 元素属性为 [`contain: layout`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/contain#layout), `content`, 或 `strict`
-- [flex items](https://developer.mozilla.org/zh-CN/docs/Glossary/Flex_Item)
-- 网格布局元素
-- [multicol containers](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Columns/Basic_Concepts_of_Multicol)
-- 元素属性 [`column-span`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/column-span) 设置为 `all`
+- 浮动元素([`float`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/float) 值不为 `none`)
+- 绝对定位的元素 (包含 [`position: fixed`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position#fixed) 或[`position: absolute`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position#sticky)）
+- `display: inline-block`，`display: table-cell`，`flex`
+- 块级元素的 overflow 属性不为 `visible,clip`
+
+**应用**
+
+1. 解决相邻元素外边距塌陷
+2. 清除浮动解决父元素高度塌陷
 
 
 
@@ -109,6 +112,10 @@
 **固定定位**`fixed`：相对于浏览器视口进行定位，当元素祖先的 `transform`、`perspective`、`filter` 或 `backdrop-filter` 属性非 `none` 时，容器由视口改为该祖先。
 
 **黏性定位**`sticky`：相对于*最近滚动祖先*定位，滚动到元素top小于设定值(top:20px;)则转为固定定位。（relative+fixed）
+
+
+
+
 
 ## 隐藏元素的方式
 
@@ -136,6 +143,7 @@
   );
 }
 ```
+
 
 
 ## 优雅降级和渐进增强 
