@@ -122,4 +122,70 @@ function createTask(delay) {
   });
 ```
 
-## 介绍 service worker
+
+## Web Worker
+
+可以创建一个独立线程, 因为不会阻塞主线程运行,可以将比较耗费资源操作放在里面执行,比如耗时计算,可以通过 `postMessage` 进行线程间通信
+
+```js
+// 主线程
+var worker = new Worker('worker.js')
+worker.postMessage([10, 24])
+worker.onmessage = function(e) {
+    console.log(e.data)
+}
+
+// Worker 线程
+onmessage = function (e) {
+    if (e.data.length > 1) {
+        postMessage(e.data[1] - e.data[0])
+    }
+}
+
+// 主线程
+worker.terminate()
+```
+在 Worker 线程中，self 和 this 都代表子线程的全局对象。对于监听 message 事件，以下的四种写法:
+
+```js
+// 写法 1
+self.addEventListener('message', function (e) {
+    // ...
+})
+
+// 写法 2
+this.addEventListener('message', function (e) {
+    // ...
+})
+
+// 写法 3
+addEventListener('message', function (e) {
+    // ...
+})
+
+// 写法 4
+onmessage = function (e) {
+    // ...
+}
+```
+## Service Worker
+
+服务器与浏览器之间的中间人，如果网站中注册了**Service Worker**那么它可以拦截当前网站所有的请求，进行判断（需要编写相应的判断程序），如果需要向服务器发起请求的就转给服务器，如果可以直接使用缓存的就直接返回缓存不再转给服务器,我们在**Service Worker** 中可以做拦截客户端的请求、向客户端发送消息、向服务器发起请求等先关操作，其中最重要且广泛的的作用就是离线资源缓存。
+
+## 特性
+
+1. 基于web worker（JavaScript主线程的独立线程，如果执行消耗大量资源的操作也不会堵塞主线程）
+2. 在web worker的基础上增加了离线缓存的能力
+3. 本质上充当Web应用程序（服务器）与浏览器之间的代理服务器
+4. 创建有效的离线体验（将一些不常更新的内容缓存在浏览器，提高访问体验）
+5. 由事件驱动的,具有生命周期
+6. 可以访问cache和indexDB
+7. 支持消息推送
+8. 并且可以让开发者自己控制管理缓存的内容以及版本
+9. 可以通过 postMessage 接口把数据传递给其他JS 文件
+10. 更多无限可能
+
+:::warning
+
+不能访问 DOM、不能同步操作
+:::
