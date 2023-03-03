@@ -2,6 +2,7 @@ import { generateSitemap as sitemap } from 'sitemap-ts'//站点地图
 import getNavs from "./configs/nav"
 import socialLinks from "./configs/socialLinks"
 import sidebar from './sidebar/index'
+//引入环境变量
 export default  {
   //根据环境变量决定打包路径
   // base: process.env.NODE_ENV === 'production' ? '/zerdocs/' : '/',

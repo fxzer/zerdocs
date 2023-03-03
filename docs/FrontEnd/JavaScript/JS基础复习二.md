@@ -1,6 +1,6 @@
 
 
-### 1.this指向
+### this指向
 
 
 根据函数调用方式的不同，this的值也不同：
@@ -66,13 +66,11 @@ let newfn = fn.bind(obj, 10, 20, 30)//不会立即执行, 返回一个新函数 
 
 
 
-### 2.filter返回值属于浅拷贝
 
 
 
-### 3.可变参数
 
-arguments
+### 可变参数 `arguments`
 
 ```js
  // 定义一个函数，可以求任意个数值的和
@@ -97,19 +95,16 @@ function sum() {
 
 ```
 
-可变参数`...args`
+### 剩余参数 `...args`
 
 ```js
  function sum2(...num) {
  /* 
-可变参数，在定义函数时可以将参数指定为可变参数
-- 可变参数可以接收任意数量实参，并将他们统一存储到一个数组中返回
-- 可变参数的作用和arguments基本是一致，但是也具有一些不同点：
-    1. 可变参数的名字可以自己指定
-    2. 可变参数就是一个数组，可以直接使用数组的方法
-    3. 可变参数可以配合其他参数一起使用,
-       当可变参数和普通参数一起使用时，需要将可变参数写到最后
-    */
+剩余参数，在定义函数时可以将参数指定为剩余参数
+- 剩余参数可以接收任意数量实参，并将他们统一存储到一个数组中返回
+- 作用和arguments基本是一致，但是也具有一些不同点：
+    是一个数组，名字可以自己指定，配合其他参数一起使用，剩余参数写到最后。
+ */
     return num.reduce((a, b) => a + b, 0)
  }
 function fn3(a, b, ...args) {
@@ -117,7 +112,7 @@ function fn3(a, b, ...args) {
  }
 ```
 
-### 4.map
+### Map
 
 - **Map用来存储键值对结构的数据（key-value）**
 - Object中存储的数据就可以认为是一种键值对结构
@@ -171,7 +166,7 @@ const map2 = new Map([
 ])
 ```
 
-### 5.Set
+### Set
 
 ```js
 /* - 使用方式：
@@ -190,7 +185,7 @@ const map2 = new Map([
 
 ```
 
-### 6.随机数生成
+### 随机数生成
 
 ```js
  Math.random() --> 0 - 1
@@ -202,7 +197,7 @@ Math.floor(Math.random() * (x + 1))
 Math.round(Math.random() * (y-x) + x)
 ```
 
-### 7.时间格式化
+### 时间格式化
 
 ```js
 const d = new Date()
@@ -210,39 +205,24 @@ const d = new Date()
 let result = d.toLocaleDateString() // 将日期转换为本地的字符串		'2021/10/1
 result = d.toLocaleTimeString() // 将时间转换为本地的字符串 	'21:32:35'
 /*   - 参数：
-1. 描述语言和国家信息的字符串
+1. locales: 描述语言和国家信息的字符串
     zh-CN 中文中国
     zh-HK 中文香港
     en-US 英文美国
-2. 需要一个对象作为参数，在对象中可以通过对象的属性来对日期的格式进行配置
-        dateStyle 日期的风格
-        timeStyle 时间的风格
-            full
-            long
-            medium
-            short
-        hour12 是否采用12小时值
-            true
-            false
-        weekday 星期的显示方式
-            long
-            short
-            narrow
-
-        year
-            numeric
-            2-digit
+2. options: 需要一个对象作为参数，在对象中可以通过对象的属性来对日期的格式进行配置
 */
   result = d.toLocaleString("zh-CN", {
     year: "numeric",
     month: "long",
     day: "2-digit",
     weekday: "short",
+    hour: "2-digit",
+    minute: "2-digit"
 })
 
 ```
 
-### 8.面向对象之类
+### 面向对象之类
 
 ```js
  class Person{
@@ -333,8 +313,7 @@ result = d.toLocaleTimeString() // 将时间转换为本地的字符串 	'21:32:
 ```
 
 #### 继承
-:::tip
-继承
+:::tip 继承
 - 可以通过extends关键来完成继承
      时，就相当于将另一个类中的代码复制到了当前类中（简单理解）
 - 继承发生时，被继承的类称为 父类（超类），继承的类称为 子类
@@ -385,7 +364,7 @@ sayHello(person)
 
 ```
 
-### 9.对象的结构
+### 对象的结构
 
 #### 原型
 
@@ -407,13 +386,15 @@ sayHello(person)
         2. 主动向原型中添加的属性或方法
 
 1. 访问一个对象的原型对象
-   - 对象.__proto__
+   - `obj.__proto__`
    - `Object.getPrototypeOf(对象)`
    
 2. 原型对象中的数据：
    - 对象中的数据（属性、方法等）
    - constructor （对象的构造函数）
-原型链:原型对象也有原型，这样就构成了一条原型链，根据对象的复杂程度不同，原型链的长度也不同
+
+
+**原型链:** 原型对象也有原型，这样就构成了一条原型链，根据对象的复杂程度不同，原型链的长度也不同
  obj对象的原型链：obj对象 --> 原型 --> null
 ::: 
 
