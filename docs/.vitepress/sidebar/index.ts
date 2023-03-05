@@ -241,16 +241,16 @@ export default {
       "collapsed": false,
       "items": [
         {
+          "text": "事件循环机制",
+          "link": "/Interview/Brower/事件循环机制"
+        },
+        {
           "text": "浏览器网页请求过程",
           "link": "/Interview/Brower/浏览器网页请求过程"
         },
         {
           "text": "计算机网络",
           "link": "/Interview/Brower/计算机网络"
-        },
-        {
-          "text": "进程与线程",
-          "link": "/Interview/Brower/进程与线程"
         }
       ]
     },
