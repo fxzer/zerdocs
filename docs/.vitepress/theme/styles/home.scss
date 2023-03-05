@@ -66,8 +66,11 @@
   box-shadow: 0 0 6px 0 rgba(0,0,0,.2);
   transform: translate(0, -2px);
 }
-
-/*代码块主题 */
-/* .dark .vp-doc [class*='language-'] pre.shiki{
-  
-} */
+.vp-doc blockquote{
+  background-color: #f8efff;
+  border-left-color: #d2a3f6;
+}
+.dark .vp-doc blockquote {
+  background-color: #564757;
+  border-left-color:#975f9c;
+}
