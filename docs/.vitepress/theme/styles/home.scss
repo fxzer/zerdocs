@@ -70,7 +70,16 @@
   background-color: #f8efff;
   border-left-color: #d2a3f6;
 }
+.custom-block.details{
+  background-color: #f3f3f3;
+}
+ .vp-doc .details.custom-block div[class*='language-'] + div[class*='language-']{
+  margin-top:8px;
+}
 .dark .vp-doc blockquote {
   background-color: #564757;
   border-left-color:#975f9c;
+}
+.dark .custom-block.details{
+  background-color: var(--vp-custom-block-details-bg);
 }

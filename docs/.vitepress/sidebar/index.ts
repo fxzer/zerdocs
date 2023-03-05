@@ -260,16 +260,16 @@ export default {
       "collapsed": false,
       "items": [
         {
-          "text": "CSS基础面试题",
-          "link": "/Interview/CSS/CSS基础面试题"
+          "text": "基础面试题",
+          "link": "/Interview/CSS/基础面试题"
         },
         {
-          "text": "CSS进阶面试题",
-          "link": "/Interview/CSS/CSS进阶面试题"
+          "text": "进阶面试题",
+          "link": "/Interview/CSS/进阶面试题"
         },
         {
-          "text": "CSS高级面试题",
-          "link": "/Interview/CSS/CSS高级面试题"
+          "text": "高级面试题",
+          "link": "/Interview/CSS/高级面试题"
         }
       ]
     },
