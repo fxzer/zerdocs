@@ -310,6 +310,10 @@ export default {
       "collapsed": false,
       "items": [
         {
+          "text": "Vue声明周期",
+          "link": "/Interview/Vue/Vue声明周期"
+        },
+        {
           "text": "npm run xxx执行过程",
           "link": "/Interview/Vue/npm run xxx执行过程"
         },
