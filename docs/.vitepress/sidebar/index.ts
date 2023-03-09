@@ -320,6 +320,10 @@ export default {
         {
           "text": "前端项目优化",
           "link": "/Interview/Vue/前端项目优化"
+        },
+        {
+          "text": "自定义指令",
+          "link": "/Interview/Vue/自定义指令"
         }
       ]
     }
