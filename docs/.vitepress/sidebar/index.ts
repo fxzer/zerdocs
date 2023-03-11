@@ -179,8 +179,8 @@ export default {
           "link": "/FrontEnd/JavaScript/数据去重"
         },
         {
-          "text": "数组求集合方法",
-          "link": "/FrontEnd/JavaScript/数组求集合方法"
+          "text": "数组求集合",
+          "link": "/FrontEnd/JavaScript/数组求集合"
         },
         {
           "text": "获取目录结构",
