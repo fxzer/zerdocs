@@ -175,6 +175,10 @@ export default {
           "link": "/FrontEnd/JavaScript/手写Promise"
         },
         {
+          "text": "数据去重",
+          "link": "/FrontEnd/JavaScript/数据去重"
+        },
+        {
           "text": "数组求集合方法",
           "link": "/FrontEnd/JavaScript/数组求集合方法"
         },
@@ -320,6 +324,10 @@ export default {
         {
           "text": "前端项目优化",
           "link": "/Interview/Vue/前端项目优化"
+        },
+        {
+          "text": "常见Path区别",
+          "link": "/Interview/Vue/常见Path区别"
         },
         {
           "text": "自定义指令",
