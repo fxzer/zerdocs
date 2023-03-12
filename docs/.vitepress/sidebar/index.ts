@@ -151,8 +151,8 @@ export default {
           "link": "/FrontEnd/JavaScript/JS基础复习二"
         },
         {
-          "text": "JS排序算法",
-          "link": "/FrontEnd/JavaScript/JS排序算法"
+          "text": "JS常见算法",
+          "link": "/FrontEnd/JavaScript/JS常见算法"
         },
         {
           "text": "JS文件系统",
@@ -228,17 +228,6 @@ export default {
   ],
   "/GoodTool/": [],
   "/Interview/": [
-    {
-      "text": "Algorithm",
-      "collapsible": true,
-      "collapsed": false,
-      "items": [
-        {
-          "text": "基础应用题",
-          "link": "/Interview/Algorithm/基础应用题"
-        }
-      ]
-    },
     {
       "text": "Brower",
       "collapsible": true,

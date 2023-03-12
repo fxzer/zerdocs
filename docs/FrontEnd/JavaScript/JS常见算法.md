@@ -1,0 +1,971 @@
+
+## 括号匹配
+
+```js
+let str1 = '{[]}'	//true
+let str2 = '{[[]}'	//false
+let str3 = '{[]}['	//false
+let str4 = '{[()]}'	//true
+```
+**解决方案：**
+
+```js {11-19}
+const isValid = function(str) {
+    let map = {
+        ')': '(',
+        '}': '{',
+        ']': '['
+    }
+    let arr = []
+    if (str.length == 0) {
+        return false
+    }
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] == '(' || str[i] == '{' || str[i] == '[') {
+            arr.push(str[i])
+        } else {
+            //栈顶出栈的左括号 !== map取出右括号匹配的括号类型
+            if (map[str[i]] != arr.pop()) {
+                return false
+            }
+        }
+    }
+    // arr数组已全部匹配，出完栈
+    if (arr.length !== 0) {
+        return false
+    }
+    return true
+}
+```
+
+
+
+## 字符串反转
+
+```js
+//解法一：使用数组的reverse()方法
+
+function reverseString(str) {
+  return str.split('').reverse().join('');
+}
+
+//解法二：使用for循环遍历字符串
+
+function reverseString(str) {
+  let result = '';
+  for (let i = str.length - 1; i >= 0; i--) {
+    result += str[i];
+  }
+  return result;
+}
+
+//解法三：使用递归函数
+
+function reverseString(str) {
+  if (str === '') {  // 递归结束条件
+    return '';
+  } else {
+    return reverseString(str.substr(1)) + str.charAt(0);
+  }
+} 
+
+//该方法将字符串不断缩短，直到缩短到长度为0时返回空字符串，并在返回的过程中将每个字符按相反的顺序拼接起来。
+```
+
+
+
+## 求最大公约数
+
+```js
+function gcd(a, b) {
+  if (b === 0) {
+    return a;
+  }
+  return gcd(b, a % b);
+}
+
+console.log(gcd(12, 8)); // 输出 4
+console.log(gcd(54, 24)); // 输出 6
+console.log(gcd(48, 180)); // 输出 12
+```
+
+## 斐波那契数列
+
+```js
+//递归实现
+function fibonacci(n){
+  if(n<=1) return n;
+  return fibonacci(n-1) + fibonacci(n-2);
+}
+
+//动态规划实现
+function fibonacci(n){
+  let f = [0,1];
+  for(let i=2;i<=n;i++){
+    f[i] = f[i-1] + f[i-2];
+  }
+  return f[n];
+}
+
+//测试
+for(let i=0;i<=10;i++){
+  console.log(`fibonacci(${i}): ${fibonacci(i)}`);
+}
+
+/*
+输出：
+fibonacci(0): 0
+fibonacci(1): 1
+fibonacci(2): 1
+fibonacci(3): 2
+fibonacci(4): 3
+fibonacci(5): 5
+fibonacci(6): 8
+fibonacci(7): 13
+fibonacci(8): 21
+fibonacci(9): 34
+fibonacci(10): 55
+*/
+```
+
+
+
+## 排序算法
+
+### 选择排序
+
+[**排序动画图解**   ](https://visualgo.net/en)
+
+**随机生成测试数组**
+
+```js {3}
+var testArr = []
+for (var i = 0; i < 10000; i++) {
+     testArr.push(Math.floor(Math.random() * 100000))
+}
+```
+
+
+
+```js {9-13}
+arr = [3,7,6,9,4,5,2,8]
+const selectSort = (arr) => {
+if (!Array.isArray(arr)) {
+    throw new Error(arr + "is not Array")
+}
+for (let i = 0; i < arr.length; i++) {
+    let minIndex = i;
+    //找到arr[i]后的最小值得索引
+    for (let j = i + 1; j < arr.length; j++) {
+        if (arr[j] < arr[minIndex]) {
+            minIndex = j
+        }
+    }
+    //交换
+    let tem = arr[i]
+    arr[i] = arr[minIndex]
+    arr[minIndex] = tem
+}
+return arr
+}
+```
+
+### 快速排序
+
+```js {7,10-19}
+var quickSort = function(arr) {
+    if (arr.length <= 1) {
+        return arr;
+    }　　
+    var pivotIndex = Math.floor(arr.length / 2);
+	//选中心轴索引，并选取中心轴的值
+    var pivot = arr.splice(pivotIndex, 1)[0];　　
+    var left = [];　　
+    var right = [];　
+    for (var i = 0; i < arr.length; i++) {　　　　
+        //与中心轴比较，小的放在左数组，大的放在由数组　
+        if (arr[i] < pivot) {　　　　　　
+            left.push(arr[i]);　　　　
+        } else {　　　　　　
+            right.push(arr[i]);　　　　
+        }　
+    // item <= pivot ? left.push(item) : right.push(item)
+    }　　
+    return quickSort(left).concat([pivot], quickSort(right));
+
+};
+```
+
+题目描述：实现快速排序，使用递归算法。
+解法：递归地分割数组，并使用分区算法将数组分成两个部分。
+1. 首先选择基准元素pivot，可以选择数组的第一个元素，最后一个元素或随机选择。
+2. 将数组分成两个子数组，小于pivot的元素放在左边，大于pivot的元素放在右边，相等的元素可以放在任意一边。
+3. 递归地对左右两个子数组进行快速排序。
+4. 当子数组的长度小于等于1时，停止递归。
+5. 将排好序的左右两个子数组合并成一个有序数组。
+
+```js
+
+function quickSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+  const pivot = arr[0];
+  const left = [];
+  const right = [];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < pivot) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
+    }
+  }
+  return quickSort(left).concat(pivot, quickSort(right));
+}
+
+// 测试
+const arr = [4, 2, 1, 5, 6, 3];
+quickSort(arr)
+```
+
+
+
+### 插入排序
+
+以第一个数为有序数组，让后面每一个数比较找位置并插入有序数组里。
+
+ 若后面待插入的数大于有序数组的最后一个数，就放在原位；
+
+若第小于有序数组的最后一个数，则进入while循环，在有序数组中找位置：
+
+`arr[preIndex]`后移索引变为`preIndex+1`，`current`插入到`arr[preIndex]`前一位，也就是`arr[preindex-1+1]`
+
+```js {8-12}
+function insertSort(arr) {
+    let len = arr.length;
+    let preIndex, current;
+    for (let i = 1; i < len; i++) {
+        preIndex = i - 1;
+        current = arr[i];
+      //  while (preIndex >= 0 && current < arr[preIndex]) {//从大到小
+        while (preIndex >= 0 && current < arr[preIndex]) {//从小到大
+            arr[preIndex + 1] = arr[preIndex];//后移
+            preIndex--;
+        }//退出while循环时，说明插入位置找到
+        arr[preIndex + 1] = current;
+    }
+    return arr;
+}
+```
+
+
+
+### 希尔排序
+
+```js {10-14,6}
+function shellSort(array) {
+    let gap = Math.floor(array.length / 2);
+
+    while (1 <= gap) {
+        // 把距离为 gap 的元素编为一个组，扫描所有组
+        for (let i = gap; i < array.length; i++) {
+            let j = 0;
+            let temp = array[i];
+
+            // 对距离为 gap 的元素组进行排序
+            for (j = i - gap; j >= 0 && temp < array[j]; j -= gap) {
+                array[j + gap] = array[j];
+            }
+            array[j + gap] = temp;
+        }
+        gap = Math.floor(gap / 2); // 减小增量
+    }
+    return array;
+}
+```
+
+1. 求两个有序数组的中位数
+题目描述：给定两个大小为 m 和 n 的有序数组 nums1 和 nums2，请找出这两个有序数组的中位数。
+解法：使用归并排序，合并两个有序数组，然后求中位数。时间复杂度为 O(m+n)。
+```js
+function findMedianSortedArrays(nums1, nums2) {
+    const mergeArr = merge(nums1, nums2); // 合并两个有序数组
+    const len = mergeArr.length;
+    // 判断合并后的数组长度，分奇偶情况求中位数
+    if(len % 2 === 0) {
+        return (mergeArr[len/2-1] + mergeArr[len/2])/2;
+    } else {
+        return mergeArr[Math.floor(len/2)];
+    }
+}
+
+// 归并排序合并两个有序数组
+function merge(nums1, nums2) {
+    const result = [];
+    let i = 0, j = 0;
+    while(i < nums1.length && j < nums2.length) {
+        if(nums1[i] < nums2[j]) {
+            result.push(nums1[i]);
+            i++;
+        } else {
+            result.push(nums2[j]);
+            j++;
+        }
+    }
+    while(i < nums1.length) {
+        result.push(nums1[i]);
+        i++;
+    }
+    while(j < nums2.length) {
+        result.push(nums2[j]);
+        j++;
+    }
+    return result;
+}
+```
+2. 实现一个EventEmitter
+题目描述：实现一个 EventEmitter，可以添加事件侦听器，触发事件，并处理异步事件。
+解法：使用观察者模式实现，使用注册表存储事件和侦听器。
+```js
+class EventEmitter {
+  constructor() {
+    this.registry = {};
+  }
+
+  on(eventName, listener) {
+    if (!this.registry[eventName]) {
+      this.registry[eventName] = [];
+    }
+    this.registry[eventName].push(listener);
+  }
+
+  emit(eventName, ...args) {
+    if (this.registry[eventName]) {
+      this.registry[eventName].forEach((listener) => {
+        setTimeout(() => {
+          listener(...args);
+        }, 0);
+      });
+    }
+  }
+}
+```
+
+:::details 测试
+```js
+const eventEmitter = new EventEmitter();
+
+eventEmitter.on('eventA', () => { console.log('eventA triggered'); });
+eventEmitter.on('eventB', () => { console.log('eventB triggered'); });
+
+eventEmitter.emit('eventA');
+eventEmitter.emit('eventB');
+```
+:::
+## 扁平化数组 
+
+```js
+//ES6的flat方法实现：
+function flatten(array) {
+  return array.flat(Infinity)
+}
+//仅限二维数组
+function flat(arr){
+  return Array.prototype.concat.apply([],arr)
+}
+let array1 = [2,3,4,[4,6,5,8]]
+flat(array1)	[2, 3, 4, 4, 6, 5, 8]
+ 
+//多维数组
+function flatplus(arr){
+  while(arr.some(item => item instanceof Array)){
+    arr = Array.prototype.concat.apply([],arr)
+  }
+  return arr
+}
+let arr = [2,3,4,[5,[6,[7]]]]
+flatplus(arr)	//[2, 3, 4, 5, 6, 7]
+
+//可控制扁平化深度
+function flatplus(arr,depth){
+  let deep = 0	
+  let flag = arr.some(item => item instanceof Array) && deep < depth
+  while(flag){
+    arr = Array.prototype.concat.apply([],arr)
+    ++deep
+  }
+  return arr
+}
+```
+使用递归实现：
+
+```javascript
+function flatten(array) {
+  let result = []
+  for (let i = 0; i < array.length; i++) {
+    if (Array.isArray(array[i])) {
+      result = result.concat(flatten(array[i]))
+    } else {
+      result.push(array[i])
+    }
+  }
+  return result
+}
+```
+
+其中，`Infinity`表示要扁平化的层数，如果不传参数或传入`1`，则只会扁平化一层。
+
+
+## 生成随机十六进制颜色
+
+```js
+let color = '#' + parseInt(Math.random() * 0x1000000).toString(16).padStart(6, '0')
+```
+
+```js
+function randomColor() {
+    const r = (Math.floor(Math.random() * 255)).toString(16);
+    const g = (Math.floor(Math.random() * 255)).toString(16);
+    const b = (Math.floor(Math.random() * 255)).toString(16);
+    const a = (Math.random()).toString(16).slice(2, 4);
+    return `#` + r + g + b + a;
+  }
+```
+
+## 返回给定起止日期中间所有月份
+```js
+function getMonthBetween(start, end) {
+  const result = [];
+  const s = start.split('-');
+  const e = end.split('-');
+  const min = new Date();
+  const max = new Date();
+  min.setFullYear(s[0], s[1] - 1);
+  max.setFullYear(e[0], e[1] - 1);
+  const curr = min;
+  while (curr <= max) {
+    result.push(`${curr.getFullYear()}-${curr.getMonth() + 1}`);
+    curr.setMonth(curr.getMonth() + 1);
+  }
+  return result;
+}
+```
+
+
+## 实现Promise的all方法
+```js
+function promiseAll(promiseArr) {
+  return new Promise((resolve, reject) => {
+    let count = 0;
+    const resArr = [];
+    for (let i = 0; i < promiseArr.length; i++) {
+      promiseArr[i]
+        .then((res) => {
+          count++;
+          resArr[i] = res;
+          if (count === promiseArr.length) {
+            resolve(resArr);
+          }
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    }
+  });
+}
+
+// 使用示例
+let promise1 = Promise.resolve(1);
+let promise2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(2)
+    }, 2000);
+});
+let promise3 = Promise.reject("error");
+
+promiseAll([promise1, promise2, promise3])
+  .then((res) => {
+    console.log(res); // [1, 2, "error"]
+  })
+  .catch((err) => {
+    console.log(err); // error
+  });
+```
+
+## 实现Function.prototype.bind方法
+```js
+Function.prototype.bind = function(context){
+  var self = this;
+  var args = Array.prototype.slice.call(arguments, 1);
+  return function(){
+    var bindArgs = Array.prototype.slice.call(arguments);
+    return self.apply(context, args.concat(bindArgs));
+  };
+};
+```
+
+
+
+## 实现正则表达式匹配函数
+```js
+function match(text, pattern) {
+  if (pattern.length === 0) return text.length === 0; // 如果模式串为空，则只有当文本串也为空才匹配成功
+  if (pattern.length === 1 || pattern[1] !== '*') {
+    // 模式串的第二个字符不是'*'，或者模式串的长度只有1个，此时只需匹配第一个字符
+    if (text.length === 0 || (text[0] !== pattern[0] && pattern[0] !== '.')) { // 如果第一个字符不匹配，或者文本串为空，匹配失败
+      return false;
+    }
+    return match(text.slice(1), pattern.slice(1)); // 匹配剩下的部分
+  } else {
+    // 模式串的第二个字符是'*'，此时有两种情况：匹配0次或匹配1次或多次
+    // 先尝试匹配0次
+    if (match(text, pattern.slice(2))) return true;
+    // 如果匹配不成功，则尝试匹配1次或多次
+    let i = 0;
+    while (i < text.length && (text[i] === pattern[0] || pattern[0] === '.')) {
+      if (match(text.slice(i + 1), pattern.slice(2))) return true;
+      i++;
+    }
+    return false; // 匹配失败
+  }
+}
+```
+
+函数实现：
+
+```javascript
+function match(text, pattern) {
+  const lenT = text.length;
+  const lenP = pattern.length;
+  const dp = Array.from({ length: lenT + 1 }, () =>
+    Array.from({ length: lenP + 1 }, () => false)
+  );
+  dp[0][0] = true;
+  for (let i = 0; i <= lenT; i++) {
+    for (let j = 1; j <= lenP; j++) {
+      if (pattern[j - 1] === "*") {
+        dp[i][j] =
+          dp[i][j - 2] || (i > 0 && dp[i - 1][j] && matchChar(text[i - 1], pattern[j - 2]));
+      } else {
+        dp[i][j] = i > 0 && dp[i - 1][j - 1] && matchChar(text[i - 1], pattern[j - 1]);
+      }
+    }
+  }
+  return dp[lenT][lenP];
+}
+
+function matchChar(s, p) {
+  return s === p || p === ".";
+}
+```
+
+测试：
+
+```javascript
+console.log(match("aa", "a")); // false
+console.log(match("aa", "a*")); // true
+console.log(match("ab", ".*")); // true
+console.log(match("aab", "c*a*b")); // true
+console.log(match("mississippi", "mis*is*p*.")); // false
+console.log(match("aaa", "a*a")); // true
+console.log(match("aaa", "ab*a*c*a")); // true
+```
+
+
+
+## LRU缓存算法
+题目描述：实现一个LRU缓存算法，缓存固定大小，当缓存超出容量时，删除最久未被使用的元素。
+解法：使用链表和哈希表实现。
+```js
+/**
+ * LRU缓存算法的实现类
+ * @param {number} capacity 缓存最大容量
+ */
+class LRUCache {
+  constructor(capacity) {
+    this.capacity = capacity; // 缓存最大容量
+    this.cache = new Map(); // 使用Map来存储key-value
+  }
+
+  /**
+   * 获取缓存中对应key的值，如果不存在则返回-1
+   * @param {number} key
+   * @return {number}
+   */
+  get(key) {
+    const cache = this.cache;
+    if (!cache.has(key)) {
+      return -1;
+    }
+    const value = cache.get(key);
+    // 将访问的元素删除并重新添加到最前面
+    cache.delete(key);
+    cache.set(key, value);
+    return value;
+  }
+
+  /**
+   * 添加一个元素到缓存中，并在超出容量时删除最久未被使用的元素
+   * @param {number} key
+   * @param {number} value
+   * @return {void}
+   */
+  put(key, value) {
+    const cache = this.cache;
+    // 如果key已经存在，则先删除这个节点
+    if (cache.has(key)) {
+      cache.delete(key);
+    } else if (cache.size >= this.capacity) {
+      // 如果缓存超出容量，则删除最久未被使用的元素，即链表尾部元素
+      const keys = cache.keys();
+      const oldestKey = keys.next().value; // 链表头部是最久未使用的元素
+      cache.delete(oldestKey);
+    }
+    // 将新节点添加到链表头部
+    cache.set(key, value);
+  }
+}
+```
+
+使用示例：
+
+```js
+const cache = new LRUCache(2);
+
+console.log(cache.put(1, 1)); // 缓存是 {1=1}
+console.log(cache.put(2, 2)); // 缓存是 {1=1, 2=2}
+console.log(cache.get(1)); // 返回 1
+console.log(cache.put(3, 3)); // 删除 key 2，缓存是 {1=1, 3=3}
+console.log(cache.get(2)); // 返回 -1
+console.log(cache.put(4, 4)); // 删除 key 1，缓存是 {3=3, 4=4}
+console.log(cache.get(1)); // 返回 -1
+console.log(cache.get(3)); // 返回 3
+console.log(cache.get(4)); // 返回 4
+```
+## 不使用乘法符号乘法函数
+```js
+//时间复杂度O(logN)：使用二进制移位和加法实现
+function multiplication(a, b){
+    if(a==0||b==0){
+        return 0;
+    }
+    let s=0;
+    while(b>1){
+        if(b%2==1){
+            s=s+a;
+        }
+        a=a<<1;
+        b=b>>1;
+    }
+    return a+s;
+}
+
+console.log(multiplication(2, 3)); // 6
+console.log(multiplication(10, 5)); // 50
+console.log(multiplication(20, 0)); // 0
+console.log(multiplication(0, 5)); // 0
+```
+
+
+## 链表反转
+
+```js
+function reverseLinkedList(head) {
+  let prev = null;
+  let current = head;
+  while (current !== null) {
+    let next = current.next;
+    current.next = prev;
+    prev = current;
+    current = next;
+  }
+  return prev;
+}
+
+//测试
+class Node {
+  constructor(value, next = null) {
+    this.value = value;
+    this.next = next;
+  }
+}
+
+let n1 = new Node(1);
+let n2 = new Node(2);
+let n3 = new Node(3);
+let n4 = new Node(4);
+let n5 = new Node(5);
+
+n1.next = n2;
+n2.next = n3;
+n3.next = n4;
+n4.next = n5;
+
+let head = n1;
+console.log("Original LinkedList: ");
+printLinkedList(head);
+
+head = reverseLinkedList(head);
+console.log("\nReversed LinkedList: ");
+printLinkedList(head);
+
+function printLinkedList(head) {
+  let current = head;
+  while (current !== null) {
+    process.stdout.write(current.value + " ");
+    current = current.next;
+  }
+}
+```
+
+## 二叉树的遍历
+
+**二叉树三种遍历方式**：
+
+- 前序遍历：先访问节点，然后再访问左子树和右子树。
+- 中序遍历：先访问左子树，然后访问节点，最后访问右子树。
+- 后序遍历：先访问左子树，然后访问右子树，最后访问节点。
+
+```javascript
+// 定义二叉树节点类
+class TreeNode {
+  constructor(val) {
+    this.val = val;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+// 前序遍历
+function preOrderTraversal(root, res = []) {
+  if (!root) return res;
+  res.push(root.val);
+  preOrderTraversal(root.left, res);
+  preOrderTraversal(root.right, res);
+  return res;
+}
+
+// 中序遍历
+function inOrderTraversal(root, res = []) {
+  if (!root) return res;
+  inOrderTraversal(root.left, res);
+  res.push(root.val);
+  inOrderTraversal(root.right, res);
+  return res;
+}
+
+// 后序遍历
+function postOrderTraversal(root, res = []) {
+  if (!root) return res;
+  postOrderTraversal(root.left, res);
+  postOrderTraversal(root.right, res);
+  res.push(root.val);
+  return res;
+}
+
+/* ------------- 测试 -------------- */
+
+//     1
+//   /   \
+//  2     3
+// / \   / \
+//4   5 6   7
+const root = new TreeNode(1);
+root.left = new TreeNode(2);
+root.left.left = new TreeNode(4);
+root.left.right = new TreeNode(5);
+root.right = new TreeNode(3);
+root.right.left = new TreeNode(6);
+root.right.right = new TreeNode(7);
+
+console.log(preOrderTraversal(root));   // [1, 2, 4, 5, 3, 6, 7]
+console.log(inOrderTraversal(root));    // [4, 2, 5, 1, 6, 3, 7]
+console.log(postOrderTraversal(root));  // [4, 5, 2, 6, 7, 3, 1]
+```
+
+
+运行结果：
+
+```
+[1, 2, 4, 5, 3, 6, 7]
+[4, 2, 5, 1, 6, 3, 7]
+[4, 5, 2, 6, 7, 3, 1]
+```
+
+
+上面代码中，我们定义了一个 `TreeNode` 类，表示二叉树中的一个节点，包含节点值 `val`，左子树 `left` 和右子树 `right` 三个属性。接着，我们分别实现了前序、中序和后序遍历函数 `preOrderTraversal`、`inOrderTraversal`、`postOrderTraversal`，使用递归的方式实现遍历，将遍历结果保存到数组 `res` 中并返回。
+
+最后我们创建一个二叉树，并测试三种遍历方式得到的结果，可以看到我们实现的遍历函数符合预期。
+## 二叉搜索树的插入和查找
+
+```js
+递归实现：
+
+function Node(value) {
+  this.value = value;
+  this.left = null;
+  this.right = null;
+}
+
+function BST() {
+  this.root = null;
+}
+
+BST.prototype.insert = function(value) {
+  var newNode = new Node(value);
+  if (this.root === null) {
+    this.root = newNode;
+  } else {
+    this.insertNode(this.root, newNode);
+  }
+};
+
+BST.prototype.insertNode = function(node, newNode) {
+  if (newNode.value < node.value) {
+    if (node.left === null) {
+      node.left = newNode;
+    } else {
+      this.insertNode(node.left, newNode);
+    }
+  } else {
+    if (node.right === null) {
+      node.right = newNode;
+    } else {
+      this.insertNode(node.right, newNode);
+    }
+  }
+};
+
+BST.prototype.search = function(value) { 
+  return this.searchNode(this.root, value); 
+};
+
+BST.prototype.searchNode = function(node, value) { 
+  if (node === null) {
+    return false;
+  } else if (value < node.value) {
+    return this.searchNode(node.left, value);
+  } else if (value > node.value) {
+    return this.searchNode(node.right, value);
+  } else {
+    return true;
+  }
+};
+
+循环实现：
+
+function Node(value) {
+  this.value = value;
+  this.left = null;
+  this.right = null;
+}
+
+function BST() {
+  this.root = null;
+}
+
+BST.prototype.insert = function(value) {
+  var newNode = new Node(value);
+  if (this.root === null) {
+    this.root = newNode;
+    return;
+  }
+  var current = this.root;
+  while (current !== null) {
+    if (value < current.value) {
+      if (current.left === null) {
+        current.left = newNode;
+        return;
+      }
+      current = current.left;
+    } else {
+      if (current.right === null) {
+        current.right = newNode;
+        return;
+      }
+      current = current.right;
+    }
+  }
+};
+
+BST.prototype.search = function(value) {
+  var current = this.root;
+  while (current !== null) {
+    if (value < current.value) {
+      current = current.left;
+    } else if (value > current.value) {
+      current = current.right;
+    } else {
+      return true;
+    }
+  }
+  return false;
+};
+```
+
+
+
+## 字符串搜索算法
+
+```javascript
+//KMP算法是一种高效的字符串搜索算法，在对文本串和模式串进行匹配时，通过利用前缀表来避免不必要的比较，从而实现快速匹配。
+function kmp(text, pattern) {
+  let n = text.length;
+  let m = pattern.length;
+
+  // 构建前缀表
+  let prefix = Array(m).fill(0);
+  let j = 0;
+  for (let i = 1; i < m; i++) {
+    while (j > 0 && pattern[j] !== pattern[i]) {
+      j = prefix[j - 1];
+    }
+    if (pattern[j] === pattern[i]) {
+      j++;
+    }
+    prefix[i] = j;
+  }
+
+  // 匹配文本串和模式串
+  j = 0;
+  for (let i = 0; i < n; i++) {
+    while (j > 0 && pattern[j] !== text[i]) {
+      j = prefix[j - 1];
+    }
+    if (pattern[j] === text[i]) {
+      j++;
+    }
+    if (j === m) {
+      return i - m + 1;
+    }
+  }
+
+  return -1;
+}
+```
+
+在这个函数中，我们首先计算出模式串的前缀表，然后逐个字符地扫描文本串和模式串，利用前缀表来确定匹配的位置。
+
+接下来，我们可以使用这个函数来测试一下：
+
+```javascript
+let text = "hello world";
+let pattern = "world";
+let index = kmp(text, pattern);
+console.log(index); // 输出5
+```
+
+在这个例子中，我们将文本串设置为“hello world”，将模式串设置为“world”，然后调用kmp函数来查找匹配位置。由于模式串出现在文本串的位置是5，所以kmp函数返回的结果也是5。
+
+这里还可以尝试一些其他的测试用例，例如：
+
+```javascript
+let text = "abababaababacb";
+let pattern = "ababacb";
+let index = kmp(text, pattern);
+console.log(index); // 输出7
+```
+
+这个例子中，我们将文本串设置为“abababaababacb”，将模式串设置为“ababacb”，然后调用kmp函数来查找匹配位置。由于模式串出现在文本串的位置是7，所以kmp函数返回的结果也是7。
+
+总之，KMP算法是一种高效的字符串搜索算法，通过利用前缀表来避免不必要的比较，能够快速地查找匹配位置。
