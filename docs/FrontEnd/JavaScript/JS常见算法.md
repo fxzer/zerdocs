@@ -1,4 +1,5 @@
 
+
 ## 括号匹配
 
 ```js
@@ -10,15 +11,14 @@ let str4 = '{[()]}'	//true
 **解决方案：**
 
 ```js {11-19}
+//方案一：
 const isValid = function(str) {
+  	if (str.length == 0) return false
+  	let arr = []
     let map = {
         ')': '(',
         '}': '{',
         ']': '['
-    }
-    let arr = []
-    if (str.length == 0) {
-        return false
     }
     for (let i = 0; i < str.length; i++) {
         if (str[i] == '(' || str[i] == '{' || str[i] == '[') {
@@ -36,21 +36,127 @@ const isValid = function(str) {
     }
     return true
 }
+
+//方案二：
+function isMatched(str) {
+  let stack = [];
+  let top = -1;
+
+  for (let i = 0; i < str.length; i++) {
+    let ch = str.charAt(i);
+
+    if (ch === '{' || ch === '[' || ch === '(') {
+      stack.push(ch);
+      top++;
+    } else if (ch === '}' && stack[top] === '{') {
+      stack.pop();
+      top--;
+    } else if (ch === ']' && stack[top] === '[') {
+      stack.pop();
+      top--;
+    } else if (ch === ')' && stack[top] === '(') {
+      stack.pop();
+      top--;
+    } else {
+      return false;
+    }
+  }
+
+  return stack.length === 0;
+}
+```
+解析：
+
+- 利用栈来实现括号匹配，用 `top` 标识栈顶元素的下标，初始值为 `-1`。
+- 遍历字符串中的每个字符 `ch`。
+- 如果是左括号 `{`、`[` 或 `(`，则入栈。
+- 如果是右括号 `}`、`]` 或 `)`，则判断栈顶元素是否匹配，如果匹配则出栈，否则不匹配。
+- 如果字符不是括号，则返回 `false`。
+- 最后，如果栈为空说明所有括号都匹配，返回 `true`，否则不匹配返回 `false`。
+
+
+
+## 简单递归
+
+### 计算阶乘
+
+```js
+function factorial(n) {
+  if (n === 0) {
+    return 1;
+  }
+  return n * factorial(n - 1);
+}
 ```
 
+2. 计算斐波那契数列（Fibonacci）
 
+```js
+function fibonacci(n) {
+  if (n <= 1) {
+    return n;
+  }
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+```
 
-## 字符串反转
+### 扁平化数组
+
+```js
+//ES6的flat方法实现：
+function flatten(array) {
+  return array.flat(Infinity)
+}
+//仅限二维数组
+function flat(arr){
+  return Array.prototype.concat.apply([],arr)
+}
+let array1 = [2,3,4,[4,6,5,8]]
+flat(array1)	[2, 3, 4, 4, 6, 5, 8]
+ 
+//多维数组
+function flatplus(arr){
+  while(arr.some(item => item instanceof Array)){
+    arr = Array.prototype.concat.apply([],arr)
+  }
+  return arr
+}
+let arr = [2,3,4,[5,[6,[7]]]]
+flatplus(arr)	//[2, 3, 4, 5, 6, 7]
+
+//可控制扁平化深度：Array.prototype.concat.apply
+function flatplus(arr,depth){
+  let deep = 0	
+  let flag = arr.some(item => item instanceof Array) && deep < depth
+  while(flag){
+    arr = Array.prototype.concat.apply([],arr)
+    ++deep
+  }
+  return arr
+}
+//递归+concat
+function flatten(arr) {
+  var result = [];
+ for (var i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      result = result.concat(flatten(arr[i]));
+    } else {
+      result.push(arr[i]);
+    }
+  }
+  return result;
+}
+```
+
+### 反转字符串
 
 ```js
 //解法一：使用数组的reverse()方法
-
 function reverseString(str) {
   return str.split('').reverse().join('');
 }
 
 //解法二：使用for循环遍历字符串
-
 function reverseString(str) {
   let result = '';
   for (let i = str.length - 1; i >= 0; i--) {
@@ -60,21 +166,15 @@ function reverseString(str) {
 }
 
 //解法三：使用递归函数
-
 function reverseString(str) {
-  if (str === '') {  // 递归结束条件
-    return '';
-  } else {
-    return reverseString(str.substr(1)) + str.charAt(0);
+  if (str === "") {
+    return "";
   }
-} 
-
-//该方法将字符串不断缩短，直到缩短到长度为0时返回空字符串，并在返回的过程中将每个字符按相反的顺序拼接起来。
+  return reverseString(str.slice(1)) + str[0];
+}
 ```
 
-
-
-## 求最大公约数
+### 求最大公约数
 
 ```js
 function gcd(a, b) {
@@ -83,13 +183,11 @@ function gcd(a, b) {
   }
   return gcd(b, a % b);
 }
-
-console.log(gcd(12, 8)); // 输出 4
-console.log(gcd(54, 24)); // 输出 6
-console.log(gcd(48, 180)); // 输出 12
 ```
 
-## 斐波那契数列
+
+
+### 斐波那契数列
 
 ```js
 //递归实现
@@ -110,28 +208,41 @@ function fibonacci(n){
 //测试
 for(let i=0;i<=10;i++){
   console.log(`fibonacci(${i}): ${fibonacci(i)}`);
+  //输出：0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55
 }
-
-/*
-输出：
-fibonacci(0): 0
-fibonacci(1): 1
-fibonacci(2): 1
-fibonacci(3): 2
-fibonacci(4): 3
-fibonacci(5): 5
-fibonacci(6): 8
-fibonacci(7): 13
-fibonacci(8): 21
-fibonacci(9): 34
-fibonacci(10): 55
-*/
 ```
 
 
 
 ## 排序算法
+### 冒泡排序
+```js
+function bubbleSort(arr) {
+    let len = arr.length;
+    for (let i = 0; i < len - 1; i++) {
+        for (let j = 0; j < len - 1 - i; j++) {
+            if (arr[j] > arr[j+1]) {
+                let temp = arr[j+1];
+                arr[j+1] = arr[j];
+                arr[j] = temp;
+                /*
+                不使用额外变量交换
+                a = a + b;
+                b = a - b;
+                a = a - b;
+                */
+                /*
+                a = a ^ b;
+                b = a ^ b;
+                a = a ^ b;
+                */
+            }
+        }
+    }
+    return arr;
+}
 
+```
 ### 选择排序
 
 [**排序动画图解**   ](https://visualgo.net/en)
@@ -172,63 +283,22 @@ return arr
 
 ### 快速排序
 
-```js {7,10-19}
-var quickSort = function(arr) {
-    if (arr.length <= 1) {
-        return arr;
-    }　　
-    var pivotIndex = Math.floor(arr.length / 2);
+```js {6,9-13}
+function quickSort(arr) {
+    if (arr.length <= 1) return arr;
+ 
+    const pivotIndex = Math.floor(arr.length / 2);
 	//选中心轴索引，并选取中心轴的值
-    var pivot = arr.splice(pivotIndex, 1)[0];　　
-    var left = [];　　
-    var right = [];　
-    for (var i = 0; i < arr.length; i++) {　　　　
-        //与中心轴比较，小的放在左数组，大的放在由数组　
-        if (arr[i] < pivot) {　　　　　　
-            left.push(arr[i]);　　　　
-        } else {　　　　　　
-            right.push(arr[i]);　　　　
-        }　
-    // item <= pivot ? left.push(item) : right.push(item)
+    const pivot = arr.splice(pivotIndex, 1)[0];　　
+    const left = [];　　
+    const right = [];　
+    for (let i = 0; i < arr.length; i++) {　　　　
+        //与中心轴比较，小的放在左数组，大的放在右数组　
+     	arr[i] <= pivot ? left.push(arr[i]) : right.push(arr[i])
     }　　
     return quickSort(left).concat([pivot], quickSort(right));
-
 };
 ```
-
-题目描述：实现快速排序，使用递归算法。
-解法：递归地分割数组，并使用分区算法将数组分成两个部分。
-1. 首先选择基准元素pivot，可以选择数组的第一个元素，最后一个元素或随机选择。
-2. 将数组分成两个子数组，小于pivot的元素放在左边，大于pivot的元素放在右边，相等的元素可以放在任意一边。
-3. 递归地对左右两个子数组进行快速排序。
-4. 当子数组的长度小于等于1时，停止递归。
-5. 将排好序的左右两个子数组合并成一个有序数组。
-
-```js
-
-function quickSort(arr) {
-  if (arr.length <= 1) {
-    return arr;
-  }
-  const pivot = arr[0];
-  const left = [];
-  const right = [];
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] < pivot) {
-      left.push(arr[i]);
-    } else {
-      right.push(arr[i]);
-    }
-  }
-  return quickSort(left).concat(pivot, quickSort(right));
-}
-
-// 测试
-const arr = [4, 2, 1, 5, 6, 3];
-quickSort(arr)
-```
-
-
 
 ### 插入排序
 
@@ -257,9 +327,6 @@ function insertSort(arr) {
     return arr;
 }
 ```
-
-
-
 ### 希尔排序
 
 ```js {10-14,6}
@@ -362,65 +429,69 @@ eventEmitter.emit('eventA');
 eventEmitter.emit('eventB');
 ```
 :::
-## 扁平化数组 
+
+
+
+## [生成随机十六进制颜色](https://css-tricks.com/snippets/javascript/random-hex-color/)
+
+方案一：
 
 ```js
-//ES6的flat方法实现：
-function flatten(array) {
-  return array.flat(Infinity)
-}
-//仅限二维数组
-function flat(arr){
-  return Array.prototype.concat.apply([],arr)
-}
-let array1 = [2,3,4,[4,6,5,8]]
-flat(array1)	[2, 3, 4, 4, 6, 5, 8]
- 
-//多维数组
-function flatplus(arr){
-  while(arr.some(item => item instanceof Array)){
-    arr = Array.prototype.concat.apply([],arr)
-  }
-  return arr
-}
-let arr = [2,3,4,[5,[6,[7]]]]
-flatplus(arr)	//[2, 3, 4, 5, 6, 7]
-
-//可控制扁平化深度
-function flatplus(arr,depth){
-  let deep = 0	
-  let flag = arr.some(item => item instanceof Array) && deep < depth
-  while(flag){
-    arr = Array.prototype.concat.apply([],arr)
-    ++deep
-  }
-  return arr
-}
-```
-使用递归实现：
-
-```javascript
-function flatten(array) {
-  let result = []
-  for (let i = 0; i < array.length; i++) {
-    if (Array.isArray(array[i])) {
-      result = result.concat(flatten(array[i]))
-    } else {
-      result.push(array[i])
-    }
-  }
-  return result
+function randomHexColor1() {
+  var red = Math.floor(Math.random() * 256).toString(16);
+  var green = Math.floor(Math.random() * 256).toString(16);
+  var blue = Math.floor(Math.random() * 256).toString(16);
+  return "#" + red + green + blue;
 }
 ```
 
-其中，`Infinity`表示要扁平化的层数，如果不传参数或传入`1`，则只会扁平化一层。
+方案二：
 
+```js
+function randomHexColor2() {
+  var color = Math.floor(Math.random() * 16777215).toString(16);
+  return `#${color}`;
+}
+```
 
-## 生成随机十六进制颜色
+方案三：
+
+```js
+function randomHexColor3() {
+  var hexColor = Array.from({length: 3}, () => Math.floor(Math.random() * 256).toString(16));
+  return "#" + hexColor.join("");
+}
+```
+
+方案四：
+
+```js
+function randomHexColor() {
+  let letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+     color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+```
+
+方案五：
+
+```js
+function randomHexColor() {
+  let color = Math.floor(Math.random() * 0xFFFFFF).toString(16);
+  return "#" + ("000000" + color).slice(-6);
+}
+```
+
+方案六：
 
 ```js
 let color = '#' + parseInt(Math.random() * 0x1000000).toString(16).padStart(6, '0')
 ```
+
+方案七：
 
 ```js
 function randomColor() {
@@ -432,27 +503,30 @@ function randomColor() {
   }
 ```
 
-## 返回给定起止日期中间所有月份
+## 返回给定起止字符串月份中间所有月份
+
 ```js
-function getMonthBetween(start, end) {
-  const result = [];
-  const s = start.split('-');
-  const e = end.split('-');
-  const min = new Date();
-  const max = new Date();
-  min.setFullYear(s[0], s[1] - 1);
-  max.setFullYear(e[0], e[1] - 1);
-  const curr = min;
-  while (curr <= max) {
-    result.push(`${curr.getFullYear()}-${curr.getMonth() + 1}`);
-    curr.setMonth(curr.getMonth() + 1);
+function getMonths(start, end) {
+  const startDate = new Date(start);
+  const endDate = new Date(end);
+  const months = [];
+
+  while (startDate <= endDate) {
+    const year = startDate.getFullYear();
+    const month = startDate.getMonth() + 1;
+    const monthStr = `${year}-${month.toString().padStart(2, '0')}`;
+
+  	months.push(monthStr)
+    startDate.setMonth(month);
   }
-  return result;
+  return months
 }
 ```
 
 
+
 ## 实现Promise的all方法
+
 ```js
 function promiseAll(promiseArr) {
   return new Promise((resolve, reject) => {
