@@ -553,141 +553,66 @@ function getMonths(start, end) {
 ```js
 function promiseAll(promiseArr) {
   return new Promise((resolve, reject) => {
-    let count = 0;
-    const resArr = [];
-    for (let i = 0; i < promiseArr.length; i++) {
-      promiseArr[i]
-        .then((res) => {
-          count++;
-          resArr[i] = res;
-          if (count === promiseArr.length) {
-            resolve(resArr);
-          }
-        })
-        .catch((err) => {
-          reject(err);
-        });
+     if (!Array.isArray(promiseArr)) {
+      return reject(new TypeError('arguments should be an array'));
     }
+    const resArr = [];
+    // let count = 0;
+    // for (let i = 0; i < promiseArr.length; i++) {
+    //   promiseArr[i]
+    //     .then((res) => {
+    //       count++;
+    //       resArr[i] = res;
+    //       if (count === promiseArr.length) {
+    //         resolve(resArr);
+    //       }
+    //     })
+    //     .catch((err) => {
+    //       reject(err);
+    //     });
+    // }
+    promiseArr.forEach((p,i) =>{
+      if(p instanceof Promise){
+          p.then(res => {
+          resArr[i] = res;
+          if(resArr.length == i +1) resolve(resArr)
+        }).catch(err => reject(err))
+      }else{
+        resArr[resArr.length] = p;
+      }
+    })
+     
   });
 }
 
 // 使用示例
-let promise1 = Promise.resolve(1);
-let promise2 = new Promise((resolve, reject) => {
+let p1 = Promise.resolve(1);
+let p2 = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve(2)
     }, 2000);
 });
-let promise3 = Promise.reject("error");
+let p3 = Promise.resolve("error");
 
-promiseAll([promise1, promise2, promise3])
+let p = promiseAll([p1, p2, p3])
   .then((res) => {
-    console.log(res); // [1, 2, "error"]
+    resolve(res); // [1, 2, "error"]
   })
   .catch((err) => {
-    console.log(err); // error
+    reject(err); // error
   });
+  p.then(res => console.log(res)).catch(err => console.log(err))
 ```
-
-## 实现Function.prototype.bind方法
-```js
-Function.prototype.bind = function(context){
-  var self = this;
-  var args = Array.prototype.slice.call(arguments, 1);
-  return function(){
-    var bindArgs = Array.prototype.slice.call(arguments);
-    return self.apply(context, args.concat(bindArgs));
-  };
-};
-```
-
-
-
-## 实现正则表达式匹配函数
-```js
-function match(text, pattern) {
-  if (pattern.length === 0) return text.length === 0; // 如果模式串为空，则只有当文本串也为空才匹配成功
-  if (pattern.length === 1 || pattern[1] !== '*') {
-    // 模式串的第二个字符不是'*'，或者模式串的长度只有1个，此时只需匹配第一个字符
-    if (text.length === 0 || (text[0] !== pattern[0] && pattern[0] !== '.')) { // 如果第一个字符不匹配，或者文本串为空，匹配失败
-      return false;
-    }
-    return match(text.slice(1), pattern.slice(1)); // 匹配剩下的部分
-  } else {
-    // 模式串的第二个字符是'*'，此时有两种情况：匹配0次或匹配1次或多次
-    // 先尝试匹配0次
-    if (match(text, pattern.slice(2))) return true;
-    // 如果匹配不成功，则尝试匹配1次或多次
-    let i = 0;
-    while (i < text.length && (text[i] === pattern[0] || pattern[0] === '.')) {
-      if (match(text.slice(i + 1), pattern.slice(2))) return true;
-      i++;
-    }
-    return false; // 匹配失败
-  }
-}
-```
-
-函数实现：
-
-```javascript
-function match(text, pattern) {
-  const lenT = text.length;
-  const lenP = pattern.length;
-  const dp = Array.from({ length: lenT + 1 }, () =>
-    Array.from({ length: lenP + 1 }, () => false)
-  );
-  dp[0][0] = true;
-  for (let i = 0; i <= lenT; i++) {
-    for (let j = 1; j <= lenP; j++) {
-      if (pattern[j - 1] === "*") {
-        dp[i][j] =
-          dp[i][j - 2] || (i > 0 && dp[i - 1][j] && matchChar(text[i - 1], pattern[j - 2]));
-      } else {
-        dp[i][j] = i > 0 && dp[i - 1][j - 1] && matchChar(text[i - 1], pattern[j - 1]);
-      }
-    }
-  }
-  return dp[lenT][lenP];
-}
-
-function matchChar(s, p) {
-  return s === p || p === ".";
-}
-```
-
-测试：
-
-```javascript
-console.log(match("aa", "a")); // false
-console.log(match("aa", "a*")); // true
-console.log(match("ab", ".*")); // true
-console.log(match("aab", "c*a*b")); // true
-console.log(match("mississippi", "mis*is*p*.")); // false
-console.log(match("aaa", "a*a")); // true
-console.log(match("aaa", "ab*a*c*a")); // true
-```
-
-
 
 ## LRU缓存算法
 ```js
-/**
- * LRU缓存算法的实现类
- * @param {number} capacity 缓存最大容量
- * LRU缓存算法: 缓存固定大小，当缓存超出容量时，删除最久未被使用的元素
- */
+//LRU缓存算法: 缓存固定大小，当缓存超出容量时，删除最久未被使用的元素
 class LRUCache {
   constructor(capacity) {
     this.capacity = capacity; // 缓存最大容量
     this.cache = new Map(); // 使用Map来存储key-value
   }
-
-  /**
-   * 获取缓存中对应key的值，如果不存在则返回-1
-   * @param {number} key
-   * @return {number}
-   */
+  //获取缓存中对应key的值，如果不存在则返回-1
   get(key) {
     const cache = this.cache;
     if (!cache.has(key)) {
@@ -700,12 +625,7 @@ class LRUCache {
     return value;
   }
 
-  /**
-   * 添加一个元素到缓存中，并在超出容量时删除最久未被使用的元素
-   * @param {number} key
-   * @param {number} value
-   * @return {void}
-   */
+  //添加一个元素到缓存中，并在超出容量时删除最久未被使用的元素
   put(key, value) {
     const cache = this.cache;
     // 如果key已经存在，则先删除这个节点
