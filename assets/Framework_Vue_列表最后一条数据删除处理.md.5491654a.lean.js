@@ -1,0 +1,1 @@
+import{_ as s,o as n,c as a,a as l}from"./app.4d5976de.js";const u=JSON.parse('{"title":"一、删除最后一条数据跳转到上一页","description":"","frontmatter":{},"headers":[],"relativePath":"Framework/Vue/列表最后一条数据删除处理.md"}'),p={name:"Framework/Vue/列表最后一条数据删除处理.md"},o=l("",3),e=[o];function t(c,r,y,F,i,E){return n(),a("div",null,e)}const g=s(p,[["render",t]]);export{u as __pageData,g as default};

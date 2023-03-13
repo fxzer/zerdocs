@@ -1,0 +1,1 @@
+import{_ as s,o as n,c as a,a as l}from"./app.4d5976de.js";const d=JSON.parse('{"title":"获取目录结构(纯前端)","description":"","frontmatter":{},"headers":[],"relativePath":"FrontEnd/JavaScript/获取目录结构.md"}'),p={name:"FrontEnd/JavaScript/获取目录结构.md"},o=l("",3),e=[o];function t(c,r,y,F,i,E){return n(),a("div",null,e)}const D=s(p,[["render",t]]);export{d as __pageData,D as default};
