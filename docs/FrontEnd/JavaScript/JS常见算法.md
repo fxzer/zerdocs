@@ -351,10 +351,9 @@ function shellSort(array) {
 }
 ```
 
-1. 求两个有序数组的中位数
-题目描述：给定两个大小为 m 和 n 的有序数组 nums1 和 nums2，请找出这两个有序数组的中位数。
-解法：使用归并排序，合并两个有序数组，然后求中位数。时间复杂度为 O(m+n)。
+## 求两个有序数组的中位数
 ```js
+//出这两个有序数组的中位数,时间复杂度为 O(m+n)
 function findMedianSortedArrays(nums1, nums2) {
     const mergeArr = merge(nums1, nums2); // 合并两个有序数组
     const len = mergeArr.length;
@@ -390,10 +389,34 @@ function merge(nums1, nums2) {
     return result;
 }
 ```
-2. 实现一个EventEmitter
-题目描述：实现一个 EventEmitter，可以添加事件侦听器，触发事件，并处理异步事件。
-解法：使用观察者模式实现，使用注册表存储事件和侦听器。
 ```js
+function findMedianSortedArrays(nums1, nums2) {
+  const merge = (arr1, arr2) => {
+    const merged = [];
+    let i = 0, j = 0;
+
+    while (i < arr1.length && j < arr2.length) {
+      if (arr1[i] < arr2[j]) merged.push(arr1[i++]);
+      else merged.push(arr2[j++]);
+    }
+
+    return [...merged, ...arr1.slice(i), ...arr2.slice(j)];
+  }
+
+  const merged = merge(nums1, nums2);
+  const mid = Math.floor(merged.length / 2);
+
+  return merged.length % 2 === 0 ? (merged[mid - 1] + merged[mid]) / 2 : merged[mid];
+}
+
+```
+
+
+
+## 实现EventEmitter
+
+```js
+//可以添加事件侦听器，触发事件，并处理异步事件
 class EventEmitter {
   constructor() {
     this.registry = {};
@@ -648,12 +671,11 @@ console.log(match("aaa", "ab*a*c*a")); // true
 
 
 ## LRU缓存算法
-题目描述：实现一个LRU缓存算法，缓存固定大小，当缓存超出容量时，删除最久未被使用的元素。
-解法：使用链表和哈希表实现。
 ```js
 /**
  * LRU缓存算法的实现类
  * @param {number} capacity 缓存最大容量
+ * LRU缓存算法: 缓存固定大小，当缓存超出容量时，删除最久未被使用的元素
  */
 class LRUCache {
   constructor(capacity) {
@@ -718,26 +740,34 @@ console.log(cache.get(4)); // 返回 4
 ```
 ## 不使用乘法符号乘法函数
 ```js
-//时间复杂度O(logN)：使用二进制移位和加法实现
-function multiplication(a, b){
-    if(a==0||b==0){
-        return 0;
-    }
-    let s=0;
-    while(b>1){
-        if(b%2==1){
-            s=s+a;
-        }
-        a=a<<1;
-        b=b>>1;
-    }
-    return a+s;
+//递归
+function multiply(x, y) {
+  if (y === 0) {
+    return 0;
+  }
+  if (y > 0) {
+    return x + multiply(x, y - 1);
+  }
+  if (y < 0) {
+    return -multiply(x, -y);
+  }
+}
+//for循环
+function multiply(a, b) {
+  let result = 0;
+  for(let i = 0; i < Math.abs(b); i++) {
+    result += Math.abs(a);
+  }
+  if(a < 0 && b > 0 || a > 0 && b < 0) {
+    result = -result;
+  }
+  return result;
 }
 
-console.log(multiplication(2, 3)); // 6
-console.log(multiplication(10, 5)); // 50
-console.log(multiplication(20, 0)); // 0
-console.log(multiplication(0, 5)); // 0
+console.log(multiply(5, 3)); // 15
+console.log(multiply(-5, 3)); // -15
+console.log(multiply(5, -3)); // -15
+console.log(multiply(-5, -3)); // 15
 ```
 
 
@@ -836,7 +866,10 @@ function postOrderTraversal(root, res = []) {
   res.push(root.val);
   return res;
 }
+```
 
+:::details 测试
+```js
 /* ------------- 测试 -------------- */
 
 //     1
@@ -856,22 +889,9 @@ console.log(preOrderTraversal(root));   // [1, 2, 4, 5, 3, 6, 7]
 console.log(inOrderTraversal(root));    // [4, 2, 5, 1, 6, 3, 7]
 console.log(postOrderTraversal(root));  // [4, 5, 2, 6, 7, 3, 1]
 ```
+:::
 
-
-运行结果：
-
-```
-[1, 2, 4, 5, 3, 6, 7]
-[4, 2, 5, 1, 6, 3, 7]
-[4, 5, 2, 6, 7, 3, 1]
-```
-
-
-上面代码中，我们定义了一个 `TreeNode` 类，表示二叉树中的一个节点，包含节点值 `val`，左子树 `left` 和右子树 `right` 三个属性。接着，我们分别实现了前序、中序和后序遍历函数 `preOrderTraversal`、`inOrderTraversal`、`postOrderTraversal`，使用递归的方式实现遍历，将遍历结果保存到数组 `res` 中并返回。
-
-最后我们创建一个二叉树，并测试三种遍历方式得到的结果，可以看到我们实现的遍历函数符合预期。
 ## 二叉搜索树的插入和查找
-
 ```js
 递归实现：
 
