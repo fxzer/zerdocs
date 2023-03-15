@@ -50,3 +50,26 @@ module.exports = {
     : '/'
 }
 ```
+
+通常可以在根目录配置环境变量，相对于不同环境打包时的打包命令
+```json
+//package.json
+"scripts": {
+    "serve": "vue-cli-service serve --open --port 9999",
+    "build:server": "vue-cli-service build ",
+    "build:local": "vue-cli-service build --mode buildlocal"
+  },
+
+```
+
+```js 
+//.env.production   --服务器打包预览环境变量
+OUTPUT_DIR=/opt/nginx/www/html/music
+BASE_URL=/music/
+```
+
+```js 
+//.env.buildlocal   --本地打包预览环境变量
+OUTPUT_DIR=dist
+BASE_URL=/
+```
