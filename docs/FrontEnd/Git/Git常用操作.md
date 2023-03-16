@@ -34,6 +34,57 @@ git rebase -i 8fc6389			#填第2 次提交的 hash，则表示合并 2 之后（
 
 ![image-20230227205916425](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302272059457.png)
 
+
+
+### 关联多个代码托管平台
+> 当本地仓库项同时关联 github 和 gitee，同步更新两边代码
+
+1. **方法一**  ` git remote add gitee [gitee_repo_url]`，需要多次推送
+
+效果：
+```zsh
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[remote "origin"]
+	url = git@github.com:fxzer/juejin-server-mysql.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[remote "gitee"]
+	url = git@gitee.com:fxzer/juejin-server-mysql.git
+	fetch = +refs/heads/*:refs/remotes/gitee/*
+```
+
+```zsh
+#git remote -v                                                   
+gitee   git@gitee.com:fxzer/juejin-server-mysql.git (fetch)
+gitee   git@gitee.com:fxzer/juejin-server-mysql.git (push)
+origin  git@github.com:fxzer/juejin-server-mysql.git (fetch)
+origin  git@github.com:fxzer/juejin-server-mysql.git (push)
+```
+
+
+2. **方法二** `git remote set-url --add origin [gitee_repo_url]` , 只需一次推送
+
+效果：~
+```zsh
+[remote "origin"]
+	url = git@github.com:fxzer/json-viewer.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+	url = git@gitee.com:fxzer/json-viewer.git
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+```
+
+```zsh
+#git remote -v
+origin  git@github.com:fxzer/json-viewer.git (fetch)
+origin  git@github.com:fxzer/json-viewer.git (push)
+origin  git@gitee.com:fxzer/json-viewer.git (push)
+```
+
+
+
 ### 改错分支但为未提交
 
 ```zsh
