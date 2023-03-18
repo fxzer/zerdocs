@@ -104,7 +104,7 @@
 ```css
 .box{
   justify-content:center; 
-  align-centent:center;
+   align-content: center;
 }
 ```
 
@@ -112,7 +112,7 @@
 
 
 
-### 单元格内项目对其方式
+### 网格内项目对其方式
 
 :::tip 解释
 

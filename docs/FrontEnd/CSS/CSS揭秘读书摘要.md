@@ -312,7 +312,7 @@ text-shadow: -1px -1px 1px #000, 1px 1px 1px #fff;//凹
 ```css
 footer{
     max-width:1000px;
-    paddint:1em calc(50%-500px)
+    padding:1em calc(50%-500px)
 }
 ```
 
