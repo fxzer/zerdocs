@@ -1,5 +1,22 @@
 # CSS常用代码段
+## 单行与多行溢出隐藏
+```css
+.text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+```
 
+```css{2,5,6}
+.text {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;/* 布局方向 */
+    -webkit-line-clamp: 3; /* 显示三行文本 */
+}
+```
 ## 自定义滚动条
 ```css
 html,
@@ -64,3 +81,4 @@ import GridStar from './demo/GridStar.vue'
 <DemoWrap pkg="FrontEnd/CSS/demo"   path='GridStar.vue'>
     <GridStar/>
 </DemoWrap>
+
