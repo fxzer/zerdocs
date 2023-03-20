@@ -77,7 +77,7 @@ console.log( arr1 );
 ```js
 //除了1和自身,不能被其他数整除的
 var arr=[1,2,3,4,5,6,7,8,9,11,20,37];
-const result = arr.filter((value,index,arr) => {
+const result = arr.filter(value => {
 	if(value == 1) return false;
  	if(value == 2) return true; 
     for(var i = 2; i < Math.sqrt(value) + 1; i++){
@@ -97,7 +97,7 @@ const result = arr.filter((value,index,arr) => {
 
 > 原数组中的每个元素依次调用一个指定方法后，
 >
-> 返回返回值组成的新数组
+> 返回值组成的新数组
 
 
 
@@ -153,12 +153,10 @@ mapString('lorem ipsum', c => c.toUpperCase()); // 'LOREM IPSUM'
 ##### 把二维数组变字符串
 
 ```js
-const arrayToCSV = (arr, delimiter = ',') =>
-	arr.map(v => 
-		 v.map(x => 
- (isNaN(x) ? `"${x.replace(/"/g, '""')}"` :x)).join(delimiter)
-          )
-          .join('\n');
+const arr = [[1, 2], [3, 4]];
+const str = arr.map(row => row.join(',')).join(';');
+console.log(str); // "1,2;3,4"
+
 ```
 
 
@@ -177,12 +175,11 @@ digitize(-123); // [1, 2, 3]
 
 ```js
 const getImages = (el, includeDuplicates = false) => {
-  const images = [...el.getElementsByTagName('img')].
-  map(img =>
+  const images = [...el.getElementsByTagName('img')]
+  const srcList = images.map(img =>
     img.getAttribute('src')
   );
-  return includeDuplicates ? images :
-  [...new Set(images)];
+  return includeDuplicates ? srcList : [...new Set(srcList)];
 };
 
 getImages(document, true); 
@@ -193,17 +190,13 @@ getImages(document, false);
 
 
 
-##### vue 中重复渲染组件
+##### vue中循环注册组件
 
 ```js
 Vue.component('ele',{
 		render:function(createElement){
 			return createElement('div',
-			    Array.apply(null,{
-					length:5
-				}).map(function(){
-					return createElement(Child);
-				})
+			    Array.apply(null,{ length:5 }).map(() => createElement(Child))
 			);
 		}
 	});
@@ -215,7 +208,7 @@ Vue.component('ele',{
 
 > **原始数组不发生改变**
 >
-> **reduce () 对于空数组是不会执行回调函数的**
+> **对于空数组是不会执行回调函数的**
 
 
 
@@ -239,8 +232,11 @@ const sum = arr.reduce(function(previousValue, currentValue, index, array) {
 ::: tip
 
 1、**previousValue** ：上一次调用回调返回的值，或者是提供的初始值（initialValue）
+
 2、**currentValue** ：数组中当前被处理的元素
+
 3、**index** ：当前元素在数组中的索引
+
 4、**array** ：调用 reduce 函数 的数组
 
 :::
@@ -261,13 +257,7 @@ sum(...[1, 2, 3, 4]); // 10
 
 ```js
 let arr = [1,2,3,4,4,1]
-let newArr = arr.reduce((pre,cur)=>{
-    if(!pre.includes(cur)){
-      return pre.concat(cur)
-    }else{
-      return pre
-    }
-},[])
+let newArr = arr.reduce((pre,cur)=> pre.includes(cur) ? pre : [...pre,cur],[])
 console.log(newArr);// [1, 2, 3, 4]
 ```
 
@@ -288,10 +278,8 @@ average(1, 2, 3); // 2
 
 ```js
 let arr = [[0, 1], [2, 3], [4,[5,6,7]]]
-const newArr = function(arr){
-   return arr.reduce((pre,cur)=>pre.concat(Array.isArray(cur)?newArr(cur):cur),[])
-}
-console.log(newArr(arr)); //[0, 1, 2, 3, 4, 5, 6, 7]
+const convertArr = (arr) => arr.reduce((pre,cur) => Array.isArray(cur) ? [...pre,...convertArr(cur)] : [...pre,cur],[])
+console.log(convertArr(arr)); //[0, 1, 2, 3, 4, 5, 6, 7]
 ```
 
 
@@ -314,13 +302,9 @@ var result = [
     }
 ];
 
-var sum = result.reduce(function(prev, cur) {
-    return cur.score + prev;
-}, 0);
+var sum = result.reduce((prev, cur) => cur.score + prev, 0);
 console.log(sum) //60
 ```
-
-
 
 ##### 统计数组中每个元素出现的次数
 
@@ -364,7 +348,7 @@ console.log(nameNum); //{Alice: 2, Bob: 1, Tiff: 1, Bruce: 1}
 ### 语法
 
 ```js
-arrayObject.sort(sortby)
+arr.sort(sortby)
 //sort() 在没有参数时，返回的结果是按升序来排列的
 
 //sortby	可选。规定排序顺序。必须是函数。
@@ -428,16 +412,12 @@ console.log(arr); // [1, 2, 10, 20]
 const strArray=['JavaScript','PHP','JAVA','C','Python'];
 function mapForEach(arr,fn){
     const newArray = [];
-    for(let i = 0; i<arr.length;i++){
-        newArray.push({
-            fn(arr[i])
-        );
+    for(let i = 0; i < arr.length;i++){
+        newArray.push(fn(arr[i]));
     }
     return newArray;
 }
-const lenArray = mapForEach(strArray,function(item){
-    return item.length;
-});
+const lenArray = mapForEach(strArray,(str) =>  str.length);
 
 console.log(lenArray);//[10,3,4,1,6]
 ```
