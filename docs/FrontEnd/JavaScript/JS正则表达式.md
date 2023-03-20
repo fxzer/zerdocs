@@ -140,7 +140,7 @@ let breg = /<(h[1-6])>([\S\s]+)<\/\1>/gi
 hstr.match(breg) //全局匹配拿不到它每个原子组
 ['<h1>www.baidu.com</h1>', '<h2>www.map.baidu.com</h2>', '<h3>百度一下</h3>']
 
-解决方法：使用matchAll
+//解决方法：使用matchAll
 for(it of hstr.matchAll(breg)){ 
   console.dir(it);
   content.push(it[2]);

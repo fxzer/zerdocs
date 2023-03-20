@@ -3,27 +3,27 @@
 ### 删除远程分支
 
 ```zsh
-git branch / git branch -r 				#列出所有本地/远程分支
-git branch -D 分支名								#删除本地库分支
-git push origin --delete 分支名		#删除远程库分支
+git branch / git branch -r 	     #列出所有本地/远程分支
+git branch -D 分支名              #删除本地库分支
+git push origin --delete 分支名   #删除远程库分支
 ```
 
 ### 删除远程文件
 
 ```zsh
-git rm -r -n --cached 文件/文件夹名称		#预览要删除的文件列表
-git rm -r --cached 文件/文件夹名称				#确定无误后删除文件
+git rm -r -n --cached 文件/文件夹名称   #预览要删除的文件列表
+git rm -r --cached 文件/文件夹名称      #确定无误后删除文件
 ```
 
 ### 合并多次提交
 
 ```zsh
-git rebase -i HEAD~3 						#合并最近的 3 次提交，并开启交互模式
-git rebase -i <commit_sha>			#开启交互模式
+git rebase -i HEAD~3        #合并最近的 3 次提交，并开启交互模式
+git rebase -i <commit_sha>  #开启交互模式
 ```
 
 ```zsh
-git rebase -i 8fc6389			#填第2 次提交的 hash，则表示合并 2 之后（3和 4）的提交
+git rebase -i 8fc6389   #填第2 次提交的 hash，则表示合并 2 之后（3和 4）的提交
 ```
 
 ![image-20230227205854474](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302272058564.png)
@@ -88,16 +88,17 @@ origin  git@gitee.com:fxzer/json-viewer.git (push)
 ### 改错分支但为未提交
 
 ```zsh
-git stash 					#暂存更改到stash
-git checkout 分支名	#切换分支
-git stash pop				#从stash中取出暂存的代码修改
+git stash            #暂存更改到stash
+git checkout 分支名   #切换分支
+git stash pop        #从stash中取出暂存的代码修改
 ```
 ### 代码提交到了错误的分支
 
 #### 方法一
+切换到正确的分支并使用， 将指定的提交复制到当前分支，并将其添加到暂存区
 
 ```zsh
-git cherry-pick [commit] 	#切换到正确的分支并使用, 将指定的提交复制到当前分支，并将其添加到暂存区
+git cherry-pick [commit] 	
 ```
 #### 方法二
 

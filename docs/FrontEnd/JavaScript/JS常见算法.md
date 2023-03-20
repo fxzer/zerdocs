@@ -167,9 +167,7 @@ function reverseString(str) {
 
 //解法三：使用递归函数
 function reverseString(str) {
-  if (str === "") {
-    return "";
-  }
+  if (str === "")	return "";
   return reverseString(str.slice(1)) + str[0];
 }
 ```
@@ -178,9 +176,7 @@ function reverseString(str) {
 
 ```js
 function gcd(a, b) {
-  if (b === 0) {
-    return a;
-  }
+  if (b === 0) return a;
   return gcd(b, a % b);
 }
 ```
@@ -218,28 +214,32 @@ for(let i=0;i<=10;i++){
 ### 冒泡排序
 ```js
 function bubbleSort(arr) {
-    let len = arr.length;
-    for (let i = 0; i < len - 1; i++) {
-        for (let j = 0; j < len - 1 - i; j++) {
-            if (arr[j] > arr[j+1]) {
-                let temp = arr[j+1];
-                arr[j+1] = arr[j];
-                arr[j] = temp;
-                /*
-                不使用额外变量交换
-                a = a + b;
-                b = a - b;
-                a = a - b;
-                */
-                /*
-                a = a ^ b;
-                b = a ^ b;
-                a = a ^ b;
-                */
-            }
-        }
-    }
-    return arr;
+  let len = arr.length;
+  for (let i = 0; i < len - 1; i++) {
+      for (let j = 0; j < len - 1 - i; j++) {
+          if (arr[j] > arr[j+1]) {
+            let temp = arr[j+1];
+            arr[j+1] = arr[j];
+            arr[j] = temp;
+            /*
+            不使用额外变量交换
+            方法一：
+            [arr[j+1],arr[j]] = [arr[j],arr[j+1]]
+
+            方法二：
+            a = a + b;
+            b = a - b;
+            a = a - b;
+
+            方法三：
+            a = a ^ b;
+            b = a ^ b;
+            a = a ^ b;
+            */
+          }
+      }
+  }
+  return arr;
 }
 
 ```
@@ -460,7 +460,7 @@ eventEmitter.emit('eventB');
 方案一：
 
 ```js
-function randomHexColor1() {
+function randomHexColor() {
   var red = Math.floor(Math.random() * 256).toString(16);
   var green = Math.floor(Math.random() * 256).toString(16);
   var blue = Math.floor(Math.random() * 256).toString(16);
@@ -471,7 +471,7 @@ function randomHexColor1() {
 方案二：
 
 ```js
-function randomHexColor2() {
+function randomHexColor() {
   var color = Math.floor(Math.random() * 16777215).toString(16);
   return `#${color}`;
 }
@@ -480,7 +480,7 @@ function randomHexColor2() {
 方案三：
 
 ```js
-function randomHexColor3() {
+function randomHexColor() {
   var hexColor = Array.from({length: 3}, () => Math.floor(Math.random() * 256).toString(16));
   return "#" + hexColor.join("");
 }
