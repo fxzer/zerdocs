@@ -189,17 +189,6 @@ export default {
       ]
     },
     {
-      "text": "Other",
-      "collapsible": true,
-      "collapsed": false,
-      "items": [
-        {
-          "text": "Webpack4笔记",
-          "link": "/FrontEnd/Other/Webpack4笔记"
-        }
-      ]
-    },
-    {
       "text": "Shell",
       "collapsible": true,
       "collapsed": false,
