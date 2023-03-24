@@ -292,8 +292,16 @@ export default {
       "collapsed": false,
       "items": [
         {
+          "text": "Vue基础篇",
+          "link": "/Interview/Vue/Vue基础篇"
+        },
+        {
           "text": "Vue声明周期",
           "link": "/Interview/Vue/Vue声明周期"
+        },
+        {
+          "text": "Vue进阶篇",
+          "link": "/Interview/Vue/Vue进阶篇"
         },
         {
           "text": "npm run xxx执行过程",
