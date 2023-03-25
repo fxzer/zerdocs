@@ -983,3 +983,140 @@ console.log(index); // 输出7
 这个例子中，我们将文本串设置为“abababaababacb”，将模式串设置为“ababacb”，然后调用kmp函数来查找匹配位置。由于模式串出现在文本串的位置是7，所以kmp函数返回的结果也是7。
 
 总之，KMP算法是一种高效的字符串搜索算法，通过利用前缀表来避免不必要的比较，能够快速地查找匹配位置。
+
+
+## 数字转中文
+
+**方法一：**
+```js
+function numberToChinese(num, upper = false) {
+  if (!/^(\-|\+)?\d*(\.\d*)?$/.test(num)) {
+    return "不是一个合法的数字！";
+  }
+  let digitMap = {
+    plain:["零", "一", "二", "三", "四", "五", "六", "七", "八", "九"],
+    upper:["零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"]
+  }
+  let unitMap = {
+    plain: [
+      ["元", "万", "亿"],
+      ["", "十", "百", "千"],
+    ],
+    upper: [
+      ["元", "萬", "億"],
+      ["", "拾", "佰", "仟"],
+    ],
+  };
+  let ustr = upper ? "upper" : "plain"
+  let head = num < 0 ? "负" : "";
+  let unit = unitMap[ustr];
+  num = Math.abs(num);
+  let result = "";
+  for (let i = 0; i < unit[0].length && num > 0; i++) {
+    let currUnit = "";
+    for (let j = 0; j < unit[1].length && num > 0; j++) {
+      let index = num % 10;
+      let d =digitMap[ustr];
+      currUnit = d + unit[1][j] + currUnit;
+      num = Math.floor(num / 10);
+    }
+    result =
+      currUnit.replace(/(零.)*零$/, "").replace(/^$/, "零") +
+      unit[0][i] +
+      result;
+  }
+  let reg = upper ? /億零{0,3}萬/ : /亿零{0,3}万/;
+  let lastres =
+    head +
+    result
+      .replace(/(零.)*零元/, "元")
+      .replace(/(零.)+/g, "零")
+      .replace(reg, upper ? "億" : "亿")
+      .replace(/^零+/, "");
+  return lastres;
+}
+```
+
+**方法二：**
+```js
+function numberToChinese(num) {
+  if (num === 0) return "零";
+  //数字超过999999999999则报错
+  if (num.toString().length > 12) {
+    throw new Error("数字过大，无法转换");
+  }
+  let cstr = "";
+  let bunits = ["", "万", "亿"];
+  //把数字转换成字符串，四位一组，从后往前分割
+  let numStr = num
+    .toString()
+    .split("")
+    .reverse()
+    .join("")
+    .match(/(\d{1,4})/g)
+    .join(",")
+    .split("")
+    .reverse()
+    .join("")
+    .split(",");
+  let len = numStr.length;
+
+  function transform(str) {
+    let res = "";
+    let carr = ["零", "一", "二", "三", "四", "五", "六", "七", "八", "九"];
+    let units = ["", "十", "百", "千"];
+    for (let i = 0; i < str.length; i++) {
+      let digit = +str[i];
+      let char = carr[digit];
+      let unit = units[str.length - i - 1];
+      if (digit === 0) {
+        //如果是0，且不是最后一位不是零，则加零，并且不加单位
+        if (res[res.length - 1] !== "零") {
+          res += char;
+        }
+      } else {
+        res += char + unit;
+      }
+    }
+    if (res[res.length - 1] === "零") {
+      res = res.slice(0, res.length - 1);
+    }
+    return res;
+  }
+  for (let i = 0; i < len; i++) {
+    let part = numStr[i];
+    let str = transform(part);
+    let unit = str ? bunits[len - i - 1] : "";
+    cstr += str + unit;
+  }
+  cstr.startsWith("一十") && (cstr = cstr.slice(1));
+  return cstr;
+}
+
+//大写中文
+function bigChinese(str){
+  let  map ={
+    '零':'零',
+    '一':'壹',
+    '二':'贰',
+    '三':'叁',
+    '四':'肆',
+    '五':'伍',
+    '六':'陆',
+    '七':'柒',
+    '八':'捌',
+    '九':'玖',
+    '十':'拾',
+    '百':'佰',
+    '千':'仟',
+    '万':'萬',
+    '亿':'億',
+  }
+  let s = numberToChinese(str)
+  return s.split('').map( item => map[item]).join('')
+
+}
+let n = bigChinese(1000100001); //拾億零壹拾萬零壹
+console.log('[ n ]-66', n)
+
+```
