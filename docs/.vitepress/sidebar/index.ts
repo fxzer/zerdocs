@@ -292,6 +292,10 @@ export default {
       "collapsed": false,
       "items": [
         {
+          "text": "Vue响应式原理",
+          "link": "/Interview/Vue/Vue响应式原理"
+        },
+        {
           "text": "Vue基础篇",
           "link": "/Interview/Vue/Vue基础篇"
         },
