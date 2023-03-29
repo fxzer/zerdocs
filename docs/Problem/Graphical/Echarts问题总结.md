@@ -1,7 +1,7 @@
 # Echarts问题总结
 
 
-## 一、屏幕适配问题
+## 屏幕适配问题
 
 >  方案一: 使用`scss`函数计算比例
 
@@ -24,7 +24,7 @@ $designHeight:1080;
 
 
 
-## 二、左侧菜单折叠响应式
+## 左侧菜单折叠响应式
 
 ```js
  mounted() {
@@ -71,4 +71,70 @@ doResize(){
     
 },
 ```
+## 地图缩放重叠问题
+![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/interview/202303291527581.png)
 
+[Echart文档参考](https://echarts.apache.org/zh/option.html#series-map.geoIndex)
+```js {34,58}
+export default {
+	geo: {
+		roam: true,
+		map: "china",
+		aspectScale: 0.75,  
+		zoom: 1.1,
+		itemStyle: {
+			normal: {
+				shadowColor: "#ddd",
+				shadowOffsetX: 5,
+				shadowOffsetY: 5,
+			},
+		},
+		regions: [
+			{
+				name: "南海诸岛",
+				itemStyle: {
+					areaColor: "rgba(0, 10, 52, 1)",
+					borderColor: "rgba(0, 10, 52, 1)",
+					normal: {
+						opacity: 0,
+						label: {
+							show: false,
+							color: "#009cc9",
+						},
+					},
+				},
+			},
+		],
+	},
+	series: [
+		{
+			type: "map",
+			geoIndex: 0, //方案一：设置这个属性
+			label: {
+				normal: {
+					show: true,
+					textStyle: {
+						color: "#666",
+					},
+				},
+				emphasis: {
+					textStyle: {
+						color: "#fff",  
+					},
+				},
+			},
+			itemStyle: {
+				normal: {
+					borderType: "dashed",
+				},
+				emphasis: {
+					areaColor: "#3777DD",
+					borderWidth: 0.1,
+				},
+			},
+			zoom: 1.1,
+			map: "china", // //方案二：删除这个属性
+		},
+	],
+}
+```
