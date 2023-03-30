@@ -1,6 +1,6 @@
 # Vue项目踩坑一
 
-## 一、[webpack-bundle-analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer)插件
+## [webpack-bundle-analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer)插件
 
  安装后使用完把`--report`参数去掉，还是会给你生成打包文件，并会提示8888端口被占用，
 
@@ -8,7 +8,7 @@
 
 
 
-## 二、点击弹窗父子传值成功，但是数据没有展示
+## 点击弹窗父子传值成功，但是数据没有展示
 
 > 恰巧性能优化，后端改动了大量的关联关系，刚开始以为后端改动数据层级嵌套太深vue丢失了响应式的原因，
 >
@@ -27,7 +27,7 @@
 </el-dialog>
 ```
 
-## 三、'确定'按钮点击失效问题
+## '确定'按钮点击失效问题
 
 ![image-20230219214203987](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302192142529.png)
 
@@ -174,3 +174,18 @@ export default {
 }
 ```
 
+## 前端配合 Nginx 服务开启 gzip 页面加载不出来
+```js 
+//vue.config.js
+plugins: [
+	new CompressionWebpackPlugin({
+		exclude: /node_modules/,
+		test: /\.(js|css)$/,
+		threshold: 10240, // 超过10kb的文件就压缩
+		deleteOriginalAssets: true, // 不删除源文件
+		algorithm: "gzip",
+		minRatio: 0.8,
+	}),
+],
+```
+ ![2023-03-30-14-58-50](https://zerdocs.oss-cn-shanghai.aliyuncs.com/interview/2023-03-30-14-58-50.png)
