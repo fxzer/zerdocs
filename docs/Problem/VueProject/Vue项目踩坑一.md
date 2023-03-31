@@ -174,6 +174,23 @@ export default {
 }
 ```
 
+## 路由组件切换，事件总线多次触发意外
+
+```js 
+//A路由组件
+this.$bus.$emit("searchDone")
+```
+```js {3}
+//B路由组件
+mounted(){
+		this.$bus.$off('searchDone') //在每次绑定事件前，先解绑该事件
+
+		this.$bus.$on('searchDone',this.handleCurrentChange)
+	},
+
+```
+
+
 ## 前端配合 Nginx 服务开启 gzip 页面加载不出来
 ```js 
 //vue.config.js
