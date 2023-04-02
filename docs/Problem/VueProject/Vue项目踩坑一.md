@@ -206,3 +206,29 @@ plugins: [
 ],
 ```
  ![2023-03-30-14-58-50](https://zerdocs.oss-cn-shanghai.aliyuncs.com/interview/2023-03-30-14-58-50.png)
+
+
+ ## TailwindCSS动态绑定类不能随着渐变
+```vue
+
+<template>
+  <header  :class="headerBg"></header>
+</template>
+<script setup lang="ts">
+import { ref, onMounted } from "vue";
+//通过判断滚动的距离，来决定header 背景色的变化
+
+let headerBg = ref("bg-zinc-900/[.00]");
+const handleScroll = () => {
+  const scrollHeight = document.documentElement.scrollTop;
+  if (scrollHeight < 100) {
+    let opacity = (scrollHeight / 100).toFixed(1).slice(1);
+    headerBg.value = `bg-zinc-900/[${opacity}]`
+  } else {
+    headerBg.value = `bg-zinc-900/[1]`
+  }
+};
+  window.addEventListener("scroll", handleScroll);
+</script>
+```
+
