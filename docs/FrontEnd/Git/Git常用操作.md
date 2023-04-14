@@ -14,6 +14,11 @@ git push origin --delete 分支名   #删除远程库分支
 git rm -r -n --cached 文件/文件夹名称   #预览要删除的文件列表
 git rm -r --cached 文件/文件夹名称      #确定无误后删除文件
 ```
+## fork后的仓库，拉取合并原仓库的更新 
+```zsh
+git remote add upstream [原仓库URL] #添加上游分支路径
+git pull upstream [分支名]  				#拉取上游分支更新并合并
+```
 
 ### 合并多次提交
 
