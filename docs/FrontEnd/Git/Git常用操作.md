@@ -14,6 +14,7 @@ git push origin --delete 分支名   #删除远程库分支
 git rm -r -n --cached 文件/文件夹名称   #预览要删除的文件列表
 git rm -r --cached 文件/文件夹名称      #确定无误后删除文件
 ```
+
 ## fork后的仓库，拉取合并原仓库的更新 
 ```zsh
 git remote add upstream [原仓库URL] #添加上游分支路径
@@ -88,8 +89,12 @@ origin  git@github.com:fxzer/json-viewer.git (push)
 origin  git@gitee.com:fxzer/json-viewer.git (push)
 ```
 
+::: tip `git remote add` 和 `git remote set-url --add`区别
+- git remote add 用于添加一个新的远程仓库。该本地仓库已关联远程库，希望添加新的远程库。**运用：**fork后的仓库，需要拉取合并原仓库的更新。
+- git remote set-url --add 用于向已经存在的远程仓库中添加一个新的 URL。**运用：**同一个仓库关联 github 和 gitee 方便同时更新。
+- git remote set-url 命令会替换掉原有的链接，git remote set-url --add 命令，则是添加一个标识对应的远程库链接。
 
-
+:::
 ### 改错分支但为未提交
 
 ```zsh
