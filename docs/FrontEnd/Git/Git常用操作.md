@@ -119,3 +119,100 @@ git cherry-pick [commit]
 3. 解决冲突（如果有）
 4. 将更改提交到正确的分支上：`git checkout [correct-branch]`，然后 `git merge [error-branch]`
 5. 在错误分支`git push -f`更新远程代码
+
+
+## Git 提交规范化
+- **husky**: Git 钩子工具,在 Git 提交过程的不同阶段自动运行脚本，以此来实现对代码的验证、格式化、测试等操作
+- **@commitlint/cli**: 提交信息校验脚手架
+- **@commitlint/config-conventional**: 定义了 commitlint 默认使用的规范。
+- **commitizen**: 交互式提交工具
+- **conventional-changelog**: 规范提交信息、并自动生成变更日志
+- **cz-conventional-changelog**: git cz 提交规范和 changelog 生成工具
+
+### [husky](https://typicode.github.io/husky)
+``` zsh
+# 安装
+pnpm i husky -D
+
+# 初始化husky配置，在根目录新增.husky配置文件。初始化配置pre-commit
+npx husky-init 
+
+# 新增一个提交git commit 执行前的钩子（commit-msg）
+npx husky add .husky/commit-msg 
+
+```
+
+### @commitlint/cli与@commitlint/config-conventional
+```zsh
+#安装校验脚手架、校验规范
+pnpm i @commitlint/cli @commitlint/config-conventional -D
+
+#添加安装脚本呢
+pnpm set-script '"prepare": "husky install"'
+```
+
+```js
+//commitlint.config.js （若报错 type:'module'）可改：commitlint.config.js ==> commitlint.config.cjs
+module.exports = {
+  ignores: [commit => commit.includes("init")],
+  extends: ["@commitlint/config-conventional"],
+  rules: {
+    "body-leading-blank": [2, "always"],
+    "footer-leading-blank": [1, "always"],
+    "header-max-length": [2, "always", 108],
+    "subject-empty": [2, "never"],
+    "type-empty": [2, "never"],
+    "type-enum": [
+      2,
+      "always",
+      [
+        "feat",
+        "fix",
+        "perf",
+        "style",
+        "docs",
+        "test",
+        "refactor",
+        "build",
+        "ci",
+        "chore",
+        "revert",
+        "wip",
+        "workflow",
+        "types",
+        "release"
+      ]
+    ]
+  }
+};
+
+```
+### [commitizen](http://commitizen.github.io/cz-cli/)
+
+```zsh
+#全局安装
+npm install -g commitizen
+```
+
+
+### cz-conventional-changelog
+
+```zsh
+#全局安装
+npm install -g cz-conventional-changelog
+```
+
+配置 `~/.czrc`， 将其设置为 `commitizen` 的插件。
+```zsh
+{
+  "path": "cz-conventional-changelog"
+}
+```
+
+:::tip 作用：提交代码并生成变更日志
+使用 `commitizen` 提交代码时，会自动启动 `cz-conventional-changelog` 插件，
+
+并根据 `conventional-commit` 规范提示用户输入提交信息。
+
+输入完毕后，会自动将提交信息转换成符合规范的格式，并将其写入到 `CHANGELOG.md` 文件中。
+:::
