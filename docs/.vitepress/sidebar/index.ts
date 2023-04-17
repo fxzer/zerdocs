@@ -205,8 +205,12 @@ export default {
       "collapsed": false,
       "items": [
         {
-          "text": "TS学习笔记",
-          "link": "/FrontEnd/TypeScript/TS学习笔记"
+          "text": "TS初学笔记",
+          "link": "/FrontEnd/TypeScript/TS初学笔记"
+        },
+        {
+          "text": "TS进阶使用技巧",
+          "link": "/FrontEnd/TypeScript/TS进阶使用技巧"
         },
         {
           "text": "TS进阶使用技巧",

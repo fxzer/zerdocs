@@ -1,9 +1,9 @@
 {
   "scripts": {
-    "dev": "npm run update:sidebar  && vitepress dev docs",
+    "dev": "pnpm gs  && vitepress dev docs",
     "build": "vitepress build docs",
     "preview": "vitepress preview docs",
-    "update:sidebar": "node scripts/getSidebar.js"
+    "gs": "node scripts/generate-sidebar.js"
   },
   "devDependencies": {
     "flexsearch": "^0.7.31",

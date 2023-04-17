@@ -15,8 +15,7 @@ null
 undefined	//默认情况下null和undefined是所有类型的子类型。可以赋值给其他类型
 ```
 
-::: warning
- **object 类型常见用法**
+::: warning **object 类型常见用法**
 :::
 
 ```typescript
@@ -45,10 +44,7 @@ d = function(n1,n2){
 }
 ```
 
-::: warning
-
-**数组**
-
+::: warning **数组**
 :::
 
 ```typescript
@@ -56,10 +52,7 @@ let arr: string[] 	//字符串数组 arr = ['zhansan','lisi']
 let arr1:Array<number>	//数值数组 arr1 = [1,2,3,4,5]
 ```
 
-::: warning
-
-**元组**
-
+::: warning **元组**
 :::
 
 ```typescript
@@ -67,10 +60,7 @@ let h: [string ,number]
 h = ['hello', 123]
 ```
 
-::: warning
-
-**枚举**
-
+::: warning **枚举**
 :::
 
 ```typescript
@@ -94,13 +84,8 @@ never	//永远不返回结果，没有类型是never的子类型、没有类型�
 //函数用于执行不到返回值那一步，(抛出异常或死循环)的返回值类型
 ```
 
-::: warning
-
-`unknown`与`any`区别
-
+::: warning `unknown`与`any`区别
 :::
-
-#### 
 
 ```typescript
 let a: any
@@ -123,10 +108,7 @@ f = e as string
 f = <string> e
 ```
 
-::: warning
-
-`|`和`&`    ：表示或，&：表示且
-
+::: warning `|`和`&`    ：表示或，&：表示且
 :::
 
 ```typescript
@@ -797,7 +779,7 @@ npm i -D webpack webpack-cli webpack-dev-server typescript ts-loader clean-webpa
 
 #### 7.Babel
 
-::: warning
+::: warning Babel作用
 
 虽然TS在编译时也支持代码转换，但是只支持简单的代码转换；
 
