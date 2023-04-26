@@ -102,6 +102,21 @@ git stash            #暂存更改到stash
 git checkout 分支名   #切换分支
 git stash pop        #从stash中取出暂存的代码修改
 ```
+
+
+## 提交完未推送前，需要再次提交
+- 提交完未推送前，发现代码有的有点小问题，还需要修改再提交，但是不想新增垃圾提交信息，保持简洁。
+- 只需要修改提交的内容而不需要改变提交信息， 可以使用 --no-edit 参数来跳过编辑提交信息的步骤。
+```zsh
+git commit --amend --no-edit # 做的修改合并到最近的提交中，相当于是在原有的提交上进行修改，而不是创建一个新的提交。
+
+# 使用后在拉取代码会出现：位于分支 master
+# 您的分支和 'origin/master' 出现了偏离，
+# 并且分别有 1 和 1 处不同的提交。
+#   （使用 "git pull" 来合并远程分支）
+ git config pull.rebase true   # git pull前，需要执行此命令进行变基
+```
+
 ## 代码提交到了错误的分支
 
 ### 方法一
@@ -216,3 +231,4 @@ npm install -g cz-conventional-changelog
 
 输入完毕后，会自动将提交信息转换成符合规范的格式，并将其写入到 `CHANGELOG.md` 文件中。
 :::
+

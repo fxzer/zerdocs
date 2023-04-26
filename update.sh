@@ -2,7 +2,7 @@
 
 set -e
 
-node ./scripts/getSidebar.js
+pnpm gs
 
 git add .
 

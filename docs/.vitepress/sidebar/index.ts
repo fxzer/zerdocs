@@ -213,10 +213,6 @@ export default {
           "link": "/FrontEnd/TypeScript/TS进阶使用技巧"
         },
         {
-          "text": "TS进阶使用技巧",
-          "link": "/FrontEnd/TypeScript/TS进阶使用技巧"
-        },
-        {
           "text": "TS配置文件详解",
           "link": "/FrontEnd/TypeScript/TS配置文件详解"
         }
