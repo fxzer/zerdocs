@@ -117,6 +117,16 @@ git commit --amend --no-edit # 做的修改合并到最近的提交中，相当�
  git config pull.rebase true   # git pull前，需要执行此命令进行变基
 ```
 
+## 修改第一次提交信息
+```zsh
+git rebase -i --root  #把第一次提交的 pick 改为 edit 后 e
+git rebase --continue
+git rebase pull.rebase true
+git pull
+git push 
+
+```
+
 ## 代码提交到了错误的分支
 
 ### 方法一
