@@ -232,3 +232,39 @@ const handleScroll = () => {
 </script>
 ```
 
+## 监听非 `window` resize 事件不生效问题
+
+不会生效原因：  div 元素默认不会触发 resize 事件。在 window 对象上，浏览器会自动跟踪窗口的大小变化并触发 resize 事件，但在其他元素上，您需要自己编写代码来检测大小变化。可以使用 MutationObserver 或者 ResizeObserver 来监听元素大小变化。以下是使用 ResizeObserver 的示例代码：
+
+```js
+mounted() {
+  this.tagListRef = this.$refs.tagListRef;
+  this.tagBoxRef = this.$refs.tagBoxRef;
+  this.resizeHandler()
+  
+  // 创建 ResizeObserver 实例
+  this.tagListResizeObserver = new ResizeObserver(this.resizeHandler);
+  // 监听 tagListRef 元素的大小变化
+  this.tagListResizeObserver.observe(this.tagListRef);
+  
+  this.tagListRef.addEventListener('wheel', this.handleScroll);
+},
+beforeUnmount() {
+  // 在组件卸载前，停止 ResizeObserver 实例
+  this.tagListResizeObserver.disconnect();
+},
+methods: {
+  handleScroll(e) {
+    e.preventDefault();
+    this.tagListRef.scrollLeft += e.deltaY * 100;
+  },
+  scrollHandler(direction) {
+    this.tagListRef.scrollLeft += direction * this.tagListWidth;
+  },
+  resizeHandler(entries) {
+    // entries 是 ResizeObserver 的回调参数，包含被观察的元素的信息
+    this.tagListWidth = this.tagListRef.clientWidth
+    this.tagBoxWidth = this.tagBoxRef.clientWidth
+  } 
+}
+```
