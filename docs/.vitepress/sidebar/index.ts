@@ -351,6 +351,17 @@ export default {
       ]
     },
     {
+      "text": "Nuxt3",
+      "collapsible": true,
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Nuxt3项目踩坑",
+          "link": "/Problem/Nuxt3/Nuxt3项目踩坑"
+        }
+      ]
+    },
+    {
       "text": "VitePress",
       "collapsible": true,
       "collapsed": false,
