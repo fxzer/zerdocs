@@ -46,5 +46,22 @@ shortcuts: [
  
 ```
 
-
 总结：自定义的类名快捷键不能写在变体后面
+
+
+### hidden与自定义变体不能一起用
+```ts
+//uno.config.ts
+ shortcuts: [
+   ['f-s-c', 'flex justify-start items-center'],
+   ['f-c-c', 'flex justify-center items-center'],
+ ]
+ ```
+
+```html
+<div class="hidden xl:f-c-c">TEST</div>
+```
+可以这样用
+```html
+<div class="f-s-c xl:f-c-c">TEST</div>
+```
