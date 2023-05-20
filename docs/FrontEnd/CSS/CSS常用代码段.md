@@ -1,5 +1,7 @@
 # CSS常用代码段
+
 ## 单行与多行溢出隐藏
+
 ```css
 .text {
     white-space: nowrap;
@@ -17,7 +19,9 @@
     -webkit-line-clamp: 3; /* 显示三行文本 */
 }
 ```
+
 ## 自定义滚动条
+
 ```css
 html,
 body {
@@ -46,9 +50,10 @@ body{
     border-radius: 6px;
   }
 }
-
 ```
+
 ## 画布网状满天星背景
+
 ```html
 <svg >
   <pattern
@@ -74,11 +79,13 @@ svg {
   background-color:#13121a;
 }
 ```
+
 <!-- ![2023-03-09-15-45-20](https://zerdocs.oss-cn-shanghai.aliyuncs.com/interview/2023-03-09-15-45-20.png) -->
+
 <script setup>
 import GridStar from './demo/GridStar.vue'
 </script>
+
 <DemoWrap pkg="FrontEnd/CSS/demo"   path='GridStar.vue'>
     <GridStar/>
 </DemoWrap>
-

@@ -15,9 +15,7 @@
 + **providers** —— 提供各种服务。
 + **bootstrap** —— 根组件，Angular 创建它并插入 index.html 宿主页面
 
-
-#### declarations 数组 
-
+#### declarations 数组
 
 ```js
 1.模块中使用的组件必须先在declarations 数组中声名
@@ -25,11 +23,7 @@
 3.在declarations中的组件默认只能在当前模块中使用，在其他模块使用必须exports导出
 ```
 
-
-
-
-#### imports 数组 
-
+#### imports 数组
 
 ```js
 1.只会出现在@NgModule装饰器中。
@@ -37,21 +31,13 @@
 3.只要是angular module，都可以导入imports数组中，比如ng内置、第三方、自定义的模块。
 ```
 
-
-
-
 #### providers 数组
-
 
 ```js
 该数组为当前模块提供一系列服务
 ```
 
-
-
-
 #### bootstrap 数组
-
 
 ```js
 应用是通过引导根模块 AppModule 来启动的，引导过程还会创建 bootstrap 数组中列出的组件，并把它们逐个插入到浏览器的 DOM 中。
@@ -66,10 +52,6 @@
 
 :::
 
-
-
-
-
 ## 二、模板基础语法
 
 #### 1. 模板表达式
@@ -81,17 +63,17 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `<h1>{{title}}</h1>
-			 <p> sum : {{1 + 1}}</p>
+             <p> sum : {{1 + 1}}</p>
              <p>price: {{price * 0.7}}</p>
              <p>与方法结合: {{price * 0.7 + getVal()}}.</p>
-`,	//内联模板
-  styles: [`h1 { color: yellow }`]	//内联样式
-})	
+`,    //内联模板
+  styles: [`h1 { color: yellow }`]    //内联样式
+})    
 export class AppComponent {
   title = 'my-angular-title';
   price = 30
   getVal(): number {
-   	 return 33;
+        return 33;
   }
 }
 ```
@@ -114,7 +96,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'] //注意： styleUrls
 })
 export class AppComponent {
- 
+
 }
 ```
 
@@ -122,13 +104,11 @@ export class AppComponent {
 
 ```html
 <img src="../assets/images/zorro.jpg" alt="madao" /><!-- 静态绑定-->
-<img [src]="zorroSrc" alt="zorro" /> 	<!-- 简写形式-->
+<img [src]="zorroSrc" alt="zorro" />     <!-- 简写形式-->
 <img bind-src="zorroSrc" alt="zorro" /> <!-- 完整形式-->
 <button [disabled]="isDisabled">click</button>
 <!-- zorroSrc、zorro、isDisabled均为变量 -->
 ```
-
-
 
 #### 4. 自定义属性绑定
 
@@ -136,8 +116,6 @@ export class AppComponent {
 <p [attr.data-title]="customTitle">一行文字</p>
 <p [attr.title]="customTitle">测试自定义标题属性</p>
 ```
-
-
 
 #### 5. 插值表达式属性绑定
 
@@ -166,8 +144,6 @@ export class AppComponent {
     isSuccess = true;
 }
 ```
-
-
 
 #### 7. 绑定多个class
 
@@ -252,8 +228,6 @@ export class AppComponent {
 
 :::
 
-
-
 #### 10. 绑定事件
 
 ```typescript
@@ -262,7 +236,7 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
       <button (click)="onClick()">CLICK</button>
- 	  <button  (click)="onClick1($event)">Primary</button>
+       <button  (click)="onClick1($event)">Primary</button>
     `,
   styles: []
 })
@@ -279,7 +253,7 @@ export class AppComponent {
 #### 11. 输入与输出属性
 
 > 输入属性：用于父组件传值给子组件（父传子）` @Input()`
->
+> 
 > 输出属性：用于子组件传值给父组件（子传父）`@Output()`
 
 #### 输入属性`@Input`
@@ -292,8 +266,8 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
      <app-mycpn [item]="currentItem"></app-mycpn>
- 	<!-- <app-mycpn item="我是传入的字符串"></app-mycpn>--> <!--静态属性可不用[]包裹 -->
- 
+     <!-- <app-mycpn item="我是传入的字符串"></app-mycpn>--> <!--静态属性可不用[]包裹 -->
+
   `,
 })
 export class AppComponent {
@@ -338,8 +312,6 @@ export class AppComponent {
 }
 ```
 
-
-
 :memo:子组件
 
 ```typescript
@@ -370,7 +342,7 @@ export class MycpnComponent  {
 它选中的是组件模板标签，比如<app-child></app-child>，相当于在父组件的style中使用标签选择器选择 app-child {}
 ```
 
-当宿主标签上有 active class时生效
+当宿主标签上有 `active` 类名时生效
 
 ```css
 :host(.active) {
@@ -378,32 +350,28 @@ export class MycpnComponent  {
 }
 ```
 
-
-
 #### 祖先选择器
 
 > 当某个祖先元素有 CSS 类 light 时，才会把 background-color 样式应用到组件内部的所有 .title 元素中，找到根元素(html标签)为止
 
 ```css
 :host-context(.light) .title {
- 	 background-color: ##bfa;
+      background-color: ##bfa;
 }
 ```
-
-
 
 #### 样式模块化
 
 > 在 @Component 的元数据中指定的样式只会对该组件的模板生效
->
+> 
 > 组件的样式不会影响到子组件中的模板
->
+> 
 > 组件的样式不会影响到投影内容
 
 #### 视图封装模式
 
 > ShadowDom -- **不进不出**，没有样式能进来，组件样式出不去, 就自己玩
->
+> 
 > Emulated  --**只进不出**， 默认选项，全局样式能进来，组件样式出不去
->
+> 
 > None  -- **能进能出**，此时组件的样式是全局生效的，注意与其他组件发生样式冲突，（对父组件样式也能生效）

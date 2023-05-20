@@ -1,17 +1,14 @@
-
 ## 组件投影
 
 :memo:shadow.component.html
 
 ```html
-<p>	shadow works!
+<p>    shadow works!
     <ng-content select=".head"></ng-content>
     <ng-content select="[attr-content]"></ng-content>
     <ng-content select="section"></ng-content>
 </p>
 ```
-
-
 
 :memo:app.component.html
 
@@ -52,24 +49,22 @@ import { ChildComponent } from './child/child.component';
     // console.log('constructor',this.instance?.childdata);
     // console.log('constructor',this.childInstance?.childdata);
     console.log('constructor',this.childInstance);
-    
+
   }
   ngOnInit(): void {//（2）
     // console.log('ngOnInit',this.box.nativeElement);
     // console.log('ngOnInit',this.instance.childdata);
     console.log('ngOnInit',this.childInstance);
     // console.log('ngOnInit',this.childInstance.childdata);
-    
+
   }
   ngAfterViewInit(): void { //（3）在变更检测后执行，能保证获取到元素
     //  console.log('ngAfterViewInit',this.box.nativeElement);
     //  console.log('ngAfterViewInit',this.instance.childdata);
      console.log('ngAfterViewInit',this.childInstance.childdata);
-     
+
   }
 ```
-
-
 
 ## ViewChildren
 
@@ -111,7 +106,7 @@ export class ParentComponent implements OnInit,AfterViewInit {
       //QueryList中监听子组件变化的回调函数
      this.childs1.changes.subscribe((changes)=>{
        console.log(changes);
-       
+
       })
   }
 }
@@ -142,8 +137,6 @@ export class ParentComponent implements OnInit,AfterViewInit {
 <ng-content></ng-content>
 ```
 
-
-
 :memo:content-child.ts
 
 ```typescript
@@ -167,17 +160,15 @@ export class ContentChildComponent implements OnInit,AfterViewInit {
     console.log(this.head);
    console.log(this.contentbox);
     console.log(this.cbox);
-    
+
   }
 }
 ```
 
-
-
 ## ContentChildren
 
 > **用法类似ViewChildren, 批量获取投影中到组件或指令。**
->
+> 
 > **默认只批量获取直属组件，获取所有组件需开启：{ descendants: true }**
 
 :memo:content-parent.html
@@ -208,7 +199,7 @@ import { ContentBoxComponent } from '../content-box/content-box.component';
   styleUrls: ['./content-child.component.css']
 })
 export class ContentChildComponent implements OnInit,AfterViewInit {
-	//ContentChildren没有{static:true}属性
+    //ContentChildren没有{static:true}属性
   @ContentChildren(ContentBoxComponent) private cboxs:QueryList<ContentBoxComponent>
   @ContentChildren('cbox',{descendants: true}) private cboxss:QueryList<ContentBoxComponent>
    constructor() { }
@@ -233,7 +224,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class PipepowPipe implements PipeTransform {
 
   transform(value: number, exponent?: number): number {
-      //value:底数	exponent:指数
+      //value:底数    exponent:指数
     return Math.pow(value,isNaN(exponent) ? 1: exponent);
   }
 }
@@ -276,7 +267,6 @@ export class Pipe2Pipe implements PipeTransform {
   }
 
 }
-
 ```
 
 :::
@@ -334,7 +324,7 @@ export class AppComponent {
      constructor() {
        this.reset();
      }
-   
+
      ngOnInit(): void {
      }
      addHero(name: string) {
@@ -346,26 +336,18 @@ export class AppComponent {
         // this.heroes = [...this.heroes,{id:'flier'+Date.now(),name,canFly:this.canFly}]
        }
      }
-   
+
    reset() { this.heroes = HEROES.slice(); }
 }
 ```
 
-
-
 :::
-
-
-
-
 
 ## 生命周期
 
 > 生命周期函数：组件创建、组件更新、组件销毁的时候会触发的一系列的方法。
->
+> 
 > 当 Angular 使用构造函数新建一个组件或指令后，就会按下面的顺序在特定时刻调用这些 生命周期钩子函数。
-
-
 
 <img src="https://gitee.com/GiteeFXJ/picstore/raw/master/pics/20211106200214.png"/>
 
@@ -381,7 +363,7 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit,OnChanges,DoCheck,AfterContentInit,
-    	AfterContentChecked,AfterViewInit,AfterViewChecked,OnDestroy{
+        AfterContentChecked,AfterViewInit,AfterViewChecked,OnDestroy{
   constructor(){} //组件初始化，写简单的逻辑和数据初始化操作，（获取不到最新输入属性值）
   ngOnChanges(changes: SimpleChanges): void {
     console.log('changes ', changes); 
@@ -412,30 +394,27 @@ export class AppComponent implements OnInit,OnChanges,DoCheck,AfterContentInit,
   ngAfterViewChecked(): void {
       //组件每次检查视图时调用
     console.log('ngAfterViewChecked');
-    
+
   }
- 
+
   ngOnDestroy(): void {
     //指令销毁前调用,适合理一些残存的状态操作：
     //取消订阅可观察对象和 DOM 事件、停止 interval 计时器、
     //反注册该指令在全局或应用服务中注册过的所有回调
     console.log('ngOnDestroy');
   }
- 
-}
 
+}
 ```
 
 ::: 
 
-
-
 <img src="https://gitee.com/GiteeFXJ/picstore/raw/master/pics/20211106202053.png"/>
 
 > 当组件、父组件发生变更检测后都会调用这三个钩子：
->
+> 
 > 模板中的DOM事件触发就会进行变更检测（`<input (input)="$event">`）
->
+> 
 > ngDoCheck
 > ngAfterContentChecked
 > ngAfterViewChecked
@@ -459,14 +438,12 @@ export class AppComponent implements OnInit,OnChanges,DoCheck,AfterContentInit,
 changeDetection:ChangeDetectionStrategy.Default
 ```
 
-
-
 - 事件：页面 click、submit、mouse down……
 - XHR：从后端服务器拿到数据
 - 定时器：setTimeout()、setInterval()
 
 > 只要某个组件触发了以上中的一个，就会从顶级组件从上至下开始进行变更检测，每个组件都会进行变更检测，
->
+> 
 > 检测组件中的值是否应该改变
 
 ::: warning  <b>注意</b>
@@ -477,15 +454,11 @@ changeDetection:ChangeDetectionStrategy.Default
 
 <img src="https://gitee.com/GiteeFXJ/picstore/raw/master/pics/20211101223945.png"/>
 
-
-
 ## onPush下触发变更检测时机
 
 ```typescript
 changeDetection:ChangeDetectionStrategy.OnPush
 ```
-
-
 
 ::: warning 
 
@@ -514,7 +487,7 @@ detectChanges() //检查该视图及其子视图。与 detach 结合使用可以
 ## 动态组件
 
 > 如果说，之前在模版中调用的组件为静态组件（比如：app-xxx）
->
+> 
 > 那么不用在模版里声明，而是通过ts动态插入到dom中到组件，可以视为动态组件
 
 :memo:alert.component.ts:
@@ -533,7 +506,7 @@ export interface AlertOption {
   template: `
     <div [class]="wrapCls" role="alert">
       <span class="content">{{ options.content }}</span>
-      <i class="close" (click)="closed.emit()">&times;</i>
+      <i class="close" (click)="closed.emit()">×</i>
     </div>
   `,
   styles: [`
@@ -571,8 +544,6 @@ export class AlertComponent implements OnInit {
 }
 ```
 
-
-
 > 调用 `alert.component`
 
 ```typescript
@@ -601,7 +572,7 @@ export class ShowDataComponent implements OnInit {
     if (!this.container) {
       this.container = this.getContainer();
     }
-  
+
     // 调用组件的某个方法执行逻辑，比如下面这个传参
     this.container.setOptions({ content: '一段提示', theme: 'warning' });
   }
@@ -618,7 +589,7 @@ export class ShowDataComponent implements OnInit {
 
     // 将组件到模版(包括app-alert标签)，添加到body最后
     document.body.appendChild((this.componentRef.hostView as EmbeddedViewRef<{}>).rootNodes[0] as HTMLElement);
-    
+
     // 监听组件销毁事件
     this.componentRef.onDestroy(() => {
       console.log('componentRef destory');
@@ -661,8 +632,6 @@ export class ShowDataComponent implements OnInit {
     <div>使用outlet中的value:{{val}}</div>
 </ng-template>
 ```
-
- 
 
 :memo:tmp-outlet.component.html
 
@@ -709,6 +678,4 @@ export class TmpOutletComponent implements OnInit {
   }
 
 }
-
 ```
-
