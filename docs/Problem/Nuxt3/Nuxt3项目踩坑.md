@@ -65,3 +65,9 @@ shortcuts: [
 ```html
 <div class="f-s-c xl:f-c-c">TEST</div>
 ```
+
+
+## 项目一直报 Element 相关错误
+`element-ui.js:1 Uncaught TypeError: Cannot read properties of undefined (reading 'prototype')`
+![2023-05-21-20-26-38](https://zerdocs.oss-cn-shanghai.aliyuncs.com/interview/2023-05-21-20-26-38.png)
+换浏览器后没报错，定位到可能是浏览器插件的原因，果然排除法找到是：YouTube视频摘要ChatGPT生成-快速笔记 (中文版) 的问题！
