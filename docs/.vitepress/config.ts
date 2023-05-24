@@ -22,6 +22,10 @@ export default  {
     },
     // lineNumbers: true,
   },
+  head: [
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+  ],
   themeConfig: {
     outline: 'deep',//侧边栏深度:数字或者deep
     outlineTitle: '文章目录',
