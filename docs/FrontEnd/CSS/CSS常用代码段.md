@@ -89,3 +89,34 @@ import GridStar from './demo/GridStar.vue'
 <DemoWrap pkg="FrontEnd/CSS/demo"   path='GridStar.vue'>
     <GridStar/>
 </DemoWrap>
+
+
+## 轮播闪光
+![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/interview/202306052345184.gif)
+```css
+.shine::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(to bottom right,
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.15),
+      rgba(255, 255, 255, 0));
+  transform: rotate(-45deg);
+  animation: shine 2s ease-in-out infinite;
+}
+
+@keyframes shine {
+  from {
+    left: -200%;
+  }
+
+  to {
+    left: 150%;
+  }
+
+}
+```
