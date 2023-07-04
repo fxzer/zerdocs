@@ -163,19 +163,19 @@ git cherry-pick [commit]
 - **conventional-changelog**: 规范提交信息、并自动生成变更日志
 - **cz-conventional-changelog**: git cz 提交规范和 changelog 生成工具
 
-### [husky](https://typicode.github.io/husky)
+### [husky](https://typicode.github.io/husky) [文档](https://typicode.github.io/husky/getting-started.html)
 ``` zsh
 # 安装
-pnpm i husky -D
-
+pnpm dlx husky-init && pnpm install
 # 初始化husky配置，在根目录新增.husky配置文件。初始化配置pre-commit
-npx husky-init 
 
 # 新增一个提交git commit 执行前的钩子（commit-msg）
 npx husky add .husky/commit-msg 
 
 ```
 
+#### 注意：需要 `git init`后才能初始化，否则报错如下
+![2023-06-27-20-25-35](https://zerdocs.oss-cn-shanghai.aliyuncs.com/interview/2023-06-27-20-25-35.png)
 ### @commitlint/cli与@commitlint/config-conventional
 ```zsh
 #安装校验脚手架、校验规范
@@ -188,36 +188,7 @@ pnpm set-script '"prepare": "husky install"'
 ```js
 //commitlint.config.js （若报错 type:'module'）可改：commitlint.config.js ==> commitlint.config.cjs
 module.exports = {
-  ignores: [commit => commit.includes("init")],
   extends: ["@commitlint/config-conventional"],
-  rules: {
-    "body-leading-blank": [2, "always"],
-    "footer-leading-blank": [1, "always"],
-    "header-max-length": [2, "always", 108],
-    "subject-empty": [2, "never"],
-    "type-empty": [2, "never"],
-    "type-enum": [
-      2,
-      "always",
-      [
-        "feat",
-        "fix",
-        "perf",
-        "style",
-        "docs",
-        "test",
-        "refactor",
-        "build",
-        "ci",
-        "chore",
-        "revert",
-        "wip",
-        "workflow",
-        "types",
-        "release"
-      ]
-    ]
-  }
 };
 
 ```
