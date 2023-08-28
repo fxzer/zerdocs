@@ -1,13 +1,12 @@
-
 ## 一、读取文件
 
 ```js
 const fs = require('fs')
 fs.readFile('1.txt','utf8',function(err,data){
-    
+
     console.log('data: ', data);//失败为undefined
-  	console.log('err: ', err);//成功为null,否则为错误对象
-    
+    console.log('err: ', err);//成功为null,否则为错误对象
+
     if(err){
 	 return console.log('读取失败'+err.message)
    }
@@ -17,14 +16,14 @@ fs.readFile('1.txt','utf8',function(err,data){
 
 **问题**
 
-+ 相对路径在上一层读取不了文件
-+ 绝对路径不利于维护移植
+- 相对路径在上一层读取不了文件
+- 绝对路径不利于维护移植
 
 **解决**
 
-`__dirname`代表当前文件所处目录, 解决文件路径动态拼接问题 
+`__dirname`代表当前文件所处目录, 解决文件路径动态拼接问题
 
-**坑点**：`__dirname`输出是路径是***反斜杠（\）***，拼接后面的路径需要写***正斜杠（/）***
+**坑点**：`__dirname`输出是路径是**_反斜杠（\）_**，拼接后面的路径需要写**_正斜杠（/）_**
 
 ```js
 //__dirname:  D:\PracticeProject\Node\readfile
@@ -35,36 +34,26 @@ fs.readFile(__dirname+'/3.txt','utf8',function(err,data){
      __dirname+'\\\3.txt',
     __dirname+'/\\3.txt',
    console.log('__dirname: ', __dirname+'\\3.txt');//这四个都可以成功(?)
-    
+
   console.log('__dirname: ', __dirname);
     console.log('data: ', data);
-    if(err){ 
+    if(err){
 	    return console.log('读取失败'+err.message)
-   } 
+   }
 })
 ```
 
-
-
-### path路径模块
-
-
+### path 路径模块
 
 ```js
 const pathStr = path.join('/a','/b/c','../','/d')  //  a\b\d 抵消路劲(../)
 ```
-
-
 
 获取文件扩展名
 
 ```js
 const fext = path.extname(fpath)
 ```
-
-
-
-
 
 ## 二、写入文件
 
@@ -80,23 +69,19 @@ fs.writeFile('F:/12.txt','888888',function(err  ){
 })
 ```
 
-
-
-> fs.writeFile只能创建文件，不能创建路径
+> fs.writeFile 只能创建文件，不能创建路径
 >
-> 重复调用fs.writeFile写入同一个文件，新写入的会覆盖之前内容
-
-
+> 重复调用 fs.writeFile 写入同一个文件，新写入的会覆盖之前内容
 
 ## 三、服务器操作
 
-> 服务器与普通电脑：服务器上安装了web服务器软件
+> 服务器与普通电脑：服务器上安装了 web 服务器软件
 
-### 1.创建web服务器步骤
+### 1.创建 web 服务器步骤
 
-- 导入http模块
-- 创建web服务器实例
-- 为服务器实例绑定request事件，监听客户端请求
+- 导入 http 模块
+- 创建 web 服务器实例
+- 为服务器实例绑定 request 事件，监听客户端请求
 - 启动服务器
 
 ```js
@@ -113,8 +98,6 @@ server.listen(80,()=>{
 	console.log('服务器运行在 127.0.0.1')
 })
 ```
-
-
 
 ### 2.动态响应内容
 
@@ -138,8 +121,6 @@ server.listen(80, () => {
 });
 
 ```
-
-
 
 ### 3.响应文件内容
 
@@ -170,8 +151,6 @@ server.listen(8888, () => {
 
 ```
 
-
-
 **优化访问方式**
 
 ```js
@@ -185,15 +164,15 @@ server.on("request", (req, res) => {
   console.log("请求路径和方式 ", req.url, req.method);
   const url = req.url
   let fpath = '';
-    
+
     //让访问(/,/index.html,/stock-roolup/index.html)都可以得到响应
   if(url ==='/'){
-    fpath = path.join(__dirname,'/stock-rollup/index.html') 
+    fpath = path.join(__dirname,'/stock-rollup/index.html')
   }else if(url === '/index.html'){
     fpath = path.join(__dirname,'/stock-rollup',url)
   }else if(url === '/stock-rollup/index.html'){
     fpath = path.join(__dirname, url)
-  } 
+  }
   console.log('fpath: ', fpath);
   fs.readFile(fpath, "utf-8", (err, data) => {
     if (err) {
@@ -211,19 +190,15 @@ server.listen(8888, () => {
 
 ```
 
-
-
-## 四、Node模块化
+## 四、Node 模块化
 
 模块分为：内置模块、自定义模块、第三方模块
 
-### 1.module对象
+### 1.module 对象
 
 在自定义模块中，`module.exports`模式是空对象，使用`module.exports`将模块内部成员共享
 
 ![image-20220430114048249](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220430114048249.png)
-
-
 
 ### 2.模块共享
 
@@ -235,8 +210,6 @@ const name = 'zhangsan'
 module.exports.name ='lisi'
 console.log('module-m1: ', module);
 ```
-
-
 
 `m2.js`
 
@@ -268,14 +241,12 @@ console.log(m1.age); //20
 
 ![image-20220430121633293](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220430121633293.png)
 
-
-
 ## 五、模块加载机制
 
-1. 优先从缓存中加载，模块多次require()只会执行一次
+1. 优先从缓存中加载，模块多次 require()只会执行一次
 
 2. 内置模块的加载优先级是最高的
-3. 自定义模块require时，必须在路径指定`./或../`开头的路径标识符
+3. 自定义模块 require 时，必须在路径指定`./或../`开头的路径标识符
 
 ![image-20220502220923072](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502220923072.png)4. 第三方模块记载机制
 
@@ -285,15 +256,15 @@ console.log(m1.age); //20
 
    ![image-20220502221133208](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502221133208.png)
 
-## 六、Express模块
+## 六、Express 模块
 
 **前端两种服务器：**
 
-​	Web网站服务器：专门对外提供Web网页资源服务器
+​ Web 网站服务器：专门对外提供 Web 网页资源服务器
 
-​	API接口服务器：专门对外提供API接口服务器
+​ API 接口服务器：专门对外提供 API 接口服务器
 
-### 1.Express创建服务器
+### 1.Express 创建服务器
 
 ```js
 const express = require('express')
@@ -308,19 +279,15 @@ app.listen(80,()=>{
 })
 ```
 
-
-
-### 2.Express中间件
+### 2.Express 中间件
 
 - **概念**
 
 ![image-20220501095630708](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220501095630708.png)
 
-
-
 - **定义与使用全局中间件**
 
-  >  可以调用多个中间件对请求进行***预处理***
+  > 可以调用多个中间件对请求进行**_预处理_**
 
   ![image-20220501095912439](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220501095912439.png)
 
@@ -344,15 +311,11 @@ app.listen(80,()=>{
 })
 ```
 
-
-
 - **中间件本质**
 
-  next函数可以流转关系转交给下一个中间件或路由
+  next 函数可以流转关系转交给下一个中间件或路由
 
 ![image-20220501100043506](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220501100043506.png)
-
-
 
 - **局部中间件**
 
@@ -372,8 +335,6 @@ app.get('/mw1',mw1,(req,res)=>{
 })
 ...
 ```
-
-
 
 - **多个局部中间件**
 
@@ -404,7 +365,7 @@ app.get('/zhj',(req,res)=>{
 })
 //两种传参方式
 app.get('/mw1',[mw1,mw2],(req,res)=>{
-//app.get('/mw1',mw1,mw2,(req,res)=>{ 
+//app.get('/mw1',mw1,mw2,(req,res)=>{
   console.log('req.age: ', req.age); //20
   res.send('mw1被访问哈哈哈')
 })
@@ -415,25 +376,19 @@ app.listen(80,()=>{
 
 ![image-20220501101526777](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220501101526777.png)
 
-
-
 - **中间件注意事项**
 
 1. 一定要在路由之前注册中间件
 2. 可以连续调用多个中间件对请求进行处理
 3. 中间件函数必须有`next()`函数
 4. `next()`后不要写额外代码
-5. 连续调用的多个中间件共享req和res对象
-
-
+5. 连续调用的多个中间件共享 req 和 res 对象
 
 - **中间件分类**
 
-1. 应用级别中间件：绑定到app实例上的中间件
-2. 路由级别中间件：绑定到router实例上的中间件
-3. 错误级别中间件：捕获项目异常错误的中间件     
-
-
+1. 应用级别中间件：绑定到 app 实例上的中间件
+2. 路由级别中间件：绑定到 router 实例上的中间件
+3. 错误级别中间件：捕获项目异常错误的中间件
 
 ## 七、编写接口
 
@@ -452,11 +407,11 @@ const cors = require('cors')
 app.use(cors)
 
 app.use('/api',router)
- 
+
 app.listen(80,()=>{
   console.log('server running 127.0.0.1:80');
 })
- 
+
 ```
 
 ```js
@@ -488,41 +443,30 @@ apiRouter.post('/post',(req,res)=>{
 
 module.exports = apiRouter
 ```
-### 1.  CORS跨域资源共享
 
-
+### 1. CORS 跨域资源共享
 
 ![image-20220502115641176](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502115641176.png)
 
-
-
-### 2.CORS头部
+### 2.CORS 头部
 
 ![image-20220502120846061](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502120846061.png)
 
-
-
- ![image-20220502120941415](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502120941415.png)
-
-
+![image-20220502120941415](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502120941415.png)
 
 ![image-20220502121028306](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502121028306.png)
 
-
-
 <img src="https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502121159109.png" alt="image-20220502121159109"  />
-
-
 
 ![image-20220502120738921](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502120738921.png)
 
-## 八、Node连接数据库
+## 八、Node 连接数据库
 
-### 1.配置mysql模块
+### 1.配置 mysql 模块
 
-- 安装mysql模块：`npm i mysql
+- 安装 mysql 模块：`npm i mysql
 
-- 连接数据库并测试mysql是否连接成功
+- 连接数据库并测试 mysql 是否连接成功
 
 ```js
 const mysql = require('mysql')
@@ -543,11 +487,9 @@ db.query('select 1',(err,res)=>{
 })
 ```
 
-
-
 ### 2.查询数据
 
-````js
+```js
 //查询语句
 const qstr = 'select * from users'
 db.query(qstr ,(err,res)=>{
@@ -562,9 +504,7 @@ res:  [
   RowDataPacket { id: 2, name: '李四', age: 22 }
 ]
 */
-````
-
-
+```
 
 ### 3.插入数据
 
@@ -602,15 +542,13 @@ const istr = `insert into users set ?`
 db.query(istr,zl,(err,res)=>{
   if(err){
     return console.log(err.message);
-  } 
+  }
  if(res.affectedRows>0){
      console.log('插入成功',);
  }
 })
 
 ```
-
-
 
 ### 4.更新数据
 
@@ -645,8 +583,6 @@ db.query(ustr, [user, user.id], (err, res) => {
 
 ```
 
-
-
 ### 5.删除数据
 
 - 硬删除
@@ -663,8 +599,6 @@ db.query(dstr, 6, (err, res) => {
   }
 });
 ```
-
-
 
 - 软删除
 
@@ -685,33 +619,25 @@ db.query(dstr,[user,user.id],(err,res)=>{
 
 ```
 
-
-
 ## 九、身份认证
 
-### 1. http协议的特性
+### 1. http 协议的特性
 
-- **无状态性**：多个请求之间相互独立，服务器不会保留每次HTTP请求的状态
+- **无状态性**：多个请求之间相互独立，服务器不会保留每次 HTTP 请求的状态
 - **无连接**：服务器挨个处理访问队列里的访问，处理完一个就关闭连接
 
-### 2.Cookie特性
+### 2.Cookie 特性
 
 - 自动发送
 - 域名独立
 - 过期时限
-- 4KB限制
+- 4KB 限制
 
-> 注意：Cookie不具有安全性，可以伪造，所以不要用Cookie保存隐私数据。
+> 注意：Cookie 不具有安全性，可以伪造，所以不要用 Cookie 保存隐私数据。
 
-
-
-### 3.Session认证
+### 3.Session 认证
 
 ![image-20220502193259029](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502193259029.png)
-
-
-
-
 
 ```js
 const express = require('express')
@@ -776,27 +702,21 @@ app.listen(80, function () {
 
 ```
 
+> Session 认证弊端：需要配合 Cookie，Cookie 不支持跨域，需要做额外配置，才能实现跨域 Session 认证。
 
+### 4.JWT 认证
 
-> Session认证弊端：需要配合Cookie，Cookie不支持跨域，需要做额外配置，才能实现跨域Session认证。
-
-
-
-### 4.JWT认证
-
-**原理**：服务端通多用户信息生成Token，发送并保存在客户端，服务器通过还原Token来认证用户身份。
+**原理**：服务端通多用户信息生成 Token，发送并保存在客户端，服务器通过还原 Token 来认证用户身份。
 
 ![image-20220502195232085](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502195232085.png)
 
-JWT组成部分：Header（头部）、Payload（有效载荷)、Signature（签名）。形式：`Header.Payload.Signature`
+JWT 组成部分：Header（头部）、Payload（有效载荷)、Signature（签名）。形式：`Header.Payload.Signature`
 
 ![image-20220502195537066](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502195537066.png)
 
+**JWT 使用**
 
-
- **JWT使用**
-
-安装`jsonwebtoken `、`express-jwt`
+安装`jsonwebtoken`、`express-jwt`
 
 ```js
 const express = require('express')
@@ -878,4 +798,3 @@ app.listen(8888, function () {
 })
 
 ```
-
