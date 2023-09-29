@@ -120,3 +120,18 @@ import GridStar from './demo/GridStar.vue'
 
 }
 ```
+
+## flex布局子元素给了高度，实际渲染确有小数点问题
+```css
+.parent{
+  display: flex;
+  flex-direction: column;
+}
+.child{
+  height: 100%;
+}
+.child1{
+    flex: 1; //需要给相邻元素添加
+}
+```
+```

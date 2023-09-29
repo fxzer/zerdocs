@@ -76,6 +76,10 @@ export default {
       "collapsed": false,
       "items": [
         {
+          "text": "Vite原理学习",
+          "link": "/Framework/Vue/Vite原理学习"
+        },
+        {
           "text": "Vue3补漏笔记",
           "link": "/Framework/Vue/Vue3补漏笔记"
         },
