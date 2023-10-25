@@ -17,8 +17,10 @@ export default  {
   ignoreDeadLinks: true,//忽略无效链接
   markdown: {
     theme: {
-      light:'github-light',
-      dark: 'dracula-soft',
+      // light:'github-light',
+      // dark: 'dracula-soft',
+      light: 'vitesse-light',
+      dark: 'vitesse-dark',
     },
     // lineNumbers: true,
   },

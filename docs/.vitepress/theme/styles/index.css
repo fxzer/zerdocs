@@ -1,2 +1,3 @@
 @import url('./vars.css');
-@import url('./home.scss');
+@import url('./rainbow.css');
+@import url('./overrides.css');

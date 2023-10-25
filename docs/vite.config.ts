@@ -17,6 +17,11 @@ var options = {
 
 
 export default defineConfig({
+  optimizeDeps: {
+    exclude: [
+      'vitepress',
+    ],
+  },
   plugins: [ 
     SearchPlugin(options),
     // Components({

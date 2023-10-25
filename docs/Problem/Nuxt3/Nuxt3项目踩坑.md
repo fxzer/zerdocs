@@ -104,8 +104,8 @@ nitro: {
 ```
 
 
-测试环境能访问 sitemap.xml页面
-但是线上环境访问不到，报相关错误：/__sitemap__/routes.json ,需要再 nginx 配置 IP和主机名的传送
+>测试环境能访问`sitemap.xml` 页面
+>但是线上环境访问不到，报相关错误：`/__sitemap__/routes.json` ，需要在 nginx 配置 IP 和主机名的传送。
 
 ``` zsh
   # nginx.conf

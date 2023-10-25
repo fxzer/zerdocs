@@ -1,3 +1,35 @@
+/* dark/light radial transition */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root),
+.dark::view-transition-new(root) {
+  z-index: 1;
+}
+::view-transition-new(root),
+.dark::view-transition-old(root) {
+  z-index: 9999;
+}
+
+/*  文本块 */
+.dark .vp-doc blockquote {
+  background-color: #56475769;
+  border-left-color: #d2a3f6;
+}
+.vp-doc blockquote{
+  background-color: #f8efffb0;
+  border-left-color: #d2a3f6;
+}
+
+/* 详情展开 */
+.custom-block.details{
+  background-color: #f3f3f3;
+}
+.dark .custom-block.details{
+  background-color: var(--vp-custom-block-details-bg);
+}
 .container .title {
   color: transparent;
   background: var(--vp-home-hero-name-background);
@@ -5,6 +37,9 @@
   background-clip: text;
   -webkit-text-fill-color: var(--vp-home-hero-name-color);
 }
+
+
+//文章目录
 .container .outline-marker {
   width: 2px;
 }
@@ -12,19 +47,18 @@
   font-size: 14px;
 }
 .has-outline .outline-link.active {
-  color: var(--vp-c-green);
+  color: var(--vp-c-brand-1);
 }
-.has-sidebar .curtain[data-v-cf6e7c5e]::before {
-  background: linear-gradient(var(--vp-c-bg), transparent 30%) !important;
-}
+/*  */
 .link .box .icon {
   transition: transform 0.3s ease-in-out;
 }
 .link:hover .box .icon {
   transform: scale(1.1);
   background-color: #7de4c34b;
-  /* 背景色透明度 */
 }
+
+/* 本地搜索组件 */
 .DocSearch-Button {
   display: flex;
   justify-content: center;
@@ -66,20 +100,8 @@
   box-shadow: 0 0 6px 0 rgba(0,0,0,.2);
   transform: translate(0, -2px);
 }
-.vp-doc blockquote{
-  background-color: #f8efff;
-  border-left-color: #d2a3f6;
-}
-.custom-block.details{
-  background-color: #f3f3f3;
-}
+
+
  .vp-doc .details.custom-block div[class*='language-'] + div[class*='language-']{
   margin-top:8px;
-}
-.dark .vp-doc blockquote {
-  background-color: #564757;
-  border-left-color:#975f9c;
-}
-.dark .custom-block.details{
-  background-color: var(--vp-custom-block-details-bg);
 }

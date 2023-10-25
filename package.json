@@ -7,17 +7,17 @@
   },
   "devDependencies": {
     "flexsearch": "^0.7.31",
-    "markdown-it": "^13.0.1",
-    "unplugin-auto-import": "^0.14.2",
-    "unplugin-icons": "^0.15.2",
+    "markdown-it": "^13.0.2",
+    "unplugin-auto-import": "^0.14.4",
+    "unplugin-icons": "^0.15.3",
     "unplugin-vue-components": "^0.23.0",
-    "vite": "^4.1.1",
-    "vitepress": "^1.0.0-alpha.45",
-    "vitepress-plugin-search": "^1.0.4-alpha.19",
-    "vue": "^3.2.47"
+    "vite": "^4.5.0",
+    "vitepress": "1.0.0-rc.24",
+    "vitepress-plugin-search": "1.0.4-alpha.20",
+    "vue": "^3.3.7"
   },
   "dependencies": {
-    "sass": "^1.58.0",
-    "sitemap-ts": "^1.2.2"
+    "sass": "^1.69.4",
+    "sitemap-ts": "^1.5.0"
   }
 }
