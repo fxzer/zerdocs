@@ -90,3 +90,25 @@ async function getImgCode() {
   return data.data.value
 }
 ```
+ 
+ ## nuxt-simple-sitemap插件使用问题
+ 打包时报错：解析到错误 URL
+
+```js
+nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ['/'], //去掉： ,'sitemap.xml'
+    },
+}
+```
+
+
+测试环境能访问 sitemap.xml页面
+但是线上环境访问不到，报相关错误：/__sitemap__/routes.json ,需要再 nginx 配置 IP和主机名的传送
+
+``` zsh
+  # nginx.conf
+   proxy_set_header X-Real-IP $remote_addr;
+   proxy_set_header Host $host;
+```
