@@ -101,16 +101,16 @@ export default {
       "collapsed": false,
       "items": [
         {
-          "text": "CSS常用代码段",
-          "link": "/FrontEnd/CSS/CSS常用代码段"
-        },
-        {
-          "text": "CSS揭秘读书摘要",
-          "link": "/FrontEnd/CSS/CSS揭秘读书摘要"
-        },
-        {
           "text": "Grid布局学习笔记",
           "link": "/FrontEnd/CSS/Grid布局学习笔记"
+        },
+        {
+          "text": "常用代码段",
+          "link": "/FrontEnd/CSS/常用代码段"
+        },
+        {
+          "text": "揭秘读书摘要",
+          "link": "/FrontEnd/CSS/揭秘读书摘要"
         }
       ]
     },
@@ -139,40 +139,28 @@ export default {
       "collapsed": false,
       "items": [
         {
-          "text": "JS代码分支优化",
-          "link": "/FrontEnd/JavaScript/JS代码分支优化"
-        },
-        {
-          "text": "JS图片懒加载",
-          "link": "/FrontEnd/JavaScript/JS图片懒加载"
-        },
-        {
-          "text": "JS基础复习一",
-          "link": "/FrontEnd/JavaScript/JS基础复习一"
-        },
-        {
-          "text": "JS基础复习二",
-          "link": "/FrontEnd/JavaScript/JS基础复习二"
-        },
-        {
-          "text": "JS常见算法",
-          "link": "/FrontEnd/JavaScript/JS常见算法"
-        },
-        {
-          "text": "JS文件系统",
-          "link": "/FrontEnd/JavaScript/JS文件系统"
-        },
-        {
-          "text": "JS正则表达式",
-          "link": "/FrontEnd/JavaScript/JS正则表达式"
-        },
-        {
-          "text": "JS高阶函数",
-          "link": "/FrontEnd/JavaScript/JS高阶函数"
-        },
-        {
           "text": "async与await",
           "link": "/FrontEnd/JavaScript/async与await"
+        },
+        {
+          "text": "代码分支优化",
+          "link": "/FrontEnd/JavaScript/代码分支优化"
+        },
+        {
+          "text": "图片懒加载",
+          "link": "/FrontEnd/JavaScript/图片懒加载"
+        },
+        {
+          "text": "基础复习一",
+          "link": "/FrontEnd/JavaScript/基础复习一"
+        },
+        {
+          "text": "基础复习二",
+          "link": "/FrontEnd/JavaScript/基础复习二"
+        },
+        {
+          "text": "常见算法",
+          "link": "/FrontEnd/JavaScript/常见算法"
         },
         {
           "text": "手写Promise",
@@ -187,8 +175,20 @@ export default {
           "link": "/FrontEnd/JavaScript/数组求集合"
         },
         {
+          "text": "文件系统",
+          "link": "/FrontEnd/JavaScript/文件系统"
+        },
+        {
+          "text": "正则表达式",
+          "link": "/FrontEnd/JavaScript/正则表达式"
+        },
+        {
           "text": "获取目录结构",
           "link": "/FrontEnd/JavaScript/获取目录结构"
+        },
+        {
+          "text": "高阶函数",
+          "link": "/FrontEnd/JavaScript/高阶函数"
         }
       ]
     },
@@ -209,16 +209,16 @@ export default {
       "collapsed": false,
       "items": [
         {
-          "text": "TS初学笔记",
-          "link": "/FrontEnd/TypeScript/TS初学笔记"
+          "text": "初学笔记",
+          "link": "/FrontEnd/TypeScript/初学笔记"
         },
         {
-          "text": "TS进阶使用技巧",
-          "link": "/FrontEnd/TypeScript/TS进阶使用技巧"
+          "text": "进阶使用技巧",
+          "link": "/FrontEnd/TypeScript/进阶使用技巧"
         },
         {
-          "text": "TS配置文件详解",
-          "link": "/FrontEnd/TypeScript/TS配置文件详解"
+          "text": "配置文件详解",
+          "link": "/FrontEnd/TypeScript/配置文件详解"
         }
       ]
     }

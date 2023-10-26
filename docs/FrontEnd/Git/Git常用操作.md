@@ -16,6 +16,14 @@ git branch / git branch -r 	     #列出所有本地/远程分支
 git branch -D 分支名              #删除本地库分支
 git push origin --delete 分支名   #删除远程库分支
 ```
+## 删除Tag
+
+```zsh
+git tag -l                       #列出所有本地/远程tag
+git tag -D tag名                 #删除本地库tag
+git push origin --delete tag名   #删除远程库tag
+git tag -l | xargs git tag -d   #删除本地所有 tag
+```
 
 ## 删除远程文件
 
