@@ -29,6 +29,9 @@ export default  {
     ['link', { rel: 'icon', href: '/zerdocs/favicon.ico' }],
   ],
   themeConfig: {
+    search: {
+      provider: 'local',
+    },
     outline: 'deep',//侧边栏深度:数字或者deep
     outlineTitle: '文章目录',
     //TODO

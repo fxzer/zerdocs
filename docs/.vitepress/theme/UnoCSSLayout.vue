@@ -3,7 +3,6 @@ import { useData } from 'vitepress'
 import { nextTick, provide } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 const { isDark } = useData()
-console.log('[ isDark ]-6', isDark)
 
 function enableTransitions() {
   return 'startViewTransition' in document
