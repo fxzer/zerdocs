@@ -391,5 +391,6 @@ export default {
         }
       ]
     }
-  ]
+  ],
+  "/build/": []
 }

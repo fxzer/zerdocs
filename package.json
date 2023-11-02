@@ -3,9 +3,11 @@
     "dev": "pnpm gs  && vitepress dev docs",
     "build": "vitepress build docs",
     "preview": "vitepress preview docs",
-    "gs": "node scripts/generate-sidebar.js"
+    "gs": "node scripts/generate-sidebar.js",
+    "documate:upload": "documate upload"
   },
   "devDependencies": {
+    "@documate/documate": "^0.2.1",
     "flexsearch": "^0.7.31",
     "markdown-it": "^13.0.2",
     "unplugin-auto-import": "^0.14.4",
@@ -17,6 +19,7 @@
     "vue": "^3.3.7"
   },
   "dependencies": {
+    "@documate/vue": "^0.3.1",
     "sass": "^1.69.4",
     "sitemap-ts": "^1.5.0"
   }
