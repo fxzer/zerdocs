@@ -10,7 +10,6 @@
   </div>
 </template>
 <script setup lang='ts'>
-import ToolItem from './ToolItem.vue'
 import  toolGroup   from './toolGroup'
 
 </script>

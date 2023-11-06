@@ -9,16 +9,14 @@
     "noUnusedLocals": true,
     "resolveJsonModule": true,
     "isolatedModules": false,
-    "preserveValueImports": true,
-    "importsNotUsedAsValues": "error",
     "jsx": "preserve",
     "lib": ["ESNext", "DOM"]
   },
    /* 指定编译文件或排除指定编译文件 */
   "include": [  
-    // "./auto-imports.d.ts",
-    ".vitepress/**/*.ts",
-    ".vitepress/components/*.vue",
+    "./docs/.vitepress/components/*.vue",
+    "./docs/.vitepress/components.d.ts",
+    "./docs/.vitepress/auto-imports.d.ts"
   ],
   "exclude": ["**/node_modules/**", "**/dist/**"]
 }

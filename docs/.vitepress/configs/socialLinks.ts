@@ -1,3 +1,9 @@
+type SocialLink = {
+  icon: {
+    svg: string
+  },
+  link: string
+}
 export default  [
   {
     icon: "github",
@@ -22,4 +28,4 @@ export default  [
     },
     link: "https://space.bilibili.com/228134791",
   },
-]
+] as SocialLink[]

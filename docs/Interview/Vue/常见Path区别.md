@@ -9,7 +9,6 @@ const router = new VueRouter({
   base: '/my-app/'
 })
 ```
-
 这个属性值的默认值为 '/'。如果你的应用被部署在一个子目录下，你就需要手动指定base属性的值。
 
 例如，假设你的应用被部署在`http://example.com/my-app/`这个路径下，那么你就需要设置如下的base属性：
