@@ -7,8 +7,8 @@ export default withPwa(defineConfig({
     //根据环境变量决定打包路径
     // base: process.env.NODE_ENV === 'production' ? '/zerdocs/' : '/',
     // lastUpdated: true,
-    // base:'/',
-    base:'/zerdocs/',//配置打包获取静态资源路径
+    base:'/',
+    // base:'/zerdocs/',//配置打包获取静态资源路径
     outDir: '../dist',
     cleanUrls: true,  //去掉url中的.html后缀
     // srcDir:'./src', //相对于docs
