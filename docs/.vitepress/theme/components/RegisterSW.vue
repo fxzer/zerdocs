@@ -11,7 +11,6 @@ const close = async () => {
 
 onBeforeMount(async () => {
   const { registerSW } = await import('virtual:pwa-register')
-  console.log('[ registerSW ]-14', registerSW)
   registerSW({
     immediate: true,
     onOfflineReady,

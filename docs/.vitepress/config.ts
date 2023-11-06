@@ -59,9 +59,28 @@ export default withPwa(defineConfig({
   },
   pwa: {
     outDir:'../dist/',
+    manifest: {
+      name: 'zerdocs',
+      short_name: 'zerdocs',
+      theme_color: '#ffffff',
+      icons: [
+        {
+          src:  'pwa-512x512.png',
+          types: 'img/png',
+          sizes: '512x512',
+          purpose: 'any',
+        },
+        {
+          src:  'pwa-192x192.png',
+          types: 'img/png',
+          sizes: '192x192',
+          purpose: 'maskable',
+        },
+      ],
+    },
     workbox: {
-      clientsClaim: true,
-      skipWaiting: true
+      clientsClaim: true, //PWA注册后马上接管网站
+      skipWaiting: true//跳过 atvative生命周期等待上一次 service-worker取消注册
     }
   },
   sitemap: {
