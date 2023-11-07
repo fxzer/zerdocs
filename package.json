@@ -1,11 +1,13 @@
 {
   "type": "module",
   "scripts": {
+
     "dev": "pnpm gs  && vitepress dev docs",
     "build": "vitepress build docs",
     "preview": "vitepress preview docs",
     "build:preview": "pnpm build && pnpm preview",
     "gs": "node scripts/generate-sidebar.cjs",
+    "pb:gitee": "zsh deploy.sh && node scripts/auto-update-pages.js",
     "documate:upload": "documate upload",
     "clean": "rimraf node_modules && rm -rf dist && pnpm i"
   },
@@ -14,6 +16,7 @@
     "@vite-pwa/vitepress": "^0.2.3",
     "flexsearch": "^0.7.31",
     "markdown-it": "^13.0.2",
+    "puppeteer": "^21.5.0",
     "unplugin-auto-import": "^0.14.4",
     "unplugin-icons": "^0.15.3",
     "unplugin-vue-components": "^0.23.0",
