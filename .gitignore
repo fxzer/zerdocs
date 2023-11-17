@@ -20,4 +20,4 @@ pnpm-debug.log*
 meta.json
 .vercel
 .DS_Store
-*/.DS_Store
+.DS_Store

@@ -19,10 +19,7 @@ import  toolGroup   from './toolGroup'
     font-size: 20px;
     font-weight: 600;
     padding: 20px 15px 10px;
-    background-clip: text;
-    background: var(--vp-home-hero-name-background);
-    -webkit-background-clip: text; //与顺序有关
-    -webkit-text-fill-color: var(--vp-home-hero-name-color);
+    color:var(--vp-c-brand-light);
   }
 
   .tool-group {

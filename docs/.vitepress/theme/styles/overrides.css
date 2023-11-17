@@ -30,13 +30,6 @@
 .dark .custom-block.details{
   background-color: var(--vp-custom-block-details-bg);
 }
-.container .title {
-  color: transparent;
-  background: var(--vp-home-hero-name-background);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: var(--vp-home-hero-name-color);
-}
 
 
 .container .outline-marker {
@@ -103,4 +96,8 @@
 
  .vp-doc .details.custom-block div[class*='language-'] + div[class*='language-']{
   margin-top:8px;
+}
+
+.level-1.is-active{
+  color:var(--vp-c-brand-light)
 }

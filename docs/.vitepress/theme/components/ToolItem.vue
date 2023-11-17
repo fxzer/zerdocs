@@ -1,14 +1,12 @@
 <template>
   <a class="tool-item" :href="tool.url" target="blank">
     <Loading class="tool-icon" v-show="!isLoaded" />
-    <img class="tool-icon" v-show="isLoaded" :alt="tool.name"
-       :src="src" 
-      :onload="onLoad" :onError="onError">
+    <img class="tool-icon" v-show="isLoaded" :alt="tool.name" :src="src" :onload="onLoad" :onError="onError">
     <p class="tool-name">{{ tool.name }}</p>
   </a>
 </template>
 <script setup lang='ts'>
-import { ref ,computed } from 'vue';
+import { ref, computed } from 'vue';
 const { tool } = defineProps({
   tool: {
     type: Object,
@@ -17,9 +15,9 @@ const { tool } = defineProps({
 })
 const isLoaded = ref(false)
 
-const  src  = computed(() => {
-  let { icon ,iconType,url} = tool
-  return icon ? icon : (url + 'favicon.' + ( iconType ?  iconType: 'ico'))
+const src = computed(() => {
+  let { icon, iconType, url } = tool
+  return icon ? icon : (url + 'favicon.' + (iconType ? iconType : 'ico'))
 })
 
 const onError = (e: any) => {
@@ -33,6 +31,7 @@ const onLoad = (e: any) => {
 </script>
 <style scoped lang='scss'>
 $hover-color: linear-gradient(135deg, #5fe687 10%, #04d1e7 100%);
+$gradient-color: linear-gradient(120deg, #bd34fe, var(--vp-c-brand-light));
 
 .dark {
   .tool-item {
@@ -46,6 +45,7 @@ $hover-color: linear-gradient(135deg, #5fe687 10%, #04d1e7 100%);
   width: 90px;
   height: 90px;
   border-radius: 10px;
+  text-decoration: none;
 
   .tool-icon {
     width: 60px;
@@ -72,10 +72,10 @@ $hover-color: linear-gradient(135deg, #5fe687 10%, #04d1e7 100%);
     margin: 0;
     transition: all .2s ease-in-out;
     color: transparent;
+    background: $gradient-color;
     background-clip: text;
-    background: var(--vp-home-hero-name-background);
     -webkit-background-clip: text; //与顺序有关
-    -webkit-text-fill-color: var(--vp-home-hero-name-color);
+    -webkit-text-fill-color: $gradient-color;
 
     &:hover {
       background-clip: text;
