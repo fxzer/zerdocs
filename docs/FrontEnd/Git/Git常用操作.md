@@ -25,11 +25,24 @@ git push origin --delete tag名   #删除远程库tag
 git tag -l | xargs git tag -d   #删除本地所有 tag
 ```
 
-## 删除远程文件
+## 删除添加到暂存区的文件
 
 ```zsh
 git rm -r -n --cached 文件/文件夹名称   #预览要删除的文件列表
 git rm -r --cached 文件/文件夹名称      #确定无误后删除文件
+```
+## 删除本地仓库文件
+```zsh
+git reset HEAD^1  #上一个提交的所有文件回退到工作区， 处于未添加到暂存库状态
+git reset --hard HEAD^1  #回退到上一个版本:最新一次提交的所有内容都被删除，本地文件也不存在
+```
+
+## 删除远程库文件
+```zsh 
+git push origin --delete node_modules  #git push <远程仓库名称> --delete <文件路径>
+git ls-remote  #确认文件是否成功删除
+git rebase #变更历史记录
+git remote prune origin  # git remote prune <远程仓库名称> : 理远程仓库中已删除文件的缓存
 ```
 
 ## fork后的仓库，拉取合并原仓库的更新 

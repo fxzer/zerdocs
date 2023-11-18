@@ -193,6 +193,17 @@ export default {
       ]
     },
     {
+      "text": "Other",
+      "collapsible": true,
+      "collapsed": false,
+      "items": [
+        {
+          "text": "package文件详解",
+          "link": "/FrontEnd/Other/package文件详解"
+        }
+      ]
+    },
+    {
       "text": "Shell",
       "collapsible": true,
       "collapsed": false,
