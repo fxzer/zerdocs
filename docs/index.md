@@ -31,17 +31,21 @@ features:
     title: Interview
     details: 归纳前端经典面试题。
     link: /Interview/
-  - icon: 🔐
+  - icon: 📝
+    title: ECMAScript6
+    details: ECMAScript 6 入门
+    link: https://fxzer.gitee.io/es6-vitepress
+  - icon: 📝
     title: TypeScript
-    details:  TypeScript 中英文档
+    details: TypeScript 中英文档
     link:  https://fxzer.github.io/tsdoc-vitepress/zh/
-  - icon: 🔐
+  - icon: 📝
     title: TypeScript
     details: TypeScript 教程
     link: https://fxzer.github.io/typescript-tutorial-vitepress/
   - icon: 💫
     title: Canvas
-    details:  有趣的 Canvas 练习
+    details: 有趣的 Canvas 练习
     link:  https://fxzer.github.io/funny-canvas/#/a
   - icon: 🤡
     title: Tailwind CSS

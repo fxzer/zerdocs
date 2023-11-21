@@ -6,6 +6,7 @@ const { GITEE_NAME = '', GITEE_PSWD = '' } = process.env
 const GITEE_HOME = 'https://gitee.com/'
 const GITEE_LOGIN = "https://gitee.com/login"
 const GITEE_PAGES = 'https://gitee.com/fxzer/zerdocs/pages'
+const GITEE_PAGES_URL = 'https://fxzer.gitee.io/zerdocs'
 const delay = (ms) => new Promise((res) => setTimeout(res, ms))
 
 
@@ -62,7 +63,7 @@ async function giteeUpdate() {
     updateTimes = (updateTimes + waitTimer) / 1000
 
     if (!isVisible) {
-      console.log(`更新完毕，用时：${updateTimes}s，请查阅：https://fxzer.gitee.io/zerdocs`)
+      console.log(`更新完毕，用时：${updateTimes}s，请查阅：${GITEE_PAGES_URL}`)
       break
     }
     console.log('更新中...，已用时：', updateTimes, 's')
