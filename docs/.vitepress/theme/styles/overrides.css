@@ -98,6 +98,6 @@
   margin-top:8px;
 }
 
-.level-1.is-active{
-  color:var(--vp-c-brand-light)
+.VPNavBarMenuLink.active span, .level-1.is-active{
+  color:var(--vp-c-brand-light) !important;
 }
