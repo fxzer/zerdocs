@@ -128,6 +128,10 @@ export default {
           "link": "/FrontEnd/Git/Terminal终端美化"
         },
         {
+          "text": "配置 Ubuntu 服务器免密登录",
+          "link": "/FrontEnd/Git/配置 Ubuntu 服务器免密登录"
+        },
+        {
           "text": "配置多个平台SSH",
           "link": "/FrontEnd/Git/配置多个平台SSH"
         }
