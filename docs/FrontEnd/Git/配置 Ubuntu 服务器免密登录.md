@@ -36,19 +36,7 @@ systemctl restart sshd.service
 #或： service sshd restart
 ```
 
-## 5.测试连接、配置本地ssh config文件，使用 VSCODE插件 (Remote - SSH) 连接
-
-> Name: Remote - SSH: Editing Configuration Files
-> 
->Id: ms-vscode-remote.remote-ssh-edit
-
->Description: Edit SSH configuration files
-
->Version: 0.86.0
-
->Publisher: Microsoft
-
->VS Marketplace Link: https://marketplace.visualstudio.com/items?>itemName=ms-vscode-remote.remote-ssh-edit
+## 5.测试连接、配置本地ssh config文件，使用 VSCODE插件 ([Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)) 连接
 
 ```bash
 
