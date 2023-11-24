@@ -38,7 +38,6 @@ systemctl restart sshd.service
 
 ## 5.测试连接、配置本地ssh config文件，使用 VSCODE插件 ([Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)) 连接
 
-```bash
 
 ```bash
 # 测试连接
