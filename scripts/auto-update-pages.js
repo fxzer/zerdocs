@@ -2,6 +2,10 @@
 
 import puppeteer from 'puppeteer'
 
+/** 在 ~/.zshrc 中配置环境变量（保护隐私）  例如：
+  export GITEE_NAME="Gitee 用户名"
+  export GITEE_PSWD="Gitee 登录密码" 
+ */
 const { GITEE_NAME = '', GITEE_PSWD = '' } = process.env
 const GITEE_HOME = 'https://gitee.com/'
 const GITEE_LOGIN = "https://gitee.com/login"
