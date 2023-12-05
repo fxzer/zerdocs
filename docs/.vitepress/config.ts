@@ -25,7 +25,7 @@ export default withPwa(defineConfig({
       // lineNumbers: true,
     },
     head: [
-      // ['link', { rel: 'icon', type: 'image/svg+xml', href: '/zerdocs/logo.svg' }],
+      ['link', { rel: 'icon', type: 'image/svg+xml', href: '/zerdocs/logo.svg' }],
       ['link', { rel: 'icon', href: '/zerdocs/favicon.ico' }],
     ],
     themeConfig: {
