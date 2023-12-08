@@ -90,6 +90,10 @@ export default {
         {
           "text": "列表最后一条数据删除处理",
           "link": "/Framework/Vue/列表最后一条数据删除处理"
+        },
+        {
+          "text": "网站添加 PWA",
+          "link": "/Framework/Vue/网站添加 PWA"
         }
       ]
     }
