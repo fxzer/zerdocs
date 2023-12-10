@@ -243,3 +243,13 @@ npm install -g cz-conventional-changelog
 输入完毕后，会自动将提交信息转换成符合规范的格式，并将其写入到 `CHANGELOG.md` 文件中。
 :::
 
+
+## 浅克隆 github 仓库，push 到 gitee 仓库
+
+:::danger 报错：
+>`! [remote rejected] main -> main (shallow update not allowed)`
+:::
+
+```zsh
+git fetch --unshallow origin  # 取消浅克隆，拉取完整的仓库
+```
