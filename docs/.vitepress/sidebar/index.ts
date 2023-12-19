@@ -71,6 +71,17 @@ export default {
       ]
     },
     {
+      "text": "Vitest",
+      "collapsible": true,
+      "collapsed": false,
+      "items": [
+        {
+          "text": "测试流程",
+          "link": "/Framework/Vitest/测试流程"
+        }
+      ]
+    },
+    {
       "text": "Vue",
       "collapsible": true,
       "collapsed": false,
