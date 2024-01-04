@@ -1,4 +1,4 @@
-name: Deploy GitHub/Gitee Pages And Sync to Gitee 
+name: Deploy GitHub/Gitee Pages And Sync to Gitee
 
 # 触发条件：在 push 到 master 分支后
 on:
@@ -22,21 +22,18 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
-
-      - name: Install ni
-        run: npm i -g @antfu/ni
-
-      - name: Install Deps
-        run: ni
+        with:
+          version: 8
+          run_install: true
 
       - name: Build Docs
-        run: nr build
+        run: pnpm build
 
       - name: Deploy pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.DEPLOY_TOKEN }}
-          publish_dir: ./docs/dist
+          publish_dir: ./dist
           user_name: github-actions[bot]
           user_email: github-actions[bot]@users.noreply.github.com
 
