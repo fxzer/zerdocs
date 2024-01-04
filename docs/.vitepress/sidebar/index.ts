@@ -91,6 +91,10 @@ export default {
           "link": "/Framework/Vue/Vite原理学习"
         },
         {
+          "text": "Vue2项目迁移Vite5",
+          "link": "/Framework/Vue/Vue2项目迁移Vite5"
+        },
+        {
           "text": "Vue3补漏笔记",
           "link": "/Framework/Vue/Vue3补漏笔记"
         },
