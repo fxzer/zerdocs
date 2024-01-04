@@ -6,7 +6,7 @@ const { isDark } = useData()
 
 function enableTransitions() {
   return 'startViewTransition' in document
-      && window.matchMedia('(prefers-reduced-motion: no-preference)').matches
+    && window.matchMedia('(prefers-reduced-motion: no-preference)').matches
 }
 
 provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
@@ -18,8 +18,8 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
   const clipPath = [
     `circle(0px at ${x}px ${y}px)`,
     `circle(${Math.hypot(
-        Math.max(x, innerWidth - x),
-        Math.max(y, innerHeight - y),
+      Math.max(x, innerWidth - x),
+      Math.max(y, innerHeight - y),
     )}px at ${x}px ${y}px)`,
   ]
 
@@ -40,5 +40,5 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 </script>
 
 <template>
-  <DefaultTheme.Layout/>
+  <DefaultTheme.Layout />
 </template>

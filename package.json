@@ -8,11 +8,21 @@
     "gs": "node scripts/generate-sidebar.cjs",
     "pb:gitee": "zsh deploy.sh && node scripts/auto-update-pages.js",
     "documate:upload": "documate upload",
-    "clean": "rimraf node_modules && rm -rf dist && pnpm i"
+    "clean": "rimraf node_modules && rm -rf dist && pnpm i",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "dependencies": {
+    "@documate/vue": "^0.3.1",
+    "sass": "^1.69.5",
+    "vite-plugin-pwa": "^0.16.7"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^2.6.1",
     "@documate/documate": "^0.2.1",
     "@vite-pwa/vitepress": "^0.2.3",
+    "eslint": "^8.56.0",
+    "eslint-plugin-format": "^0.1.0",
     "flexsearch": "^0.7.31",
     "markdown-it": "^13.0.2",
     "puppeteer": "^21.5.2",
@@ -23,10 +33,5 @@
     "vitepress": "1.0.0-rc.24",
     "vitepress-plugin-search": "1.0.4-alpha.20",
     "vue": "^3.3.8"
-  },
-  "dependencies": {
-    "@documate/vue": "^0.3.1",
-    "sass": "^1.69.5",
-    "vite-plugin-pwa": "^0.16.7"
   }
 }

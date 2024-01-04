@@ -16,8 +16,8 @@
 8. 把 `public/index.html` 移动到根目录 `index.html`，并修改占位符 `href="<%= BASE_URL %>favicon.ico"`
 9. 语法转换：动态导入，浏览器环境获取环境变量
 
-
 ### `index.html` 迁移
+
 ::: details webpack: public/index.html + .env
 
 ```env
@@ -26,7 +26,7 @@ BASE_URL=/xxx/admin
 ```
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="">
   <head>
     <meta charset="utf-8" />
@@ -51,10 +51,10 @@ BASE_URL=/xxx/admin
 :::
 ::: details vite: /index.html + vite.config.js(plugins)
 
-```js {3-8} 
+```js {3-8}
   plugins: [
     vue(),
-    createHtmlPlugin({ 
+    createHtmlPlugin({
       inject: {
         data: {
           title: 'APP TITLE',
@@ -65,7 +65,7 @@ BASE_URL=/xxx/admin
 ```
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="">
   <head>
     <meta charset="utf-8" />
@@ -82,7 +82,8 @@ BASE_URL=/xxx/admin
       >
     </noscript>
     <div id="app"></div>
-    <script type="module" src="/src/main.js"></script> // [!code ++]
+    <script type="module" src="/src/main.js"></script>
+    // [!code ++]
   </body>
 </html>
 ```
@@ -94,28 +95,28 @@ BASE_URL=/xxx/admin
 ::: details vue.config.js
 
 ```js
-const path = require("path");
+const path = require('node:path')
 function resolve(relativePath) {
-  return path.join(__dirname, relativePath);
+  return path.join(__dirname, relativePath)
 }
-const webpack = require("webpack");
-let isProduction = process.env.NODE_ENV;
+const webpack = require('webpack')
+const isProduction = process.env.NODE_ENV
 module.exports = {
-  publicPath: "/xxx/admin", // www.xxx.com/xxx/admin
+  publicPath: '/xxx/admin', // www.xxx.com/xxx/admin
   configureWebpack: (config) => {
-    if (isProduction === "production") {
+    if (isProduction === 'production') {
       return {
         resolve: {
           alias: {
-            "@": resolve("src"),
+            '@': resolve('src'),
           },
         },
         optimization: {
-          runtimeChunk: "single",
-          //分离js
+          runtimeChunk: 'single',
+          // 分离js
           splitChunks: {
-            chunks: "all", //chunk 可以在异步和非异步 chunk 之间共享
-            maxInitialRequests: Infinity, // 最大并行请求数
+            chunks: 'all', // chunk 可以在异步和非异步 chunk 之间共享
+            maxInitialRequests: Number.POSITIVE_INFINITY, // 最大并行请求数
             minSize: 20000, // 生成 chunk 的最小体积
             maxSize: 60000, // 若引入的模块大于60kb，则告诉webpack尝试再进行拆分
             cacheGroups: {
@@ -126,37 +127,38 @@ module.exports = {
                   // 设定分包以后的文件模块名字，按照包名字替换拼接一下
                   const packageName = module.context.match(
                     /[\\/]node_modules[\\/](.*?)([\\/]|$)/
-                  )[1];
-                  return `npm.${packageName.replace("@", "")}`;
+                  )[1]
+                  return `npm.${packageName.replace('@', '')}`
                 },
               },
             },
           },
         },
-      };
-    } else {
+      }
+    }
+    else {
       return {
         resolve: {
           alias: {
-            "@": resolve("src"),
+            '@': resolve('src'),
           },
         },
-      };
+      }
     }
   },
   chainWebpack(config) {
-    config.module.rule("js").exclude.add(resolve("src/assets/fonts")).end();
+    config.module.rule('js').exclude.add(resolve('src/assets/fonts')).end()
   },
   devServer: {
     proxy: {
-      "/xxx/api": {
-        target: "http://172.16.16.16",
+      '/xxx/api': {
+        target: 'http://172.16.16.16',
         ws: false,
         changeOrigin: true,
       },
     },
   },
-};
+}
 ```
 
 :::
@@ -215,7 +217,6 @@ export default defineConfig({
     },
   },
 })
-
 ```
 
 :::
@@ -224,7 +225,7 @@ export default defineConfig({
 
 #### 动态导入-动态添加路由
 
-```js 
+```js
 const modules = import.meta.glob('@/views/**/*.vue') // [!code ++]
 ...
 routeList.forEach((item) => {
@@ -249,9 +250,9 @@ vite: `import.meta.env.VITE_APP_TITLE`
 
 ```js
 const router = new VueRouter({
-  mode: "history",
-  base: process.env.BASE_URL,  // [!code --]
+  mode: 'history',
+  base: process.env.BASE_URL, // [!code --]
   base: import.meta.env.BASE_URL, // [!code ++]
   routes,
-});
+})
 ```

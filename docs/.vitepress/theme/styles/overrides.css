@@ -18,19 +18,18 @@
   background-color: #56475769;
   border-left-color: #d2a3f6;
 }
-.vp-doc blockquote{
+.vp-doc blockquote {
   background-color: #f8efffb0;
   border-left-color: #d2a3f6;
 }
 
 /* 详情展开 */
-.custom-block.details{
+.custom-block.details {
   background-color: #f3f3f3;
 }
-.dark .custom-block.details{
+.dark .custom-block.details {
   background-color: var(--vp-custom-block-details-bg);
 }
-
 
 .container .outline-marker {
   width: 2px;
@@ -78,26 +77,29 @@
   .DocSearch-Button-Keys {
     display: none;
   }
-  .VPNavBarHamburger{
+  .VPNavBarHamburger {
     height: 32px !important;
     width: 32px !important;
     border-radius: 4px;
   }
 }
-.content img{
-  box-shadow: 0 0 3px 0 rgba(0,0,0,.2);
-  transition: all .3s;
+.content img {
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
 }
-.content img:hover{
-  box-shadow: 0 0 6px 0 rgba(0,0,0,.2);
+.content img:hover {
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
   transform: translate(0, -2px);
 }
 
-
- .vp-doc .details.custom-block div[class*='language-'] + div[class*='language-']{
-  margin-top:8px;
+.vp-doc
+  .details.custom-block
+  div[class*='language-']
+  + div[class*='language-'] {
+  margin-top: 8px;
 }
 
-.VPNavBarMenuLink.active span, .level-1.is-active{
-  color:var(--vp-c-brand-light) !important;
+.VPNavBarMenuLink.active span,
+.level-1.is-active {
+  color: var(--vp-c-brand-light) !important;
 }

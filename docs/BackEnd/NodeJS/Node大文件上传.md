@@ -1,4 +1,5 @@
 # Node大文件上传
+
 1. 创建文件唯一 HASH
 2. 发请求检查文件是否已传过
    1. 传过:提示'秒传成功'
@@ -7,6 +8,7 @@
 3. 上传完成，发送合并切片请求
 
 ## Vue 前端代码
+
 ```vue
 <template>
   <el-upload :http-request="customRequest">
@@ -124,7 +126,6 @@ const uploadChunks = async (chunks: Array<Chunk>, hash: string) => {
   await Promise.all(taskPool)
 }
 
-
 </script>
 
 <style scoped lang="scss">
@@ -133,4 +134,3 @@ const uploadChunks = async (chunks: Array<Chunk>, hash: string) => {
 }
 </style>
 ```
-

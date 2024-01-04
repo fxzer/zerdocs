@@ -85,7 +85,7 @@ const openSaveAs = () => {
       padding: 0px 6px;
       margin-right: 10px;
       border: 1px solid #ccc;
-      background-color: #4E9EF5;
+      background-color: #4e9ef5;
     }
   }
 }

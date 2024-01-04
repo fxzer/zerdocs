@@ -10,10 +10,10 @@
 
 #### @NgModule元数据
 
-+ **declarations** —— 该模块的依赖项（该模块用到的组件、指令、管道）。
-+ **imports** —— 导入其他的ngModule。
-+ **providers** —— 提供各种服务。
-+ **bootstrap** —— 根组件，Angular 创建它并插入 index.html 宿主页面
+- **declarations** —— 该模块的依赖项（该模块用到的组件、指令、管道）。
+- **imports** —— 导入其他的ngModule。
+- **providers** —— 提供各种服务。
+- **bootstrap** —— 根组件，Angular 创建它并插入 index.html 宿主页面
 
 #### declarations 数组
 
@@ -34,7 +34,7 @@
 #### providers 数组
 
 ```js
-该数组为当前模块提供一系列服务
+该数组为当前模块提供一系列服务;
 ```
 
 #### bootstrap 数组
@@ -59,26 +59,31 @@
 > **模版中还可以写些简单的逻辑，比如判断或运算**
 
 ```typescript
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 @Component({
-  selector: 'app-root',
-  template: `<h1>{{title}}</h1>
-             <p> sum : {{1 + 1}}</p>
-             <p>price: {{price * 0.7}}</p>
-             <p>与方法结合: {{price * 0.7 + getVal()}}.</p>
-`,    //内联模板
-  styles: [`h1 { color: yellow }`]    //内联样式
-})    
+  selector: "app-root",
+  template: `<h1>{{ title }}</h1>
+    <p>sum : {{ 1 + 1 }}</p>
+    <p>price: {{ price * 0.7 }}</p>
+    <p>与方法结合: {{ price * 0.7 + getVal() }}.</p> `, //内联模板
+  styles: [
+    `
+      h1 {
+        color: yellow;
+      }
+    `,
+  ], //内联样式
+})
 export class AppComponent {
-  title = 'my-angular-title';
-  price = 30
+  title = "my-angular-title";
+  price = 30;
   getVal(): number {
-        return 33;
+    return 33;
   }
 }
 ```
 
-::: warning  <b>模板表达式遵循原则：</b>
+::: warning <b>模板表达式遵循原则：</b>
 
 - 非常简单
 - 执行迅速
@@ -89,23 +94,23 @@ export class AppComponent {
 #### 2. 模板来源
 
 ```typescript
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'] //注意： styleUrls
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"], //注意： styleUrls
 })
-export class AppComponent {
-
-}
+export class AppComponent {}
 ```
 
 #### 3. 属性绑定
 
 ```html
 <img src="../assets/images/zorro.jpg" alt="madao" /><!-- 静态绑定-->
-<img [src]="zorroSrc" alt="zorro" />     <!-- 简写形式-->
-<img bind-src="zorroSrc" alt="zorro" /> <!-- 完整形式-->
+<img [src]="zorroSrc" alt="zorro" />
+<!-- 简写形式-->
+<img bind-src="zorroSrc" alt="zorro" />
+<!-- 完整形式-->
 <button [disabled]="isDisabled">click</button>
 <!-- zorroSrc、zorro、isDisabled均为变量 -->
 ```
@@ -120,71 +125,82 @@ export class AppComponent {
 #### 5. 插值表达式属性绑定
 
 ```html
-<img src="{{ picUrl }}" alt="{{ picInfo }}" /> <!-- 不常用 -->
+<img src="{{ picUrl }}" alt="{{ picInfo }}" />
+<!-- 不常用 -->
 ```
 
 #### 6. 单个class样式绑定
 
 ```typescript
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   template: `
-      <button type="button" class="btn" [class.btn-primary]="theme === 'primary'">Primary</button>
-      <button type="button" class="btn" [class.btn-secondary]="true">secondary</button>
-      <button type="button" class="btn" [class.btn-success]="isSuccess">success</button>
-      <button type="button" class="btn" [class.btn-danger]="'啦啦啦'">danger</button>
-      <button type="button" class="btn" [class.btn-danger]="0">danger</button>
-      <button type="button" class="btn" [class.btn-danger]="undefined">danger</button>
-    `,
-  styles: []
+    <button type="button" class="btn" [class.btn-primary]="theme === 'primary'">
+      Primary
+    </button>
+    <button type="button" class="btn" [class.btn-secondary]="true">
+      secondary
+    </button>
+    <button type="button" class="btn" [class.btn-success]="isSuccess">
+      success
+    </button>
+    <button type="button" class="btn" [class.btn-danger]="'啦啦啦'">
+      danger
+    </button>
+    <button type="button" class="btn" [class.btn-danger]="0">danger</button>
+    <button type="button" class="btn" [class.btn-danger]="undefined">
+      danger
+    </button>
+  `,
+  styles: [],
 })
 export class AppComponent {
-    theme = 'primary';
-    isSuccess = true;
+  theme = "primary";
+  isSuccess = true;
 }
 ```
 
 #### 7. 绑定多个class
 
 ```typescript
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   template: `
-      <button type="button" [class]="btnCls">btnCls</button>
-      <button type="button" [class]="btnCls2">btnCls2</button>
-      <button type="button" [class]="btnCls3">btnCls3</button>
+    <button type="button" [class]="btnCls">btnCls</button>
+    <button type="button" [class]="btnCls2">btnCls2</button>
+    <button type="button" [class]="btnCls3">btnCls3</button>
 
-      <!-- 也可以用内置指令ngClass -->
-      <button type="button" [ngClass]="btnCls">btnCls</button>
-      <button type="button" [ngClass]="btnCls2">btnCls2</button>
-      <button type="button" [ngClass]="btnCls3">btnCls3</button>
-    `,
-  styles: []
+    <!-- 也可以用内置指令ngClass -->
+    <button type="button" [ngClass]="btnCls">btnCls</button>
+    <button type="button" [ngClass]="btnCls2">btnCls2</button>
+    <button type="button" [ngClass]="btnCls3">btnCls3</button>
+  `,
+  styles: [],
 })
 export class AppComponent {
-    btnCls = 'btn btn-primary';
-    btnCls2 = ['btn', 'btn-success'];
-    btnCls3 = {
-      btn: true,
-      'btn-info': true
-    };
+  btnCls = "btn btn-primary";
+  btnCls2 = ["btn", "btn-success"];
+  btnCls3 = {
+    btn: true,
+    "btn-info": true,
+  };
 }
 ```
 
 #### 8. 绑定单个style
 
 ```typescript
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   template: `
-      <p [style.color]="'##f60'">一段文字</p>
-      <p [style.height]="'50px'" [style.border]="'1px solid'">设置高度</p>
-      <p [style.height.px]="50" [style.border]="'1px solid'">设置高度</p>
-    `,
-  styles: []
+    <p [style.color]="'##f60'">一段文字</p>
+    <p [style.height]="'50px'" [style.border]="'1px solid'">设置高度</p>
+    <p [style.height.px]="50" [style.border]="'1px solid'">设置高度</p>
+  `,
+  styles: [],
 })
 export class AppComponent {}
 ```
@@ -231,29 +247,29 @@ export class AppComponent {
 #### 10. 绑定事件
 
 ```typescript
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   template: `
-      <button (click)="onClick()">CLICK</button>
-       <button  (click)="onClick1($event)">Primary</button>
-    `,
-  styles: []
+    <button (click)="onClick()">CLICK</button>
+    <button (click)="onClick1($event)">Primary</button>
+  `,
+  styles: [],
 })
 export class AppComponent {
-    onClick() {
-      console.log('onClick');
-    } 
-    onClick1(event: MouseEvent) {
-        console.log('onClick1', event.target);
-    } 
+  onClick() {
+    console.log("onClick");
+  }
+  onClick1(event: MouseEvent) {
+    console.log("onClick1", event.target);
+  }
 }
 ```
 
 #### 11. 输入与输出属性
 
 > 输入属性：用于父组件传值给子组件（父传子）` @Input()`
-> 
+>
 > 输出属性：用于子组件传值给父组件（子传父）`@Output()`
 
 #### 输入属性`@Input`
@@ -261,34 +277,32 @@ export class AppComponent {
 :memo:父组件
 
 ```typescript
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   template: `
-     <app-mycpn [item]="currentItem"></app-mycpn>
-     <!-- <app-mycpn item="我是传入的字符串"></app-mycpn>--> <!--静态属性可不用[]包裹 -->
-
+    <app-mycpn [item]="currentItem"></app-mycpn>
+    <!-- <app-mycpn item="我是传入的字符串"></app-mycpn>-->
+    <!--静态属性可不用[]包裹 -->
   `,
 })
 export class AppComponent {
-  currentItem = 'Television';
+  currentItem = "Television";
 }
 ```
 
 :memo:子组件
 
 ```typescript
-import { Component, Input } from '@angular/core';
+import { Component, Input } from "@angular/core";
 @Component({
-  selector: 'app-mycpn',
-  template: `<p>
-               Today's item: {{item}}
-             </p>`
+  selector: "app-mycpn",
+  template: `<p>Today's item: {{ item }}</p>`,
 })
-export class MycpnComponent  {
-  @Input() item: string;   
- //@Input('aliasItem') item: string; 提供别名，item变量只可以在本组件使用
- //相当于对父组件传入的aliasItem变量进行重命名
+export class MycpnComponent {
+  @Input() item: string;
+  //@Input('aliasItem') item: string; 提供别名，item变量只可以在本组件使用
+  //相当于对父组件传入的aliasItem变量进行重命名
 }
 ```
 
@@ -297,31 +311,29 @@ export class MycpnComponent  {
 :memo:父组件
 
 ```typescript
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 @Component({
-  selector: 'app-root',
-  template: `
-     <app-mycpn  (newItemEvent)="addItem($event)"></app-mycpn>
-  `,
+  selector: "app-root",
+  template: ` <app-mycpn (newItemEvent)="addItem($event)"></app-mycpn> `,
 })
 export class AppComponent {
-   items = ['item1', 'item2', 'item3', 'item4'];
-    addItem(newItem: string) {
-      this.items.push(newItem);
-    }
+  items = ["item1", "item2", "item3", "item4"];
+  addItem(newItem: string) {
+    this.items.push(newItem);
+  }
 }
 ```
 
 :memo:子组件
 
 ```typescript
-import { Component, Input } from '@angular/core';
+import { Component, Input } from "@angular/core";
 @Component({
-  selector: 'app-mycpn',
-  template: `<label>Add an item: <input ##newItem></label>
-             <button (click)="addNewItem(newItem.value)">Add to parent's list</button>`
+  selector: "app-mycpn",
+  template: `<label>Add an item: <input ##newItem /></label>
+    <button (click)="addNewItem(newItem.value)">Add to parent's list</button>`,
 })
-export class MycpnComponent  {
+export class MycpnComponent {
   @Output() newItemEvent = new EventEmitter<string>();
   // @Output('newItem') newItemEvent = new EventEmitter<string>();
   addNewItem(value: string) {
@@ -336,7 +348,7 @@ export class MycpnComponent  {
 
 #### 宿主选择器
 
->  `:host`选择是是把宿主元素作为目标的唯一方式
+> `:host`选择是是把宿主元素作为目标的唯一方式
 
 ```md
 它选中的是组件模板标签，比如<app-child></app-child>，相当于在父组件的style中使用标签选择器选择 app-child {}
@@ -356,22 +368,22 @@ export class MycpnComponent  {
 
 ```css
 :host-context(.light) .title {
-      background-color: ##bfa;
+  background-color: ##bfa;
 }
 ```
 
 #### 样式模块化
 
 > 在 @Component 的元数据中指定的样式只会对该组件的模板生效
-> 
+>
 > 组件的样式不会影响到子组件中的模板
-> 
+>
 > 组件的样式不会影响到投影内容
 
 #### 视图封装模式
 
 > ShadowDom -- **不进不出**，没有样式能进来，组件样式出不去, 就自己玩
-> 
-> Emulated  --**只进不出**， 默认选项，全局样式能进来，组件样式出不去
-> 
-> None  -- **能进能出**，此时组件的样式是全局生效的，注意与其他组件发生样式冲突，（对父组件样式也能生效）
+>
+> Emulated --**只进不出**， 默认选项，全局样式能进来，组件样式出不去
+>
+> None -- **能进能出**，此时组件的样式是全局生效的，注意与其他组件发生样式冲突，（对父组件样式也能生效）

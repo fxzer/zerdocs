@@ -1,10 +1,8 @@
-
-
 ## 1.生成公钥和私钥
 
 ```bash
 cd ~/.ssh # 进入.ssh目录
-ssh-keygen  
+ssh-keygen
 # 第一步输入生成的公、私钥文件名，例如：aws-root
 # 密码不用填 直接回车
 ```
@@ -25,7 +23,7 @@ cat authorized_keys # 查看是否有上传的公钥
 ```
 
 ## 4.配置 ssh config文件
- 
+
 ```bash
 vim /etc/ssh/sshd_config
 PermitRootLogin yes # no改为yes  # 允许root用户登录：解决root用户登录报错 Permission denied 问题
@@ -37,7 +35,6 @@ systemctl restart sshd.service
 ```
 
 ## 5.测试连接、配置本地ssh config文件，使用 VSCODE插件 ([Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)) 连接
-
 
 ```bash
 # 测试连接
@@ -53,5 +50,7 @@ User root
 IdentityFile ~/.ssh/aws-root
 
 ```
+
 ## 6.大功告成，可以每次轻松愉快一键连接远程服务器啦！
+
 > 注意：若同时安装了 Remote Repositories 和 Remote - SSH 插件，需要在最顶部进行选择切换到 Remote - SSH 插件，并点击顶部刷新按钮，这样才能看到 ssh/config 文件配置的所有主机。

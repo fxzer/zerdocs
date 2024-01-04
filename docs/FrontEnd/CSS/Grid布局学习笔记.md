@@ -1,9 +1,11 @@
 # Grid布局学习笔记
 
 ## 实用网站
+
 - [GRID GARDEN 小游戏](https://link.juejin.cn/?target=https%3A%2F%2Fcssgridgarden.com%2F%23zh-cn)
 - [CSS Grid Generator 在线生成器](https://link.juejin.cn/?target=https%3A%2F%2Fcssgrid-generator.netlify.app%2F)
 - [A Complete Guide to Grid 学习导航](https://link.juejin.cn/?target=https%3A%2F%2Fcss-tricks.com%2Fsnippets%2Fcss%2Fcomplete-guide-grid%2F%23introduction)
+
 ## 基本概念
 
 ![image-20230216202917923](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162029422.png)
@@ -15,8 +17,8 @@
 ### 开启 Grid布局
 
 ```css
-.box{
-  display:grid;
+.box {
+  display: grid;
 }
 ```
 
@@ -24,7 +26,7 @@
 
 1. 取值为数值 `grid-template-rows:100px 100px 100px`
 2. 取值为百分比 `grid-template-rows:20% 30% 50%`
-3. 重复函数 `grid-template-rows:repeat(3,20%)`  
+3. 重复函数 `grid-template-rows:repeat(3,20%)`
 4. 自动填充 `grid-template-rows:repeat(auto-fill, 30%)`
 5. auto自动 `grid-template-rows:100px auto 100px`
 6. fr片段划分 `grid-template-rows:1fr 2fr 1fr`
@@ -49,17 +51,16 @@
 ### 调整间距属性
 
 ```css
-.box{
+.box {
   /* 写法一：*/
-  grid-row-gap:20px;
-  grid-column-gap:30px;
+  grid-row-gap: 20px;
+  grid-column-gap: 30px;
 
-   /* 写法二：*/
-  grid-gap:20px 30px;
+  /* 写法二：*/
+  grid-gap: 20px 30px;
 
-   /* 写法三：*/
-  gap:20px 30px;
-
+  /* 写法三：*/
+  gap: 20px 30px;
 }
 ```
 
@@ -74,10 +75,10 @@
 :::
 
 ```css
-.box{
+.box {
   /*justify-content:space-around;
   align-content:space-evenly;*/
-  palce-content:space-around space-evenly;
+  palce-content: space-around space-evenly;
 }
 ```
 
@@ -86,9 +87,9 @@
 **案例**
 
 ```css
-.box{
-  justify-content:center; 
-   align-content: center;
+.box {
+  justify-content: center;
+  align-content: center;
 }
 ```
 
@@ -115,43 +116,42 @@
 **案例：**
 
 ```html
- <div class="box">
-      <div class="item a"></div>
-      <div class="item b"></div>
-      <div class="item c"></div>
-    </div>
+<div class="box">
+  <div class="item a"></div>
+  <div class="item b"></div>
+  <div class="item c"></div>
+</div>
 ```
 
 ```css
-     .box {
-        width: 800px;
-        height: 800px;
-        display: grid;
-        grid-template-columns: repeat(3, 100px);
-        grid-template-rows: repeat(3, 100px);
-        align-items: center;
-        justify-items: center;
-        grid-gap: 10px;
-        grid-template-areas:
-          "a a a"
-          ". b b"
-          "c c c";
-      }
-      .item{
-        width: 50px ;
-        height: 50px;
-        border:1px dashed #000;
-
-      }
-      .a{
-        grid-area: a;
-      }
-      .b{
-        grid-area: b;
-      }
-      .c{
-        grid-area: c;
-      }
+.box {
+  width: 800px;
+  height: 800px;
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  align-items: center;
+  justify-items: center;
+  grid-gap: 10px;
+  grid-template-areas:
+    'a a a'
+    '. b b'
+    'c c c';
+}
+.item {
+  width: 50px;
+  height: 50px;
+  border: 1px dashed #000;
+}
+.a {
+  grid-area: a;
+}
+.b {
+  grid-area: b;
+}
+.c {
+  grid-area: c;
+}
 ```
 
 ![image-20230216222635254](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162226287.png)
@@ -172,31 +172,31 @@
 
 ```css
 .box {
-    width: 800px;
-    height: 800px;
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
-    align-content: center;
-    justify-content: center;
-    grid-gap: 10px;
-    grid-template-areas:
-      "a a a"
-      ". b b"
-      "c c c";
-  }
-  .item{
-    border:1px dashed #000;
-  }
-  .a{
-    grid-area: a;
-  }
-  .b{
-    grid-area: b;
-  }
-  .c{
-    grid-area: c;
-  }
+  width: 800px;
+  height: 800px;
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  align-content: center;
+  justify-content: center;
+  grid-gap: 10px;
+  grid-template-areas:
+    'a a a'
+    '. b b'
+    'c c c';
+}
+.item {
+  border: 1px dashed #000;
+}
+.a {
+  grid-area: a;
+}
+.b {
+  grid-area: b;
+}
+.c {
+  grid-area: c;
+}
 ```
 
 ![image-20230216220606952](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162206984.png)
@@ -206,7 +206,7 @@
 ### 合并单元格属性
 
 ```css
-.header{
+.header {
   /* 写法一：*/
   grid-column-start: 1;
   grid-column-end: 3;
@@ -222,8 +222,9 @@
   grid-column-start: span 2;
 
   /* 写法四：若跨度为 1，则可简写第二根网格线*/
-  grid-row: 1 / 2; ==>  grid-row: 1;
-  grid-row: 3 / 4; ==>  grid-row: 3;
+  grid-row: 1/2; /* grid-row: 1; */
+  grid-row: 3/4;
+  background-position:; /* grid-row: 3; */
 }
 ```
 
@@ -232,15 +233,15 @@
 ### 项目区域定义
 
 ```css
-  .a{
-    grid-area: a;
-  }
-  .b{
-    grid-area: b;
-  }
-  .c{
-    grid-area: c;
-  }
+.a {
+  grid-area: a;
+}
+.b {
+  grid-area: b;
+}
+.c {
+  grid-area: c;
+}
 ```
 
 :::tip grid-area
@@ -257,13 +258,13 @@
 
 ### 单个项目位置
 
-:::tip  justify-self 和 align-self
+:::tip justify-self 和 align-self
 
 `justify-self` 属性设置单元格内容的水平位置（左中右），跟 `justify-items` 属性的用法完全一致，但只作用于单个项目。
 
 `align-self` 属性设置单元格内容的垂直位置（上中下），跟 `align-items` 属性的用法完全一致，也是只作用于单个项目。
 
-::: 
+:::
 
 ```css
 .item {

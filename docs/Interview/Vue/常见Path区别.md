@@ -1,5 +1,5 @@
-
 ## VueRouter的 base
+
 VueRouter的base属性是指应用的基路径，它会影响到所有使用了vue-router的路由路径，包括 routes 配置中的路径和 通过 $router.push() 或 $router.replace() 调用的路径。
 
 在router对象中，base属性可以通过以下方式设置：
@@ -9,6 +9,7 @@ const router = new VueRouter({
   base: '/my-app/'
 })
 ```
+
 这个属性值的默认值为 '/'。如果你的应用被部署在一个子目录下，你就需要手动指定base属性的值。
 
 例如，假设你的应用被部署在`http://example.com/my-app/`这个路径下，那么你就需要设置如下的base属性：
@@ -19,12 +20,11 @@ const router = new VueRouter({
 })
 ```
 
-这个设置是非常重要的，因为Vue Router 路由器的默认行为是从根路径(localhost:8080/)  开始的，
+这个设置是非常重要的，因为Vue Router 路由器的默认行为是从根路径(localhost:8080/) 开始的，
 
 如果你需要从你的实际路径下查看（例如 localhost:8080/my-project/），就需要设置base属性了。
 
 除了上述的情况之外，一般我们都不会配置base属性，这个属性的作用主要是为了适应应用被部署在服务器上的子目录下的情况。
-
 
 ## vue.config.js的 publicPath
 
@@ -51,6 +51,7 @@ module.exports = {
 ```
 
 通常可以在根目录配置环境变量，相对于不同环境打包时的打包命令
+
 ```json
 //package.json
 "scripts": {
@@ -61,14 +62,14 @@ module.exports = {
 
 ```
 
-```js 
+```js
 //.env.production   --服务器打包预览环境变量
 OUTPUT_DIR=/opt/nginx/www/html/music
 BASE_URL=/music/
 ```
 
-```js 
-//.env.buildlocal   --本地打包预览环境变量
+```env
+#.env.buildlocal   --本地打包预览环境变量
 OUTPUT_DIR=dist
 BASE_URL=/
 ```

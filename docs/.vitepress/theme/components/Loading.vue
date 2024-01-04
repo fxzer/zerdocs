@@ -1,20 +1,21 @@
-<template>
-
-  <div class="loader">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-</template>
 <script setup lang='ts'>
 
 </script>
+
+<template>
+  <div class="loader">
+    <div />
+    <div />
+    <div />
+    <div />
+  </div>
+</template>
+
 <style scoped lang='scss'>
 .loader {
   /* 相对定位 */
   position: relative;
-  color: #A886F2;
+  color: #a886f2;
   width: 60px;
   height: 60px;
 }

@@ -3,8 +3,8 @@
 ![2023-05-19-14-49-43](https://zerdocs.oss-cn-shanghai.aliyuncs.com/interview/2023-05-19-14-49-43.png)
 
 ```js
-//uno.config.ts
-shortcuts: [["f-s-c", "flex justify-start items-center"]];
+// uno.config.ts
+shortcuts: [['f-s-c', 'flex justify-start items-center']]
 ```
 
 1. 写在类名上不生效
@@ -39,11 +39,11 @@ shortcuts: [["f-s-c", "flex justify-start items-center"]];
 ### hidden 与自定义变体不能一起用
 
 ```ts
-//uno.config.ts
+// uno.config.ts
 shortcuts: [
-  ["f-s-c", "flex justify-start items-center"],
-  ["f-c-c", "flex justify-center items-center"],
-];
+  ['f-s-c', 'flex justify-start items-center'],
+  ['f-c-c', 'flex justify-center items-center'],
+]
 ```
 
 ```html
@@ -71,7 +71,7 @@ export default defineNuxtConfig({
     devProxy: {
       '/account/api': {
         target: 'http://192.168.211.63/account/api',
-       // target: 'http://192.168.211.63', 【不生效】 不同于 vite，这样配置到达 nginx 是 '/'
+        // target: 'http://192.168.211.63', 【不生效】 不同于 vite，这样配置到达 nginx 是 '/'
         ws: false,
         changeOrigin: true,
       },
@@ -81,18 +81,19 @@ export default defineNuxtConfig({
 ```
 
 ```js
-//业务请求
+// 业务请求
 async function getImgCode() {
   const data = await useFetch('/account/api/getImageCode', {
     method: 'POST',
-    body:{},
+    body: {},
   })
   return data.data.value
 }
 ```
- 
- ## nuxt-simple-sitemap插件使用问题
- 打包时报错：解析到错误 URL
+
+## nuxt-simple-sitemap插件使用问题
+
+打包时报错：解析到错误 URL
 
 ```js
 nitro: {
@@ -103,11 +104,10 @@ nitro: {
 }
 ```
 
+> 测试环境能访问`sitemap.xml` 页面
+> 但是线上环境访问不到，报相关错误：`/__sitemap__/routes.json` ，需要在 nginx 配置 IP 和主机名的传送。
 
->测试环境能访问`sitemap.xml` 页面
->但是线上环境访问不到，报相关错误：`/__sitemap__/routes.json` ，需要在 nginx 配置 IP 和主机名的传送。
-
-``` zsh
+```zsh
   # nginx.conf
    proxy_set_header X-Real-IP $remote_addr;
    proxy_set_header Host $host;

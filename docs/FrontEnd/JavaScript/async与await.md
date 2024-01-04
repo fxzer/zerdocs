@@ -1,39 +1,34 @@
-
 # Javascript实现异步
+
 :::info
-  Javascript是单线程执行语言
+Javascript是单线程执行语言
 :::
-
-
 
 ### 方式一：回调函数
 
 ```js
-let timer = setTimeout(()=>{
-    console.log("3秒后打印的")
-},3000)
-console.log("比setTimeout回调函数先执行")
-//本身会立刻返回，然后执行后面同步代码，回调函数则等预定时间才执行
+const timer = setTimeout(() => {
+  console.log("3秒后打印的");
+}, 3000);
+console.log("比setTimeout回调函数先执行");
+// 本身会立刻返回，然后执行后面同步代码，回调函数则等预定时间才执行
 ```
 
 缺点：容易形成回调地狱
 
 ```js
-setTimeout(()=>{
-    console.log("3秒后打印的")
-    
-   setTimeout(()=>{    
-       console.log("6秒后打印的")
-       
-         setTimeout(
-            ()=>{    
-               console.log("9秒后打印的")
-         },3000)
-   },3000)
-},3000)
+setTimeout(() => {
+  console.log("3秒后打印的");
+
+  setTimeout(() => {
+    console.log("6秒后打印的");
+
+    setTimeout(() => {
+      console.log("9秒后打印的");
+    }, 3000);
+  }, 3000);
+}, 3000);
 ```
-
-
 
 ### 方式二：Promise
 
@@ -42,42 +37,50 @@ setTimeout(()=>{
 > new Promise(function(resolve, reject){ })
 
 ```js
-new Promise(function(resolve, reject) { 
-    resolve('success')  // 成功执行
-}).then(result => {
-    alert(result)  //走then
-}).finally(()=>{
-	//无论成功失败，都会执行的回调
-    //做一些清理工作，如关闭加载动画
+new Promise((resolve, reject) => {
+  resolve("success"); // 成功执行
 })
+  .then((result) => {
+    alert(result); // 走then
+  })
+  .finally(() => {
+    // 无论成功失败，都会执行的回调
+    // 做一些清理工作，如关闭加载动画
+  });
 
-new Promise(function(resolve, reject) { 
-    reject('fail')  // 失败执行
-}).then(result => {
-    alert(result)
-}).catch(error => {
-     alert(error)  //走catch
+new Promise((resolve, reject) => {
+  reject("fail"); // 失败执行
 })
+  .then((result) => {
+    alert(result);
+  })
+  .catch((error) => {
+    alert(error); // 走catch
+  });
 ```
 
 如果想终止在某个执行链的位置，可以用**Promise.reject(new Error())**
 
 ```js
-new Promise(function(resolve, reject) {
-    resolve(1)
-}).then(result => {
-    return result + 1
-}).then(result => {
-    return result + 1
-}).then(result => {
-    
-  return  Promise.reject(new Error(result + '失败'))
-   // return result + 1
-}).then(result => {
-    return result + 1
-}).catch(error => {	
-    alert(error)
+new Promise((resolve, reject) => {
+  resolve(1);
 })
+  .then((result) => {
+    return result + 1;
+  })
+  .then((result) => {
+    return result + 1;
+  })
+  .then((result) => {
+    return Promise.reject(new Error(`${result}失败`));
+    // return result + 1
+  })
+  .then((result) => {
+    return result + 1;
+  })
+  .catch((error) => {
+    alert(error);
+  });
 ```
 
 ### 语法糖：async /await
@@ -90,14 +93,14 @@ new Promise(function(resolve, reject) {
 
 ```js
 async fn1() {
- const result = await new Promise(function(resolve){  
+ const result = await new Promise(function(resolve){
     setTimeout(function(){
       resolve('fn1执行结果')
     },5000)
  })
  console.log(result)
 },
-    
+
 fn2(){
   this.fn1() //async的函数并不会阻塞后续同步代码执行
   console.log('fn2执行') //先执行
@@ -116,7 +119,7 @@ fn2(){
 #### 捕获异常
 
 ```js
-   async  getCatch () {
+   async  getCatch() {
       try { // 通过 try/catch捕获异常
         await new Promise(function (resolve, reject) {
           reject(new Error('失败'))
@@ -148,12 +151,10 @@ async  fn1(){
     const promistB =  fetch("http://.../post/2")
     //利用 Promise.all组合
     const [a,b] = await Promise.all([promiseA,pormiseB])
-    
+
 }
 
 ```
-
-
 
 > 2.循环中执行异步操作，不能直接使用forEach,map等方法
 
@@ -192,4 +193,3 @@ async  fn(){
     console.log('done')
 }
 ```
-

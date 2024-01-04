@@ -1,8 +1,14 @@
+<script lang="ts" setup>
+import { ref } from 'vue'
+
+const isDark = ref(true)
+</script>
+
 <template>
-  <p><radio></radio></p>
+  <p><radio /></p>
   <svg
-  @click="isDark = !isDark"
-  :style="{ backgroundColor: isDark ? '#13121a' : '#fff' }"
+    :style="{ backgroundColor: isDark ? '#13121a' : '#fff' }"
+    @click="isDark = !isDark"
   >
     <pattern
       id="pattern-1"
@@ -13,15 +19,11 @@
       patternUnits="userSpaceOnUse"
       patternTransform="translate(-0.5,-0.5)"
     >
-      <circle cx="0.5" cy="0.5" r="0.5" fill="#60606F"></circle>
+      <circle cx="0.5" cy="0.5" r="0.5" fill="#60606F" />
     </pattern>
-    <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-1)"></rect>
+    <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-1)" />
   </svg>
 </template>
-<script lang="ts" setup>
-import { ref } from "vue";
-const isDark = ref(true);
-</script>
 
 <style lang="scss" scoped>
 svg {

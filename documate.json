@@ -1,5 +1,5 @@
 {
   "root": ".",
-  "include": [ "**/*.md"],
+  "include": ["**/*.md"],
   "backend": "https://vwg4waeeqt.us.aircode.run/upload"
 }

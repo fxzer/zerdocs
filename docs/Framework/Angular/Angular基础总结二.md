@@ -1,4 +1,3 @@
-
 ## 双向绑定
 
 ### 1. 基本双向绑定
@@ -43,16 +42,16 @@ export class SbindComponent implements OnInit {
 
   //默认值
   @Input()  size=16;
-  
+
   @Output() change = new EventEmitter<number>();
-    
+
   dec() {
     this.change.emit(this.size-1)
   }
   inc() {
     this.change.emit(this.size+1)
   }
-    
+
   constructor() { }
   ngOnInit(): void {
   }
@@ -67,6 +66,7 @@ export class SbindComponent implements OnInit {
 ```html
 <app-sbind [(size)]="fontSizePx"></app-sbind>
 <p [style.font-size.px]="fontSizePx">APP 字体大小: {{fontSizePx}}px</p>
+
 ```
 
 :memo:父组件：`app.component.ts`
@@ -84,19 +84,16 @@ export class AppComponent {
 }
 ```
 
-
-
 :memo:子组件：`sbind.component.html`
 
 ```html
 <div>
-    <button (click)="dec()">-</button>
-    <button (click)="inc()">+</button>
-    <p [style.font-size.px]="size"> sbind 字体大小: {{size}}px</p>
+  <button (click)="dec()">-</button>
+  <button (click)="inc()">+</button>
+  <p [style.font-size.px]="size">sbind 字体大小: {{size}}px</p>
 </div>
+
 ```
-
-
 
 :memo:子组件：`sbind.component.ts`
 
@@ -112,7 +109,7 @@ export class SbindComponent implements OnInit {
 
   //默认值
   @Input()  size=16;
-  
+
   // 双向绑定语法：output变量名=输入属性名+Change
   @Output() sizeChange = new EventEmitter<number>();
   constructor() { }
@@ -128,8 +125,6 @@ export class SbindComponent implements OnInit {
 }
 ```
 
-
-
 ### 2. input双向绑定
 
 **普通写法：**
@@ -141,9 +136,9 @@ export class SbindComponent implements OnInit {
 
 **简写形式：**
 
-::: warning 
+::: warning
 
-**ngMoel 指令来源于FormsModule模块**  
+**ngMoel 指令来源于FormsModule模块**
 
 `[(ngMoel)]`可拆解为：
 
@@ -153,11 +148,10 @@ export class SbindComponent implements OnInit {
 
 :::
 
-
-
 ```html
-<input type ="text" [(ngMoel)] ="inputVal">
-<p>{{inputVal}}</p> //默认值 inputVal=''
+<input type="text" [(ngMoel)]="inputVal" />
+<p>{{inputVal}}</p>
+//默认值 inputVal=''
 <!-- <input type="text" [ngModel] = "inputVal" (ngModelChange) ="inputVal= $event">
 <p>{{inputVal}}</p> 完整写法-->
 
@@ -165,7 +159,7 @@ export class SbindComponent implements OnInit {
 
 ### 3. 表单Form中双向绑定
 
- ::: tip 
+::: tip
 
 表单中使用[(ngModel)]，满足下列两个条件之一：
 
@@ -175,15 +169,17 @@ export class SbindComponent implements OnInit {
 :::
 
 ```html
- <form>
-    <input [(ngModel)]="value" name="name" />
-    <input [(ngModel)]="value" [ngModelOptions]="{ name: 'name' }" />
-    <input [(ngModel)]="value" [ngModelOptions]="{ standalone: true }" />
-    <input [(ngModel)]="value" [ngModelOptions]="{  name: 'name' ,standalone: true }" />
-  </form>
+<form>
+  <input [(ngModel)]="value" name="name" />
+  <input [(ngModel)]="value" [ngModelOptions]="{ name: 'name' }" />
+  <input [(ngModel)]="value" [ngModelOptions]="{ standalone: true }" />
+  <input
+    [(ngModel)]="value"
+    [ngModelOptions]="{  name: 'name' ,standalone: true }"
+  />
+</form>
+
 ```
-
-
 
 ::: details ngModel拓展
 
@@ -203,7 +199,7 @@ setVal(){
 
 > 指令：**用于改变DOM元素的外观或行为的指令**（组件是一种特殊的指令）
 
-::: details  组件改为属性型指令
+::: details 组件改为属性型指令
 
 :memo:AppComponent
 
@@ -215,7 +211,7 @@ setVal(){
 import {Component} from '@angular/core';
 @Component({
   selector: '[app-decr]',//属性选择器
-  template: `   
+  template: `
   `,
 })
 export class DecrComponent {
@@ -225,33 +221,31 @@ export class DecrComponent {
 
 :::
 
-
-
 ## 结构型指令
 
 ### `*ngIf`指令
 
 ```html
- <p *ngIf="isShow">一段文字 {{ isShow }}</p> 
+<p *ngIf="isShow">一段文字 {{ isShow }}</p>
 <!-- <p *ngIf="isShow as s">一段文字 {{ s }}</p> 局部变量：只能在标签内部使用-->
 isShow:true显示，反之（取决于绑定的值是否为真）
+
 ```
 
-::: warning 
+::: warning
 
 会改变DOM结构，原理：移除和插入DOM节点
 
 :::
 
-::: details *ngIf  完整写法
+::: details \*ngIf 完整写法
 
 ```html
- <ng-template [ngIf]="isShow" let-s>
-     <p *ngIf="isShow">一段文字 {{ isShow }} {{s}}</p> 
- </ng-template>
+<ng-template [ngIf]="isShow" let-s>
+  <p *ngIf="isShow">一段文字 {{ isShow }} {{s}}</p>
+</ng-template>
+
 ```
-
-
 
 :::
 
@@ -264,7 +258,7 @@ import {Component} from '@angular/core';
   template: `
     <div *ngIf="condition; else elseBlock">condition为真时显示</div>
 
-    <ng-template ##elseBlock> 
+    <ng-template ##elseBlock>
       <p> condition为假时显示 </p>
     </ng-template>
   `,
@@ -291,7 +285,7 @@ export class IfComp {
 }
 ```
 
-::: details    TemplateRef拓展
+::: details TemplateRef拓展
 
 ```typescript
 import {Component, OnInit, ChangeDetectionStrategy, ViewChild, TemplateRef, AfterViewInit} from '@angular/core';
@@ -300,8 +294,8 @@ import {Component, OnInit, ChangeDetectionStrategy, ViewChild, TemplateRef, Afte
   template: `
     <button(click)="condition = !condition">toggle block</button>
     <p *ngIf="condition else elseBlocks">{{ condition }} === true 时显示</p>
-    
-	<ng-template ##firstTpl>
+
+  <ng-template ##firstTpl>
       <p>{{ condition }} === false 时显示</p>
     </ng-template>
   `,
@@ -333,9 +327,9 @@ import {Component} from '@angular/core';
   selector: 'app-for',
   template: `
     <ul>
-      <li *ngFor="let item of Persons; 
-			index as i; count as len; let ev = even; let od = odd; let f = first; let l = last;
-			trackBy: trackByPerson">{{ item.name }}</li>
+      <li *ngFor="let item of Persons;
+      index as i; count as len; let ev = even; let od = odd; let f = first; let l = last;
+      trackBy: trackByPerson">{{ item.name }}</li>
     </ul>
   `,
 })
@@ -353,10 +347,10 @@ export class ForComponent {
     id: 'p3',
     name: '王五'
   },
-  
+
 ];
 trackByPerson(index,item){
-    return item.id	//追踪id，id值不变不刷新（提升性能）
+    return item.id  //追踪id，id值不变不刷新（提升性能）
   }
 }
 ```
@@ -364,57 +358,51 @@ trackByPerson(index,item){
 ::: details ngFor局部变量
 
 ```js
- index: number	//可迭代对象中当前条目的索引。
- count: number	//可迭代对象的长度。
- first: boolean	//如果当前条目是可迭代对象中的第一个条目则为 true。
- last: boolean	//如果当前条目是可迭代对象中的最后一个条目则为 true。
- even: boolean	//如果当前条目在可迭代对象中的索引号为偶数则为 true。
- odd: boolean	//如果当前条目在可迭代对象中的索引号为奇数则为 true。
- $implicit: T	//迭代目标（绑定到ngForOf）中每个条目的值。
- ngForOf: NgIterable<T>	//迭代表达式的值。当表达式不局限于访问某个属性时，这会非常有用，比如在使用 async 管道时（userStreams | async）。
+ index: number  //可迭代对象中当前条目的索引。
+ count: number  //可迭代对象的长度。
+ first: boolean  //如果当前条目是可迭代对象中的第一个条目则为 true。
+ last: boolean  //如果当前条目是可迭代对象中的最后一个条目则为 true。
+ even: boolean  //如果当前条目在可迭代对象中的索引号为偶数则为 true。
+ odd: boolean  //如果当前条目在可迭代对象中的索引号为奇数则为 true。
+ $implicit: T  //迭代目标（绑定到ngForOf）中每个条目的值。
+ ngForOf: NgIterable<T>  //迭代表达式的值。当表达式不局限于访问某个属性时，这会非常有用，比如在使用 async 管道时（userStreams | async）。
 ```
-
-
 
 :::
 
-
-
-::: details  *ngFor展开写法
+::: details \*ngFor展开写法
 
 ```html
- <ul>
-     <ng-template
-       ngFor
-       [ngForOf]="heros"
-       [ngForTrackBy]="trackByHero"
-       let-item
-       let-i="index"
-       let-od="odd"
-       let-ev="even"
-       let-len="count"
-       let-f="first"
-       let-l="last">
-       <li [class.even]="ev" [class.odd]="od">
-         <p>index: {{ i }}</p>
-         <p>count: {{ len }}</p>
-         <p>name: {{ item.name }}</p>
-         <p>first: {{ f }} -- last: {{ l }}</p>
-         <hr>
-       </li>
-     </ng-template>
-   </ul>
+<ul>
+  <ng-template
+    ngFor
+    [ngForOf]="heros"
+    [ngForTrackBy]="trackByHero"
+    let-item
+    let-i="index"
+    let-od="odd"
+    let-ev="even"
+    let-len="count"
+    let-f="first"
+    let-l="last"
+  >
+    <li [class.even]="ev" [class.odd]="od">
+      <p>index: {{ i }}</p>
+      <p>count: {{ len }}</p>
+      <p>name: {{ item.name }}</p>
+      <p>first: {{ f }} -- last: {{ l }}</p>
+      <hr />
+    </li>
+  </ng-template>
+</ul>
+
 ```
 
-
-
 :::
-
-
 
 ### `[ngSwitch]`指令
 
-::: warning 
+::: warning
 
 `[ngSwitch]` 为属性型指令
 
@@ -443,9 +431,9 @@ import {Component} from '@angular/core';
       <input type="radio" name="fruit" value="other" id="other" [(ngModel)]="fruit" />
       <label for="other">other</label>
     </p>
-    
+
     selected fruit: {{ fruit }}
-    
+
     <div class="content" [ngSwitch]="fruit">
       <p *ngSwitchCase="'apple'">这是 苹果</p>
       <p *ngSwitchCase="'pear'"> 这是 梨</p>
@@ -478,24 +466,18 @@ export class SwitchComponent {
      </div>
 ```
 
-
-
 :::
-
-
-
-
-
-
 
 ## 自定义指令
 
 使用：
 
 ```html
-<p appHighlight highlightColor ='red'></p>
-<p appHighlight [highlightColor] ='color'></p>
-<p appHighlight='color'></p> <!-- 起别名后，输入属性和指令名设为一样-->
+<p appHighlight highlightColor="red"></p>
+<p appHighlight [highlightColor]="color"></p>
+<p appHighlight="color"></p>
+<!-- 起别名后，输入属性和指令名设为一样-->
+
 ```
 
 ### 自定义高亮指令（属性型）
@@ -514,14 +496,14 @@ export class HighlightDirective {
   constructor(private el: ElementRef) {
     console.log('appHighlight');
   }
-   
+
   @HostListener('mouseenter') onMouseEnter() {
     this.highlight(this.highlightColor || 'yellow');
   }
-	//内部事件监听
+  //内部事件监听
   @HostListener('mouseleave',['$event']) onMouseLeave() {
     this.highlight('');
-      console.log(event)	//传递事件对象
+      console.log(event)  //传递事件对象
   }
 
   private highlight(color: string) {
@@ -539,8 +521,6 @@ export class HighlightDirective {
 2. 不用必须确保每个DOM API都能用
 
 :::
-
-
 
 ### 自定义unless指令（结构型）
 
@@ -560,12 +540,12 @@ export class UnlessDirective implements OnChanges {
   @Input('appUnless') unless: boolean;
   private hasView = false;//是否已显示
   private context = new UnlessContext();
-  
+
   constructor(private templateRef: TemplateRef<any>, private viewContainer: ViewContainerRef) {
     // console.log(this.templateRef);
     // console.log(this.viewContainer);
   }
-	//监听输入属性变化
+  //监听输入属性变化
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['unless']) {
     this.context.$implicit = this.context.appUnless = this.unless;
@@ -588,8 +568,6 @@ export class UnlessDirective implements OnChanges {
 }
 ```
 
-
-
 :::
 
 ::: details 调用
@@ -609,7 +587,7 @@ import { Component } from '@angular/core';
   `,
 })
 export class AppComponent {
-  show = false;	//false: 显示 	true: 隐藏
+  show = false;  //false: 显示   true: 隐藏
 }
 ```
 
@@ -620,11 +598,13 @@ export class AppComponent {
 ### `ng-template`
 
 ```html
-<ng-template>是一个 Angular 元素，用来渲染 HTML。 它永远不会直接显示出来。
-事实上，在渲染视图之前，Angular 会把 <ng-template> 及其内容替换为一个注释。
+<ng-template
+  >是一个 Angular 元素，用来渲染 HTML。 它永远不会直接显示出来。
+  事实上，在渲染视图之前，Angular 会把
+  <ng-template> 及其内容替换为一个注释。 </ng-template></ng-template
+>
+
 ```
-
-
 
 ::: warning
 
@@ -635,15 +615,23 @@ export class AppComponent {
 ### `ng-container`
 
 ```html
-Angular 的 <ng-container> 是一个分组元素，但它不会污染样式或元素布局，因为 Angular 压根不会把它放进 DOM 中。
-<ng-container> 是一个由 Angular 解析器负责识别处理的语法元素。 它不是一个指令、组件、类或接口，更像是 JavaScript 中 if 块中的花括号。
+Angular 的
+<ng-container>
+  是一个分组元素，但它不会污染样式或元素布局，因为 Angular 压根不会把它放进 DOM
+  中。
+  <ng-container>
+    是一个由 Angular 解析器负责识别处理的语法元素。
+    它不是一个指令、组件、类或接口，更像是 JavaScript 中 if 块中的花括号。
+  </ng-container></ng-container
+>
+
 ```
 
 ```js
 if (someCondition) {
-  statement1;
-  statement2;
-  statement3;
+  statement1
+  statement2
+  statement3
 }
 ```
 
@@ -657,10 +645,10 @@ import {Component} from '@angular/core';
   selector: 'app-tpl-var',
   template: `
     <input ##phone placeholder="phone number" />
- 	<input ref-phone placeholder="phone number" />
+   <input ref-phone placeholder="phone number" />
     <button (click)="callPhone(phone.value)">Call</button>
   `,
-})	//两种写法
+})  //两种写法
 export class TplVarComponent {
   constructor() { }
   callPhone(value: string) {
@@ -676,11 +664,11 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    
+
       <button (click)="sizer.inc()">app inc</button>
       <app-sbind [(size)]="size" ##sizer></app-sbind>
       size: {{ size }}
-    
+
   `,
 })
 export class AppComponent {
@@ -693,7 +681,7 @@ export class AppComponent {
 
 ### 管道 `|`
 
-::: warning 
+::: warning
 
 模板变量可以通过一条或多条管道格式化数据，
 
@@ -749,4 +737,3 @@ export class AppComponent {
 ```typescript
 <p> {{$any(item).bestByDate}}</p>
 ```
-

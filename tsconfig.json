@@ -1,19 +1,19 @@
 {
   "compilerOptions": {
-    "module": "esnext",
     "target": "esnext",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "strict": false,
-    "skipLibCheck": true,
-    "noUnusedLocals": true,
-    "resolveJsonModule": true,
-    "isolatedModules": false,
     "jsx": "preserve",
-    "lib": ["ESNext", "DOM"]
+    "lib": ["ESNext", "DOM"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "strict": false,
+    "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "isolatedModules": false,
+    "skipLibCheck": true
   },
-   /* 指定编译文件或排除指定编译文件 */
-  "include": [  
+  /* 指定编译文件或排除指定编译文件 */
+  "include": [
     "./docs/.vitepress/components/*.vue",
     "./docs/.vitepress/components.d.ts",
     "./docs/.vitepress/auto-imports.d.ts"

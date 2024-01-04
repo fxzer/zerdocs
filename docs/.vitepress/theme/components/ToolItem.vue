@@ -53,7 +53,7 @@ $gradient-color: linear-gradient(120deg, #bd34fe, var(--vp-c-brand-light));
     margin: 0 15px 5px 15px;
     border: 1px solid #eee;
     border-radius: 8px;
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
     &:hover {
       border: 1px solid var(--vp-c-green);
@@ -70,7 +70,7 @@ $gradient-color: linear-gradient(120deg, #bd34fe, var(--vp-c-brand-light));
     text-overflow: ellipsis;
     white-space: nowrap;
     margin: 0;
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
     color: transparent;
     background: $gradient-color;
     background-clip: text;

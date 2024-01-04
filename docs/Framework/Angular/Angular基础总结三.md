@@ -3,11 +3,13 @@
 :memo:shadow.component.html
 
 ```html
-<p>    shadow works!
-    <ng-content select=".head"></ng-content>
-    <ng-content select="[attr-content]"></ng-content>
-    <ng-content select="section"></ng-content>
+<p>
+  shadow works!
+  <ng-content select=".head"></ng-content>
+  <ng-content select="[attr-content]"></ng-content>
+  <ng-content select="section"></ng-content>
 </p>
+
 ```
 
 :memo:app.component.html
@@ -15,10 +17,11 @@
 ```html
 <!-- 组件投影 -->
 <app-shadow>
-    <p class="head">头部投影内容</p>
-    <section>标签选择器投影内容</section>
-    <p attr-content>自定义属性选择器投影内容</p>
+  <p class="head">头部投影内容</p>
+  <section>标签选择器投影内容</section>
+  <p attr-content>自定义属性选择器投影内容</p>
 </app-shadow>
+
 ```
 
 :medal_military:结果展示
@@ -78,6 +81,7 @@ import { ChildComponent } from './child/child.component';
 <app-child></app-child>
 <app-child></app-child>
 <app-child></app-child>
+
 ```
 
 :memo:parent.component.ts
@@ -96,13 +100,13 @@ export class ParentComponent implements OnInit,AfterViewInit {
   // ViewChildren批量获取元素和组件
   @ViewChildren(ChildComponent) private childs:QueryList<ChildComponent>
   @ViewChildren('boxs') private childs1:QueryList<ChildComponent>
-  constructor() { 
+  constructor() {
   }
   ngOnInit(): void {
   }
   ngAfterViewInit(): void { //（3）
      console.log(this.childs);
-     console.log(this.childs1);  //输出QueryList数组 
+     console.log(this.childs1);  //输出QueryList数组
       //QueryList中监听子组件变化的回调函数
      this.childs1.changes.subscribe((changes)=>{
        console.log(changes);
@@ -120,14 +124,15 @@ export class ParentComponent implements OnInit,AfterViewInit {
 
 ```html
 <app-content-child>
-    <div class="head" #head>head</div>
-    <div class="main">main</div>
-    <div class="footer">footer</div>
-    <app-content-box #cbox></app-content-box>
-    <app-content-box #cbox></app-content-box>
-    <app-content-box #cbox></app-content-box>
-    <app-content-box #cbox></app-content-box>
+  <div class="head" #head>head</div>
+  <div class="main">main</div>
+  <div class="footer">footer</div>
+  <app-content-box #cbox></app-content-box>
+  <app-content-box #cbox></app-content-box>
+  <app-content-box #cbox></app-content-box>
+  <app-content-box #cbox></app-content-box>
 </app-content-child>
+
 ```
 
 📝content-child.html
@@ -135,6 +140,7 @@ export class ParentComponent implements OnInit,AfterViewInit {
 ```html
 <p>content-child works!</p>
 <ng-content></ng-content>
+
 ```
 
 :memo:content-child.ts
@@ -168,7 +174,7 @@ export class ContentChildComponent implements OnInit,AfterViewInit {
 ## ContentChildren
 
 > **用法类似ViewChildren, 批量获取投影中到组件或指令。**
-> 
+>
 > **默认只批量获取直属组件，获取所有组件需开启：{ descendants: true }**
 
 :memo:content-parent.html
@@ -176,15 +182,16 @@ export class ContentChildComponent implements OnInit,AfterViewInit {
 ```html
 <p>content-parent works!</p>
 <app-content-child>
+  <app-content-box #cbox></app-content-box>
+  <app-content-box #cbox></app-content-box>
+  <app-content-box #cbox></app-content-box>
+  <app-content-box #cbox></app-content-box>
+  <div class="container">
     <app-content-box #cbox></app-content-box>
     <app-content-box #cbox></app-content-box>
-    <app-content-box #cbox></app-content-box>
-    <app-content-box #cbox></app-content-box>
-    <div class="container">
-        <app-content-box #cbox></app-content-box>
-        <app-content-box #cbox></app-content-box>
-    </div>
+  </div>
 </app-content-child>
+
 ```
 
 :memo:content-child.ts
@@ -208,7 +215,7 @@ export class ContentChildComponent implements OnInit,AfterViewInit {
   }
   ngAfterViewInit(): void {
     console.log(this.cboxs);//只获取直属投影组件
-    console.log(this.cboxss);//获取全部投影组件   
+    console.log(this.cboxss);//获取全部投影组件
   }
 }
 ```
@@ -233,12 +240,13 @@ export class PipepowPipe implements PipeTransform {
 > 在相应的Module中导入并使用
 
 ```html
-<div> {{8| pipepow}}</div>
-<div> {{8| pipepow:3}}</div>
-<div> {{value | pipepow:2}}</div>
-<div>Boost factor: <input [(ngModel)]="factor"></div>
-<div>Normal power: <input [(ngModel)]="power"></div>
-<div> {{factor | pipepow:power}}</div>
+<div>{{8| pipepow}}</div>
+<div>{{8| pipepow:3}}</div>
+<div>{{value | pipepow:2}}</div>
+<div>Boost factor: <input [(ngModel)]="factor" /></div>
+<div>Normal power: <input [(ngModel)]="power" /></div>
+<div>{{factor | pipepow:power}}</div>
+
 ```
 
 ## 非纯管道
@@ -271,7 +279,7 @@ export class Pipe2Pipe implements PipeTransform {
 
 :::
 
-::: details  AppComponent
+::: details AppComponent
 
 ```typescript
 import { Component } from '@angular/core';
@@ -346,7 +354,7 @@ export class AppComponent {
 ## 生命周期
 
 > 生命周期函数：组件创建、组件更新、组件销毁的时候会触发的一系列的方法。
-> 
+>
 > 当 Angular 使用构造函数新建一个组件或指令后，就会按下面的顺序在特定时刻调用这些 生命周期钩子函数。
 
 <img src="https://gitee.com/GiteeFXJ/picstore/raw/master/pics/20211106200214.png"/>
@@ -354,7 +362,7 @@ export class AppComponent {
 ::: details 所有生命周期钩子函数执行顺序
 
 ```typescript
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, 
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component,
         DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
@@ -366,7 +374,7 @@ export class AppComponent implements OnInit,OnChanges,DoCheck,AfterContentInit,
         AfterContentChecked,AfterViewInit,AfterViewChecked,OnDestroy{
   constructor(){} //组件初始化，写简单的逻辑和数据初始化操作，（获取不到最新输入属性值）
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('changes ', changes); 
+    console.log('changes ', changes);
       //可最早获取到输入属性最新值，输入属性更新时触发，但组件内部改变输入属性是不会触发的
   }
   ngOnInit(): void {
@@ -407,14 +415,14 @@ export class AppComponent implements OnInit,OnChanges,DoCheck,AfterContentInit,
 }
 ```
 
-::: 
+:::
 
 <img src="https://gitee.com/GiteeFXJ/picstore/raw/master/pics/20211106202053.png"/>
 
 > 当组件、父组件发生变更检测后都会调用这三个钩子：
-> 
+>
 > 模板中的DOM事件触发就会进行变更检测（`<input (input)="$event">`）
-> 
+>
 > ngDoCheck
 > ngAfterContentChecked
 > ngAfterViewChecked
@@ -443,10 +451,10 @@ changeDetection:ChangeDetectionStrategy.Default
 - 定时器：setTimeout()、setInterval()
 
 > 只要某个组件触发了以上中的一个，就会从顶级组件从上至下开始进行变更检测，每个组件都会进行变更检测，
-> 
+>
 > 检测组件中的值是否应该改变
 
-::: warning  <b>注意</b>
+::: warning <b>注意</b>
 
 已经检测完的组件，不允许在被子组件修改，(子组件不能修改检测完的父组件数据)，这就是单向数据流
 
@@ -460,7 +468,7 @@ changeDetection:ChangeDetectionStrategy.Default
 changeDetection:ChangeDetectionStrategy.OnPush
 ```
 
-::: warning 
+::: warning
 
 onPush策略会把组件从组件树中剥离出去，他和他的子组件都不会检测了；
 
@@ -476,8 +484,8 @@ onPush策略会把组件从组件树中剥离出去，他和他的子组件都�
 - 手动调用：ChangeDetectorRef.detectChanges()、ChangeDetectorRef.markForCheck()、ApplicationRef.tick()方法
 
 ```js
-markForCheck() //把该视图显式标记为已更改（脏的），以便它下一轮再次进行检查。
-detectChanges() //检查该视图及其子视图。与 detach 结合使用可以实现局部变更检测。(强行检测)
+markForCheck() // 把该视图显式标记为已更改（脏的），以便它下一轮再次进行检查。
+detectChanges() // 检查该视图及其子视图。与 detach 结合使用可以实现局部变更检测。(强行检测)
 ```
 
 :::
@@ -487,7 +495,7 @@ detectChanges() //检查该视图及其子视图。与 detach 结合使用可以
 ## 动态组件
 
 > 如果说，之前在模版中调用的组件为静态组件（比如：app-xxx）
-> 
+>
 > 那么不用在模版里声明，而是通过ts动态插入到dom中到组件，可以视为动态组件
 
 :memo:alert.component.ts:
@@ -622,14 +630,14 @@ export class ShowDataComponent implements OnInit {
 ```html
 <app-tmp-outlet [render]="mycontent"></app-tmp-outlet>
 <ng-template #mycontent>
-    <div>一段父组件传入的内容</div>
+  <div>一段父组件传入的内容</div>
 </ng-template>
 
 <!--使用tem-outlet组件中的数据-->
 <ng-template #mycontent let-context let-val="value">
-    <div>一段父组件传入的内容</div>
-    <div>使用outlet中的context:{{context}}</div>
-    <div>使用outlet中的value:{{val}}</div>
+  <div>一段父组件传入的内容</div>
+  <div>使用outlet中的context:{{context}}</div>
+  <div>使用outlet中的value:{{val}}</div>
 </ng-template>
 ```
 
@@ -640,22 +648,31 @@ export class ShowDataComponent implements OnInit {
 <ng-container [ngTemplateOutlet]="render || default"></ng-container>
 
 <!--传递出去tem-outlet组件中的数据-->
-<ng-container [ngTemplateOutlet]="render || default" [ngTemplateOutletContext]="myContext"></ng-container>
+<ng-container
+  [ngTemplateOutlet]="render || default"
+  [ngTemplateOutletContext]="myContext"
+></ng-container>
 <!-- <ng-container *ngTemplateOutlet="render || default ;context:myContext"></ng-container>简写 -->
 
 <!--ng-template使用效果一样 -->
-<ng-template [ngTemplateOutlet]="render || default" [ngTemplateOutletContext]="myContext"></ng-template>
-<ng-template *ngTemplateOutlet="render || default ;context:myContext"></ng-template>
+<ng-template
+  [ngTemplateOutlet]="render || default"
+  [ngTemplateOutletContext]="myContext"
+></ng-template>
+<ng-template
+  *ngTemplateOutlet="render || default ;context:myContext"
+></ng-template>
 <ng-template #default>
-    <div>一段组价默认的内容</div>
+  <div>一段组价默认的内容</div>
 </ng-template>
 
 <!-- context在内部ng-template也可以绑定 -->
 <ng-template #default let-context let-val="value">
-    <div>一段组价默认的内容</div>
-    <div> context:{{context}}</div>
-    <div> value:{{val}}</div>
+  <div>一段组价默认的内容</div>
+  <div>context:{{context}}</div>
+  <div>value:{{val}}</div>
 </ng-template>
+
 ```
 
 :memo:tmp-outlet.component.ts
@@ -670,7 +687,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TmpOutletComponent implements OnInit {
 
-  @Input()  render 
+  @Input()  render
   myContext = {$implicit: 'tmp-outlet组件里的context', value: 'tmp-outlet组件里的value'};
   constructor() { }
 

@@ -34,7 +34,7 @@ const URL = `${GITHUB_BLOB_URL}${demoPath.value}`
 <style scoped lang="scss">
 .demo {
   font-size: 14px;
-  background: rgba(125, 125, 125, .04);
+  background: rgba(125, 125, 125, 0.04);
   padding: 1em;
   position: relative;
   margin-bottom: 10px;
