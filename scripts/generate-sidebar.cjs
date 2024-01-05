@@ -103,7 +103,7 @@ function writeToFile(sidebarObj) {
     fs.mkdirSync(path.dirname(sidebarPath), { recursive: true })
 
   fs.writeFile(sidebarPath, `export default ${sidebarStr}`, (err) => {
-    console.log('[ err ]-106', err)
+    console.log('写入失败:', err && err.message)
   })
 }
 

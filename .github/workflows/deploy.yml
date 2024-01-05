@@ -33,7 +33,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.DEPLOY_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./dist # 部署的目录
           user_name: github-actions[bot]
           user_email: github-actions[bot]@users.noreply.github.com
 

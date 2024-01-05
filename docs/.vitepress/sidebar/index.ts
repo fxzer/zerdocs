@@ -238,6 +238,10 @@ export default {
         {
           "text": "自动部署脚本",
           "link": "/FrontEnd/Shell/自动部署脚本"
+        },
+        {
+          "text": "获取页面所有域名并去重",
+          "link": "/FrontEnd/Shell/获取页面所有域名并去重"
         }
       ]
     },
