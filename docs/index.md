@@ -42,11 +42,11 @@ features:
   - icon: 📝
     title: TypeScript
     details: TypeScript 教程
-    link: https://fxzer.github.io/typescript-tutorial-vitepress/
+    link: https://fxzer.gitee.io/typescript-tutorial-vitepress
   - icon: 💫
     title: Canvas
     details: 有趣的 Canvas 练习
-    link:  https://fxzer.github.io/funny-canvas/#/a
+    link:  https://fxzer.gitee.io/funny-canvas/#/a
   - icon: 🤡
     title: Tailwind CSS
     details: Tailwind CSS 案例练习
