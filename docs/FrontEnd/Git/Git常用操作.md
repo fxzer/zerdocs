@@ -269,3 +269,10 @@ npm install -g cz-conventional-changelog
 ```zsh
 git fetch --unshallow origin  # 取消浅克隆，拉取完整的仓库
 ```
+
+## Git Module
+
+拉取依赖其他模块的项目时，需要初始化子模块，下列两种方式均可：
+
+1. `git clone --recursive https://github.com/xxx/yyy.git`
+2. `git clone https://github.com/xxx/yyy.git`，`git submodule update --init --recursive`
