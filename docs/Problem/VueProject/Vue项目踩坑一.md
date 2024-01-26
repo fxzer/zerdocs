@@ -27,6 +27,7 @@
     </el-descriptions-item>
   </el-descriptions>
 </el-dialog>
+
 ```
 
 ## '确定'按钮点击失效问题
@@ -87,7 +88,7 @@ export default {
       this.isEditing = false
     },
     // 确定更新
-     confirmUpdate() {
+    confirmUpdate() {
       const { inputVal, name, id } = this
       const value = inputVal.trim()
       if (value === '') {
