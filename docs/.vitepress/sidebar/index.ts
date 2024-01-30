@@ -428,6 +428,10 @@ export default {
       "collapsed": false,
       "items": [
         {
+          "text": "VueRouter加密query",
+          "link": "/Problem/VueProject/VueRouter加密query"
+        },
+        {
           "text": "Vue项目踩坑一",
           "link": "/Problem/VueProject/Vue项目踩坑一"
         }

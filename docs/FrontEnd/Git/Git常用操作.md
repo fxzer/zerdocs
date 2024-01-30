@@ -47,7 +47,7 @@ git reset --hard HEAD^1  #回退到上一个版本:最新一次提交的所有�
 git push origin --delete node_modules  #git push <远程仓库名称> --delete <文件路径>
 git ls-remote  #确认文件是否成功删除
 git rebase #变更历史记录
-git remote prune origin  # git remote prune <远程仓库名称> : 理远程仓库中已删除文件的缓存
+git remote prune origin  # git remote prune <远程仓库名称> : 处理远程仓库中已删除文件的缓存
 ```
 
 ## fork后的仓库，拉取合并原仓库的更新
@@ -106,7 +106,7 @@ origin  git@github.com:fxzer/juejin-server-mysql.git (push)
 
 2. **方法二** `git remote set-url --add origin [gitee_repo_url]` , 只需一次推送
 
-效果：~
+效果：
 
 ```zsh
 [remote "origin"]
@@ -127,9 +127,15 @@ origin  git@gitee.com:fxzer/json-viewer.git (push)
 
 ::: tip `git remote add` 和 `git remote set-url --add`区别
 
-- git remote add 用于添加一个新的远程仓库。该本地仓库已关联远程库，希望添加新的远程库。**运用：**fork后的仓库，需要拉取合并原仓库的更新。
-- git remote set-url --add 用于向已经存在的远程仓库中添加一个新的 URL。**运用：**同一个仓库关联 github 和 gitee 方便同时更新。
-- git remote set-url 命令会替换掉原有的链接，git remote set-url --add 命令，则是添加一个标识对应的远程库链接。
+- git remote add 用于添加一个新的远程仓库。该本地仓库已关联远程库，希望添加新的远程库。
+
+  **运用**：fork后的仓库，需要拉取合并原仓库的更新。
+
+- git remote set-url --add 用于向已经存在的远程仓库中添加一个新的 URL。
+
+  **运用**：同一个仓库关联 github 和 gitee 方便同时更新。
+
+- git remote set-url 命令会替换掉原有的链接，`git remote set-url --add` 则是添加一个标识对应的远程库链接。
 
 :::
 
@@ -264,7 +270,7 @@ npm install -g cz-conventional-changelog
 :::danger 报错：
 
 > `! [remote rejected] main -> main (shallow update not allowed)`
-> :::
+:::
 
 ```zsh
 git fetch --unshallow origin  # 取消浅克隆，拉取完整的仓库
