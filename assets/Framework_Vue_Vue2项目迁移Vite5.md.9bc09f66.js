@@ -248,6 +248,8 @@ import{_ as s,o as n,c as a,Q as l}from"./chunks/framework.d2d9e35b.js";const B=
 <span class="line"><span style="color:#DBD7CAEE;">        </span><span style="color:#666666;">},</span></span>
 <span class="line"><span style="color:#DBD7CAEE;">      </span><span style="color:#666666;">},</span></span>
 <span class="line"><span style="color:#DBD7CAEE;">    </span><span style="color:#666666;">}),</span></span>
+<span class="line"><span style="color:#758575DD;">/*   importToCDN 不能与 AutoImport 一起使用，</span></span>
+<span class="line"><span style="color:#758575DD;">  否则会报错：Uncaught TypeError: Failed to resolve module specifier &quot;vue&quot;. Relative references must start with either &quot;/&quot;, &quot;./&quot;, or &quot;../&quot;. */</span></span>
 <span class="line"><span style="color:#DBD7CAEE;">    </span><span style="color:#80A665;">importToCDN</span><span style="color:#666666;">({</span></span>
 <span class="line"><span style="color:#DBD7CAEE;">      </span><span style="color:#B8A965;">modules</span><span style="color:#666666;">:</span><span style="color:#DBD7CAEE;"> </span><span style="color:#666666;">[</span></span>
 <span class="line"><span style="color:#DBD7CAEE;">        </span><span style="color:#80A665;">autoComplete</span><span style="color:#666666;">(</span><span style="color:#C98A7D99;">&#39;</span><span style="color:#C98A7D;">crypto-js</span><span style="color:#C98A7D99;">&#39;</span><span style="color:#666666;">),</span></span>
@@ -298,6 +300,8 @@ import{_ as s,o as n,c as a,Q as l}from"./chunks/framework.d2d9e35b.js";const B=
 <span class="line"><span style="color:#393A34;">        </span><span style="color:#999999;">},</span></span>
 <span class="line"><span style="color:#393A34;">      </span><span style="color:#999999;">},</span></span>
 <span class="line"><span style="color:#393A34;">    </span><span style="color:#999999;">}),</span></span>
+<span class="line"><span style="color:#A0ADA0;">/*   importToCDN 不能与 AutoImport 一起使用，</span></span>
+<span class="line"><span style="color:#A0ADA0;">  否则会报错：Uncaught TypeError: Failed to resolve module specifier &quot;vue&quot;. Relative references must start with either &quot;/&quot;, &quot;./&quot;, or &quot;../&quot;. */</span></span>
 <span class="line"><span style="color:#393A34;">    </span><span style="color:#59873A;">importToCDN</span><span style="color:#999999;">({</span></span>
 <span class="line"><span style="color:#393A34;">      </span><span style="color:#998418;">modules</span><span style="color:#999999;">:</span><span style="color:#393A34;"> </span><span style="color:#999999;">[</span></span>
 <span class="line"><span style="color:#393A34;">        </span><span style="color:#59873A;">autoComplete</span><span style="color:#999999;">(</span><span style="color:#B5695999;">&#39;</span><span style="color:#B56959;">crypto-js</span><span style="color:#B5695999;">&#39;</span><span style="color:#999999;">),</span></span>
