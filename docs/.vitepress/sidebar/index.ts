@@ -225,6 +225,10 @@ export default {
       "collapsed": false,
       "items": [
         {
+          "text": "Mac系统环境快速搭建",
+          "link": "/FrontEnd/Other/Mac系统环境快速搭建"
+        },
+        {
           "text": "package文件详解",
           "link": "/FrontEnd/Other/package文件详解"
         }
