@@ -45,6 +45,42 @@ pnpm i -g @antfu/ni yarn taze rimraf cz-git czg commitizen vitest rollup tsup es
 
 ## 三、配置软件
 ### 云盘导入 RayCast 配置，同步浏览器/VSCode配置...
+### Git配置
+```zsh
+# ~/.gitconfig
+[safe]
+	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-core
+	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-cask
+	directory = /opt/homebrew
+	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-core/
+	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-cask/
+	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-services/
+[user]
+	name = xxx
+	email = xxx@163.com
+[core] 
+	excludesfile = ~/.gitignore
+	ignorecase = false # 区分大小写
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[alias]
+	# s = status
+[push]
+	autoSetupRemote = true
+[init]
+	defaultBranch = main
+[credential]
+	helper = store
+```
+
+```zsh
+# ~/.gitignore
+.DS_Store
+*/.DS_Store
+```
 
 ### 安装[OhMyZsh](https://ohmyz.sh/)、[P10K](https://github.com/romkatv/powerlevel10k)，配置 ZSH
 
@@ -61,12 +97,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export ZSH="$HOME/.oh-my-zsh"
 
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 plugins=(z vi-mode  copypath zsh-completions fast-syntax-highlighting zsh-autosuggestions zsh-history-substring-search)
 
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
@@ -182,18 +216,9 @@ source ~/c/powerlevel10k/powerlevel10k.zsh-theme
 ```
 
 ```zsh
-
-# P10K 主题 : ~/c/powerlevel10k/powerlevel10k.zsh-theme
-# vim:ft=zsh ts=2 sw=2 sts=2 et fenc=utf-8
 ################################################################
-# Powerlevel10k Theme
+# P10K 主题 : ~/c/powerlevel10k/powerlevel10k.zsh-theme
 # https://github.com/romkatv/powerlevel10k
-#
-# Forked from Powerlevel9k Theme
-# https://github.com/bhilburn/powerlevel9k
-#
-# Which in turn was forked from Agnoster Theme
-# https://github.com/robbyrussell/oh-my-zsh/blob/74177c5320b2a1b2f8c4c695c05984b57fd7c6ea/themes/agnoster.zsh-theme
 ################################################################
 
 # Temporarily change options.
@@ -205,9 +230,6 @@ source ~/c/powerlevel10k/powerlevel10k.zsh-theme
 
 (( $+__p9k_root_dir )) || typeset -gr __p9k_root_dir=${POWERLEVEL9K_INSTALLATION_DIR:-${${(%):-%x}:A:h}}
 (( $+__p9k_intro )) || {
-  # Leading spaces before `local` are important. Otherwise Antigen will remove `local` (!!!).
-  # __p9k_trapint is to work around bugs in zsh: https://www.zsh.org/mla/workers/2020/msg00612.html.
-  # Likewise for `trap ":"` instead of the plain `trap ""`.
   typeset -gr __p9k_intro_base='emulate -L zsh -o no_hist_expand -o extended_glob -o no_prompt_bang -o prompt_percent -o no_prompt_subst -o no_aliases -o no_bg_nice -o typeset_silent -o no_rematch_pcre
   (( $+__p9k_trapped )) || { local -i __p9k_trapped; trap : INT; trap "trap ${(q)__p9k_trapint:--} INT" EXIT }
   local -a match mbegin mend
