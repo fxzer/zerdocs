@@ -15,7 +15,7 @@
 ### 准备目录
 
 ```zsh
-cd ~ && mkdir -p c d n m/Admin m/UI m/Vue3 m/ToolKits m/Nuxt m/Vitest
+cd ~ && mkdir -p c d n w m/Admin m/UI m/Vue3 m/ToolKits m/Nuxt m/Vitest
 ```
 
 > c : 配置 （Config）
@@ -26,11 +26,14 @@ cd ~ && mkdir -p c d n m/Admin m/UI m/Vue3 m/ToolKits m/Nuxt m/Vitest
 ### 命令安装
 
 ```zsh
-brew install --cask arc google-chrome microsoft-edge apifox dingtalk wechat qq  qqmusic wpsoffice adrive baidunetdisk neteasemusic videofusion orbstack obsidian figma
-visual-studio-code raycast warp input-source-pro alt-tab termius  bob rectangle  snipaste manico  
+brew install --cask arc google-chrome microsoft-edge orbstack  figma # 安装较慢
+brew install --cask  apifox dingtalk wechat qq  qqmusic wpsoffice adrive baidunetdisk neteasemusic  obsidian
+visual-studio-code raycast warp  alt-tab termius  bob rectangle  snipaste manico  
+```
 
+```zsh
 # 选装
-stats bartender keycastr docker
+stats bartender keycastr docker  input-source-pro videofusion
 ```
 
 
@@ -54,8 +57,8 @@ pnpm i -g @antfu/ni yarn taze rimraf cz-git czg commitizen vitest rollup tsup es
 ```
 
 ### 手动安装
-
-> Myzip 、clashx 、mos 、 typora、figplayer 、pixelmator 、 alivepro Omi录屏专家 、Giphy Capture 、permute3 , iRightMenu
+> clashx 、 iRightMenu、mos 、微信输入法 、腾讯柠檬 、typora
+> Myzip 、、figplayer 、pixelmator 、 alivepro 、Omi录屏专家 、Giphy Capture 、permute3 
 
 ## 三、配置软件
 ### 云盘导入 RayCast 配置，同步浏览器/VSCode配置...
@@ -96,15 +99,24 @@ pnpm i -g @antfu/ni yarn taze rimraf cz-git czg commitizen vitest rollup tsup es
 */.DS_Store
 ```
 
-### 安装[OhMyZsh](https://ohmyz.sh/)、[P10K](https://github.com/romkatv/powerlevel10k)，配置 ZSH
-
+### 增强 ZSH 功能： 安装 [ZIMFW](https://github.com/zimfw/zimfw) 或  [OhMyZsh](https://ohmyz.sh/)
+#### zimfw
 ```zsh
+  curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh 
+ ```
+
+ #### omz
+
+ ```zsh
 #安装OMZ插件
 cd ~/.oh-my-zsh/plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-completions 
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git 
 ```
+
+### 配置 ZSH 主题： 安装[P10K](https://github.com/romkatv/powerlevel10k)，或 [starship](https://starship.rs/) 
+
 ```zsh
 # ~/.zshrc
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -113,6 +125,7 @@ fi
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# OMZ 配置
 export ZSH="$HOME/.oh-my-zsh"
 
 plugins=(z vi-mode  copypath zsh-completions fast-syntax-highlighting zsh-autosuggestions zsh-history-substring-search)
@@ -127,6 +140,7 @@ VI_MODE_CURSOR_OPPEND=0
 
 source $ZSH/oh-my-zsh.sh
 
+# OMZ end
 export MANPATH="/usr/local/man:$MANPATH"
 
 # ====== 别名 ======
@@ -212,9 +226,12 @@ DISABLE_MAGIC_FUNCTIONS="true"
 # 关闭 Zsh 的自动更新
 DISABLE_AUTO_UPDATE="true"
 
+
+# nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # pnpm
 export PNPM_HOME="/Users/fxzer/Library/pnpm"
 case ":$PATH:" in
@@ -223,9 +240,21 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+#fnm 
+eval "$(fnm env --use-on-cd)"
+
 # ====== P10K ======
 source ~/c/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+# ======= starship =======
+# 判断如果是自带的terminal则不应用 starship 主题
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+  eval "$(starship init zsh)"
+fi
+
+
 
 ```
 
