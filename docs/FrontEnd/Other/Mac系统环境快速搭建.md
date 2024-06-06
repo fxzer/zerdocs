@@ -5,10 +5,9 @@
 ## 一、安装 [HomeBrew](https://brew.sh/zh-cn/)，并[设置清华源](https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/)
 
 ```zsh
-# 先开代理
-export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
-
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#  从国内源安装 Homebrew
+ 
+/bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
 ```
 
 ## 二、安装软件
@@ -28,12 +27,27 @@ cd ~ && mkdir -p c d n m/Admin m/UI m/Vue3 m/ToolKits m/Nuxt m/Vitest
 
 ```zsh
 brew install --cask arc google-chrome microsoft-edge apifox dingtalk wechat qq  qqmusic wpsoffice adrive baidunetdisk neteasemusic videofusion orbstack obsidian figma
-visual-studio-code raycast warp input-source-pro alt-tab termius stats  bob rectangle bartender keycastr snipaste manico docker orbstack
+visual-studio-code raycast warp input-source-pro alt-tab termius  bob rectangle  snipaste manico  
+
+# 选装
+stats bartender keycastr docker
 ```
 
+
 ```zsh
-brew install nvm
-nvm install 20.0.0
+brew install lsd fastfetch
+
+```
+
+装 `fnm` 或 `nvm`
+
+
+```zsh
+# brew install nvm 
+brew install fnm
+fnm install 20
+# nvm install 20.0.0
+
 npm i -g pnpm
 # 安装全局 npm 包
 pnpm i -g @antfu/ni yarn taze rimraf cz-git czg commitizen vitest rollup tsup esno 
@@ -41,7 +55,7 @@ pnpm i -g @antfu/ni yarn taze rimraf cz-git czg commitizen vitest rollup tsup es
 
 ### 手动安装
 
-> Myzip 、clashx 、mos 、 typora、figplayer 、pixelmator 、 alivepro Omi录屏专家 、Giphy Capture 、permute3
+> Myzip 、clashx 、mos 、 typora、figplayer 、pixelmator 、 alivepro Omi录屏专家 、Giphy Capture 、permute3 , iRightMenu
 
 ## 三、配置软件
 ### 云盘导入 RayCast 配置，同步浏览器/VSCode配置...
