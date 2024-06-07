@@ -270,7 +270,7 @@ npm install -g cz-conventional-changelog
 :::danger 报错：
 
 > `! [remote rejected] main -> main (shallow update not allowed)`
-:::
+> :::
 
 ```zsh
 git fetch --unshallow origin  # 取消浅克隆，拉取完整的仓库

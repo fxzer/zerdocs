@@ -8,9 +8,9 @@ Javascript是单线程执行语言
 
 ```js
 const timer = setTimeout(() => {
-  console.log("3秒后打印的");
-}, 3000);
-console.log("比setTimeout回调函数先执行");
+  console.log('3秒后打印的')
+}, 3000)
+console.log('比setTimeout回调函数先执行')
 // 本身会立刻返回，然后执行后面同步代码，回调函数则等预定时间才执行
 ```
 
@@ -18,16 +18,16 @@ console.log("比setTimeout回调函数先执行");
 
 ```js
 setTimeout(() => {
-  console.log("3秒后打印的");
+  console.log('3秒后打印的')
 
   setTimeout(() => {
-    console.log("6秒后打印的");
+    console.log('6秒后打印的')
 
     setTimeout(() => {
-      console.log("9秒后打印的");
-    }, 3000);
-  }, 3000);
-}, 3000);
+      console.log('9秒后打印的')
+    }, 3000)
+  }, 3000)
+}, 3000)
 ```
 
 ### 方式二：Promise
@@ -38,49 +38,49 @@ setTimeout(() => {
 
 ```js
 new Promise((resolve, reject) => {
-  resolve("success"); // 成功执行
+  resolve('success') // 成功执行
 })
   .then((result) => {
-    alert(result); // 走then
+    alert(result) // 走then
   })
   .finally(() => {
     // 无论成功失败，都会执行的回调
     // 做一些清理工作，如关闭加载动画
-  });
+  })
 
 new Promise((resolve, reject) => {
-  reject("fail"); // 失败执行
+  reject('fail') // 失败执行
 })
   .then((result) => {
-    alert(result);
+    alert(result)
   })
   .catch((error) => {
-    alert(error); // 走catch
-  });
+    alert(error) // 走catch
+  })
 ```
 
 如果想终止在某个执行链的位置，可以用**Promise.reject(new Error())**
 
 ```js
 new Promise((resolve, reject) => {
-  resolve(1);
+  resolve(1)
 })
   .then((result) => {
-    return result + 1;
+    return result + 1
   })
   .then((result) => {
-    return result + 1;
+    return result + 1
   })
   .then((result) => {
-    return Promise.reject(new Error(`${result}失败`));
+    return Promise.reject(new Error(`${result}失败`))
     // return result + 1
   })
   .then((result) => {
-    return result + 1;
+    return result + 1
   })
   .catch((error) => {
-    alert(error);
-  });
+    alert(error)
+  })
 ```
 
 ### 语法糖：async /await

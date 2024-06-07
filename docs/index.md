@@ -53,7 +53,7 @@ features:
     link:  https://fxzer.gitee.io/funny-canvas/#/a
   - icon: 💫
     title: X-Admin
-    details: 后台管理系统模板 
+    details: 后台管理系统模板
     link:  https://fxzer.gitee.io/x-admin
   - icon: 💫
     title: Json-Viewer

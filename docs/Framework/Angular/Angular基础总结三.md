@@ -639,6 +639,7 @@ export class ShowDataComponent implements OnInit {
   <div>使用outlet中的context:{{context}}</div>
   <div>使用outlet中的value:{{val}}</div>
 </ng-template>
+
 ```
 
 :memo:tmp-outlet.component.html

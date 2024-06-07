@@ -214,19 +214,20 @@ db.getCollection('users').update({age:18},{$set:{age:24,likes:['动漫','美女'
 ```js
 exports.register = async (req, res, next) => {
   try {
-    let user = new User(req.body.user);
-    await user.save();
+    let user = new User(req.body.user)
+    await user.save()
     // 转化为json才能移除密码
-    user = user.toJSON();
-    delete user.password;
+    user = user.toJSON()
+    delete user.password
     res.send({
-      msg: "注册成功!",
+      msg: '注册成功!',
       user,
-    });
-  } catch (error) {
-    next(error);
+    })
   }
-};
+  catch (error) {
+    next(error)
+  }
+}
 ```
 
 ### 2.删除
@@ -234,39 +235,41 @@ exports.register = async (req, res, next) => {
 ```js
 exports.deleteArticle = async (req, res, next) => {
   try {
-    const id = mongoose.Types.ObjectId(req.body.id);
-    const result = await Article.findByIdAndRemove(id);
-    console.log("result: ", result);
+    const id = mongoose.Types.ObjectId(req.body.id)
+    const result = await Article.findByIdAndRemove(id)
+    console.log('result: ', result)
     res.succ({
-      msg: "文章删除成功!",
-    });
-  } catch (error) {
-    res.errs(error);
+      msg: '文章删除成功!',
+    })
   }
-};
+  catch (error) {
+    res.errs(error)
+  }
+}
 ```
 
 ### 3.更新
 
 ```js
 exports.updateArticle = async (req, res, next) => {
-  const article = req.body.article;
+  const article = req.body.article
   try {
-    const { _id: id, title, desc, body, tagList } = req.body.article;
+    const { _id: id, title, desc, body, tagList } = req.body.article
 
     const article = await Article.findByIdAndUpdate(
       id,
       { $set: req.body.article },
       { new: true }
-    );
+    )
     res.succ({
-      msg: "文章更新成功!",
+      msg: '文章更新成功!',
       article,
-    });
-  } catch (error) {
-    res.errs(error);
+    })
   }
-};
+  catch (error) {
+    res.errs(error)
+  }
+}
 ```
 
 ### 4.查询
@@ -278,18 +281,20 @@ exports.getArticleById = async (req, res, next) => {
   try {
     // 映射用户
     const article = await Article.findById(req.params.articleId).populate(
-      "author"
-    );
-    if (!article) return res.errs("文章不存在!");
+      'author'
+    )
+    if (!article)
+      return res.errs('文章不存在!')
 
     res.succ({
-      msg: "文章查询成功!",
+      msg: '文章查询成功!',
       article,
-    });
-  } catch (error) {
-    res.errs(error);
+    })
   }
-};
+  catch (error) {
+    res.errs(error)
+  }
+}
 ```
 
 ```js
@@ -303,37 +308,40 @@ exports.getArticles = async (req, res, next) => {
       author,
       favorited,
       sortBy,
-    } = req.body.conditions || {};
-    const filter = {};
-    if (tag) filter.tagList = tag;
+    } = req.body.conditions || {}
+    const filter = {}
+    if (tag)
+      filter.tagList = tag
 
     // 某个作者的文章
     if (author) {
-      const user = await User.findOne({ username: author });
-      filter.author = user ? user._id : null;
+      const user = await User.findOne({ username: author })
+      filter.author = user ? user._id : null
     }
     const articleList = await Article.find(filter)
       .skip(Number.parseInt(offset))
       .limit(Number.parseInt(limit))
-      .sort({ creeateAt: -1, ...sortBy });
+      .sort({ creeateAt: -1, ...sortBy })
 
     const articleCount = await Article.find(filter)
       .skip(offset)
       .limit(limit)
-      .count();
-    const totalCount = await Article.countDocuments();
-    if (!articleList) return res.errs("暂无文章!");
+      .count()
+    const totalCount = await Article.countDocuments()
+    if (!articleList)
+      return res.errs('暂无文章!')
 
     res.succ({
-      msg: "文章查询列表成功!",
+      msg: '文章查询列表成功!',
       articleList,
       articleCount,
       totalCount,
-    });
-  } catch (error) {
-    res.errs(error);
+    })
   }
-};
+  catch (error) {
+    res.errs(error)
+  }
+}
 ```
 
 ### 5.模型
@@ -341,23 +349,23 @@ exports.getArticles = async (req, res, next) => {
 📝model/index.js
 
 ```js
-const mongoose = require("mongoose");
-const { dbUri } = require("../config/config.default");
-mongoose.connect(dbUri);
+const mongoose = require('mongoose')
+const { dbUri } = require('../config/config.default')
+mongoose.connect(dbUri)
 
-const db = mongoose.connection;
+const db = mongoose.connection
 
-db.on("error", console.error.bind(console, "MongDB数据库连接失败!"));
+db.on('error', console.error.bind(console, 'MongDB数据库连接失败!'))
 
-db.once("open", () => {
-  console.log("MongDB数据库连接成功!");
-});
-const Cat = mongoose.model("Cat", { name: String });
+db.once('open', () => {
+  console.log('MongDB数据库连接成功!')
+})
+const Cat = mongoose.model('Cat', { name: String })
 
 module.exports = {
-  User: mongoose.model("User", require("./user")),
-  Article: mongoose.model("Article", require("./article")),
-};
+  User: mongoose.model('User', require('./user')),
+  Article: mongoose.model('Article', require('./article')),
+}
 ```
 
 📝model/base.js
@@ -373,15 +381,15 @@ module.exports = {
     type: Date,
     default: Date.now,
   },
-};
+}
 ```
 
 📝model/user.js
 
 ```js
-const mongoose = require("mongoose");
-const md5 = require("../util/md5");
-const baseSchema = require("./base");
+const mongoose = require('mongoose')
+const md5 = require('../util/md5')
+const baseSchema = require('./base')
 // 用户模型
 const userSchema = new mongoose.Schema({
   ...baseSchema,
@@ -392,7 +400,7 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
-    set: (value) => md5(value),
+    set: value => md5(value),
     select: false,
   },
   email: {
@@ -407,16 +415,16 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: null,
   },
-});
-module.exports = userSchema;
+})
+module.exports = userSchema
 ```
 
 📝model/article.js
 
 ```js
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-const baseSchema = require("./base");
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
+const baseSchema = require('./base')
 // 文章模型
 const articleSchema = new mongoose.Schema({
   ...baseSchema,
@@ -442,9 +450,9 @@ const articleSchema = new mongoose.Schema({
   },
   author: {
     type: Schema.Types.ObjectId,
-    ref: "User",
+    ref: 'User',
     required: true,
   },
-});
-module.exports = articleSchema;
+})
+module.exports = articleSchema
 ```

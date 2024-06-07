@@ -27,7 +27,6 @@
     </el-descriptions-item>
   </el-descriptions>
 </el-dialog>
-
 ```
 
 ## '确定'按钮点击失效问题
@@ -172,7 +171,6 @@ export default {
     white-space: nowrap;
   }
 }
-
 ```
 
 ## 路由组件切换，事件总线意外多次触发
@@ -205,7 +203,7 @@ plugins: [
     algorithm: "gzip",
     minRatio: 0.8,
   }),
-],
+]
 ```
 
 ![2023-03-30-14-58-50](https://zerdocs.oss-cn-shanghai.aliyuncs.com/interview/2023-03-30-14-58-50.png)
@@ -241,6 +239,9 @@ window.addEventListener('scroll', handleScroll)
 不会生效原因： div 元素默认不会触发 resize 事件。在 window 对象上，浏览器会自动跟踪窗口的大小变化并触发 resize 事件，但在其他元素上，您需要自己编写代码来检测大小变化。可以使用 MutationObserver 或者 ResizeObserver 来监听元素大小变化。以下是使用 ResizeObserver 的示例代码：
 
 ```js
+{
+
+}
 mounted() {
   this.tagListRef = this.$refs.tagListRef;
   this.tagBoxRef = this.$refs.tagBoxRef;

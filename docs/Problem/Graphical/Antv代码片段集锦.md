@@ -3,7 +3,7 @@
 ## 图实例化
 
 ```js
-import { commonRegister ,viewRegister} './registerElements.js'
+import { commonRegister ,viewRegister} from './registerElements.js'
 
 //1.初始化实例
 initChart() {
@@ -540,7 +540,7 @@ export function viewRegister() {
         const pathArr = str.split(' ')
         const opath = []
         pathArr.forEach((item) => {
-          if (/[a-zA-Z]/.test(item))
+          if (/[a-z]/i.test(item))
             opath.push([item])
 
           else

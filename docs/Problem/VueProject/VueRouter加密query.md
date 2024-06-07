@@ -28,7 +28,7 @@ export function stringifyQuery(obj) {
   return `?${encFn(JSON.stringify(obj))}`
 }
 export function parseQuery(query) {
-  query = query.trim().replace(/^(\?|#|&)/, '')
+  query = query.trim().replace(/^([?#&])/, '')
   if (!query)
     return {}
   try {
@@ -52,5 +52,4 @@ export function parseQuery(query) {
     return res
   }
 }
-
 ```

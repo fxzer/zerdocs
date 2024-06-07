@@ -22,7 +22,6 @@ group.addShape('text', {
   },
   name: 'hubCombo-label',
 })
-
 ```
 
 ### 三、初始化画图完成后出现这个锯齿

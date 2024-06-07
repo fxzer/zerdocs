@@ -34,7 +34,7 @@
 #### providers 数组
 
 ```js
-该数组为当前模块提供一系列服务;
+该数组为当前模块提供一系列服务
 ```
 
 #### bootstrap 数组
@@ -113,6 +113,7 @@ export class AppComponent {}
 <!-- 完整形式-->
 <button [disabled]="isDisabled">click</button>
 <!-- zorroSrc、zorro、isDisabled均为变量 -->
+
 ```
 
 #### 4. 自定义属性绑定
@@ -120,6 +121,7 @@ export class AppComponent {}
 ```html
 <p [attr.data-title]="customTitle">一行文字</p>
 <p [attr.title]="customTitle">测试自定义标题属性</p>
+
 ```
 
 #### 5. 插值表达式属性绑定
@@ -127,6 +129,7 @@ export class AppComponent {}
 ```html
 <img src="{{ picUrl }}" alt="{{ picInfo }}" />
 <!-- 不常用 -->
+
 ```
 
 #### 6. 单个class样式绑定
@@ -360,6 +363,7 @@ export class MycpnComponent {
 :host(.active) {
   border-width: 3px solid ##ccc;
 }
+
 ```
 
 #### 祖先选择器
@@ -370,6 +374,7 @@ export class MycpnComponent {
 :host-context(.light) .title {
   background-color: ##bfa;
 }
+
 ```
 
 #### 样式模块化

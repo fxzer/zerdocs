@@ -192,7 +192,7 @@ export default defineConfig({
         },
       },
     }),
-/*   importToCDN 不能与 AutoImport 一起使用，
+    /*   importToCDN 不能与 AutoImport 一起使用，
   否则会报错：Uncaught TypeError: Failed to resolve module specifier "vue". Relative references must start with either "/", "./", or "../". */
     importToCDN({
       modules: [
