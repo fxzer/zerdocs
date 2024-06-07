@@ -413,92 +413,68 @@ import{_ as s,o as n,c as a,Q as p}from"./chunks/framework.dfc91c2c.js";const E=
 <span class="line"><span style="color:#A0ADA0;">3. 卸载组件: 由ReactDOM.unmountComponentAtNode()触发</span></span>
 <span class="line"><span style="color:#A0ADA0;">            1.  componentWillUnmount()  =====&gt; 常用</span></span>
 <span class="line"><span style="color:#A0ADA0;">            一般在这个钩子中做一些收尾的事，例如：关闭定时器、取消订阅消息</span></span>
-<span class="line"><span style="color:#A0ADA0;">*/</span></span></code></pre></div><p><strong>新版(17+)</strong></p><p><img src="https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220421223604701.png" alt="image-20220421223604701"></p><div class="language-markdown vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">markdown</span><pre class="shiki vitesse-dark vp-code-dark"><code><span class="line"></span>
-<span class="line"><span style="color:#D4976C;">1.</span><span style="color:#DBD7CAEE;"> 初始化阶段: 由ReactDOM.render()触发---初次渲染</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">            1.  constructor()</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">            2.  getDerivedStateFromProps</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">            3.  render()</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">            4.  componentDidMount() =====&gt; 常用</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">                        一般在这个钩子中做一些初始化的事，例如：开启定时器、发送网络请求、订阅消息</span></span>
-<span class="line"><span style="color:#D4976C;">2.</span><span style="color:#DBD7CAEE;"> 更新阶段: 由组件内部this.setSate()或父组件重新render触发</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">            1.  getDerivedStateFromProps</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">            2.  shouldComponentUpdate()</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">            3.  render()</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">            4.  getSnapshotBeforeUpdate</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">            5.  componentDidUpdate()</span></span>
-<span class="line"><span style="color:#D4976C;">3.</span><span style="color:#DBD7CAEE;"> 卸载组件: 由ReactDOM.unmountComponentAtNode()触发</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">            1.  componentWillUnmount()  =====&gt; 常用</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">                        一般在这个钩子中做一些收尾的事，例如：关闭定时器、取消订阅消息</span></span></code></pre><pre class="shiki vitesse-light vp-code-light"><code><span class="line"></span>
-<span class="line"><span style="color:#A65E2B;">1.</span><span style="color:#393A34;"> 初始化阶段: 由ReactDOM.render()触发---初次渲染</span></span>
-<span class="line"><span style="color:#393A34;">            1.  constructor()</span></span>
-<span class="line"><span style="color:#393A34;">            2.  getDerivedStateFromProps</span></span>
-<span class="line"><span style="color:#393A34;">            3.  render()</span></span>
-<span class="line"><span style="color:#393A34;">            4.  componentDidMount() =====&gt; 常用</span></span>
-<span class="line"><span style="color:#393A34;">                        一般在这个钩子中做一些初始化的事，例如：开启定时器、发送网络请求、订阅消息</span></span>
-<span class="line"><span style="color:#A65E2B;">2.</span><span style="color:#393A34;"> 更新阶段: 由组件内部this.setSate()或父组件重新render触发</span></span>
-<span class="line"><span style="color:#393A34;">            1.  getDerivedStateFromProps</span></span>
-<span class="line"><span style="color:#393A34;">            2.  shouldComponentUpdate()</span></span>
-<span class="line"><span style="color:#393A34;">            3.  render()</span></span>
-<span class="line"><span style="color:#393A34;">            4.  getSnapshotBeforeUpdate</span></span>
-<span class="line"><span style="color:#393A34;">            5.  componentDidUpdate()</span></span>
-<span class="line"><span style="color:#A65E2B;">3.</span><span style="color:#393A34;"> 卸载组件: 由ReactDOM.unmountComponentAtNode()触发</span></span>
-<span class="line"><span style="color:#393A34;">            1.  componentWillUnmount()  =====&gt; 常用</span></span>
-<span class="line"><span style="color:#393A34;">                        一般在这个钩子中做一些收尾的事，例如：关闭定时器、取消订阅消息</span></span></code></pre></div><p><strong>getSnapshotBeforeUpdate</strong></p><blockquote><p>在render之前调用，state已更新</p><p>典型场景：获取render之前的dom状态</p></blockquote><p><strong>getDerivedStateFromProps</strong></p><div class="tip custom-block"><p class="custom-block-title">TIP</p><p>1：当state需要从props初始化时，使用</p><p>2：尽量不使用，维护俩者状态需要消耗额外资源，增加复杂度</p><p>3：每次render都会调用</p><p>4：典型场景表单获取默认值</p></div><div class="language-markdown vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">markdown</span><pre class="shiki vitesse-dark has-diff vp-code-dark"><code><span class="line"><span style="color:#DBD7CAEE;"> 面试相关题:</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">  1). react/vue中的key有什么作用？（key的内部原理是什么？）</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">  2). 为什么遍历列表时，key最好不要用index?</span></span>
+<span class="line"><span style="color:#A0ADA0;">*/</span></span></code></pre></div><p><strong>新版(17+)</strong></p><p><img src="https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220421223604701.png" alt="image-20220421223604701"></p><div class="language-markdown vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">markdown</span><pre class="shiki vitesse-dark vp-code-dark"><code><span class="line"><span style="color:#D4976C;">1.</span><span style="color:#DBD7CAEE;"> 初始化阶段: 由ReactDOM.render()触发---初次渲染1. constructor() 2. getDerivedStateFromProps 3. render() 4. componentDidMount() =====&gt; 常用</span></span>
+<span class="line"><span style="color:#DBD7CAEE;">   一般在这个钩子中做一些初始化的事，例如：开启定时器、发送网络请求、订阅消息</span></span>
+<span class="line"><span style="color:#D4976C;">2.</span><span style="color:#DBD7CAEE;"> 更新阶段: 由组件内部this.setSate()或父组件重新render触发1. getDerivedStateFromProps 2. shouldComponentUpdate() 3. render() 4. getSnapshotBeforeUpdate 5. componentDidUpdate()</span></span>
+<span class="line"><span style="color:#D4976C;">3.</span><span style="color:#DBD7CAEE;"> 卸载组件: 由ReactDOM.unmountComponentAtNode()触发1. componentWillUnmount() =====&gt; 常用</span></span>
+<span class="line"><span style="color:#DBD7CAEE;">   一般在这个钩子中做一些收尾的事，例如：关闭定时器、取消订阅消息</span></span></code></pre><pre class="shiki vitesse-light vp-code-light"><code><span class="line"><span style="color:#A65E2B;">1.</span><span style="color:#393A34;"> 初始化阶段: 由ReactDOM.render()触发---初次渲染1. constructor() 2. getDerivedStateFromProps 3. render() 4. componentDidMount() =====&gt; 常用</span></span>
+<span class="line"><span style="color:#393A34;">   一般在这个钩子中做一些初始化的事，例如：开启定时器、发送网络请求、订阅消息</span></span>
+<span class="line"><span style="color:#A65E2B;">2.</span><span style="color:#393A34;"> 更新阶段: 由组件内部this.setSate()或父组件重新render触发1. getDerivedStateFromProps 2. shouldComponentUpdate() 3. render() 4. getSnapshotBeforeUpdate 5. componentDidUpdate()</span></span>
+<span class="line"><span style="color:#A65E2B;">3.</span><span style="color:#393A34;"> 卸载组件: 由ReactDOM.unmountComponentAtNode()触发1. componentWillUnmount() =====&gt; 常用</span></span>
+<span class="line"><span style="color:#393A34;">   一般在这个钩子中做一些收尾的事，例如：关闭定时器、取消订阅消息</span></span></code></pre></div><p><strong>getSnapshotBeforeUpdate</strong></p><blockquote><p>在render之前调用，state已更新</p><p>典型场景：获取render之前的dom状态</p></blockquote><p><strong>getDerivedStateFromProps</strong></p><div class="tip custom-block"><p class="custom-block-title">TIP</p><p>1：当state需要从props初始化时，使用</p><p>2：尽量不使用，维护俩者状态需要消耗额外资源，增加复杂度</p><p>3：每次render都会调用</p><p>4：典型场景表单获取默认值</p></div><div class="language-markdown vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">markdown</span><pre class="shiki vitesse-dark has-diff vp-code-dark"><code><span class="line"><span style="color:#DBD7CAEE;">面试相关题:</span></span>
+<span class="line"><span style="color:#DBD7CAEE;">1). react/vue中的key有什么作用？（key的内部原理是什么？）</span></span>
+<span class="line"><span style="color:#DBD7CAEE;">2). 为什么遍历列表时，key最好不要用index?</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#D4976C;">1.</span><span style="color:#DBD7CAEE;"> 虚拟DOM中key的作用：</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">  1). 简单的说: key是虚拟DOM对象的标识, 在更新显示时key起着极其重要的作用。</span></span>
+<span class="line"><span style="color:#D4976C;">1.</span><span style="color:#DBD7CAEE;">  虚拟DOM中key的作用：</span></span>
+<span class="line"><span style="color:#DBD7CAEE;">    1). 简单的说: key是虚拟DOM对象的标识, 在更新显示时key起着极其重要的作用。</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#DBD7CAEE;">  2). 详细的说: 当状态中的数据发生变化时，react会根据【新数据】生成【新的虚拟DOM】,</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">                    随后React进行【新虚拟DOM】与【旧虚拟DOM】的diff比较，比较规则如下：</span></span>
+<span class="line"><span style="color:#DBD7CAEE;">    2). 详细的说: 当状态中的数据发生变化时，react会根据【新数据】生成【新的虚拟DOM】,</span></span>
+<span class="line"><span style="color:#DBD7CAEE;">    随后React进行【新虚拟DOM】与【旧虚拟DOM】的diff比较，比较规则如下：</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#DBD7CAEE;">        a. 旧虚拟DOM中找到了与新虚拟DOM相同的key：</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">                    (1).若虚拟DOM中内容没变, 直接使用之前的真实DOM</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">                    (2).若虚拟DOM中内容变了, 则生成新的真实DOM，随后替换掉页面中之前的真实DOM</span></span>
+<span class="line"><span style="color:#DBD7CAEE;">          a. 旧虚拟DOM中找到了与新虚拟DOM相同的key：</span></span>
+<span class="line"><span style="color:#DBD7CAEE;">                      (1).若虚拟DOM中内容没变, 直接使用之前的真实DOM</span></span>
+<span class="line"><span style="color:#DBD7CAEE;">                      (2).若虚拟DOM中内容变了, 则生成新的真实DOM，随后替换掉页面中之前的真实DOM</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#DBD7CAEE;">        b. 旧虚拟DOM中未找到与新虚拟DOM相同的key</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">                    根据数据创建新的真实DOM，随后渲染到到页面</span></span>
+<span class="line"><span style="color:#DBD7CAEE;">          b. 旧虚拟DOM中未找到与新虚拟DOM相同的key</span></span>
+<span class="line"><span style="color:#DBD7CAEE;">                      根据数据创建新的真实DOM，随后渲染到到页面</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#D4976C;">2.</span><span style="color:#DBD7CAEE;"> 用index作为key可能会引发的问题：</span></span>
+<span class="line"><span style="color:#D4976C;">2.</span><span style="color:#DBD7CAEE;">  用index作为key可能会引发的问题：</span></span>
+<span class="line"></span>
 <span class="line"><span style="color:#DBD7CAEE;">    </span><span style="color:#D4976C;">1.</span><span style="color:#DBD7CAEE;"> 若对数据进行：逆序添加、逆序删除等破坏顺序操作:</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">                    会产生没有必要的真实DOM更新 ==&gt; 界面效果没问题, 但效率低。</span></span>
+<span class="line"><span style="color:#DBD7CAEE;">       会产生没有必要的真实DOM更新 ==&gt; 界面效果没问题, 但效率低。</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#DBD7CAEE;">    </span><span style="color:#D4976C;">2.</span><span style="color:#DBD7CAEE;"> 如果结构中还包含输入类的DOM：</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">                    会产生错误DOM更新 ==&gt; 界面有问题。</span></span>
+<span class="line"><span style="color:#DBD7CAEE;">       会产生错误DOM更新 ==&gt; 界面有问题。</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#DBD7CAEE;">    </span><span style="color:#D4976C;">3.</span><span style="color:#DBD7CAEE;"> 注意！如果不存在对数据的逆序添加、逆序删除等破坏顺序操作，</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">        仅用于渲染列表用于展示，使用index作为key是没有问题的。</span></span>
+<span class="line"><span style="color:#DBD7CAEE;">       仅用于渲染列表用于展示，使用index作为key是没有问题的。</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#D4976C;">3.</span><span style="color:#DBD7CAEE;"> 开发中如何选择key?:</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">    1.最好使用每条数据的唯一标识作为key, 比如id、手机号、身份证号、学号等唯一值。</span></span>
-<span class="line"><span style="color:#DBD7CAEE;">    2.如果确定只是简单的展示数据，用index也是可以的。</span></span></code></pre><pre class="shiki vitesse-light has-diff vp-code-light"><code><span class="line"><span style="color:#393A34;"> 面试相关题:</span></span>
-<span class="line"><span style="color:#393A34;">  1). react/vue中的key有什么作用？（key的内部原理是什么？）</span></span>
-<span class="line"><span style="color:#393A34;">  2). 为什么遍历列表时，key最好不要用index?</span></span>
+<span class="line"><span style="color:#D4976C;">3.</span><span style="color:#DBD7CAEE;">  开发中如何选择key?: 1.最好使用每条数据的唯一标识作为key, 比如id、手机号、身份证号、学号等唯一值。2.如果确定只是简单的展示数据，用index也是可以的。</span></span></code></pre><pre class="shiki vitesse-light has-diff vp-code-light"><code><span class="line"><span style="color:#393A34;">面试相关题:</span></span>
+<span class="line"><span style="color:#393A34;">1). react/vue中的key有什么作用？（key的内部原理是什么？）</span></span>
+<span class="line"><span style="color:#393A34;">2). 为什么遍历列表时，key最好不要用index?</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#A65E2B;">1.</span><span style="color:#393A34;"> 虚拟DOM中key的作用：</span></span>
-<span class="line"><span style="color:#393A34;">  1). 简单的说: key是虚拟DOM对象的标识, 在更新显示时key起着极其重要的作用。</span></span>
+<span class="line"><span style="color:#A65E2B;">1.</span><span style="color:#393A34;">  虚拟DOM中key的作用：</span></span>
+<span class="line"><span style="color:#393A34;">    1). 简单的说: key是虚拟DOM对象的标识, 在更新显示时key起着极其重要的作用。</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#393A34;">  2). 详细的说: 当状态中的数据发生变化时，react会根据【新数据】生成【新的虚拟DOM】,</span></span>
-<span class="line"><span style="color:#393A34;">                    随后React进行【新虚拟DOM】与【旧虚拟DOM】的diff比较，比较规则如下：</span></span>
+<span class="line"><span style="color:#393A34;">    2). 详细的说: 当状态中的数据发生变化时，react会根据【新数据】生成【新的虚拟DOM】,</span></span>
+<span class="line"><span style="color:#393A34;">    随后React进行【新虚拟DOM】与【旧虚拟DOM】的diff比较，比较规则如下：</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#393A34;">        a. 旧虚拟DOM中找到了与新虚拟DOM相同的key：</span></span>
-<span class="line"><span style="color:#393A34;">                    (1).若虚拟DOM中内容没变, 直接使用之前的真实DOM</span></span>
-<span class="line"><span style="color:#393A34;">                    (2).若虚拟DOM中内容变了, 则生成新的真实DOM，随后替换掉页面中之前的真实DOM</span></span>
+<span class="line"><span style="color:#393A34;">          a. 旧虚拟DOM中找到了与新虚拟DOM相同的key：</span></span>
+<span class="line"><span style="color:#393A34;">                      (1).若虚拟DOM中内容没变, 直接使用之前的真实DOM</span></span>
+<span class="line"><span style="color:#393A34;">                      (2).若虚拟DOM中内容变了, 则生成新的真实DOM，随后替换掉页面中之前的真实DOM</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#393A34;">        b. 旧虚拟DOM中未找到与新虚拟DOM相同的key</span></span>
-<span class="line"><span style="color:#393A34;">                    根据数据创建新的真实DOM，随后渲染到到页面</span></span>
+<span class="line"><span style="color:#393A34;">          b. 旧虚拟DOM中未找到与新虚拟DOM相同的key</span></span>
+<span class="line"><span style="color:#393A34;">                      根据数据创建新的真实DOM，随后渲染到到页面</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#A65E2B;">2.</span><span style="color:#393A34;"> 用index作为key可能会引发的问题：</span></span>
+<span class="line"><span style="color:#A65E2B;">2.</span><span style="color:#393A34;">  用index作为key可能会引发的问题：</span></span>
+<span class="line"></span>
 <span class="line"><span style="color:#393A34;">    </span><span style="color:#A65E2B;">1.</span><span style="color:#393A34;"> 若对数据进行：逆序添加、逆序删除等破坏顺序操作:</span></span>
-<span class="line"><span style="color:#393A34;">                    会产生没有必要的真实DOM更新 ==&gt; 界面效果没问题, 但效率低。</span></span>
+<span class="line"><span style="color:#393A34;">       会产生没有必要的真实DOM更新 ==&gt; 界面效果没问题, 但效率低。</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#393A34;">    </span><span style="color:#A65E2B;">2.</span><span style="color:#393A34;"> 如果结构中还包含输入类的DOM：</span></span>
-<span class="line"><span style="color:#393A34;">                    会产生错误DOM更新 ==&gt; 界面有问题。</span></span>
+<span class="line"><span style="color:#393A34;">       会产生错误DOM更新 ==&gt; 界面有问题。</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#393A34;">    </span><span style="color:#A65E2B;">3.</span><span style="color:#393A34;"> 注意！如果不存在对数据的逆序添加、逆序删除等破坏顺序操作，</span></span>
-<span class="line"><span style="color:#393A34;">        仅用于渲染列表用于展示，使用index作为key是没有问题的。</span></span>
+<span class="line"><span style="color:#393A34;">       仅用于渲染列表用于展示，使用index作为key是没有问题的。</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#A65E2B;">3.</span><span style="color:#393A34;"> 开发中如何选择key?:</span></span>
-<span class="line"><span style="color:#393A34;">    1.最好使用每条数据的唯一标识作为key, 比如id、手机号、身份证号、学号等唯一值。</span></span>
-<span class="line"><span style="color:#393A34;">    2.如果确定只是简单的展示数据，用index也是可以的。</span></span></code></pre></div>`,59),e=[o];function t(c,r,y,D,A,i){return n(),a("div",null,e)}const C=s(l,[["render",t]]);export{E as __pageData,C as default};
+<span class="line"><span style="color:#A65E2B;">3.</span><span style="color:#393A34;">  开发中如何选择key?: 1.最好使用每条数据的唯一标识作为key, 比如id、手机号、身份证号、学号等唯一值。2.如果确定只是简单的展示数据，用index也是可以的。</span></span></code></pre></div>`,59),e=[o];function t(c,r,y,D,A,i){return n(),a("div",null,e)}const C=s(l,[["render",t]]);export{E as __pageData,C as default};
