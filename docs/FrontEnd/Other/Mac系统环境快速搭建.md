@@ -338,3 +338,15 @@ function _p9k_init_locale() {
 'builtin' 'unset' '__p9k_src_opts'
 
 ```
+
+## 删除 ABC 输入法
+1.  进入 App Store， 安装 `PlistEdit Pro` 
+
+2. M1 芯片电脑开机时长按电源，直至进入 '启动项 -> 选项 -> 点头像-> 下一步 -> 点顶部使用工具 -> 终端'
+```zsh
+csrutil disable # 选 yes ，输入密码
+csrutil status  # 查看是否禁用成功   
+```
+
+3. 重启后终端输入 `sudo open ~/Library/Preferences/com.apple.HIToolbox.plist`，输入开机密码，打开的文件全部展开，删除所有 Value 是 ABC 的项，保存配置（顶部菜单栏点 File -> Save 或 CMD + S），重启电脑
+
