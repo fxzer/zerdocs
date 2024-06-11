@@ -66,13 +66,13 @@ export default withPwa(defineConfig({
       icons: [
         {
           src: 'pwa-512x512.png',
-          types: 'img/png',
+          type: 'img/png',
           sizes: '512x512',
           purpose: 'any',
         },
         {
           src: 'pwa-192x192.png',
-          types: 'img/png',
+          type: 'img/png',
           sizes: '192x192',
           purpose: 'maskable',
         },
@@ -85,14 +85,5 @@ export default withPwa(defineConfig({
   },
   sitemap: {
     hostname: 'https://fxzer.github.io/zerdocs',
-    transformItems: (items) => {
-      // add new items or modify/filter existing items
-      items.push({
-        url: '/extra-page',
-        changefreq: 'monthly',
-        priority: 0.8
-      })
-      return items
-    }
   }
 }))

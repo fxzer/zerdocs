@@ -27,6 +27,7 @@
     </el-descriptions-item>
   </el-descriptions>
 </el-dialog>
+
 ```
 
 ## '确定'按钮点击失效问题
@@ -171,6 +172,7 @@ export default {
     white-space: nowrap;
   }
 }
+
 ```
 
 ## 路由组件切换，事件总线意外多次触发
@@ -182,25 +184,26 @@ this.$bus.$emit('searchDone')
 
 ```js {3}
 //B路由组件
-mounted(){
+{
+ mounted(){
     this.$bus.$off('searchDone') //在每次绑定事件前，先解绑该事件
 
     this.$bus.$on('searchDone',this.handleCurrentChange)
-  },
-
+  }
+}
 ```
 
 ## 前端配合 Nginx 服务开启 gzip 页面加载不出来
 
 ```js
-//vue.config.js
+// vue.config.js
 plugins: [
   new CompressionWebpackPlugin({
     exclude: /node_modules/,
     test: /\.(js|css)$/,
     threshold: 10240, // 超过10kb的文件就压缩
     deleteOriginalAssets: true, // 不删除源文件
-    algorithm: "gzip",
+    algorithm: 'gzip',
     minRatio: 0.8,
   }),
 ]
