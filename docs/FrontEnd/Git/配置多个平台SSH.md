@@ -23,18 +23,26 @@ ssh-keygen -t rsa -C '88888@qq.com'  #换成自己邮箱,可以随便填,相当�
 > 定义一系列 SSH 连接的配置信息，当你使用 SSH 连接到这些平台时，SSH 客户端会根据这个配置文件选择正确的私钥进行身份验证。
 
 ```bash
-Host github.com   #github主机地址
-HostName github.com   #github主机名
+Host github.com   #Github主机地址
+HostName github.com   #Github主机名
 PreferredAuthentications publickey
 IdentityFile ~/.ssh/github   #私钥地址
 
-Host gitee.com   #gitee主机地址
-HostName gitee.com   #gitee主机名
+# 关联两个 Github 账号，可以修改地址进行 clone/push
+# git clone git@github.com-sub:fxzer/zerdocs.git
+
+Host github.com-sub   # 定义第二个 Github 账号主机地址
+HostName github.com   # Github主机名
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/github-sub   #  私钥
+
+Host gitee.com   #Gitee主机地址
+HostName gitee.com   #Gitee主机名
 PreferredAuthentications publickey
 IdentityFile ~/.ssh/gitee   #私钥地址
 
-Host gitlab.xxx.cn    #公司gitlab主机地址
-HostName gitlab.xxx.cn      #gitlab主机名
+Host gitlab.xxx.cn    #公司 Gitlab 主机地址
+HostName gitlab.xxx.cn      #Gitlab主机名
 PreferredAuthentications publickey
 IdentityFile ~/.ssh/gitlab     #私钥地址
 ```
