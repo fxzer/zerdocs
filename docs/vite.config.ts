@@ -13,6 +13,11 @@ export default defineConfig({
       'vitepress',
     ],
   },
+  server: {
+    hmr: {
+      overlay: false
+    }
+  },
   plugins: [ 
     Components({
       dirs: resolve(__dirname, '.vitepress/theme/components'),

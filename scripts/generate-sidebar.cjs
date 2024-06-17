@@ -6,7 +6,7 @@ const sidebarPath = path.resolve(__dirname, '../docs/.vitepress/sidebar/index.ts
 
 // 判断是否是文章文件
 function isArticleDir(dir) {
-  const isExclude = /^public|index.md|.*\.ts|demo.*|\..*$/.test(dir)
+  const isExclude = /^(public|index.md|.*\.ts|demo.*|\..*)$/.test(dir)
   return !isExclude
 }
 
