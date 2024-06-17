@@ -26,9 +26,10 @@ cd ~ && mkdir -p c d n w m/Admin m/UI m/Vue3 m/ToolKits m/Nuxt m/Vitest
 ### 命令安装
 
 ```zsh
-brew install --cask arc google-chrome microsoft-edge orbstack  figma # 安装较慢
-brew install --cask  apifox dingtalk wechat qq  qqmusic wpsoffice adrive baidunetdisk neteasemusic  obsidian
-visual-studio-code raycast warp  alt-tab termius  bob rectangle  snipaste manico
+brew install --cask arc google-chrome microsoft-edge orbstack figma raycast # 安装较慢
+brew install --cask apifox dingtalk wechat qq qqmusic wpsoffice adrive baidunetdisk neteasemusic obsidian
+visual-studio-code  warp alt-tab termius  rectangle snipaste
+
 ```
 
 ```zsh
@@ -38,7 +39,6 @@ stats bartender keycastr docker  input-source-pro videofusion
 
 ```zsh
 brew install lsd fastfetch
-
 ```
 
 装 `fnm` 或 `nvm`
@@ -61,7 +61,8 @@ pnpm i -g @antfu/ni yarn taze rimraf cz-git czg commitizen vitest rollup tsup es
 ### 手动安装
 
 > clashx 、 iRightMenu、mos 、微信输入法 、腾讯柠檬 、typora
-> Myzip 、、figplayer 、pixelmator 、 alivepro 、Omi录屏专家 、Giphy Capture 、permute3
+> Myzip 、pixelmator 、alivepro 、Giphy Capture 、permute3
+> AppStore:figplayer 、 bOmi录屏专家 、ob
 
 ## 三、配置软件
 
@@ -340,13 +341,14 @@ function _p9k_init_locale() {
 ```
 
 ## 删除 ABC 输入法
-1.  进入 App Store， 安装 `PlistEdit Pro` 
 
-2. M1 芯片电脑开机时长按电源，直至进入 '启动项 -> 选项 -> 点头像-> 下一步 -> 点顶部使用工具 -> 终端'
+1.  进入 App Store， 安装 `PlistEdit Pro`
+
+2.  M1 芯片电脑开机时长按电源，直至进入 '启动项 -> 选项 -> 点头像-> 下一步 -> 点顶部使用工具 -> 终端'
+
 ```zsh
 csrutil disable # 选 yes ，输入密码
-csrutil status  # 查看是否禁用成功   
+csrutil status  # 查看是否禁用成功
 ```
 
 3. 重启后终端输入 `sudo open ~/Library/Preferences/com.apple.HIToolbox.plist`，输入开机密码，打开的文件全部展开，删除所有 Value 是 ABC 的项，保存配置（顶部菜单栏点 File -> Save 或 CMD + S），重启电脑
-
