@@ -71,39 +71,10 @@ pnpm i -g @antfu/ni yarn taze rimraf cz-git czg commitizen vitest rollup tsup es
 ### Git配置
 
 ```zsh
-# ~/.gitconfig
-[safe]
-	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-core
-	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-cask
-	directory = /opt/homebrew
-	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-core/
-	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-cask/
-	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-services/
-[user]
-	name = xxx
-	email = xxx@163.com
-[core]
-	excludesfile = ~/.gitignore
-	ignorecase = false # 区分大小写
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-[alias]
-	# s = status
-[push]
-	autoSetupRemote = true
-[init]
-	defaultBranch = main
-[credential]
-	helper = store
-```
-
-```zsh
-# ~/.gitignore
-.DS_Store
-*/.DS_Store
+git config --list  # 查看全局配置
+git config --global user.name "xxx"(输入你的用户名)   # 设置全局用户名
+git config --global user.email "xxx"(输入你的邮箱)   # 设置全局邮箱
+git config --global core.ignorecase false   # 区分大小写
 ```
 
 ### 增强 ZSH 功能： 安装 [ZIMFW](https://github.com/zimfw/zimfw) 或 [OhMyZsh](https://ohmyz.sh/)
