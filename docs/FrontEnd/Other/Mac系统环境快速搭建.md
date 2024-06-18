@@ -28,7 +28,7 @@ cd ~ && mkdir -p c d n w m/Admin m/UI m/Vue3 m/ToolKits m/Nuxt m/Vitest
 ```zsh
 brew install --cask arc google-chrome microsoft-edge orbstack figma raycast # 安装较慢
 brew install --cask apifox dingtalk wechat qq qqmusic wpsoffice adrive baidunetdisk neteasemusic obsidian
-visual-studio-code  warp alt-tab termius  rectangle snipaste
+visual-studio-code  warp termius  rectangle snipaste
 
 ```
 
@@ -60,9 +60,9 @@ pnpm i -g @antfu/ni yarn taze rimraf cz-git czg commitizen vitest rollup tsup es
 
 ### 手动安装
 
-> clashx 、 iRightMenu、mos 、微信输入法 、腾讯柠檬 、typora
-> Myzip 、pixelmator 、alivepro 、Giphy Capture 、permute3
-> AppStore:figplayer 、 bOmi录屏专家 、ob
+> clash-verge、 iRightMenu、mos 、微信输入法 、typora
+> Myzip 、pixelmator 、alivepro 、permute3
+> AppStore: figplayer 、 bOmi录屏专家
 
 ## 三、[配置软件](https://github.com/fxzer/config)
 
