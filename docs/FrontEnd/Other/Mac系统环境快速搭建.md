@@ -34,7 +34,7 @@ visual-studio-code  warp termius  rectangle snipaste
 
 ```zsh
 # 选装
-stats bartender keycastr docker  input-source-pro videofusion
+stats  keycastr docker  input-source-pro videofusion
 ```
 
 ```zsh
@@ -75,6 +75,7 @@ git config --list  # 查看全局配置
 git config --global user.name "xxx"(输入你的用户名)   # 设置全局用户名
 git config --global user.email "xxx"(输入你的邮箱)   # 设置全局邮箱
 git config --global core.ignorecase false   # 区分大小写
+git config --global init.defaultBranch main   #  初始分支：main
 ```
 
 ### 增强 ZSH 功能： 安装 [ZIMFW](https://github.com/zimfw/zimfw) 或 [OhMyZsh](https://ohmyz.sh/)
