@@ -408,6 +408,10 @@ export default {
         {
           "text": "Nuxt3项目踩坑",
           "link": "/Problem/Nuxt3/Nuxt3项目踩坑"
+        },
+        {
+          "text": "UnoCSS 动态设置变量",
+          "link": "/Problem/Nuxt3/UnoCSS 动态设置变量"
         }
       ]
     },
