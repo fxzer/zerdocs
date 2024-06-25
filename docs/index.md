@@ -34,45 +34,45 @@ features:
   - icon: 📝
     title:  ECMAScript6
     details:  阮一峰 ECMAScript6 教程
-    link: https://fxzer.gitee.io/es6-vitepress
+    link: https://fxzer.github.io/es6-vitepress
   - icon: 📝
     title: TypeScript
     details: TypeScript 中英文档翻译
-    link:  https://fxzer.gitee.io/tsdoc-vitepress/zh/
+    link:  https://fxzer.github.io/tsdoc-vitepress/zh/
   - icon: 📝
     title: TypeScript
     details: TypeScript 教程
-    link: https://fxzer.gitee.io/typescript-tutorial-vitepress
+    link: https://fxzer.github.io/typescript-tutorial-vitepress
   - icon: 📝
     title: Shikiji
     details: Shikiji（代码高亮库） 中文文档
-    link: https://fxzer.gitee.io/shikiji
+    link: https://fxzer.github.io/shikiji
   - icon: 💫
     title: Canvas
     details: 有趣的 Canvas 练习
-    link:  https://fxzer.gitee.io/funny-canvas/#/a
+    link:  https://fxzer.github.io/funny-canvas/#/a
   - icon: 💫
     title: X-Admin
     details: 后台管理系统模板
-    link:  https://fxzer.gitee.io/x-admin
+    link:  https://fxzer.github.io/x-admin
   - icon: 💫
     title: Json-Viewer
     details: JSON 可视化工具网站
-    link:  https://fxzer.gitee.io/json-viewer
+    link:  https://fxzer.github.io/json-viewer
   - icon: 💫
     title: Github-Trends
     details: Github 趋势榜单速览网站
-    link:  https://fxzer.gitee.io/github-trends
+    link:  https://fxzer.github.io/github-trends
   - icon: 💫
     title: 数字华容道游戏
     details: 数字华容道游戏（Nuxt3 + UnoCss）
-    link:  https://fxzer.gitee.io/digital-huarong-road/
+    link:  https://fxzer.github.io/digital-huarong-road/
   - icon: 💫
     title: Tailwind CSS
     details: Tailwind CSS 案例练习
-    link: https://fxzer.gitee.io/tailwindcss-showcase
+    link: https://fxzer.github.io/tailwindcss-showcase
   - icon: 💫
     title: Apple
     details: Apple 官网模仿练习
-    link: https://fxzer.gitee.io/apple-site
+    link: https://fxzer.github.io/apple-site
 ---

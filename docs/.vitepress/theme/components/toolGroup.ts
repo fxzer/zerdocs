@@ -86,8 +86,8 @@ interface Tool {
     },
     {
       name: 'JSON Viewer',
-      icon: 'https://fxzer.gitee.io/json-viewer/jvlogo.svg',
-      url: 'https://fxzer.gitee.io/json-viewer/'
+      icon: 'https://fxzer.github.io/json-viewer/jvlogo.svg',
+      url: 'https://fxzer.github.io/json-viewer/'
     },
   ],
     '调色板':[
