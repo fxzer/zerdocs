@@ -32,7 +32,7 @@
 
 ## '确定'按钮点击失效问题
 
-![image-20230219214203987](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302192142529.png)
+![image-20230219214203987](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302192142529.png){data-zoomable}
 
 ```vue
 <script>
@@ -159,7 +159,7 @@ export default {
 
 ## 文本溢出隐藏处理后对不齐问题
 
-![image-20230219214258711](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302192142738.png)
+![image-20230219214258711](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302192142738.png){data-zoomable}
 
 ```scss
 .el-checkbox {
@@ -209,7 +209,7 @@ plugins: [
 ]
 ```
 
-![2023-03-30-14-58-50](https://zerdocs.oss-cn-shanghai.aliyuncs.com/interview/2023-03-30-14-58-50.png)
+![2023-03-30-14-58-50](https://zerdocs.oss-cn-shanghai.aliyuncs.com/interview/2023-03-30-14-58-50.png){data-zoomable}
 
 ## TailwindCSS动态绑定类不能随着渐变
 

@@ -322,7 +322,7 @@ saveFormData = (dataType, event) => {
 
 **旧版(16)**
 
-![image-20220421223156627](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220421223156627.png)
+![image-20220421223156627](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220421223156627.png){data-zoomable}
 
 ```js
 /*
@@ -347,7 +347,7 @@ saveFormData = (dataType, event) => {
 
 **新版(17+)**
 
-![image-20220421223604701](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220421223604701.png)
+![image-20220421223604701](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220421223604701.png){data-zoomable}
 
 ```markdown
 1. 初始化阶段: 由ReactDOM.render()触发---初次渲染1. constructor() 2. getDerivedStateFromProps 3. render() 4. componentDidMount() =====> 常用

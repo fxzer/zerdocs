@@ -70,7 +70,7 @@ doResize(){
 
 ## 地图缩放重叠问题
 
-![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/interview/202303291527581.png)
+![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/interview/202303291527581.png){data-zoomable}
 
 [Echart文档参考](https://echarts.apache.org/zh/option.html#series-map.geoIndex)
 

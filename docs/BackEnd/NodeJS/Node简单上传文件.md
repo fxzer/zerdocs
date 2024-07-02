@@ -87,6 +87,6 @@ app.listen(3000, () => {
 
 **可以借助接口调试工具测试或直接访问：`http://localhost:3000/upload/index`**
 
-![image-20230213141712478](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302131417657.png)
+![image-20230213141712478](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302131417657.png){data-zoomable}
 
-![image-20230213141820443](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302131418470.png)
+![image-20230213141820443](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302131418470.png){data-zoomable}

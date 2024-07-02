@@ -8,7 +8,7 @@
 
 ### 2.Linux目录结构
 
-![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032207741.png)
+![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032207741.png){data-zoomable}
 
 ### 3.基础命令
 

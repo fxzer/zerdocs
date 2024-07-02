@@ -16,7 +16,7 @@ winget install JanDeDobbeleer.OhMyPosh
 Get-PoshThemes
 ```
 
-![image-20220426123111651](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220426123111651.png)
+![image-20220426123111651](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220426123111651.png){data-zoomable}
 
 ## 初始化并应用主题
 
@@ -47,7 +47,7 @@ PS：刚开始以为没有我常用的`JetBrain Mono`字体,就没在意这种�
 $PROFILE
 ```
 
-![image-20220426124525580](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220426124525580.png)
+![image-20220426124525580](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220426124525580.png){data-zoomable}
 
 - 找到这个文件位置，打开并添加需要Power Shell启动时执行的脚本，保存文件重新打开Terminal看效果
 
@@ -80,17 +80,17 @@ The term 'oh-my-posh' is not recognized as a name of a cmdlet, function, script 
 
 - 在环境变量新增Oh My Posh路径下bin目录
 
-![image-20220426141214178](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220426141214178.png)
+![image-20220426141214178](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220426141214178.png){data-zoomable}
 
 - 在设置中配置配置自己安装的**Nerd Font**终端字体，（这里我填上我安装的是`JetBrainsMono Nerd Font Mono`)
 
-![image-20220426141358102](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220426141358102.png)
+![image-20220426141358102](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220426141358102.png){data-zoomable}
 
 ## 隐藏提示语
 
 每次打开都会有这四句提示语，想要打开是干干净净的界面。
 
-![image-20220426233405476](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220426233405476.png)
+![image-20220426233405476](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220426233405476.png){data-zoomable}
 
 在PowerShell配置项中添加一个配置 ，配置参数` -NoLogo`为隐藏提示语
 
@@ -116,4 +116,4 @@ The term 'oh-my-posh' is not recognized as a name of a cmdlet, function, script 
 }
 ```
 
-![image-20220426233614912](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220426233614912.png)
+![image-20220426233614912](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220426233614912.png){data-zoomable}

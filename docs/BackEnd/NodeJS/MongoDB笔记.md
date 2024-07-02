@@ -2,9 +2,9 @@
 
 **MongoDB是文档型的NoSQL数据库**。
 
-![image-20220508194905648](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220508194905648.png)
+![image-20220508194905648](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220508194905648.png){data-zoomable}
 
-![image-20220507220553150](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220507220553150.png)
+![image-20220507220553150](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220507220553150.png){data-zoomable}
 
 **优点**：
 
@@ -26,7 +26,7 @@ show dbs
 use testdb01   #切换数据库
 ```
 
-![image-20220507215028603](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220507215028603.png)
+![image-20220507215028603](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220507215028603.png){data-zoomable}
 
 **创建/删除数据库**
 
@@ -139,7 +139,7 @@ db.users.find().distinct('字段')
 
 - **对比语法:**
 
-![image-20220507231641824](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220507231641824.png)
+![image-20220507231641824](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220507231641824.png){data-zoomable}
 
 ### 2.插入
 

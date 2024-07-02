@@ -22,8 +22,8 @@
 
 ## 四、工作原理
 
-![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032203456.png)
-![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032204209.png)
+![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032203456.png){data-zoomable}
+![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032204209.png){data-zoomable}
 
 ## 五、CentOS安装Docker
 
@@ -83,7 +83,7 @@ docker push registry.cn-hangzhou.aliyuncs.com/fanxj/mubt:[镜像版本号]
 docker run -it registry.cn-hangzhou.aliyuncs.com/fanxj/mubt:1.1  /bin/bash #记得带版本
 ```
 
-![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032206243.png)
+![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032206243.png){data-zoomable}
 
 ### 3. 容器
 
@@ -243,6 +243,6 @@ curl -SL https://github.com/docker/compose/releases/download/v2.14.2/docker-comp
 
 #### 2. [常用命令](https://cloud.tencent.com/developer/article/1499032)
 
-![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032205681.png)
+![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302032205681.png){data-zoomable}
 
 #### 3. [安装 Portainer](https://cloud.tencent.com/developer/article/2047779)

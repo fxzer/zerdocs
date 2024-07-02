@@ -8,7 +8,7 @@
 
 :::
 
-![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302041941600.png)
+![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302041941600.png){data-zoomable}
 
 ### 形成原因：全局替换时粗心大意造成img src属性多了个'/'
 
@@ -37,7 +37,7 @@
 
 #### 在package.json添加脚本执行命令
 
-![image-20230205230548188](https://zerdocs.oss-cn-shanghai.aliyuncs.com/202302052305259.png)
+![image-20230205230548188](https://zerdocs.oss-cn-shanghai.aliyuncs.com/202302052305259.png){data-zoomable}
 
 #### 在博客根目录新建`scripts`目录并创建文件`getSidebar.ts`，添加如下代码
 
@@ -174,7 +174,7 @@ npm i vitepress-plugin-search markdown-it flexsearch -D
 
 :::
 
-![image-20230205233032922](https://zerdocs.oss-cn-shanghai.aliyuncs.com/202302052330956.png)
+![image-20230205233032922](https://zerdocs.oss-cn-shanghai.aliyuncs.com/202302052330956.png){data-zoomable}
 
 ```typescript
 // vite.config.ts

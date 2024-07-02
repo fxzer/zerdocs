@@ -8,9 +8,9 @@
 
 ## 基本概念
 
-![image-20230216202917923](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162029422.png)
+![image-20230216202917923](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162029422.png){data-zoomable}
 
-![image-20230216203121127](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162031156.png)
+![image-20230216203121127](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162031156.png){data-zoomable}
 
 ## 容器属性
 
@@ -32,21 +32,21 @@
 6. fr片段划分 `grid-template-rows:1fr 2fr 1fr`
 7. minmax() `grid-template-rows:200px 200px minmax(100px,200px)`
 
-![image-20230216205607291](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162056312.png)
+![image-20230216205607291](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162056312.png){data-zoomable}
 
-![image-20230216205635684](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162056725.png)
+![image-20230216205635684](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162056725.png){data-zoomable}
 
-![image-20230216205710712](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162057751.png)
+![image-20230216205710712](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162057751.png){data-zoomable}
 
-![image-20230216205031540](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162050568.png)
+![image-20230216205031540](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162050568.png){data-zoomable}
 
-![image-20230216205043840](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162050881.png)
+![image-20230216205043840](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162050881.png){data-zoomable}
 
-![image-20230216205247964](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162052005.png)
+![image-20230216205247964](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162052005.png){data-zoomable}
 
-![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162055862.png)
+![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162055862.png){data-zoomable}
 
-![image-20230216205743766](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162057797.png)
+![image-20230216205743766](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162057797.png){data-zoomable}
 
 ### 调整间距属性
 
@@ -64,7 +64,7 @@
 }
 ```
 
-![image-20230216210259623](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162102659.png)
+![image-20230216210259623](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162102659.png){data-zoomable}
 
 ### 容器内网格对齐方式
 
@@ -82,7 +82,7 @@
 }
 ```
 
-![image-20230216212726986](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162127014.png)
+![image-20230216212726986](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162127014.png){data-zoomable}
 
 **案例**
 
@@ -93,7 +93,7 @@
 }
 ```
 
-![image-20230216223101040](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162231062.png)
+![image-20230216223101040](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162231062.png){data-zoomable}
 
 ### 网格内项目对其方式
 
@@ -111,7 +111,7 @@
 }
 ```
 
-![image-20230216211850992](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162118033.png)
+![image-20230216211850992](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162118033.png){data-zoomable}
 
 **案例：**
 
@@ -154,11 +154,11 @@
 }
 ```
 
-![image-20230216222635254](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162226287.png)
+![image-20230216222635254](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162226287.png){data-zoomable}
 
 ### 项目排列顺序
 
-![image-20230216210624604](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162106652.png)
+![image-20230216210624604](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162106652.png){data-zoomable}
 
 ### 容器中区域定义
 
@@ -199,7 +199,7 @@
 }
 ```
 
-![image-20230216220606952](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162206984.png)
+![image-20230216220606952](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162206984.png){data-zoomable}
 
 ## 项目属性
 
@@ -228,7 +228,7 @@
 }
 ```
 
-![image-20230216213656308](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162136332.png)
+![image-20230216213656308](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302162136332.png){data-zoomable}
 
 ### 项目区域定义
 

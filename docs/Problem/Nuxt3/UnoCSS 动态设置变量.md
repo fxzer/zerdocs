@@ -1,6 +1,6 @@
 ## 动态设置主题色，激活项样式延迟问题
 
-![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/problem/202406211509477.png)
+![](https://zerdocs.oss-cn-shanghai.aliyuncs.com/problem/202406211509477.png){data-zoomable}
 
 ```ts
 // uno.config.ts

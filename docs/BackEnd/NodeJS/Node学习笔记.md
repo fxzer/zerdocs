@@ -193,7 +193,7 @@ server.listen(8888, () => {
 
 在自定义模块中，`module.exports`模式是空对象，使用`module.exports`将模块内部成员共享
 
-![image-20220430114048249](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220430114048249.png)
+![image-20220430114048249](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220430114048249.png){data-zoomable}
 
 ### 2.模块共享
 
@@ -215,7 +215,7 @@ console.log(m1.name)
 
 运行: `node m2.js`
 
-![image-20220430120846611](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220430120846611.png)
+![image-20220430120846611](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220430120846611.png){data-zoomable}
 
 导出的对象以`module.expports`为准, 使用`require()`得到的永远是`module.expports`指向的对象
 
@@ -234,7 +234,7 @@ console.log(m1.name) // lisi
 console.log(m1.age) // 20
 ```
 
-![image-20220430121633293](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220430121633293.png)
+![image-20220430121633293](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220430121633293.png){data-zoomable}
 
 ## 五、模块加载机制
 
@@ -243,13 +243,13 @@ console.log(m1.age) // 20
 2. 内置模块的加载优先级是最高的
 3. 自定义模块 require 时，必须在路径指定`./或../`开头的路径标识符
 
-![image-20220502220923072](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502220923072.png)4. 第三方模块记载机制
+![image-20220502220923072](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502220923072.png){data-zoomable}4. 第三方模块记载机制
 
-![image-20220502221028461](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502221028461.png)
+![image-20220502221028461](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502221028461.png){data-zoomable}
 
 5. 目录作为模块
 
-   ![image-20220502221133208](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502221133208.png)
+   ![image-20220502221133208](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502221133208.png){data-zoomable}
 
 ## 六、Express 模块
 
@@ -278,13 +278,13 @@ app.listen(80, () => {
 
 - **概念**
 
-![image-20220501095630708](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220501095630708.png)
+![image-20220501095630708](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220501095630708.png){data-zoomable}
 
 - **定义与使用全局中间件**
 
   > 可以调用多个中间件对请求进行**_预处理_**
 
-  ![image-20220501095912439](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220501095912439.png)
+  ![image-20220501095912439](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220501095912439.png){data-zoomable}
 
 ```js
 const express = require('express')
@@ -310,7 +310,7 @@ app.listen(80, () => {
 
   next 函数可以流转关系转交给下一个中间件或路由
 
-![image-20220501100043506](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220501100043506.png)
+![image-20220501100043506](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220501100043506.png){data-zoomable}
 
 - **局部中间件**
 
@@ -369,7 +369,7 @@ app.listen(80, () => {
 })
 ```
 
-![image-20220501101526777](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220501101526777.png)
+![image-20220501101526777](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220501101526777.png){data-zoomable}
 
 - **中间件注意事项**
 
@@ -440,19 +440,19 @@ module.exports = apiRouter
 
 ### 1. CORS 跨域资源共享
 
-![image-20220502115641176](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502115641176.png)
+![image-20220502115641176](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502115641176.png){data-zoomable}
 
 ### 2.CORS 头部
 
-![image-20220502120846061](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502120846061.png)
+![image-20220502120846061](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502120846061.png){data-zoomable}
 
-![image-20220502120941415](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502120941415.png)
+![image-20220502120941415](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502120941415.png){data-zoomable}
 
-![image-20220502121028306](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502121028306.png)
+![image-20220502121028306](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502121028306.png){data-zoomable}
 
 <img src="https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502121159109.png" alt="image-20220502121159109"  />
 
-![image-20220502120738921](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502120738921.png)
+![image-20220502120738921](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502120738921.png){data-zoomable}
 
 ## 八、Node 连接数据库
 
@@ -625,7 +625,7 @@ db.query(dstr, [user, user.id], (err, res) => {
 
 ### 3.Session 认证
 
-![image-20220502193259029](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502193259029.png)
+![image-20220502193259029](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502193259029.png){data-zoomable}
 
 ```js
 const express = require('express')
@@ -694,11 +694,11 @@ app.listen(80, () => {
 
 **原理**：服务端通多用户信息生成 Token，发送并保存在客户端，服务器通过还原 Token 来认证用户身份。
 
-![image-20220502195232085](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502195232085.png)
+![image-20220502195232085](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502195232085.png){data-zoomable}
 
 JWT 组成部分：Header（头部）、Payload（有效载荷)、Signature（签名）。形式：`Header.Payload.Signature`
 
-![image-20220502195537066](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502195537066.png)
+![image-20220502195537066](https://vnote-bucket.oss-cn-shanghai.aliyuncs.com/image-20220502195537066.png){data-zoomable}
 
 **JWT 使用**
 

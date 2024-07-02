@@ -29,7 +29,7 @@
 </script>
 ```
 
-![image-20230219215449385](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302192154427.png)
+![image-20230219215449385](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302192154427.png){data-zoomable}
 
 ### 场景二：
 
@@ -48,7 +48,7 @@
 </script>
 ```
 
-![image-20230219215459359](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302192154391.png)
+![image-20230219215459359](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302192154391.png){data-zoomable}
 
 ### 场景三：
 
@@ -68,4 +68,4 @@
 </script>
 ```
 
-![image-20230219215510922](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302192155953.png)
+![image-20230219215510922](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302192155953.png){data-zoomable}

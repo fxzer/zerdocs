@@ -68,13 +68,13 @@ git rebase -i <commit_sha>  #开启交互模式
 git rebase -i 8fc6389   #填第2 次提交的 hash，则表示合并 2 之后（3和 4）的提交
 ```
 
-![image-20230227205854474](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302272058564.png)
+![image-20230227205854474](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302272058564.png){data-zoomable}
 
 把需要压缩的提交 `pick ` 改为 `s`，必须保留一个 `pick`，下一步填写合并提交信息，保存退出(`:wq`)完成合并
 
-![image-20230227105523929](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302271055952.png)
+![image-20230227105523929](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302271055952.png){data-zoomable}
 
-![image-20230227205916425](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302272059457.png)
+![image-20230227205916425](https://zerdocs.oss-cn-shanghai.aliyuncs.com/febasis/202302272059457.png){data-zoomable}
 
 ## 关联多个代码托管平台
 
@@ -216,7 +216,7 @@ npx husky add .husky/commit-msg
 
 #### 注意：需要 `git init`后才能初始化，否则报错如下
 
-![2023-06-27-20-25-35](https://zerdocs.oss-cn-shanghai.aliyuncs.com/interview/2023-06-27-20-25-35.png)
+![2023-06-27-20-25-35](https://zerdocs.oss-cn-shanghai.aliyuncs.com/interview/2023-06-27-20-25-35.png){data-zoomable}
 
 ### @commitlint/cli与@commitlint/config-conventional
 

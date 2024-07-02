@@ -5,11 +5,11 @@ ssh-keygen -t rsa -C '88888@qq.com'  #换成自己邮箱,可以随便填,相当�
 #密码不用填 直接回车
 ```
 
-![image-20220416211353115](https://zerdocs.oss-cn-shanghai.aliyuncs.com/interview/48.png)
+![image-20220416211353115](https://zerdocs.oss-cn-shanghai.aliyuncs.com/interview/48.png){data-zoomable}
 
 > `ls` 查看生成的文件
 
-![image-20220416212417100](https://zerdocs.oss-cn-shanghai.aliyuncs.com/interview/lssh.png)
+![image-20220416212417100](https://zerdocs.oss-cn-shanghai.aliyuncs.com/interview/lssh.png){data-zoomable}
 
 ## 2.在代码托管平台设置公钥 （一般在：设置 ---> SSH）
 
