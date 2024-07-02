@@ -83,11 +83,11 @@ export default defineNuxtConfig({
 ```js
 // 业务请求
 async function getImgCode() {
-  const data = await useFetch('/account/api/getImageCode', {
+  const { data, pending, error, refresh, clear } = await useFetch('/account/api/getImageCode', {
     method: 'POST',
     body: {},
   })
-  return data.data.value
+  return data.value
 }
 ```
 
