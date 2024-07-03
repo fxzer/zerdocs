@@ -6,7 +6,6 @@
   </a>
 </template>
 <script setup lang='ts'>
-import { ref, computed } from 'vue';
 const { tool } = defineProps({
   tool: {
     type: Object,

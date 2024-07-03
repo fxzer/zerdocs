@@ -12,11 +12,11 @@
     "isolatedModules": false,
     "skipLibCheck": true
   },
-  /* 指定编译文件或排除指定编译文件 */
   "include": [
-    "./docs/.vitepress/components/*.vue",
-    "./docs/.vitepress/components.d.ts",
-    "./docs/.vitepress/auto-imports.d.ts"
+    "docs/**/*.ts",
+    "docs/**/*.d.ts",
+    "docs/**/*.vue",
+    "docs/vite.config.ts"
   ],
   "exclude": ["**/node_modules/**", "**/dist/**"]
 }

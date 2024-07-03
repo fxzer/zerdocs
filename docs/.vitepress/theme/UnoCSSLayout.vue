@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
-import { nextTick, provide } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 const { isDark } = useData()
 

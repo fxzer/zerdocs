@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 
 set -e
-
 pnpm gs
 
 git add .

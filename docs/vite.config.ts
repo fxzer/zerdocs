@@ -27,7 +27,7 @@ export default defineConfig({
           componentPrefix: '',
         }),
       ],
-      dts: './.vitepress/components.d.ts',
+      dts: './.vitepress/types/components.d.ts',
       transformer: 'vue3',
     }),
     AutoImport({
@@ -41,7 +41,7 @@ export default defineConfig({
       imports: [
         "vue", // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
       ],
-      dts: './.vitepress/auto-imports.d.ts',
+      dts: './.vitepress/types/auto-imports.d.ts',
     }),
   ],
 });

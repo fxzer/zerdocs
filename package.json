@@ -7,8 +7,8 @@
     "build:preview": "pnpm build && pnpm preview",
     "gs": "node scripts/generate-sidebar.cjs",
     "pb:gitee": "zsh deploy.sh && node scripts/auto-update-pages.js",
-    "documate:upload": "documate upload",
     "clean": "rimraf node_modules && rm -rf dist && pnpm i",
+    "doc:update":"./scripts/update.sh",
     "lint": "eslint .",
     "lintf": "eslint --fix ."
   },

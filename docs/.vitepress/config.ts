@@ -6,8 +6,6 @@ import { withPwa } from '@vite-pwa/vitepress'
 export default withPwa(defineConfig({
   //根据环境变量决定打包路径
   // base: process.env.NODE_ENV === 'production' ? '/zerdocs/' : '/',
-  // lastUpdated: true,
-  // base:'/',
   base: '/zerdocs/',//配置打包获取静态资源路径
   outDir: '../dist',
   cleanUrls: true,  //去掉url中的.html后缀
@@ -17,12 +15,10 @@ export default withPwa(defineConfig({
   ignoreDeadLinks: true,//忽略无效链接
   markdown: {
     theme: {
-      // light:'github-light',
-      // dark: 'dracula-soft',
       light: 'vitesse-light',
       dark: 'vitesse-dark',
     },
-    // lineNumbers: true,
+    lineNumbers: true,
   },
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/zerdocs/logo.svg' }],
@@ -34,10 +30,7 @@ export default withPwa(defineConfig({
     },
     outline: 'deep',//侧边栏深度:数字或者deep
     outlineTitle: '文章目录',
-    //TODO
-    // outlineBadges: true,  //侧边栏是否显示标签
     logo: '/logo.svg',
-    // lastUpdatedText: '上次更新',
     returnToTopLabel: '返回顶部',
     sidebarMenuLabel: '目录',
     darkModeSwitchLabel: '主题切换',

@@ -20,7 +20,7 @@
 
 ::: details webpack: public/index.html + .env
 
-```env
+```zsh
 VUE_APP_TITLE=NAAS SDWAN
 BASE_URL=/xxx/admin
 ```

@@ -68,7 +68,7 @@ OUTPUT_DIR=/opt/nginx/www/html/music
 BASE_URL=/music/
 ```
 
-```env
+```zsh
 #.env.buildlocal   --本地打包预览环境变量
 OUTPUT_DIR=dist
 BASE_URL=/

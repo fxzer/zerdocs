@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed, ref, onErrorCaptured } from 'vue';
 const props = defineProps<{ pkg: string; path: string }>()
 
 const demoPath = computed(() => (props.pkg && props.path) ? `/${props.pkg}/${props.path}` : '')

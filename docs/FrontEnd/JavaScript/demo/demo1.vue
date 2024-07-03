@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 const blob = new Blob(['1,2,3'])
 const file = new File(['1,2,3'], 'test.txt', { type: 'text/plain' })
 const blobArrayBuffer = await blob.arrayBuffer()
