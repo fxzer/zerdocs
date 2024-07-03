@@ -202,6 +202,10 @@ export default {
           "link": "/FrontEnd/JavaScript/文件系统"
         },
         {
+          "text": "时间格式化",
+          "link": "/FrontEnd/JavaScript/时间格式化"
+        },
+        {
           "text": "易混淆的位置属性",
           "link": "/FrontEnd/JavaScript/易混淆的位置属性"
         },
