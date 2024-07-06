@@ -103,3 +103,21 @@
 .level-1.is-active {
   color: var(--vp-c-brand-light) !important;
 }
+
+/* 首页 VPFeature */
+.container .VPFeature{
+  display: flex !important;
+  height: 100px !important;
+}
+.container .VPFeature.link:hover{
+    border: 1px solid  var(--vp-c-brand-light) !important;  
+}
+.container .VPFeature > article{
+  display: block !important;
+  width: 100% !important;
+}
+.container .VPFeature > article .icon{
+  float: left !important;
+  margin-right:10px !important;
+}
+

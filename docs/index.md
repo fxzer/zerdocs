@@ -3,7 +3,6 @@ layout: home
 hero:
   name: ZerDocs
   text: VitePress Front-End Learning Collection
-  # tagline: "座右铭: "
   image:
     src: https://zerdocs.oss-cn-shanghai.aliyuncs.com/202302041807975.svg
     alt: ZerDocs
@@ -17,7 +16,7 @@ hero:
 features:
   - icon: 🎨
     title: FrontEnd
-    details: 前端三件套相关基础积累。
+    details: 前端三件套基础积累。
     link: /FrontEnd/Git/Terminal终端美化
   - icon: 🚚
     title: Framework
@@ -27,52 +26,115 @@ features:
     title: Problem
     details: 积累编程中遇到的坑。
     link: /Problem/
-  - icon: 🧑‍💻
-    title: Interview
-    details: 归纳前端经典面试题。
-    link: /Interview/
-  - icon: 📝
-    title:  ECMAScript6
-    details:  阮一峰 ECMAScript6 教程
-    link: https://fxzer.github.io/es6-vitepress
-  - icon: 📝
-    title: TypeScript
-    details: TypeScript 中英文档翻译
-    link:  https://fxzer.github.io/tsdoc-vitepress/zh/
-  - icon: 📝
-    title: TypeScript
-    details: TypeScript 教程
-    link: https://fxzer.github.io/typescript-tutorial-vitepress
-  - icon: 📝
-    title: Shikiji
-    details: Shikiji（代码高亮库） 中文文档
-    link: https://fxzer.github.io/shikiji
-  - icon: 💫
-    title: Canvas
-    details: 有趣的 Canvas 练习
-    link:  https://fxzer.github.io/funny-canvas/#/a
-  - icon: 💫
-    title: X-Admin
-    details: 后台管理系统模板
-    link:  https://fxzer.github.io/x-admin
-  - icon: 💫
-    title: Json-Viewer
-    details: JSON 可视化工具网站
-    link:  https://fxzer.github.io/json-viewer
-  - icon: 💫
-    title: Github-Trends
-    details: Github 趋势榜单速览网站
-    link:  https://fxzer.github.io/github-trends
-  - icon: 💫
-    title: 数字华容道游戏
-    details: 数字华容道游戏（Nuxt3 + UnoCss）
-    link:  https://fxzer.github.io/digital-huarong-road/
-  - icon: 💫
-    title: Tailwind CSS
-    details: Tailwind CSS 案例练习
-    link: https://fxzer.github.io/tailwindcss-showcase
-  - icon: 💫
-    title: Apple
-    details: Apple 官网模仿练习
-    link: https://fxzer.github.io/apple-site
 ---
+
+<script setup>
+  const projects = {
+  Vue: [
+    {
+      name: 'Json Viewer',
+      link: 'https://github.com/fxzer/json-viewer',
+      desc: 'JSON 可视化网站',
+      site: 'https://fxzer.github.io/json-viewer'
+    },
+    {
+      name: 'x-admin',
+      link: 'https://github.com/fxzer/x-admin',
+      desc: 'Vue3后台管理系统模板',
+      site: 'https://x-admin-iota.vercel.app'
+    },
+    {
+      name: 'funny-canvas',
+      link: 'https://github.com/fxzer/funny-canvas',
+      desc: '有趣的 Canvas 案例',
+      site: 'https://fxzer.github.io/funny-canvas'
+    },
+    {
+      name: 'dir-vis',
+      link: 'https://github.com/fxzer/dir-vis',
+      desc: '纯前端目录可视化',
+      site: 'https://fxzer.github.io/dir-vis'
+    },
+    {
+      name: 'network-topology-graph',
+      link: 'https://github.com/fxzer/network-topology-graph',
+      site: 'https://fxzer.github.io/network-topology-graph',
+      desc: '网络拓扑图'
+    },
+    {
+      name: 'wyy-music-vue2',
+      link: 'https://github.com/fxzer/wyy-music-vue2',
+      desc: '仿网易云音乐(Vue2)',
+      site: ''
+    },
+      {
+        name: 'tailwindcss-showcase',
+        link: 'https://github.com/fxzer/tailwindcss-showcase',
+        desc: 'Tailwind CSS 案例一比一模仿',
+      },
+      {
+        name: 'apple-site',
+        link: 'https://github.com/fxzer/apple-site',
+        desc: 'Apple 官网模仿练习',
+        site: 'https://fxzer.github.io/apple-site'
+      }
+  ],
+  Nuxt: [
+    {
+      name: 'github-trends',
+      link: 'https://github.com/fxzer/github-trends',
+      desc: 'Github 趋势榜单速览网站',
+      site: 'https://fxzer.github.io/github-trends'
+    },
+    {
+      name: 'digital-huarong-road',
+      link: 'https://github.com/fxzer/digital-huarong-road',
+      desc: '数字华容道游戏',
+      site: 'https://fxzer.github.io/digital-huarong-road'
+    },
+    {
+      name: 'nuxt-hk',
+      link: 'https://github.com/fxzer/nuxt-hk',
+      desc: 'Nuxt 版 HackerNews 网站',
+      site: 'https://nuxt-hk-one.vercel.app'
+    }
+  ],
+  TypeScript: [
+    {
+      name: 'fxzer/utils',
+      link: 'https://github.com/fxzer/utils',
+      desc: '常用工具函数集合',
+      site: ''
+    },
+    {
+      name: 'Vitesse Dark Custom',
+      link: 'https://github.com/antfu/vscode-theme-vitesse.git',
+      desc: '继承自 Vitesse Theme 自定义的 VS Code 主题',
+      site: 'https://marketplace.visualstudio.com/items?itemName=fxzer.theme-vitesse-dark-custom'
+    },
+    {
+      name: 'fxzer/fxr-cli',
+      link: 'https://github.com/fxzer/fxr-cli',
+      desc: '自定义的脚手架，用于快速搭建项目',
+      site: 'https://www.npmjs.com/package/fxr-cli'
+    }
+  ],
+  Electron: [
+    {
+      name: 'electron-dark-light-joint',
+      link: 'https://github.com/fxzer/electron-dark-light-joint',
+      desc: '亮暗图片拼接工具',
+      site: ''
+    }
+  ],
+  React: [
+    {
+      name: 'x-admin-react',
+      link: 'https://github.com/fxzer/x-admin-react',
+      desc: '...',
+      site: ''
+    }
+  ]
+};
+</script>
+<ListProjects :projects="projects" />
