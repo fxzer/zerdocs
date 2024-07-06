@@ -2,14 +2,12 @@
 import "./styles/index.css";
 import { h  } from 'vue'
 import 'uno.css'
-import {  inBrowser, useRoute } from 'vitepress';
+import {useRoute } from 'vitepress';
 import Theme from "vitepress/theme";
 import mediumZoom from 'medium-zoom';
 import UnoCSSLayout from './UnoCSSLayout.vue'
 import DemoWrap from "./components/DemoWrap.vue";
 import ListProjects from "./components/ListProjects.vue";
-if (inBrowser)
-  import('./pwa')
 
 export default {
   ...Theme,
