@@ -105,19 +105,18 @@
 }
 
 /* 首页 VPFeature */
-.container .VPFeature{
+.container .VPFeature {
   display: flex !important;
   height: 100px !important;
 }
-.container .VPFeature.link:hover{
-    border: 1px solid  var(--vp-c-brand-light) !important;  
+.container .VPFeature.link:hover {
+  border: 1px solid var(--vp-c-brand-light) !important;
 }
-.container .VPFeature > article{
+.container .VPFeature > article {
   display: block !important;
   width: 100% !important;
 }
-.container .VPFeature > article .icon{
+.container .VPFeature > article .icon {
   float: left !important;
-  margin-right:10px !important;
+  margin-right: 10px !important;
 }
-

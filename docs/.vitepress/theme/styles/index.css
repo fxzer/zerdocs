@@ -1,7 +1,6 @@
 @import url('./rainbow.css');
 @import url('./overrides.css');
 
-
 /* 图片预览 */
 .medium-zoom-overlay {
   z-index: 30;
