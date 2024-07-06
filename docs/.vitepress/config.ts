@@ -2,10 +2,8 @@ import getNavs from "./configs/nav"
 import socialLinks from "./configs/socialLinks"
 import sidebar from './sidebar/index'
 import { defineConfig } from 'vitepress'
-import { pwa } from './build/plugins/pwa'
-import { withPwa } from '@vite-pwa/vitepress'
 
-export default withPwa(defineConfig({
+export default defineConfig({
   //根据环境变量决定打包路径
   // base: process.env.NODE_ENV === 'production' ? '/zerdocs/' : '/',
   base: '/zerdocs/',//配置打包获取静态资源路径
@@ -53,8 +51,7 @@ export default withPwa(defineConfig({
     sidebar,
 
   },
-  pwa,
   sitemap: {
     hostname: 'https://fxzer.github.io/zerdocs',
   }
-}))
+})
