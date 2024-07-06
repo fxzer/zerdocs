@@ -69,6 +69,24 @@ export default withPwa(defineConfig({
           sizes: '192x192',
           purpose: 'maskable',
         },
+        {
+          src: 'pwa-144x144.png',
+          type: 'img/png',
+          sizes: '144x144',
+          purpose: 'any',
+        },
+        {
+          src: 'pwa-120x120.png',
+          type: 'img/png',
+          sizes: '120x120',
+          purpose: 'any',
+        },
+        {
+          src: 'pwa-72x72.png',
+          type: 'img/png',
+          sizes: '72x72',
+          purpose: 'maskable',
+        },
       ],
     },
     workbox: {
