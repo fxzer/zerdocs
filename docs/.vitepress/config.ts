@@ -2,7 +2,9 @@ import getNavs from "./configs/nav"
 import socialLinks from "./configs/socialLinks"
 import sidebar from './sidebar/index'
 import { defineConfig } from 'vitepress'
+import { pwa } from './build/plugins/pwa'
 import { withPwa } from '@vite-pwa/vitepress'
+
 export default withPwa(defineConfig({
   //根据环境变量决定打包路径
   // base: process.env.NODE_ENV === 'production' ? '/zerdocs/' : '/',
@@ -21,8 +23,9 @@ export default withPwa(defineConfig({
     lineNumbers: true,
   },
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/zerdocs/logo.svg' }],
     ['link', { rel: 'icon', href: '/zerdocs/favicon.ico' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/zerdocs/logo.svg' }],
+    ['link', { rel: 'apple-touch-icon', href: '/zerdocs/logo.svg' }]
   ],
   themeConfig: {
     search: {
@@ -50,50 +53,7 @@ export default withPwa(defineConfig({
     sidebar,
 
   },
-  pwa: {
-    outDir: '../dist/',
-    manifest: {
-      name: 'zerdocs',
-      short_name: 'zerdocs',
-      theme_color: '#ffffff',
-      icons: [
-        {
-          src: 'pwa-512x512.png',
-          type: 'img/png',
-          sizes: '512x512',
-          purpose: 'any',
-        },
-        {
-          src: 'pwa-192x192.png',
-          type: 'img/png',
-          sizes: '192x192',
-          purpose: 'maskable',
-        },
-        {
-          src: 'pwa-144x144.png',
-          type: 'img/png',
-          sizes: '144x144',
-          purpose: 'any',
-        },
-        {
-          src: 'pwa-120x120.png',
-          type: 'img/png',
-          sizes: '120x120',
-          purpose: 'any',
-        },
-        {
-          src: 'pwa-72x72.png',
-          type: 'img/png',
-          sizes: '72x72',
-          purpose: 'maskable',
-        },
-      ],
-    },
-    workbox: {
-      clientsClaim: true, //PWA注册后马上接管网站
-      skipWaiting: true//跳过 atvative生命周期等待上一次 service-worker取消注册
-    }
-  },
+  pwa,
   sitemap: {
     hostname: 'https://fxzer.github.io/zerdocs',
   }

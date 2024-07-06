@@ -2,11 +2,10 @@
 import { defineConfig } from "vite";
 //全局导入导致移动端菜单栏打开迟钝
 import { resolve } from "path";
+import { UnocssPlugin } from "./.vitepress/build/plugins/unocss";
 import AutoImport from "unplugin-auto-import/vite"; //作用:自动帮我们引入声明的 函数, 并自动生成 ts 类型声明文件。
 import IconsResolver from 'unplugin-icons/resolver'//作用:将图标转换为组件
 import Components from 'unplugin-vue-components/vite'//作用:自动帮我们引入全局组件，不用手动引入。并生成 ts 类型声明文件
-import Unocss from 'unocss/vite'
-import { presetAttributify, presetIcons, presetUno,transformerVariantGroup } from 'unocss'
 import Icons from 'unplugin-icons/vite'
 export default defineConfig({
   optimizeDeps: {
@@ -20,36 +19,10 @@ export default defineConfig({
     }
   },
   plugins: [
+    UnocssPlugin,
     Icons({
       autoInstall: true, // 自动安装图标集
       defaultClass: 'cursor-pointer wh-5', // 默认类名
-    }),
-    Unocss({
-      theme: {
-       colors: {
-        'brand': 'var(--vp-c-brand-light)',
-        'soft': 'var(--vp-c-bg-soft)',
-       } 
-      },
-      shortcuts: [
-      ],
-      presets: [
-        presetUno({
-          dark: 'class',
-          preflight: false,
-        }),
-        presetAttributify(),
-        // presetIcons({
-        //   scale: 1.2,
-        //   extraProperties: {
-        //     'display': 'inline-block',
-        //     'vertical-align': 'text-bottom',
-        //   },
-        // }),
-      ],
-      transformers: [
-        transformerVariantGroup(), // 样式分组
-      ],
     }),
 
     Components({

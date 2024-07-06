@@ -6,6 +6,11 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "types": [
+      "vite/client",
+      "vite-plugin-pwa/client",
+      "vitepress"
+    ],
     "strict": false,
     "noUnusedLocals": true,
     "esModuleInterop": true,
