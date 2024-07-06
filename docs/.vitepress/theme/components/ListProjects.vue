@@ -39,13 +39,13 @@ function slug(name: string) {
           :title="item.name"
         >
           <div class="flex-auto">
-            <div class="font-semibold mb1 flex items-center">
+            <div class="font-semibold mb1 flex items-center ">
               {{ item.name }}
-              <a :href="item.link" target="_blank" class="i-material-symbols-light:code-blocks-outline ml-2 mr-1" title="源码" >
-                <IconCode class='hover:text-brand' />
+              <a :href="item.link" target="_blank" class=" ml-2 mr-1" title="源码" >
+                <IconCode class='text-gray hover:text-brand' />
               </a>
               <a v-if="item?.site?.trim()" :href="item.site" target="_blank" title="预览">
-                <IconPreview class='hover:text-brand' />
+                <IconPreview class='text-gray hover:text-brand' />
                 </a>     
             </div>
             <div class="desc text-sm opacity-50 font-normal" v-html="item.desc" />
