@@ -13,7 +13,6 @@
     "lintf": "eslint --fix ."
   },
   "dependencies": {
-    "fast-glob": "^3.3.2",
     "medium-zoom": "^1.1.0"
   },
   "devDependencies": {
@@ -22,7 +21,6 @@
     "eslint": "^9.6.0",
     "eslint-plugin-format": "^0.1.2",
     "lint-staged": "^15.2.7",
-    "markdown-it": "^14.1.0",
     "puppeteer": "^22.12.1",
     "sass": "^1.77.6",
     "simple-git-hooks": "^2.11.1",

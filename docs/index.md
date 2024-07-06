@@ -70,33 +70,34 @@ features:
       {
         name: 'tailwindcss-showcase',
         link: 'https://github.com/fxzer/tailwindcss-showcase',
+        site:'https://fxzer.github.io/tailwindcss-showcase/#/'
         desc: 'Tailwind CSS 案例一比一模仿',
       },
       {
         name: 'apple-site',
         link: 'https://github.com/fxzer/apple-site',
-        desc: 'Apple 官网模仿练习',
         site: 'https://fxzer.github.io/apple-site'
+        desc: 'Apple 官网模仿练习',
       }
   ],
   Nuxt: [
     {
       name: 'github-trends',
       link: 'https://github.com/fxzer/github-trends',
-      desc: 'Github 趋势榜单速览网站',
       site: 'https://fxzer.github.io/github-trends'
+      desc: 'Github 趋势榜单速览网站',
     },
     {
       name: 'digital-huarong-road',
       link: 'https://github.com/fxzer/digital-huarong-road',
-      desc: '数字华容道游戏',
       site: 'https://fxzer.github.io/digital-huarong-road'
+      desc: '数字华容道游戏',
     },
     {
       name: 'nuxt-hk',
       link: 'https://github.com/fxzer/nuxt-hk',
-      desc: 'Nuxt 版 HackerNews 网站',
       site: 'https://nuxt-hk-one.vercel.app'
+      desc: 'Nuxt 版 HackerNews 网站',
     }
   ],
   TypeScript: [
@@ -109,14 +110,14 @@ features:
     {
       name: 'Vitesse Dark Custom',
       link: 'https://github.com/antfu/vscode-theme-vitesse.git',
-      desc: '继承自 Vitesse Theme 自定义的 VS Code 主题',
       site: 'https://marketplace.visualstudio.com/items?itemName=fxzer.theme-vitesse-dark-custom'
+      desc: '继承自 Vitesse Theme 自定义的 VS Code 主题',
     },
     {
       name: 'fxzer/fxr-cli',
       link: 'https://github.com/fxzer/fxr-cli',
-      desc: '自定义的脚手架，用于快速搭建项目',
       site: 'https://www.npmjs.com/package/fxr-cli'
+      desc: '自定义的脚手架，用于快速搭建项目',
     }
   ],
   Electron: [
