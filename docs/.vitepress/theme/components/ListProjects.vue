@@ -45,7 +45,7 @@ function slug(name: string) {
                 <IconCode class='text-gray hover:text-brand' />
               </a>
               <a v-if="item?.site?.trim()" :href="item.site" target="_blank" title="预览">
-                <IconPreview class='text-gray hover:text-brand' />
+                <IconPreview class='!text-gray hover:!text-brand' />
                 </a>     
             </div>
             <div class="desc text-sm opacity-50 font-normal" v-html="item.desc" />

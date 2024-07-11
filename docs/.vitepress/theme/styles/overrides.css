@@ -112,6 +112,9 @@
 .container .VPFeature.link:hover {
   border: 1px solid var(--vp-c-brand-light) !important;
 }
+.container .VPFeature > article .details{
+  line-height: 1em !important;
+}
 .container .VPFeature > article {
   display: block !important;
   width: 100% !important;
