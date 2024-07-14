@@ -20,7 +20,7 @@ features:
     link: /FrontEnd/Git/Terminal终端美化
   - icon: 🚚
     title: Framework
-    details: 总结前段框架学习笔记。
+    details: 总结前端框架学习笔记。
     link: /Framework/Vue/列表最后一条数据删除处理
   - icon: 📝
     title: Problem
