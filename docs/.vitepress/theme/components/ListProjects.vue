@@ -6,6 +6,9 @@ defineProps<{ projects: Record<string, any> }>()
 function slug(name: string) {
   return name.toLowerCase().replace(/[\s\\/]+/g, '-')
 }
+function onClick(item){
+  window.open(item.link)
+}
 </script>
 
 <template>
@@ -36,19 +39,23 @@ function slug(name: string) {
           v-for="item, idx in projects[key]"
           :key="idx"
           class="p6 rounded-lg relative flex items-center bg-soft"
+          border="~  solid transparent hover:brand group"
           :title="item.name"
+          @click="onClick(item)"
         >
           <div class="flex-auto">
             <div class="font-semibold mb1 flex items-center ">
               {{ item.name }}
-              <a :href="item.link" target="_blank" class=" ml-2 mr-1" title="源码" >
-                <IconCode class='text-gray hover:text-brand' />
-              </a>
-              <a v-if="item?.site?.trim()" :href="item.site" target="_blank" title="预览">
-                <IconPreview class='!text-gray hover:!text-brand' />
-                </a>     
             </div>
             <div class="desc text-sm opacity-50 font-normal" v-html="item.desc" />
+          </div>
+          <div flex-col text-lg>
+            <a :href="item.link" target="_blank"  title="源码" @click.native.stop >
+                <IconCode class='text-gray hover:text-brand' />
+            </a>
+            <a v-if="item?.site?.trim()" :href="item.site" target="_blank" title="预览" @click.native.stop>
+              <IconPreview class='!text-gray hover:!text-brand' mt1/>
+            </a>    
           </div>
         </div>
       </div>
