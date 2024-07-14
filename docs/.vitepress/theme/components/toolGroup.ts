@@ -48,6 +48,11 @@ interface Tool {
       url: 'https://ant.design/index-cn/'
     },
     {
+      name: 'NaiveUI',
+      icon:'https://www.naiveui.com/assets/naivelogo-BdDVTUmz.svg',
+      url: 'https://www.naiveui.com/zh-CN/os-theme/docs/installation'
+    },
+    {
       name: 'Arco Design',
       icon:'https://unpkg.byted-static.com/latest/byted/arco-config/assets/favicon.ico',
       url: 'https://arco.design/vue/docs/start'
@@ -107,7 +112,7 @@ interface Tool {
         url: 'https://arco.design/palette/list'
       },
       {
-        name: 'ioDraw',
+        name: 'CoolHue',
         icon: 'https://webkul.github.io/coolhue/images/coolhue-logo.png',
         url: 'https://webkul.github.io/coolhue/'
       },
@@ -131,9 +136,24 @@ interface Tool {
         url: 'https://coolors.co/'
       },
       {
+        name: 'Realtime Colors',
+        icon:'https://www.realtimecolors.com/favicon.png',
+        url: 'https://www.realtimecolors.com/'
+      },
+      {
+        name: 'EvaDesign',
+        icon:'https://colors.eva.design/favicon.ico',
+        url: 'https://colors.eva.design/'
+      },
+      {
         name: 'MyColor',
         icon:'https://mycolor.space/img/color-space-logo.png',
         url: 'https://mycolor.space/'
+      },
+      {
+        name: 'CoolBackground',
+        icon:'https://coolbackgrounds.io/images/favicon-fe5a0ff5.png',
+        url: 'https://coolbackgrounds.io/'
       },
     ]
 

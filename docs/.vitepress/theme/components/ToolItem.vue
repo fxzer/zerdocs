@@ -1,44 +1,44 @@
-<template>
-  <a class="tool-item" :href="tool.url" target="blank">
-    <Loading class="tool-icon" v-show="!isLoaded" />
-    <img class="tool-icon" v-show="isLoaded" :alt="tool.name" :src="src" :onload="onLoad" :onError="onError">
-    <p class="tool-name">{{ tool.name }}</p>
-  </a>
-</template>
 <script setup lang='ts'>
 const { tool } = defineProps({
   tool: {
     type: Object,
     required: true,
-  }
+  },
 })
 const isLoaded = ref(false)
 
 const src = computed(() => {
-  let { icon, iconType, url } = tool
-  return icon ? icon : (url + 'favicon.' + (iconType ? iconType : 'ico'))
+  const { icon, iconType, url } = tool
+  return icon || (`${url}favicon.${iconType || 'ico'}`)
 })
 
-const onError = (e: any) => {
-  e.target.src = 'https://zerdocs.oss-cn-shanghai.aliyuncs.com/202302062047848.svg'
+const backupSrc = 'https://zerdocs.oss-cn-shanghai.aliyuncs.com/202302062047848.svg'
+function onError(e) {
+  if (e.target.src !== backupSrc) {
+    e.target.src = backupSrc
+  }
+  else {
+    console.warn('备用图片也加载失败')
+  }
 }
-const onLoad = (e: any) => {
+function onLoad(e) {
   isLoaded.value = true
   e.target.onerror = null
   e.target.onload = null
 }
 </script>
+
+<template>
+  <a class="tool-item" :href="tool.url" target="blank">
+    <Loading v-show="!isLoaded" class="tool-icon" />
+    <img v-show="isLoaded" class="tool-icon" :alt="tool.name" :src="src" :onload="onLoad" :onerror="onError">
+    <p class="tool-name">{{ tool.name }}</p>
+  </a>
+</template>
+
 <style scoped lang='scss'>
 $hover-color: linear-gradient(135deg, #5fe687 10%, #04d1e7 100%);
 $gradient-color: linear-gradient(120deg, #bd34fe, var(--vp-c-brand-light));
-
-.dark {
-  .tool-item {
-    .tool-icon {
-      border: 1px solid #555;
-    }
-  }
-}
 
 .tool-item {
   width: 90px;
@@ -50,12 +50,12 @@ $gradient-color: linear-gradient(120deg, #bd34fe, var(--vp-c-brand-light));
     width: 60px;
     height: 60px;
     margin: 0 15px 5px 15px;
-    border: 1px solid #eee;
+    border: 1px solid #a8a8a875;
     border-radius: 8px;
     transition: all 0.2s ease-in-out;
 
     &:hover {
-      border: 1px solid var(--vp-c-green);
+      border: 1px solid var(--vp-c-brand-light);
     }
   }
 
