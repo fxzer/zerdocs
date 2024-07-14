@@ -36,6 +36,7 @@ export default defineConfig({
       dts: './.vitepress/types/components.d.ts',
       transformer: 'vue3',
     }),
+
     AutoImport({
       include: [
         //导入目标文件类型

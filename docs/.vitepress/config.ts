@@ -1,7 +1,7 @@
 import getNavs from "./configs/nav"
 import socialLinks from "./configs/socialLinks"
-import sidebar from './sidebar/index'
 import { defineConfig } from 'vitepress'
+import AutoSidebar from 'vite-plugin-vitepress-auto-sidebar';
 
 export default defineConfig({
   //根据环境变量决定打包路径
@@ -25,6 +25,9 @@ export default defineConfig({
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/zerdocs/logo.svg' }],
     ['link', { rel: 'apple-touch-icon', href: '/zerdocs/logo.svg' }]
   ],
+  vite: {
+    plugins: [AutoSidebar({ deletePrefix: '.', collapsed: false, ignoreList:['public','demo','index.md'] })],
+  },
   themeConfig: {
     search: {
       provider: 'local',
@@ -48,7 +51,6 @@ export default defineConfig({
       pattern: "https://github.com/fxzer/zerdocs/edit/master/docs/:path",
     },
     socialLinks,
-    sidebar,
 
   },
   sitemap: {

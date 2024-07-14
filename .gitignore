@@ -20,3 +20,4 @@ meta.json
 .vercel
 .DS_Store
 .DS_Store
+vite.config.ts.timestamp*

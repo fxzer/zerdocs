@@ -1,19 +1,19 @@
 {
   "type": "module",
   "scripts": {
-    "dev": "pnpm gs  && vitepress dev docs",
+    "dev": " vitepress dev docs",
     "build": "vitepress build docs",
     "preview": "vitepress preview docs",
     "build:preview": "pnpm build && pnpm preview",
-    "gs": "node scripts/generate-sidebar.cjs",
-    "pb:gitee": "zsh deploy.sh && node scripts/auto-update-pages.js",
+    "pb:gitee": "zsh deploy.sh && nde scripts/auto-update-pages.js",
     "clean": "rimraf node_modules && rm -rf dist && pnpm i",
     "doc:update": "./scripts/update.sh",
     "lint": "eslint .",
     "lintf": "eslint --fix ."
   },
   "dependencies": {
-    "medium-zoom": "^1.1.0"
+    "medium-zoom": "^1.1.0",
+    "vite-plugin-vitepress-auto-sidebar": "^1.6.5"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.21.3",
