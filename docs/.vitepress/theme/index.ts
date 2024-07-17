@@ -8,6 +8,8 @@ import mediumZoom from 'medium-zoom';
 import UnoCSSLayout from './UnoCSSLayout.vue'
 import DemoWrap from "./components/DemoWrap.vue";
 import ListProjects from "./components/ListProjects.vue";
+import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
+import '@shikijs/vitepress-twoslash/style.css'
 
 export default {
   ...Theme,
@@ -17,20 +19,24 @@ export default {
     // @ts-ignore
       new mediumZoom('[data-zoomable]', { background: 'var(--vp-c-bg)' });
     };
+    // @ts-ignore
     onMounted(() => {
       initZoom();
     });
+    // @ts-ignore
     watch(
       () => route.path,
+    // @ts-ignore
       () => nextTick(() => initZoom())
     );
   },
   Layout: () => {
     return h(UnoCSSLayout, null, { })
   },
-  enhanceApp(ctx) {
+  enhanceApp({app}) {
     // 注册全局组件
-    ctx.app.component("DemoWrap", DemoWrap);
-    ctx.app.component("ListProjects", ListProjects);
+    app.use(TwoslashFloatingVue) 
+    app.component("DemoWrap", DemoWrap);
+    app.component("ListProjects", ListProjects);
   },
 };

@@ -12,12 +12,14 @@
     "lintf": "eslint --fix ."
   },
   "dependencies": {
+    "client": "link:@shikijs/vitepress-twoslash/client",
     "medium-zoom": "^1.1.0",
     "vite-plugin-vitepress-auto-sidebar": "^1.6.5"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.22.2",
     "@iconify/json": "^2.2.227",
+    "@shikijs/vitepress-twoslash": "^1.10.3",
     "eslint": "^9.7.0",
     "eslint-plugin-format": "^0.1.2",
     "lint-staged": "^15.2.7",

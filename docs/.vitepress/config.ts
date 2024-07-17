@@ -2,6 +2,7 @@ import getNavs from "./configs/nav"
 import socialLinks from "./configs/socialLinks"
 import { defineConfig } from 'vitepress'
 import AutoSidebar from 'vite-plugin-vitepress-auto-sidebar';
+import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 
 export default defineConfig({
   //根据环境变量决定打包路径
@@ -19,6 +20,10 @@ export default defineConfig({
       dark: 'vitesse-dark',
     },
     lineNumbers: true,
+    codeTransformers: [
+      // @ts-ignore
+      transformerTwoslash() 
+    ]
   },
   head: [
     ['link', { rel: 'icon', href: '/zerdocs/favicon.ico' }],
