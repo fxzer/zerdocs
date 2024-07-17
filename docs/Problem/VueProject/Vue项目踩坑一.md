@@ -276,3 +276,23 @@ methods: {
   }
 }
 ```
+
+## 自定义表单验证
+
+坑：回调函数自定义表单验证提示消息不生效，原因：validator 和 message 不能同时配置
+
+```js
+[
+  { validator: (rule, value, cb) => {
+    const reg = /^\d{1,3}\.{3}\d{1,3}:\d{1,5}$/
+    const invalids = value.filter(v => !reg.test(v))
+    if (invalids.length) {
+      const msg = `地址格式不正确: ${invalids.join(',   ')}`
+      cb(new Error(msg))
+      return
+    }
+    cb()
+  }, message: '', // [!code error]   // message 优先级更高
+  trigger: 'blur' }
+]
+```
