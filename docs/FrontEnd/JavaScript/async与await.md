@@ -49,7 +49,7 @@ new Promise((resolve, reject) => {
   })
 
 new Promise((resolve, reject) => {
-  reject('fail') // 失败执行
+  reject(new Error('fail')) // 失败执行
 })
   .then((result) => {
     alert(result)
@@ -89,46 +89,47 @@ new Promise((resolve, reject) => {
 
 > async标记该函数就是一个异步函数，不会阻塞其他执行逻辑的执行，被async标记的函数返回也是promise对象
 
-> （**async 和 await必须成对出现，不能用在普通函数上**）
+> （**async 和 await必须成对出现**）
 
 ```js
-async fn1() {
- const result = await new Promise(function(resolve){
-    setTimeout(function(){
+async function fn1() {
+  const result = await new Promise((resolve) => {
+    setTimeout(() => {
       resolve('fn1执行结果')
-    },5000)
- })
- console.log(result)
-},
+    }, 5000)
+  })
+  console.log(result)
+}
 
-fn2(){
-  this.fn1() //async的函数并不会阻塞后续同步代码执行
-  console.log('fn2执行') //先执行
+function fn2() {
+  this.fn1() // async的函数并不会阻塞后续同步代码执行
+  console.log('fn2执行') // 先执行
 }
 ```
 
 #### 实现fn1先执行
 
 ```js
- async fn2(){
-     await this.fn1()
-     console.log('fn2执行')
-   }
+async function fn2() {
+  await this.fn1()
+  console.log('fn2执行')
+}
 ```
 
 #### 捕获异常
 
 ```js
-   async  getCatch() {
-      try { // 通过 try/catch捕获异常
-        await new Promise(function (resolve, reject) {
-          reject(new Error('失败'))
-        })
-         console.log('log1')
-      } catch (error) {
-         console.log('log2')
-      }
-   }
+async function getCatch() {
+  try { // 通过 try/catch捕获异常
+    await new Promise((resolve, reject) => {
+      reject(new Error('失败'))
+    })
+    console.log('log1')
+  }
+  catch (error) {
+    console.log('log2')
+  }
+}
 ```
 
 #### 使用陷阱
@@ -136,60 +137,59 @@ fn2(){
 > 1.会打破异步操作并行
 
 ```js
-async  fn1(){
-    const a = await fetch("http://.../post/1")
-    const b = await fetch("http://.../post/2")
-    //a任务需要等到b任务执行完后才执行
+async function fn1() {
+  const a = await fetch('http://.../post/1')
+  const b = await fetch('http://.../post/2')
+  // a任务需要等到b任务执行完后才执行
 }
 ```
 
 **高效做法**
 
 ```js
-async  fn1(){
-    const promistA =  fetch("http://.../post/1")
-    const promistB =  fetch("http://.../post/2")
-    //利用 Promise.all组合
-    const [a,b] = await Promise.all([promiseA,pormiseB])
-
+async function fn1() {
+  const promistA = fetch('http://.../post/1')
+  const promistB = fetch('http://.../post/2')
+  // 利用 Promise.all组合
+  const [a, b] = await Promise.all([promiseA, pormiseB])
 }
 
 ```
 
-> 2.循环中执行异步操作，不能直接使用forEach,map等方法
+> 2.循环中执行异步操作，不能直接在forEach,map等方法使用
 
 ```js
-async  fn(){
-    [1,2,3].forEach(await (item)=>{
+/* async  function fn(){
+    [1,2,3].forEach(await (item) => { //  [!code error]
         await someAsyncOpt()
     })//会立刻返回，并不会等待所有异步操作执行完
     console.log('done')
-}
+} */
 ```
 
 **解决方法**
 
 ```js
-async  fn(){
-   for(let i of  [1,2,3]){
-		await someAsyncOpt()
-   } //等待所有异步操作执行完毕在执行后面代码
-    console.log('done')
+async function fn() {
+  for (const i of [1, 2, 3]) {
+    await someAsyncOpt()
+  } // 等待所有异步操作执行完毕在执行后面代码
+  console.log('done')
 }
 ```
 
 **高效做法**
 
 ```js
-async  fn(){
-    const promises = [
-        someAsyncOpt(),
-        someAsyncOpt(),
-        someAsyncOpt(),
-    ]
-   for await (let res of promises ){
-		//...
-   } //等待所有异步操作执行完毕在执行后面代码
-    console.log('done')
+async function fn() {
+  const promises = [
+    someAsyncOpt(),
+    someAsyncOpt(),
+    someAsyncOpt(),
+  ]
+  for await (const res of promises) {
+    // ...
+  } // 等待所有异步操作执行完毕在执行后面代码
+  console.log('done')
 }
 ```

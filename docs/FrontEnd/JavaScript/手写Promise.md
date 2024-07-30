@@ -148,7 +148,7 @@ if (this.status === Promise.REJECTED) {
 const p1 = new Promise((resolve, reject) => {
   // resolve('大功告成！')S
   setTimeout(() => {
-    reject('一败涂地！')
+    reject(new Error('一败涂地！'))
     console.log('反败为胜！')
   }, 100)
 })
@@ -285,10 +285,6 @@ then(onFulfilled, onRejected) {
 }
 ```
 
-**执行结果：**
-
-<img src="https://gitee.com/GiteeFXJ/picstore/raw/master/codepic/20210708174000.png"/>
-
 ## 七、返回值的判断与处理
 
 > 判断并分别处理返回值为Promise、普通值的情况
@@ -409,14 +405,13 @@ parse(result, resolve, reject) {
 
 ## 九、返回类型约束
 
-> 当前Promise不能返回自己
->
-> ```js
-> let p = promise.then(value => return p) //原生的会报错:TypeError
-> ```
+```js
+// 当前Promise不能返回自己 ，原生的会报错:TypeError
+const p = promise.then(value => p)
+```
 
 ```js
-then(onFulfilled, onRejected) {
+then(onFulfilled, onRejected){
     if (typeof onFulfilled != "function") {
         onFulfilled = value => value;
     }
@@ -616,7 +611,7 @@ class Promise {
         // 遍历回调函数数组，传值并执行onRejected函数
         this.callbacks.map((callback) => {
           callback.onRejected(value)
-          	  })
+        })
       })
     }
   }
