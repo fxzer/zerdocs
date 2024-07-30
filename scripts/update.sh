@@ -10,4 +10,3 @@ git push
 
 # vercel --prod
 
-cd -

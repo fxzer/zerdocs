@@ -26,6 +26,19 @@ features:
     title: Problem
     details: 积累编程中遇到的坑。
     link: /Problem/
+  - icon: 📝
+    title:  ES6 教程
+    details:  阮一峰 ECMAScript6 教程 (VitePress版)
+    link: https://fxzer.github.io/es6-vitepress
+  - icon: 📝
+    title: TypeScript 教程
+    details: 阮一峰 TypeScript 教程  (VitePress版)
+    link: https://fxzer.github.io/typescript-tutorial-vitepress
+  - icon: 📝
+    title: TypeScript 官网文档
+    details: 官网文档中英翻译  (VitePress版)
+    link:  https://fxzer.github.io/tsdoc-vitepress/zh/
+
 ---
 
 <script setup>
