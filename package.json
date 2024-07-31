@@ -6,7 +6,7 @@
     "preview": "vitepress preview docs",
     "build:preview": "pnpm build && pnpm preview",
     "doc:update": "./scripts/update.sh",
-    "pb:gitee": "zsh  scripts/deploy.sh && nde scripts/auto-update-pages.js",
+    "pb:gitee": "zsh  scripts/deploy.sh && node scripts/auto-update-pages.js",
     "clean": "rimraf node_modules && rm -rf dist && pnpm i",
     "lint": "eslint .",
     "lintf": "eslint --fix ."
