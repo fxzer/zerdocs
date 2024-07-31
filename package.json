@@ -5,9 +5,9 @@
     "build": "vitepress build docs",
     "preview": "vitepress preview docs",
     "build:preview": "pnpm build && pnpm preview",
-    "pb:gitee": "zsh deploy.sh && nde scripts/auto-update-pages.js",
-    "clean": "rimraf node_modules && rm -rf dist && pnpm i",
     "doc:update": "./scripts/update.sh",
+    "pb:gitee": "zsh  scripts/deploy.sh && nde scripts/auto-update-pages.js",
+    "clean": "rimraf node_modules && rm -rf dist && pnpm i",
     "lint": "eslint .",
     "lintf": "eslint --fix ."
   },
@@ -30,9 +30,9 @@
     "unplugin-auto-import": "^0.18.2",
     "unplugin-icons": "^0.19.1",
     "unplugin-vue-components": "^0.27.3",
-    "vite": "^5.3.5",
+    "vite": "^5.4.0-beta.0",
     "vitepress": "1.2.3",
-    "vue": "^3.4.34"
+    "vue": "^3.5.0-alpha.4"
   },
   "simple-git-hooks": {},
   "lint-staged": {

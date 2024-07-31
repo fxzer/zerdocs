@@ -102,10 +102,10 @@ class Promise {
 
 ```js
  then(onFulfilled, onRejected) {
-        if (typeof onFulfilled !=== 'function') {
+        if (typeof onFulfilled !== 'function') {
             onFulfilled = () => {}
         }
-        if (typeof onRejected !=== 'function') {
+        if (typeof onRejected !== 'function') {
             onRejected = () => {}
         }
         if (this.status === Promise.FUFILLED) {

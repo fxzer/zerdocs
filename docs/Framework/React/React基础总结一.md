@@ -14,25 +14,13 @@ ReactDOM.render(VDOM, document.getElementById('root'))
 
 **关于虚拟DOM：**
 
-1.本质是Object类型的对象（一般对象）
-
-​ 2.虚拟DOM比较“轻”，真实DOM比较“重”，因为虚拟DOM是React内部在用，无需真实DOM上那么多的属性。
-
-​ 3.虚拟DOM最终会被React转化为真实DOM，呈现在页面上
+1. 本质是Object类型的对象（一般对象）。
+2. 虚拟DOM比较“轻”，真实DOM比较“重”，因为虚拟DOM是React内部在用，无需真实DOM上那么多的属性。
+3. 虚拟DOM最终会被React转化为真实DOM，呈现在页面上
 
 **JSX语法规则**
 
-​ 1.定义虚拟DOM时，不要写引号。
-
-​ 2.标签中混入JS表达式时要用 `{}`。
-
-​ 3.样式的类名指定不要用class，要用className。
-
-​ 4.只有一个根标签
-
-​ 5.标签必须闭合
-
-​ 6.标签首字母
+1.定义虚拟DOM时，不要写引号。2.标签中混入JS表达式时要用 `{}`。3.样式的类名指定不要用class，要用className。4.只有一个根标签5.标签必须闭合6.标签首字母
 
 **注意**
 
@@ -48,7 +36,7 @@ ReactDOM.render(VDOM, document.getElementById('root'))
 
 > 2.语句(代码)：
 
-```js
+```
 (1).if(){}
 (2).for(){}
 (3).switch(){case:xxxx}
@@ -58,31 +46,31 @@ ReactDOM.render(VDOM, document.getElementById('root'))
 
 ### 函数式组件
 
-```js
-  <!-- 准备好一个“容器” -->
-  <div id="root"></div>
+```html
+<!-- 准备好一个“容器” -->
+<div id="root"></div>
 
-  <!-- 引入react核心库 -->
-  <script type="text/javascript" src="../js/react.development.js"></script>
-  <!-- 引入react-dom，用于支持react操作DOM -->
-  <script type="text/javascript" src="../js/react-dom.development.js"></script>
-  <!-- 引入babel，用于将jsx转为js -->
-  <script type="text/javascript" src="../js/babel.min.js"></script>
+<!-- 引入react核心库 -->
+<script type="text/javascript" src="../js/react.development.js"></script>
+<!-- 引入react-dom，用于支持react操作DOM -->
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<!-- 引入babel，用于将jsx转为js -->
+<script type="text/javascript" src="../js/babel.min.js"></script>
 
-  <script type="text/babel">
-    //1.创建函数式组件
-    function MyComponent(){
-      console.log(this); //此处的this是undefined，因为babel编译后开启了严格模式
-      return <h2>函数式组件</h2>
-    }
-    //2.渲染组件到页面
-    ReactDOM.render(<MyComponent/>,document.getElementById('root'))
-    /*
+<script type="text/babel">
+  //1.创建函数式组件
+  function MyComponent() {
+    console.log(this) //此处的this是undefined，因为babel编译后开启了严格模式
+    return <h2>函数式组件</h2>
+  }
+  //2.渲染组件到页面
+  ReactDOM.render(<MyComponent />, document.getElementById('root'))
+  /*
       执行了ReactDOM.render(<MyComponent/>.......之后，发生了什么？
           1.React解析组件标签，找到了MyComponent组件。
           2.发现组件是使用函数定义的，随后调用该函数，将返回的虚拟DOM转为真实DOM，随后呈现在页面中。
     */
-  </script>
+</script>
 ```
 
 ### 类式组件
@@ -104,22 +92,20 @@ ReactDOM.render(<MyComponent />, document.getElementById('root'))
 ::: tip
 执行了`ReactDOM.render(<MyComponent/>`.......之后，发生了什么？
 
-​ 1.React解析组件标签，找到了MyComponent组件。
-
-​ 2.发现组件是使用类定义的，随后new出来该类的实例，并通过该实例调用到原型上的render方法。
-
-​ 3.将render返回的虚拟DOM转为真实DOM，随后呈现在页面中。
-:::
+1.  React解析组件标签，找到了MyComponent组件。
+2.  发现组件是使用类定义的，随后new出来该类的实例，并通过该实例调用到原型上的render方法。
+3.  将render返回的虚拟DOM转为真实DOM，随后呈现在页面中。
+    :::
 
 ### 补充
 
 **受控组件**：React 中受控组件的是指表单元素的控制是交给 React ，表单元素的值是完全交由组件的 state 控制。
 
-​ 受控组件也可以用于描述内部状态由传入 props 控制的 React 自定义组件。
+受控组件也可以用于描述内部状态由传入 props 控制的 React 自定义组件。
 
 **非受控组件**： 表单元素的状态并不受 React 组件状态的影响，表单元素的值存储于 DOM 元素中。
 
-​ 如果要 React 组件要获取 DOM 元素的值，需要通过绑定 ref 的方式去获取。
+如果要 React 组件要获取 DOM 元素的值，需要通过绑定 ref 的方式去获取。
 
 ### 组实例三大属性
 
@@ -282,16 +268,16 @@ ReactDOM.render(<Demo a="1" b="2" />, document.getElementById('test'))
 ::: warning
 (1).通过onXxx属性指定事件处理函数(注意大小写)
 
-​ a. React使用的是自定义(合成)事件, 而不是使用的原生DOM事件 —————— 为了更好的兼容性
+a. React使用的是自定义(合成)事件, 而不是使用的原生DOM事件 —————— 为了更好的兼容性
 
-​ b. React中的事件是通过事件委托方式处理的(委托给组件最外层的元素) ————————为了的高效
+b. React中的事件是通过事件委托方式处理的(委托给组件最外层的元素) ————————为了的高效
 
 (2).通过event.target得到发生事件的DOM元素对象 ——————————不要过度使用ref
 :::
 
 **高阶函数**：参数或返回值是一个函数满足一个条件则为高阶函数。
 
-​ 常见的高阶函数有：Promise、setTimeout、arr.map()等等
+常见的高阶函数有：Promise、setTimeout、arr.map()等等
 
 **函数的柯里化**：通过函数调用继续返回函数的方式，实现多次接收参数最后统一处理的函数编码形式。
 
@@ -378,23 +364,24 @@ saveFormData = (dataType, event) => {
 
 ```markdown
 面试相关题:
-1). react/vue中的key有什么作用？（key的内部原理是什么？）
-2). 为什么遍历列表时，key最好不要用index?
 
-1.  虚拟DOM中key的作用：
-    1). 简单的说: key是虚拟DOM对象的标识, 在更新显示时key起着极其重要的作用。
+1.  react/vue中的key有什么作用？（key的内部原理是什么？）
+2.  为什么遍历列表时，key最好不要用index?
 
-    2). 详细的说: 当状态中的数据发生变化时，react会根据【新数据】生成【新的虚拟DOM】,
-    随后React进行【新虚拟DOM】与【旧虚拟DOM】的diff比较，比较规则如下：
+3.  虚拟DOM中key的作用：
 
-          a. 旧虚拟DOM中找到了与新虚拟DOM相同的key：
-                      (1).若虚拟DOM中内容没变, 直接使用之前的真实DOM
-                      (2).若虚拟DOM中内容变了, 则生成新的真实DOM，随后替换掉页面中之前的真实DOM
+    1.  简单的说: key是虚拟DOM对象的标识, 在更新显示时key起着极其重要的作用。
+    2.  详细的说: 当状态中的数据发生变化时，react会根据【新数据】生成【新的虚拟DOM】,
+        随后React进行【新虚拟DOM】与【旧虚拟DOM】的diff比较，比较规则如下：
 
-          b. 旧虚拟DOM中未找到与新虚拟DOM相同的key
-                      根据数据创建新的真实DOM，随后渲染到到页面
+              a. 旧虚拟DOM中找到了与新虚拟DOM相同的key：
+                          (1).若虚拟DOM中内容没变, 直接使用之前的真实DOM
+                          (2).若虚拟DOM中内容变了, 则生成新的真实DOM，随后替换掉页面中之前的真实DOM
 
-2.  用index作为key可能会引发的问题：
+              b. 旧虚拟DOM中未找到与新虚拟DOM相同的key
+                          根据数据创建新的真实DOM，随后渲染到到页面
+
+4.  用index作为key可能会引发的问题：
 
     1. 若对数据进行：逆序添加、逆序删除等破坏顺序操作:
        会产生没有必要的真实DOM更新 ==> 界面效果没问题, 但效率低。
@@ -405,5 +392,5 @@ saveFormData = (dataType, event) => {
     3. 注意！如果不存在对数据的逆序添加、逆序删除等破坏顺序操作，
        仅用于渲染列表用于展示，使用index作为key是没有问题的。
 
-3.  开发中如何选择key?: 1.最好使用每条数据的唯一标识作为key, 比如id、手机号、身份证号、学号等唯一值。2.如果确定只是简单的展示数据，用index也是可以的。
+5.  开发中如何选择key?: 1.最好使用每条数据的唯一标识作为key, 比如id、手机号、身份证号、学号等唯一值。2.如果确定只是简单的展示数据，用index也是可以的。
 ```

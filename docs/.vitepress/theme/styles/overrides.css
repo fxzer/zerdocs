@@ -1,18 +1,3 @@
-/* dark/light radial transition */
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-::view-transition-old(root),
-.dark::view-transition-new(root) {
-  z-index: 1;
-}
-::view-transition-new(root),
-.dark::view-transition-old(root) {
-  z-index: 9999;
-}
-
 /*  文本块 */
 .dark .vp-doc blockquote {
   background-color: #56475769;
@@ -40,7 +25,6 @@
 .has-outline .outline-link.active {
   color: var(--vp-c-brand-1);
 }
-/*  */
 .link .box .icon {
   transition: transform 0.3s ease-in-out;
 }
@@ -49,40 +33,6 @@
   background-color: #7de4c34b;
 }
 
-/* 本地搜索组件 */
-.DocSearch-Button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  width: 32px;
-  height: 32px;
-  border-radius: 4px;
-  background: transparent;
-  transition: border-color 0.25s;
-}
-@media (min-width: 768px) {
-  .DocSearch-Button {
-    justify-content: flex-start;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    padding: 0 10px 0 12px;
-    width: 100%;
-    height: 40px;
-    background-color: var(--vp-c-bg-alt);
-  }
-}
-@media (max-width: 768px) {
-  .DocSearch-Button-Keys {
-    display: none;
-  }
-  .VPNavBarHamburger {
-    height: 32px !important;
-    width: 32px !important;
-    border-radius: 4px;
-  }
-}
 .content img {
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.3s;

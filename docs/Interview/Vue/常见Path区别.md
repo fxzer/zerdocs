@@ -1,4 +1,4 @@
-## VueRouter的 base
+## VueRouter 的 base
 
 VueRouter的base属性是指应用的基路径，它会影响到所有使用了vue-router的路由路径，包括 routes 配置中的路径和 通过 $router.push() 或 $router.replace() 调用的路径。
 

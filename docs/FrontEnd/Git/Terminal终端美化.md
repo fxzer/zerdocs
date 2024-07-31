@@ -95,7 +95,9 @@ The term 'oh-my-posh' is not recognized as a name of a cmdlet, function, script 
 在PowerShell配置项中添加一个配置 ，配置参数` -NoLogo`为隐藏提示语
 
 ```json
- "commandline": "自己的pwsh.exe的路径 -NoLogo",
+{
+  "commandline": "自己的pwsh.exe的路径 -NoLogo" // [!code ++]
+}
 ```
 
 **完整配置参考**

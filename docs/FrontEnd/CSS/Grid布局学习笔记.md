@@ -103,11 +103,12 @@
 
 :::
 
-```js
-.box{
-  justify-items:center;    //start, end
-  align-items:center;    //start, end
-  //place-items:center center //水平 垂直
+```css
+.box {
+  justify-items: center; /*  start, end */
+  align-items: center; /*  start, end */
+  /* place-items: center center   简写*/
+  /*               水平   垂直 */
 }
 ```
 

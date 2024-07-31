@@ -1,4 +1,4 @@
-## 迁移意义
+## 迁移收益
 
 1. 项目性能提升
 2. 开发体验优化
@@ -52,16 +52,16 @@ BASE_URL=/xxx/admin
 ::: details vite: /index.html + vite.config.js(plugins)
 
 ```js {3-8}
-  plugins: [
-    vue(),
-    createHtmlPlugin({
-      inject: {
-        data: {
-          title: 'APP TITLE',
-        },
+plugins: [
+  vue(),
+  createHtmlPlugin({
+    inject: {
+      data: {
+        title: 'APP TITLE',
       },
-    }),
-  ],
+    },
+  }),
+]
 ```
 
 ```html
@@ -229,17 +229,17 @@ export default defineConfig({
 
 ```js
 const modules = import.meta.glob('@/views/**/*.vue') // [!code ++]
-...
+// ...
 routeList.forEach((item) => {
   routes.push({
-  name: item.name,
-  path: item.path,
-  component: () => import("@/" + item.componentPath), // [!code --]
-  component: modules[item.componentPath],  // [!code ++]
-  meta: {
-    title: item.label,
-  },
-});
+    name: item.name,
+    path: item.path,
+    // component: () => import(`@/${item.componentPath}`), // [!code --]
+    component: modules[item.componentPath], // [!code ++]
+    meta: {
+      title: item.label,
+    },
+  })
 })
 ```
 
@@ -253,7 +253,7 @@ vite: `import.meta.env.VITE_APP_TITLE`
 ```js
 const router = new VueRouter({
   mode: 'history',
-  base: process.env.BASE_URL, // [!code --]
+  // base: process.env.BASE_URL, // [!code --]
   base: import.meta.env.BASE_URL, // [!code ++]
   routes,
 })
