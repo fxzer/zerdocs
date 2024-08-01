@@ -1,6 +1,6 @@
 ## 1.生成公钥和私钥
 
-```bash
+```zsh
 cd ~/.ssh # 进入.ssh目录
 ssh-keygen
 # 第一步输入生成的公、私钥文件名，例如：aws-root
@@ -9,14 +9,14 @@ ssh-keygen
 
 ## 2.将公钥拷贝到服务器
 
-```bash
+```zsh
 ssh-copy-id -i 公钥 服务器ip
 # ssh-copy-id -i aws-root.pub 192.227.112.172
 ```
 
 ## 3.查看服务器是否配置成功
 
-```bash
+```zsh
 ssh root@192.227.112.172
 cd ~/.ssh
 cat authorized_keys # 查看是否有上传的公钥
@@ -24,7 +24,7 @@ cat authorized_keys # 查看是否有上传的公钥
 
 ## 4.配置 ssh config文件
 
-```bash
+```zsh
 vim /etc/ssh/sshd_config
 PermitRootLogin yes # no改为yes  # 允许root用户登录：解决root用户登录报错 Permission denied 问题
 PubkeyAuthentication yes # no改为yes
@@ -36,7 +36,7 @@ systemctl restart sshd.service
 
 ## 5.测试连接、配置本地ssh config文件，使用 VSCODE插件 ([Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)) 连接
 
-```bash
+```zsh
 # 测试连接
 ssh -i ~/.ssh/aws-root root@192.227.112.172
 

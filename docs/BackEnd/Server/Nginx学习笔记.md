@@ -26,7 +26,7 @@ kill -INT 进程号 | 快速停止 |
 
 ## 编写配置
 
-```bash
+```zsh
 nginx -t  #检查配置文件有没有问题
 grep -Ei  "\{|\}"   nginx.conf #检查配置文件括号配对问题
 nginx -s reload #重载配置
@@ -40,7 +40,7 @@ nginx -s reload #重载配置
 
 ## CentOS7联网
 
-```bash
+```zsh
 ip a #查看网卡
 cd /etc/sysconfig/network-scripts
 vi ifcfg-ens160 #把ONBOOT=no ===> 改为yes

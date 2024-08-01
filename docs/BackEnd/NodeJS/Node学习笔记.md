@@ -255,9 +255,8 @@ console.log(m1.age) // 20
 
 **前端两种服务器：**
 
-​ Web 网站服务器：专门对外提供 Web 网页资源服务器
-
-​ API 接口服务器：专门对外提供 API 接口服务器
+Web 网站服务器：专门对外提供 Web 网页资源服务器
+API 接口服务器：专门对外提供 API 接口服务器
 
 ### 1.Express 创建服务器
 
@@ -315,20 +314,19 @@ app.listen(80, () => {
 - **局部中间件**
 
 ```js
-
-...
-const mw1 = (req,res,next) => {
-  console.log('中间件mw1被执行了');
-  req.age= 18
+// ...
+function mw1(req, res, next) {
+  console.log('中间件mw1被执行了')
+  req.age = 18
   next()
 }
-//在路由加一个参数,
-app.get('/mw1',mw1,(req,res)=>{
-  console.log('req.age: ', req.age);
-  console.log('mw1被访问');
+// 在路由加一个参数,
+app.get('/mw1', mw1, (req, res) => {
+  console.log('req.age: ', req.age)
+  console.log('mw1被访问')
   res.send('mw1被访问哈哈哈')
 })
-...
+// ...
 ```
 
 - **多个局部中间件**

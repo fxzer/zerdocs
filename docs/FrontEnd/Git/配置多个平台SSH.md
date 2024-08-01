@@ -1,6 +1,6 @@
 ## 1.生成公钥和私钥
 
-```bash
+```zsh
 ssh-keygen -t rsa -C '88888@qq.com'  #换成自己邮箱,可以随便填,相当于一个标识
 #密码不用填 直接回车
 ```
@@ -22,7 +22,7 @@ ssh-keygen -t rsa -C '88888@qq.com'  #换成自己邮箱,可以随便填,相当�
 
 > 定义一系列 SSH 连接的配置信息，当你使用 SSH 连接到这些平台时，SSH 客户端会根据这个配置文件选择正确的私钥进行身份验证。
 
-```bash
+```zsh
 Host github.com   #Github主机地址
 HostName github.com   #Github主机名
 PreferredAuthentications publickey
@@ -51,7 +51,7 @@ IdentityFile ~/.ssh/gitlab     #私钥地址
 
   `Hi CoderFXJ! You've successfully authenticated, but GitHub does not provide shell access.`
 
-  ```bash
+  ```zsh
   ssh -T git@gitee.com
 
   ssh -T git@github.com

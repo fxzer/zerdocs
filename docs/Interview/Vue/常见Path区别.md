@@ -4,7 +4,7 @@ VueRouter的base属性是指应用的基路径，它会影响到所有使用了v
 
 在router对象中，base属性可以通过以下方式设置：
 
-```javascript
+```js
 const router = new VueRouter({
   base: '/my-app/'
 })
@@ -14,7 +14,7 @@ const router = new VueRouter({
 
 例如，假设你的应用被部署在`http://example.com/my-app/`这个路径下，那么你就需要设置如下的base属性：
 
-```javascript
+```js
 const router = new VueRouter({
   base: '/my-app/'
 })
@@ -42,7 +42,7 @@ const router = new VueRouter({
 
 则构建出的静态文件实际上会被部署到类似于 http://example.com/my-app/ 这样的路径下。代码示例：
 
-```javascript
+```js
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
     ? '/my-app/'
@@ -53,17 +53,19 @@ module.exports = {
 通常可以在根目录配置环境变量，相对于不同环境打包时的打包命令
 
 ```json
-//package.json
-"scripts": {
+// package.json
+{
+  "scripts": {
     "serve": "vue-cli-service serve --open --port 9999",
     "build:server": "vue-cli-service build ",
     "build:local": "vue-cli-service build --mode buildlocal"
-  },
+  }
 
+}
 ```
 
-```js
-//.env.production   --服务器打包预览环境变量
+```zsh
+#.env.production   --服务器打包预览环境变量
 OUTPUT_DIR=/opt/nginx/www/html/music
 BASE_URL=/music/
 ```

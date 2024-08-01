@@ -367,7 +367,6 @@ saveFormData = (dataType, event) => {
 
 1.  react/vue中的key有什么作用？（key的内部原理是什么？）
 2.  为什么遍历列表时，key最好不要用index?
-
 3.  虚拟DOM中key的作用：
 
     1.  简单的说: key是虚拟DOM对象的标识, 在更新显示时key起着极其重要的作用。

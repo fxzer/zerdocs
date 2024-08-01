@@ -96,12 +96,14 @@ async function getImgCode() {
 打包时报错：解析到错误 URL
 
 ```js
-nitro: {
+export default defineNuxtConfig({
+  nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/'], //去掉： ,'sitemap.xml'
+      routes: ['/'], // 去掉： ,'sitemap.xml'
     },
-}
+  }
+})
 ```
 
 > 测试环境能访问`sitemap.xml` 页面

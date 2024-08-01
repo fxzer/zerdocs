@@ -2,7 +2,7 @@
 
 > 可以先去Microsofe Store 安装winget，会比较方便
 
-```bash
+```zsh
 winget install JanDeDobbeleer.OhMyPosh
 ```
 
@@ -12,7 +12,7 @@ winget install JanDeDobbeleer.OhMyPosh
 
 ## 预览所有主题命令
 
-```bash
+```zsh
 Get-PoshThemes
 ```
 
@@ -20,7 +20,7 @@ Get-PoshThemes
 
 ## 初始化并应用主题
 
-```bash
+```zsh
 oh-my-posh --init --shell pwsh --config "自己的安装目录\oh-my-posh\themes\schema.json" | Invoke-Expression
 #schema.json ---- 选择themes目录下的一款主题文件
 ```
@@ -43,7 +43,7 @@ PS：刚开始以为没有我常用的`JetBrain Mono`字体,就没在意这种�
 
 - 获取到PowerShell配置文件绝对路径
 
-```bash
+```zsh
 $PROFILE
 ```
 
@@ -51,7 +51,7 @@ $PROFILE
 
 - 找到这个文件位置，打开并添加需要Power Shell启动时执行的脚本，保存文件重新打开Terminal看效果
 
-```bash
+```zsh
 oh-my-posh --init --shell pwsh --config "自己的安装目录\oh-my-posh\themes\schema.json" | Invoke-Expression
 ```
 
@@ -59,7 +59,7 @@ oh-my-posh --init --shell pwsh --config "自己的安装目录\oh-my-posh\themes
 
 > 如果安装了VS Code，如下命令可以直接打开Power Shell配置文件
 
-```bash
+```zsh
 code $PROFILE
 ```
 
@@ -73,7 +73,7 @@ code $PROFILE
 
 没有配置打开VS Code终端报错:
 
-```bash
+```zsh
 The term 'oh-my-posh' is not recognized as a name of a cmdlet, function, script file, or executable program. Check the spelling of the name, or if a path was included, verify
      | that the path is correct and try again.
 ```

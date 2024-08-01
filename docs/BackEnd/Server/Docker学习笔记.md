@@ -27,7 +27,7 @@
 
 ## 五、CentOS安装Docker
 
-```bash
+```zsh
 sudo yum install -y yum-utils
 yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 sudo yum install docker-ce docker-ce-cli containerd.io docker-compose-plugin
@@ -45,7 +45,7 @@ docker run hello-world #测试
 
 ### 1. Docker
 
-```bash
+```zsh
 systemctl enable docker #开机启动
 docker system df #负载查看
 
@@ -53,7 +53,7 @@ docker system df #负载查看
 
 ### 2. 镜像
 
-```bash
+```zsh
 docker images #展示本地镜像 -a 所有，-q只显示ID
 docker search mongo #搜索镜像
 docker search redis --limit 5 #展示Stars排名前五条
@@ -67,7 +67,7 @@ docker rmi -f hello-world #强制删除镜像
 
 **生成新镜像**
 
-```bash
+```zsh
 agt-get update
 apt-get -y install vim
 docker commit -m="vim is ok" -a="fxj" 容器id myubt:1.1
@@ -75,7 +75,7 @@ docker commit -m="vim is ok" -a="fxj" 容器id myubt:1.1
 
 **本地镜像推送到阿里云**
 
-```bash
+```zsh
 #发布和拉取
 docker login --username=yunzhishangfxj registry.cn-hangzhou.aliyuncs.com
 docker tag [ImageId] registry.cn-hangzhou.aliyuncs.com/fanxj/mubt:[镜像版本号]
@@ -87,7 +87,7 @@ docker run -it registry.cn-hangzhou.aliyuncs.com/fanxj/mubt:1.1  /bin/bash #记�
 
 ### 3. 容器
 
-```bash
+```zsh
 docker ps #列出正在运行容器 -a -s
 docker run -it --name="ub01"  ubuntu /bin/bash
 #-p: 外部主机端口:docker容器端口 -P:随机分配主机端口映射到内部容器端口
@@ -109,21 +109,21 @@ docker ps -a -q | xargs docker rm #一次性删除多个再运行的
 
 #### 启动守护式
 
-```bash
+```zsh
 docker run -it #前台交互启动
 docker run -d  #后台守护启动
 ```
 
 #### 查看容器日志
 
-```bash
+```zsh
 docker logs 容器id #查看容器日志
 docker inspect  容器id #查看容器内部细节
 ```
 
 #### 容器备份到主机
 
-```bash
+```zsh
 docker cp 容器id:容器文件路径 目的主机路径  #备份文件
 docker export 容器id > xxx.tar   #备份整个容器
 cat ub.tar | docker import - 恢复后的镜像名  #从tar包中恢复成镜像
@@ -194,7 +194,7 @@ USER
 
 ## 九、Docker网络
 
-```bash
+```zsh
 docker network ls #查看网络
 docker network inspect 网络名 #查看网络源数据
 docker network rm 网络名 #删除网络
@@ -210,14 +210,14 @@ docker run -d --network none --name 容器名 镜像名 #只有lo网卡
 
 #### 共用网卡
 
-```bash
+```zsh
 docker run -d --network container:另一个容器名 --name 容器名 /bin/bash 镜像名
 #共用的容器关闭，这个容器网卡也没有啦
 ```
 
 #### 自定义网络
 
-```bash
+```zsh
 #启动两个网桥模式容器
 docker run -d -p 8081:8080 --name tomcat81 tomcat
 docker run -d -p 8082:8080 --name tomcat82 tomcat
@@ -225,7 +225,7 @@ docker run -d -p 8082:8080 --name tomcat82 tomcat
 #两个ip可以相互ping通，痛点：按域名ping不通
 ```
 
-```bash
+```zsh
 docker run -d -p 8081:8080 --network my_network --name tomcat81 tomcat
 docker run -d -p 8082:8080 --network my_network --name tomcat82 tomcat
 #ip、域名互ping都能通（维护好主机和ip的关系）
@@ -237,7 +237,7 @@ docker run -d -p 8082:8080 --network my_network --name tomcat82 tomcat
 
 #### 1. [安装Compose](https://docs.docker.com/compose/install/)
 
-```bash
+```zsh
 curl -SL https://github.com/docker/compose/releases/download/v2.14.2/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
 ```
 

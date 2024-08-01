@@ -160,7 +160,7 @@ function deepGenerateSidebar(arr) {
 
 ### 安装插件
 
-```bash
+```zsh
 npm i vitepress-plugin-search markdown-it flexsearch -D
 ```
 
@@ -176,7 +176,7 @@ npm i vitepress-plugin-search markdown-it flexsearch -D
 
 ![image-20230205233032922](https://zerdocs.oss-cn-shanghai.aliyuncs.com/202302052330956.png){data-zoomable}
 
-```typescript
+```ts
 // vite.config.ts
 import { SearchPlugin } from 'vitepress-plugin-search'
 import { defineConfig } from 'vite'

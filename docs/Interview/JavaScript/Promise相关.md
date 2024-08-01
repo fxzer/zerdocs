@@ -60,7 +60,7 @@ function createTask(delay) {
     })
   }
 }
-const task = new taskQueue()
+const task = new TaskQueue()
 const times = [100, 2600, 400, 300, 500, 600, 900, 800, 700, 1000]
 times.forEach((item) => {
   task.addTask(createTask(item))
@@ -156,7 +156,7 @@ worker.terminate()
 
 ```js
 // 写法 1
-self.addEventListener('message', (e) => {
+globalThis.addEventListener('message', (e) => {
   // ...
 })
 

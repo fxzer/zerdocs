@@ -38,36 +38,6 @@
 <script>
 export default {
   name: 'UpdateText',
-  components: {},
-  props: {
-    textVal: {
-      type: String,
-      default: '',
-    },
-    name: {
-      type: String,
-      default: '名称',
-    },
-    maxWidth: {
-      type: String,
-      default: '200px',
-    },
-    id: {
-      type: String,
-      default: '',
-    },
-  },
-  data() {
-    return {
-      loading: false,
-      isEditing: false,
-      inputVal: '',
-      text: this.textVal,
-    }
-  },
-  computed: {},
-  watch: {},
-  created() {},
   mounted() {
     // 解决方案：不使用@blur, 监听焦点不在此组件时，才取消编辑
     document.addEventListener('click', (e) => {
@@ -75,86 +45,8 @@ export default {
         this.cancelEdit()
     })
   },
-  methods: {
-    // 切换到输入框模式
-    switchToEdit() {
-      this.inputVal = this.textVal
-      this.isEditing = true
-      this.$nextTick(() => {
-        this.$refs.inputRef.focus()
-      })
-    },
-    cancelEdit() {
-      this.isEditing = false
-    },
-    // 确定更新
-    confirmUpdate() {
-      const { inputVal, name, id } = this
-      const value = inputVal.trim()
-      if (value === '') {
-        this.$message.error(`${name}不能为空`)
-        return
-      }
-      else if (value === this.textVal) {
-        this.isEditing = false
-        return
-      }
-      this.loading = true
-      if (id)
-        this.$emit('confirm', value, id)
-
-      else
-        this.$emit('confirm', value)
-    },
-    successUpdate() {
-      const { inputVal, name } = this
-      this.loading = false
-      this.text = inputVal
-      this.isEditing = false
-      this.$notify.success(`${name}修改成功`)
-    },
-    // 失败
-    failUpdate() {
-      this.loading = false
-      this.$notify.error(`${this.name}修改失败`)
-    },
-  },
 }
 </script>
-
-<template>
-  <div class="text-update-wrap">
-    <p v-if="!isEditing" class="text-show">
-      <span
-        class="single-overflow text-val"
-        :style="{ 'max-width': maxWidth }"
-        :title="text"
-      >{{ text }}</span>
-      <span class="el-icon-edit" @click="switchToEdit" />
-    </p>
-    <p v-else class="text-edit">
-      <el-input
-        ref="inputRef"
-        v-model="inputVal"
-        :placeholder="`请输入${name}`"
-        size="mini"
-        clearable
-      />
-      <!-- @blur='cancelUpdate' 事件比confirmUpdate先执行，导致确定按钮事件没触发 -->
-      <span
-        title="确定"
-        :class="loading ? 'el-icon-loading' : 'el-icon-circle-check'"
-        @click="confirmUpdate"
-      />
-      <span
-        v-if="!loading"
-        title="取消"
-        class="el-icon-circle-close"
-        @click="cancelEdit"
-      />
-    </p>
-  </div>
-</template>
 ```
 
 ## 文本溢出隐藏处理后对不齐问题
@@ -183,12 +75,12 @@ this.$bus.$emit('searchDone')
 ```
 
 ```js {3}
-//B路由组件
-{
- mounted(){
-    this.$bus.$off('searchDone') //在每次绑定事件前，先解绑该事件
+// B路由组件
+export default {
+  mounted() {
+    this.$bus.$off('searchDone') // 在每次绑定事件前，先解绑该事件
 
-    this.$bus.$on('searchDone',this.handleCurrentChange)
+    this.$bus.$on('searchDone', this.handleCurrentChange)
   }
 }
 ```
@@ -242,37 +134,36 @@ window.addEventListener('scroll', handleScroll)
 不会生效原因： div 元素默认不会触发 resize 事件。在 window 对象上，浏览器会自动跟踪窗口的大小变化并触发 resize 事件，但在其他元素上，您需要自己编写代码来检测大小变化。可以使用 MutationObserver 或者 ResizeObserver 来监听元素大小变化。以下是使用 ResizeObserver 的示例代码：
 
 ```js
-{
+export default {
+  mounted() {
+    this.tagListRef = this.$refs.tagListRef
+    this.tagBoxRef = this.$refs.tagBoxRef
+    this.resizeHandler()
 
-}
-mounted() {
-  this.tagListRef = this.$refs.tagListRef;
-  this.tagBoxRef = this.$refs.tagBoxRef;
-  this.resizeHandler()
+    // 创建 ResizeObserver 实例
+    this.tagListResizeObserver = new ResizeObserver(this.resizeHandler)
+    // 监听 tagListRef 元素的大小变化
+    this.tagListResizeObserver.observe(this.tagListRef)
 
-  // 创建 ResizeObserver 实例
-  this.tagListResizeObserver = new ResizeObserver(this.resizeHandler);
-  // 监听 tagListRef 元素的大小变化
-  this.tagListResizeObserver.observe(this.tagListRef);
-
-  this.tagListRef.addEventListener('wheel', this.handleScroll);
-},
-beforeUnmount() {
+    this.tagListRef.addEventListener('wheel', this.handleScroll)
+  },
+  beforeUnmount() {
   // 在组件卸载前，停止 ResizeObserver 实例
-  this.tagListResizeObserver.disconnect();
-},
-methods: {
-  handleScroll(e) {
-    e.preventDefault();
-    this.tagListRef.scrollLeft += e.deltaY * 100;
+    this.tagListResizeObserver.disconnect()
   },
-  scrollHandler(direction) {
-    this.tagListRef.scrollLeft += direction * this.tagListWidth;
-  },
-  resizeHandler(entries) {
+  methods: {
+    handleScroll(e) {
+      e.preventDefault()
+      this.tagListRef.scrollLeft += e.deltaY * 100
+    },
+    scrollHandler(direction) {
+      this.tagListRef.scrollLeft += direction * this.tagListWidth
+    },
+    resizeHandler(entries) {
     // entries 是 ResizeObserver 的回调参数，包含被观察的元素的信息
-    this.tagListWidth = this.tagListRef.clientWidth
-    this.tagBoxWidth = this.tagBoxRef.clientWidth
+      this.tagListWidth = this.tagListRef.clientWidth
+      this.tagBoxWidth = this.tagBoxRef.clientWidth
+    }
   }
 }
 ```
