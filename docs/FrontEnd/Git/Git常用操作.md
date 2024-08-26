@@ -18,6 +18,17 @@ git branch -D 分支名              #删除本地库分支
 git push origin --delete 分支名   #删除远程库分支
 ```
 
+## 修改已经push的分支名
+
+```zsh
+git branch -m old-branch-name new-branch-name # 1.重命名本地分支
+#如果你当前就在 old-branch-name 分支上，可以简化为： git branch -m new-branch-name
+git push origin --delete old-branch-name
+# 切换到新分支执行，推送到远程仓库，并设置追踪关系
+git push --set-upstream origin new-branch-name # 或简写： git push -u origin new-branch-name
+git fetch origin --prune  # 更新其他开发者的本地仓库
+```
+
 ## 删除Tag
 
 ```zsh
