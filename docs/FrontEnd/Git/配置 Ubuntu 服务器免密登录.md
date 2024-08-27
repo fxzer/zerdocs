@@ -11,7 +11,7 @@ ssh-keygen
 
 ```zsh
 ssh-copy-id -i 公钥 服务器ip
-# ssh-copy-id -i aws-root.pub 192.227.112.172
+# ssh-copy-id -i aws-root.pub root@192.227.112.172
 ```
 
 ## 3.查看服务器是否配置成功
