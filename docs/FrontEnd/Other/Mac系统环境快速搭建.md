@@ -76,6 +76,7 @@ git config --global user.name "xxx"(输入你的用户名)   # 设置全局用�
 git config --global user.email "xxx"(输入你的邮箱)   # 设置全局邮箱
 git config --global core.ignorecase false   # 区分大小写
 git config --global init.defaultBranch main   #  初始分支：main
+git config --global pull.rebase true   # 设置 pull 代码合并策略为 rebase
 ```
 
 ### 增强 ZSH 功能： 安装 [ZIMFW](https://github.com/zimfw/zimfw) 或 [OhMyZsh](https://ohmyz.sh/)
