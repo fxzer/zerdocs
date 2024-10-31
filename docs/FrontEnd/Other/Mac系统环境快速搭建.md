@@ -4,6 +4,8 @@
 
 ## 一、安装 [HomeBrew](https://brew.sh/zh-cn/)，并[设置清华源](https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/)
 
+**解决下载失败问题：`curl: (7) Failed to connect to raw.githubusercontent.com port 443: Connection refused `**
+
 ```zsh
 #  从国内源安装 Homebrew
 
@@ -27,9 +29,8 @@ cd ~ && mkdir -p c d n w m/Admin m/UI m/Vue3 m/ToolKits m/Nuxt m/Vitest
 
 ```zsh
 brew install --cask arc google-chrome microsoft-edge orbstack figma raycast # 安装较慢
-brew install --cask apifox dingtalk wechat qq qqmusic wpsoffice adrive baidunetdisk neteasemusic obsidian
-visual-studio-code  warp termius  rectangle snipaste
-
+brew install --cask dingtalk wechat qq qqmusic wpsoffice adrive baidunetdisk neteasemusic
+visual-studio-code  apifox warp termius  rectangle snipaste obsidian easydict
 ```
 
 ```zsh
@@ -38,7 +39,7 @@ stats  keycastr docker  input-source-pro videofusion
 ```
 
 ```zsh
-brew install lsd fastfetch
+brew install lsd fastfetch lihaoyun6/tap/quickrecorder
 ```
 
 装 `fnm` 或 `nvm`
@@ -60,9 +61,9 @@ pnpm i -g @antfu/ni yarn taze rimraf cz-git czg commitizen vitest rollup tsup es
 
 ### 手动安装
 
-> clash-verge、 iRightMenu、mos 、微信输入法 、typora
-> Myzip 、pixelmator 、alivepro 、permute3
-> AppStore: figplayer 、 bOmi录屏专家
+> clash-verge、 iRightMenu、mos 、typora、SwitchHosts、Xmind
+> 微信输入法 、ChatGPT客户端
+> figplayer 、 alivepro 、permute3、Navicat
 
 ## 三、[配置软件](https://github.com/fxzer/config)
 
@@ -72,14 +73,14 @@ pnpm i -g @antfu/ni yarn taze rimraf cz-git czg commitizen vitest rollup tsup es
 
 ```zsh
 git config --list  # 查看全局配置
-git config --global user.name "xxx"(输入你的用户名)   # 设置全局用户名
-git config --global user.email "xxx"(输入你的邮箱)   # 设置全局邮箱
+git config --global user.name "xxx"   # 设置全局用户名 (输入你的用户名)
+git config --global user.email "xxx"   # 设置全局邮箱 (输入你的邮箱，需要和 github/gitee设置的邮箱对应)
 git config --global core.ignorecase false   # 区分大小写
 git config --global init.defaultBranch main   #  初始分支：main
 git config --global pull.rebase true   # 设置 pull 代码合并策略为 rebase
 ```
 
-### 增强 ZSH 功能： 安装 [ZIMFW](https://github.com/zimfw/zimfw) 或 [OhMyZsh](https://ohmyz.sh/)
+### 增强 ZSH 功能： 安装 [ZIMFW](https://github.com/zimfw/zimfw) **或** [OhMyZsh](https://ohmyz.sh/)
 
 #### zimfw
 
