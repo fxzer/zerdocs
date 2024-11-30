@@ -80,6 +80,46 @@ git config --global init.defaultBranch main   #  初始分支：main
 git config --global pull.rebase true   # 设置 pull 代码合并策略为 rebase
 ```
 
+### Github踩坑
+
+```
+正克隆到 'json-viewer'...
+Connection closed by 20.205.243.166 port 22
+致命错误：无法读取远程仓库。
+
+请确认您有正确的访问权限并且仓库存在。
+```
+
+**解决办法**
+
+```
+ssh -vT git@github.com
+
+output:
+OpenSSH_8.6p1, LibreSSL 3.3.6
+...
+Connection closed by 20.205.243.166 port 22
+```
+
+1.  删除 `~/.ssh/github`相关公/私钥对，重新生成
+2.  重新生成密钥对，并配置公钥到 [github](https://github.com/settings/ssh/new)
+
+```zsh
+git config --global user.name "Your Name"
+git config --global user.email "email@example.com"
+ssh-keygen -t rsa -C "youremail@example.com"
+```
+
+3. 修改`~/.ssh/config`
+
+   ```zsh
+   Host github.com
+   HostName ssh.github.com
+   User git
+   Port 443
+   IdentityFile ~/.ssh/github
+   ```
+
 ### 增强 ZSH 功能： 安装 [ZIMFW](https://github.com/zimfw/zimfw) **或** [OhMyZsh](https://ohmyz.sh/)
 
 #### zimfw
