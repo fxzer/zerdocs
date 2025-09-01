@@ -29,7 +29,7 @@ features:
   - icon: 📝
     title:  ES6 教程
     details:  阮一峰 ECMAScript6 教程 (VitePress版)
-    link: https://fxzer.github.io/es6-vitepress
+    link: https://fxzer.github.io/es6-vps
   - icon: 📝
     title: TypeScript 教程
     details: 阮一峰 TypeScript 教程  (VitePress版)
